@@ -25,12 +25,26 @@ a{
     border-radius: 8px;
 }
 
+.new{
+    background-color: #b2dfdb !important;
+}
+
 .mainBackground{
     background-size: cover; 
     position: absolute; 
     background-image: url('header.png'); 
     height: 100%; 
     width: 100%;
+}
+
+.post_date{
+    text-align: start;
+    margin-top: -4px;
+    margin-bottom: 4px;
+    font-weight: 500;
+    font-style: italic;
+    font-family: sans-serif;
+    color: #666;
 }
 
 .scrollSource{
@@ -110,6 +124,14 @@ a{
     text-align: justify;
 }
 
+.post_chevron{
+    width:32px;
+    height:32px; 
+    margin-right:8px; 
+    flex-grow:0; 
+    flex-shrink:0
+}
+
 .file_link{
     background-color: #fff !important; 
     padding: 0px !important;  
@@ -121,13 +143,13 @@ a{
     display: flex; 
     align-items: center; 
     flex-direction: row; 
-    border-radius: 16px; 
-    background-color: #ddd; 
+    border-radius: 8px; 
+    background-color: #eee; 
     margin-left: auto; 
     margin-right: auto; 
     width: 300px; 
     padding: 0px; 
-    box-shadow: 0px 1px 3px 1px #00000066;
+    box-shadow: 0px 1px 2px 0px #00000066;
 }
 
 .file_icon{
@@ -281,13 +303,13 @@ a{
         display: flex; 
         align-items: center; 
         flex-direction: row; 
-        border-radius: 16px; 
-        background-color: #ddd; 
+        border-radius: 8px; 
+        background-color: #eee; 
         margin-left: auto; 
         width: auto;
         margin-right: auto;  
         padding: 0px; 
-        box-shadow: 0px 1px 3px 1px #00000066;
+        box-shadow: 0px 1px 2px 0px #00000066;
     }
     
     .file_icon{
@@ -363,5 +385,13 @@ a{
         font-family: sans-serif; 
         font-size: 12px; 
         color: #666;
+    }
+
+    .post_chevron{
+        width: 28px;
+        height: 28px; 
+        margin-right:8px; 
+        flex-grow:0; 
+        flex-shrink:0
     }
 }
