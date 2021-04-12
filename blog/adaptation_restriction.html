@@ -38,10 +38,11 @@
                     <a class="file_link topPanelText" href="https://google.com">
                         <p id="backToMenu" class="topPanelText">К списку постов</p>
                     </a>
-                    <svg class="topPanelIcon" viewBox="0 0 24 24">
+                    <svg class="topPanelIcon" viewBox="0 0 24 24" onclick="copyToClipboard();">
                         <path fill="currentColor" d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2A3,3 0 0,0 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9A3,3 0 0,0 3,12A3,3 0 0,0 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.08,18.77 15.08,19C15.08,20.61 16.39,21.91 18,21.91C19.61,21.91 20.92,20.61 20.92,19A2.92,2.92 0 0,0 18,16.08Z" />
                     </svg>
                 </div>
+                <div class="mobileHeader"></div>
                 <div id="contentSection">
                     <p id="title" class="title">Заголовок</p>
                     <p id="date" class="date">12 april 2021</p>
@@ -69,13 +70,13 @@
                 </div>
                 <div id="bottomPanel" class="bottomPanel">
                     <div class="bottomPanelLeft">
-                        <p class="bottomPanelText2">Разработчики приложения</p>
-                        <p class="bottomPanelText2">Дамир А. Кутиков</p>
-                        <p class="bottomPanelText2">Юлия В. Кизюрина</p>
+                        <p id="devs1" class="bottomPanelText2">Разработчики приложения</p>
+                        <p id="devs2" class="bottomPanelText2">Дамир А. Кутиков</p>
+                        <p id="devs3" class="bottomPanelText2">Юлия В. Кизюрина</p>
                     </div>
                     <div id="icon" class="bottomPanelIcon2"></div>
                     <div class="bottomPanelRight">
-                        <p class="bottomPanelRightTitle">Мой успешный КРОК</p>
+                        <p id="appname" class="bottomPanelRightTitle">Мой успешный КРОК</p>
                         <p class="bottomPanleRightCopyRight">Damir A. Kutikov © 2018–2021</p>
                     </div>
                 </div>
@@ -83,7 +84,44 @@
         </div>
     </div>
     <script type="text/javascript">
-  		
+  		const urlParams = new URLSearchParams(window.location.search);
+        const language = urlParams.get('language');
+        let jsDate = new Date();
+        try{
+            let dateParts = urlParams.get('date').split("-");
+            jsDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2].substr(0,2));
+        }
+        catch{
+        }
+        const localized = [
+            {id: "appname", ru: "Мой успешный КРОК", ua: "Мій успішний КРОК", en: "My successful KROK"},
+            {id: "devs1", ru: "Разработчики приложения", ua: "Розробники додатку", en: "Application developers"},
+            {id: "devs2", ru: "Дамир А. Кутиков", ua: "Дамір О. Кутіков", en: "Damir A. Kutikov"},
+            {id: "devs3", ru: "Юлия В. Кизюрина", ua: "Юлія В. Кізюріна", en: "Julia V. Kizurina"},
+            {id: "backToMenu", ru: "К списку постов", ua: "До списку постів", en: "To posts list"},
+        ]
+        for(let i = 0; i < localized.length; i++){
+            let html = localized[i].en;
+            switch(language){
+                case "ru":
+                    html = localized[i].ru;
+                    break;
+                case "ua":
+                    html = localized[i].ua;
+                    break;
+            }
+            document.getElementById(localized[i].id).innerHTML = html;
+        }
+        console.log(jsDate.toDateString());
+
+        function copyToClipboard() {
+            const inputc = document.body.appendChild(document.createElement("input"));
+            inputc.value = window.location.href;
+            inputc.focus();
+            inputc.select();
+            document.execCommand('copy');
+            inputc.parentNode.removeChild(inputc);
+        }   
     </script>
 </body>
 </html>

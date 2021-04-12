@@ -80,6 +80,10 @@ a{
     font-weight: 400 !important;
 }
 
+.mobileHeader{
+    display: none;
+}
+
 .title{
     text-align: center; 
     font-family: sans-serif; 
@@ -197,4 +201,167 @@ a{
     font-family: sans-serif; 
     font-size: 15px; 
     color: #666;
+}
+
+@media (max-width: 600px){
+
+    .mainBackground{
+        display: none;
+    }
+    
+    .scrollSource{
+        z-index: 5; 
+        margin: 0; 
+        overflow-y: scroll;
+        right: 0;
+    }
+    
+    .mainCard{
+        background-color: white; 
+        border-radius: 0px; 
+        box-shadow: 0px 2px 8px 1px #00000000; 
+        margin-top: 0px; 
+        margin-bottom: 0px;
+        margin-left: 0; 
+        margin-right: 0; 
+        width: auto; 
+        padding: 16px;
+    }
+    
+    .topPanel{
+        display: flex; 
+        width: 100%; 
+        flex-direction: row; 
+        margin-bottom: 8px;
+    }
+    
+    .topPanelIcon{
+        width:28px; 
+        height:28px; 
+        flex-grow:0; 
+        flex-shrink:0
+    }
+    
+    .topPanelText{
+        font-family: sans-serif; 
+        margin: 6px 12px 6px 12px; 
+        font-size: 16px; 
+        text-transform: uppercase; 
+        flex-grow: 1; 
+        flex-shrink: 0;
+        font-weight: 400 !important;
+    }
+
+    .mobileHeader{
+        display: block;
+        width: 100%; 
+        background-image: url(header.png); 
+        padding-bottom: 56.25%; 
+        background-size: contain; 
+        margin-bottom: 16px;
+    }
+    
+    .title{
+        text-align: center; 
+        font-family: sans-serif; 
+        margin: 0px;
+        text-transform: uppercase; 
+        font-weight: 600; 
+        font-size: 20px;
+    }
+    
+    .file_link{
+        background-color: #fff !important; 
+        padding: 0px !important;  
+        margin: 0 !important; 
+        color: #000 !important
+    }
+    
+    .file_card{
+        display: flex; 
+        align-items: center; 
+        flex-direction: row; 
+        border-radius: 16px; 
+        background-color: #ddd; 
+        margin-left: auto; 
+        width: auto;
+        margin-right: auto;  
+        padding: 0px; 
+        box-shadow: 0px 1px 3px 1px #00000066;
+    }
+    
+    .file_icon{
+        width: 36px;
+        height: 36px; 
+        margin: 8px; 
+        flex-grow: 0; 
+        flex-shrink: 0
+    }
+    
+    .file_name{
+        margin-top: 8px; 
+        margin-bottom: 8px; 
+        margin-right: 16px; 
+        font-family: sans-serif; 
+        font-weight: 600; 
+        font-size: 16px; 
+        font-style: bold;
+    }
+    
+    .bottomPanel{
+        align-items: center;
+        display: flex; 
+        width: 100%; 
+        flex-direction: row; 
+        margin-top: 16px;
+    }
+    
+    .bottomPanelIcon2{
+        background-size: contain;
+        height: 36px; 
+        width: 36px; 
+        flex-shrink: 0; 
+        flex-grow: 0; 
+        margin-right: 8px; 
+        background-image: url(ic_launcher.png);
+    }
+    
+    .bottomPanelText2{
+        margin:0px; 
+        font-family: sans-serif; 
+        font-size: 12px; 
+        font-style: italic;
+    }
+    
+    .bottomPanelLeft{
+        display: flex; 
+        flex-grow: 1; 
+        flex-shrink: 0; 
+        height: 48px; 
+        flex-direction: column; 
+        justify-content: space-between;
+    }
+    
+    .bottomPanelRight{
+        display: flex; 
+        flex-grow: 0; 
+        flex-shrink: 0; 
+        height: 36px; 
+        flex-direction: column; 
+        justify-content: space-between;
+    }
+    
+    .bottomPanelRightTitle{
+        margin:0px; 
+        font-family: sans-serif; 
+        font-size: 16px; 
+        font-weight: 600;
+    }
+    
+    .bottomPanleRightCopyRight{
+        margin:0px; 
+        font-family: sans-serif; 
+        font-size: 12px; 
+        color: #666;
+    }
 }
