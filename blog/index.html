@@ -66,7 +66,7 @@
         ];
         posts = JSON.parse(postsF);
         for(let i = 0; i < posts.length; i++){
-            let postIcon = "M20,2A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H6L2,22V4C2,2.89 2.9,2 4,2H20M4,4V17.17L5.17,16H20V4H4M6,7H18V9H6V7M6,11H15V13H6V11Z";
+            let postIcon = "M19 5V19H5V5H19M21 3H3V21H21V3M17 17H7V16H17V17M17 15H7V14H17V15M17 12H7V7H17V12Z";
             let downloadIcon = "M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M12,19L8,15H10.5V12H13.5V15H16L12,19Z";
             let template = `<a href="!!link!!" class="file_link">
                         <div class="!!style!!" style="width: auto !important">
@@ -90,13 +90,15 @@
                     template = template.replace("!!icon_path!!", downloadIcon);
                     break;
             }
-            template = template.replace("!!title!!", posts[i].title.en).replace("!!date_str!!", posts[i].date_str.en);
             switch(language){
                 case "ru":
                     template = template.replace("!!title!!", posts[i].title.ru).replace("!!date_str!!", posts[i].date_str.ru);
                     break;
                 case "ua":
                     template = template.replace("!!title!!", posts[i].title.ua).replace("!!date_str!!", posts[i].date_str.ua);
+                    break;
+                default:
+                    template = template.replace("!!title!!", posts[i].title.en).replace("!!date_str!!", posts[i].date_str.en);
                     break;
             }
             template = template.replace("!!link!!", posts[i].link + "?language=" + language + "&date=" + urlParams.get('date'));
