@@ -49,6 +49,7 @@
             </div>
         </div>
     </div>
+    <script src="posts.js?id=123" type="text/javascript"></script>
     <script type="text/javascript">
   		const urlParams = new URLSearchParams(window.location.search);
         const language = urlParams.get('language');
@@ -63,11 +64,7 @@
             {id: "title", ru: "Блог разработчиков", ua: "Блог розробників", en: "Developers` blog"},
             {id: "date", ru: "Выберите интересующий пост", ua: "Оберіть пост, що Вас цікавить", en: "Select post, that is interesting for you"},
         ];
-        const posts = [
-            {date:"2021-01-12", type: "load", title: {ru: "Заголовок", ua: "Заголовок", en: "Title"}, date_str: {ru: "Понедельник, 12 апреля 2021", ua: "Понедельник, 12 апреля 2021", en: "Monday, April 12 2021"}, link: "https://google.com"},
-            {date:"2021-04-12", type: "letter", title: {ru: "Заголовок", ua: "Заголовок", en: "Title"}, date_str: {ru: "Понедельник, 12 апреля 2021", ua: "Понедельник, 12 апреля 2021", en: "Monday, April 12 2021"}, link: "https://google.com"}
-        ];
-
+        posts = JSON.parse(postsF);
         for(let i = 0; i < posts.length; i++){
             let postIcon = "M20,2A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H6L2,22V4C2,2.89 2.9,2 4,2H20M4,4V17.17L5.17,16H20V4H4M6,7H18V9H6V7M6,11H15V13H6V11Z";
             let downloadIcon = "M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M12,19L8,15H10.5V12H13.5V15H16L12,19Z";
@@ -102,7 +99,7 @@
                     template = template.replace("!!title!!", posts[i].title.ua).replace("!!date_str!!", posts[i].date_str.ua);
                     break;
             }
-            template = template.replace("!!link!!", posts[i].link);
+            template = template.replace("!!link!!", posts[i].link + "?language=" + language + "&date=" + urlParams.get('date'));
             PdateParts = posts[i].date.split("-");
             postDate = new Date(PdateParts[0], PdateParts[1] - 1, PdateParts[2].substr(0,2));
             if(postDate.getTime() < jsDate.getTime()){
