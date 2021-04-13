@@ -178,6 +178,7 @@ a{
 }
 
 .bottomPanelIcon2{
+    background-size: contain;
     height: 48px; 
     width: 48px; 
     flex-shrink: 0; 
@@ -358,7 +359,7 @@ a{
     .bottomPanelLeft{
         display: flex; 
         flex-grow: 1; 
-        flex-shrink: 0; 
+        flex-shrink: 1; 
         height: 48px; 
         flex-direction: column; 
         justify-content: space-between;
@@ -375,15 +376,17 @@ a{
     
     .bottomPanelRightTitle{
         margin:0px; 
+        margin-top: 2px;
         font-family: sans-serif; 
-        font-size: 16px; 
+        font-size: 15px; 
         font-weight: 600;
     }
     
     .bottomPanleRightCopyRight{
         margin:0px; 
+        margin-bottom: 2px;
         font-family: sans-serif; 
-        font-size: 12px; 
+        font-size: 11px; 
         color: #666;
     }
 
