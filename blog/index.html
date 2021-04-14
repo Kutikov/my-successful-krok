@@ -33,8 +33,6 @@
                 <div id="contentSection">
                     <p id="title" class="title">Заголовок</p>
                     <p id="date" class="date">12 april 2021</p>
-                    
-                    
                 </div>
                 <div id="bottomPanel" class="bottomPanel">
                     <div class="bottomPanelLeft">
@@ -63,6 +61,7 @@
         const localized = [
             {id: "title", ru: "Блог разработчиков", ua: "Блог розробників", en: "Developers` blog"},
             {id: "date", ru: "Выберите интересующий пост", ua: "Оберіть пост, що Вас цікавить", en: "Select post, that is interesting for you"},
+            {id: "p3", ru: "Если Вам интересно обсудить КРОК и все аспекты, с ним связанные, с Вашими коллегами, присоединяйтесь к нашей <a href=\"https://t.me/my_successful_krok_2021\">беседе в Telegram</a>.", ua: "Якщо Вам цікаво обговорити КРОК і всі аспекти, з ним пов'язані, з Вашими колегами, приєднуйтесь до нашої <a href=\"https://t.me/my_successful_krok_2021\">бесіди в Telegram</a>.", en: ""},
         ];
         posts = JSON.parse(postsF);
         for(let i = 0; i < posts.length; i++){
@@ -123,6 +122,10 @@
             holder.style.marginBottom = '8px';
             document.getElementById("contentSection").appendChild(holder);
         }
+        const tg = document.createElement('p');
+        tg.className = "paragraph";
+        tg.id = "p3";
+        document.getElementById("contentSection").appendChild(tg);
 
         for(let i = 0; i < localized.length; i++){
             let html = localized[i].en;
