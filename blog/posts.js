@@ -1,5 +1,10 @@
-const postsF = `[
+/*const postsF = `[
     {"date":"2021-04-13", "type": "guide", "title": {"ru": "Добро пожаловать!", "ua": "Ласкаво просимо!", "en": "Welcome!"}, "date_str": {"ru": "Вторник, 13-ое марта 2021", "ua": "Вівторок, 13-е квітня 2021", "en": "Tuesday, 13th of April 2021"}, "link": "https://kutikov.github.io/my-successful-krok/blog/greetings.html"},
     {"date":"2021-04-13", "type": "letter", "title": {"ru": "Про инсайды и надежность источников", "ua": "Про інсайди та надійність джерел", "en": "About insights and reliability of sources"}, "date_str": {"ru": "Вторник, 13-ое марта 2021", "ua": "Вівторок, 13-е квітня 2021", "en": "Tuesday, 13th of April 2021"}, "link": "https://kutikov.github.io/my-successful-krok/blog/adaptation_restriction.html"},
     {"date":"2021-04-24", "type": "load", "title": {"ru": "Полезные заметки к КРОК 1 Стоматология", "ua": "Корисні примітки до КРОК 1 Стоматологія", "en": "Useful notes for KROK 1 Dentistry"}, "date_str": {"ru": "Суббота, 24-ое апреля 2021", "ua": "Субота, 24-е квітня 2021", "en": "Saturday, 24th of April 2021"}, "link": "https://kutikov.github.io/my-successful-krok/blog/dentistry_keywords2020.html"}
+    ]`;*/
+const postsF = `[
+    {"date":"1900-04-13", "type": "guide", "title": {"ru": "Добро пожаловать!", "ua": "Ласкаво просимо!", "en": "Welcome!"}, "date_str": {"ru": "Вторник, 13-ое марта 2021", "ua": "Вівторок, 13-е квітня 2021", "en": "Tuesday, 13th of April 2021"}, "link": "https://kutikov.github.io/my-successful-krok/blog/greetings.html"},
+    {"date":"1900-04-13", "type": "letter", "title": {"ru": "Про инсайды и надежность источников", "ua": "Про інсайди та надійність джерел", "en": "About insights and reliability of sources"}, "date_str": {"ru": "Вторник, 13-ое марта 2021", "ua": "Вівторок, 13-е квітня 2021", "en": "Tuesday, 13th of April 2021"}, "link": "https://kutikov.github.io/my-successful-krok/blog/adaptation_restriction.html"},
+    {"date":"1900-04-24", "type": "load", "title": {"ru": "Полезные заметки к КРОК 1 Стоматология", "ua": "Корисні примітки до КРОК 1 Стоматологія", "en": "Useful notes for KROK 1 Dentistry"}, "date_str": {"ru": "Суббота, 24-ое апреля 2021", "ua": "Субота, 24-е квітня 2021", "en": "Saturday, 24th of April 2021"}, "link": "https://kutikov.github.io/my-successful-krok/blog/dentistry_keywords2020.html"}
     ]`;
