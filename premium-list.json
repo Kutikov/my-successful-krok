@@ -1,0 +1,104 @@
+[
+{
+  "sha256": "BB522D4F823C860F0B9BB10E10EBAE3222DC796B7FDEC45E19419C0B2B1F0336",
+  "extensionType": "package",
+  "extensionRate": "alternative",
+  "extensionVar": "UNDEFINED",
+  "extensionStage": [
+    "K1"
+  ],
+  "extensionSpec": [
+    "LECH",
+    "STOM"
+  ],
+  "name": "Биохимия_PREMIUM",
+  "targetGroup": "КРОК 1 для Лікувальна справа, Стоматологія",
+  "language": "Русский\nУкраїнська",
+  "author": "Юлия Кизюрина#&257"
+},
+{
+  "sha256": "A59CD51A6CA58FB081BDD0CDC780CF131F45981C47B7F7DCEDD432913D37AD3E",
+  "extensionType": "package",
+  "extensionRate": "alternative",
+  "extensionVar": "UNDEFINED",
+  "extensionStage": [
+    "K1"
+  ],
+  "extensionSpec": [
+    "LECH",
+    "STOM"
+  ],
+  "name": "Микробиология_RUS_PREMIUM",
+  "targetGroup": "КРОК 1 для Лечебное дело, Стоматология",
+  "language": "Русский",
+  "author": "Александр Козлов#&1181"
+},
+{
+  "sha256": "D1E643756452BFE372E52079241FAB1028E14F7E5965B1AF5C729E7E2144DA2C",
+  "extensionType": "package",
+  "extensionRate": "alternative",
+  "extensionVar": "UNDEFINED",
+  "extensionStage": [
+    "K1"
+  ],
+  "extensionSpec": [
+    "LECH",
+    "STOM"
+  ],
+  "name": "Микробиология_UKR_PREMIUM",
+  "targetGroup": "КРОК 1 для Лікувальна справа, Стоматологія",
+  "language": "Українська",
+  "author": "Олександр Козлов#&1181"
+},
+{
+  "sha256": "43627FD60A6CA0E812FA0CD1A03356045AD2BFC656EAE7026A7D83848B5FF0A7",
+  "extensionType": "package",
+  "extensionRate": "alternative",
+  "extensionVar": "UNDEFINED",
+  "extensionStage": [
+    "K1"
+  ],
+  "extensionSpec": [
+    "LECH",
+    "STOM"
+  ],
+  "name": "Биология_RUS-UKR_PREMIUM",
+  "targetGroup": "КРОК 1 для Лікувальна справа, Стоматологія",
+  "language": "Українська\nРусский",
+  "author": "Олександр Козлов#&900"
+},
+{
+  "sha256": "B3794CD3A0776A3ED04470087684CC1593770887CDDA5E527BB9BECB68FE9214",
+  "extensionType": "package",
+  "extensionRate": "alternative",
+  "extensionVar": "UNDEFINED",
+  "extensionStage": [
+    "K1"
+  ],
+  "extensionSpec": [
+    "LECH",
+    "STOM"
+  ],
+  "name": "Патоморфология_PREMIUM",
+  "targetGroup": "КРОК 1 для Лікувальна справа, Стоматологія",
+  "language": "Українська\nРусский",
+  "author": "Елена Проценко#&408"
+},
+{
+  "sha256": "13748EF07CC45DDBDF0FCF96D015A906067812FD3D63BC1C08AA9054FA4626CA",
+  "extensionType": "package",
+  "extensionRate": "alternative",
+  "extensionVar": "UNDEFINED",
+  "extensionStage": [
+    "K1"
+  ],
+  "extensionSpec": [
+    "LECH",
+    "STOM"
+  ],
+  "name": "Фармакология_PREMIUM",
+  "targetGroup": "КРОК 1 для Лікувальна справа, Стоматологія",
+  "language": "Українська\nРусский",
+  "author": "Дамир Кутиков#&675"
+}
+]
