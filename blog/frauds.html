@@ -1,0 +1,151 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>My successful KROK blog</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="">
+  <meta name="author" content="Damir A. Kutikov, Julia V. Kizurina">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:url"           content="https://kutikov.github.io/my-successful-krok/" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Blog" />
+  <meta property="og:description"   content="" />
+  <meta property="og:image"         content="https://kutikov.github.io/my-successful-krok/blog/header.png" />
+
+  <link href="main.css?id=124" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="mainHolder" style="display: flex; height: 100%;">
+        <div id="mainBackground" class="mainBackground"></div>
+        <div id="scrollSource" class="scrollSource">
+            <div id="mainCard" class="mainCard">
+                <div class="copyPopup" id="popup">
+                    <p class="copyText3" id="copied">Copied</p>
+                </div>
+                <div id="topPanel" class="topPanel">
+                    <a class="file_link" id="backLink1" href="https://kutikov.github.io/my-successful-krok/blog/index.html">
+                        <svg class="topPanelIcon" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+                        </svg>
+                    </a>
+                    <a class="file_link topPanelText" id="backLink2" href="https://google.com">
+                        <p id="backToMenu" class="topPanelText">К списку постов</p>
+                    </a>
+                    <svg class="topPanelIcon" viewBox="0 0 24 24" onclick="copyToClipboard();">
+                        <path fill="currentColor" d="M10.59,13.41C11,13.8 11,14.44 10.59,14.83C10.2,15.22 9.56,15.22 9.17,14.83C7.22,12.88 7.22,9.71 9.17,7.76V7.76L12.71,4.22C14.66,2.27 17.83,2.27 19.78,4.22C21.73,6.17 21.73,9.34 19.78,11.29L18.29,12.78C18.3,11.96 18.17,11.14 17.89,10.36L18.36,9.88C19.54,8.71 19.54,6.81 18.36,5.64C17.19,4.46 15.29,4.46 14.12,5.64L10.59,9.17C9.41,10.34 9.41,12.24 10.59,13.41M13.41,9.17C13.8,8.78 14.44,8.78 14.83,9.17C16.78,11.12 16.78,14.29 14.83,16.24V16.24L11.29,19.78C9.34,21.73 6.17,21.73 4.22,19.78C2.27,17.83 2.27,14.66 4.22,12.71L5.71,11.22C5.7,12.04 5.83,12.86 6.11,13.65L5.64,14.12C4.46,15.29 4.46,17.19 5.64,18.36C6.81,19.54 8.71,19.54 9.88,18.36L13.41,14.83C14.59,13.66 14.59,11.76 13.41,10.59C13,10.2 13,9.56 13.41,9.17Z" />
+                    </svg>
+                </div>
+                <div class="mobileHeader"></div>
+                <div id="contentSection">
+                    <p id="title" class="title"></p>
+                    <p id="date" class="date"></p>
+                    <p class="paragraph" id="p1"></p>
+                    <p class="paragraph" id="p5"></p>
+                    <p class="paragraph" id="p6"></p>
+                    <ul>
+                        <li class="paragraph" id="li1"></li>
+                        <li class="paragraph" id="li2"></li>
+                        <li class="paragraph" id="li3"></li>
+                    </ul>
+                    <p class="paragraph" id="p7"></p>
+                    <p class="paragraph" id="p3"></p>
+                    <!--<a href="https://google.com" class="file_link">
+                        <div class="file_card">
+                            <svg class="file_icon" viewBox="0 0 24 24">
+                                <path fill="#004d40" d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M12,19L8,15H10.5V12H13.5V15H16L12,19Z" />
+                            </svg>
+                            <p class="file_name">file namekbvjsrbvgtr liaeufbfrlrebgv ueabfltrg</p>
+                        </div>
+                    </a>-->
+                    
+                </div>
+                <div id="bottomPanel" class="bottomPanel">
+                    <div class="bottomPanelLeft">
+                        <p id="devs1" class="bottomPanelText2">Разработчики приложения</p>
+                        <p id="devs2" class="bottomPanelText2">Дамир А. Кутиков</p>
+                        <p id="devs3" class="bottomPanelText2">Юлия В. Кизюрина</p>
+                    </div>
+                    <div id="icon" class="bottomPanelIcon2"></div>
+                    <div class="bottomPanelRight">
+                        <p id="appname" class="bottomPanelRightTitle">Мой успешный КРОК</p>
+                        <p class="bottomPanleRightCopyRight">Damir A. Kutikov © 2018–2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+  		const urlParams = new URLSearchParams(window.location.search);
+        const language = urlParams.get('language');
+        let jsDate = new Date();
+        try{
+            let dateParts = urlParams.get('date').split("-");
+            jsDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2].substr(0,2));
+        }
+        catch{
+        }
+        const localized = [
+            {id: "copied", ru: "Скопировано", ua: "Скопійовано", en: "Copied"},
+            {id: "appname", ru: "Мой успешный КРОК", ua: "Мій успішний КРОК", en: "My successful KROK"},
+            {id: "devs1", ru: "Разработчики приложения", ua: "Розробники додатку", en: "Application developers"},
+            {id: "devs2", ru: "Дамир А. Кутиков", ua: "Дамір О. Кутіков", en: "Damir A. Kutikov"},
+            {id: "devs3", ru: "Юлия В. Кизюрина", ua: "Юлія В. Кізюріна", en: "Julia V. Kizurina"},
+            {id: "backToMenu", ru: "К списку постов", ua: "До списку постів", en: "To posts list"},
+
+            
+            {id: "title", ru: "Про мошенников и аферистов", ua: "Про шахраїв і аферистів", en: "About scammers and swindlers"},
+            {id: "date", ru: "Четверг, 17-ое июня 2021", ua: "Четвер, 17-е червня 2021", en: "Thursday, 24th of June 2021"},
+            {id: "p1", ru: "Дорогой пользователь, <b>мы всегда были и будем приверженцами бесплатного и свободного контента</b>, однако в последнее время стали появляться <b>мошенники, выдающие себя за нас</b>, которые предлагют различные незаконные источники информации за деньги. В связи с этим обращаем Ваше внимание:", ua: "Дорогий користувач, <b>ми завжди були і будемо прихильниками безкоштовного та вільного контенту</b>, проте останнім часом стали з'являтися <b>шахраї, що видають себе за нас</b>, які пропонують різні незаконні джерела інформації за гроші. У зв'язку з цим звертаємо Вашу увагу:", en: "Dear user, <b>we have always been and will be adherents of free content</b>, but lately there have been <b>scammers posing as us</b> who offer various illegal sources of information for money. In this regard, we would like to draw your attention to:"},
+            {id: "p5", ru: "Существует одна единственная <b>официальная группа в</b> <a href=\"https://t.me/my_successful_krok_2021\">Telegram</a> и единственная страница <b>официальная страница в</b> <a href=\"https://www.instagram.com/my_successful_krok_2021\">Instagram</a>. <i><u>На этих ресурсах нету ничего платного или незаконного.</u></i>", ua: "Існує одна єдина <b>офіційна група в</b> <a href=\"https://t.me/my_successful_krok_2021\">Telegram</a> і єдина сторінка <b>офіційна сторінка в</b> <a href=\"https://www.instagram.com/my_successful_krok_2021\">Instagram</a>. <i><u> На цих ресурсах немає нічого платного або незаконного.</U></i>", en: "There is one single <b> official group at </b> <a href=\"https://t.me/my_successful_krok_2021\">Telegram</a> and a single <b>official page at</b> <a href=\"https://www.instagram.com/my_successful_krok_2021\">Instagram</a>. <i><u>There is nothing paid or illegal on these resources.</u></i>"},
+            {id: "p6", ru: "Если Вы <b>обнаружили мошенническую группу</b> использующую наши тесты / символику / материалы, <b>сообщите нам</b> один из способов:", ua: "Якщо Ви <b>виявили шахрайську групу</b> використовує наші тести / символіку / матеріали, <b>повідомте нам</b> одним із способів.", en: "If you <b>find a fraudulent group</b> using our tests / symbols / materials, <b>tell us</b> one of the following ways:"},
+            {id: "li1", ru: "Напишите в нашу группу в Telegram", ua: "Напишіть в нашу групу в Telegram", en: "Write to our group on Telegram"},
+            {id: "li2", ru: "Напишите нам в директ Instagram", ua: "Напишіть в нашу групу в Instagram", en: "Write to our group on Instagram"},
+            {id: "li3", ru: "Напишите на почту damirkut@gmail.com", ua: "Напишіть на пошту damirkut@gmail.com", en: "Email on damirkut@gmail.com"},
+            {id: "p7", ru: "<b>Очистим наш мир от мошенников и приживал вместе!</b>", ua: "<b>Очистимо наш світ від шахраїв і нахлібників разом!</b>", en: "<b>Let's clean our world from scammers together!</b>"},
+            {id: "p3", ru: "<br/>Если Вам интересно обсудить КРОК и все аспекты, с ним связанные, с Вашими коллегами, присоединяйтесь к нашей <a href=\"https://t.me/my_successful_krok_2021\">беседе в Telegram</a>.<br/><br/>Не забывайте подписываться на нас в <a href=\"https://www.instagram.com/my_successful_krok_2021\">Instagram</a>, там много полезного и интересного.", ua: "Якщо Вам цікаво обговорити КРОК і всі аспекти, з ним пов'язані, з Вашими колегами, приєднуйтесь до нашої <a href=\"https://t.me/my_successful_krok_2021\">бесіди в Telegram</a>.<br/><br/>Не забувайте підписуватися на нас у <a href=\"https://www.instagram.com/my_successful_krok_2021\">Instagram</a>, там багато корисного та цікавого.", en: ""}
+        ];
+
+        document.getElementById('backLink1').href = "https://kutikov.github.io/my-successful-krok/blog/index.html?language=" + language + "&date=" + urlParams.get('date');
+        document.getElementById('backLink2').href = "https://kutikov.github.io/my-successful-krok/blog/index.html?language=" + language + "&date=" + urlParams.get('date');
+        for(let i = 0; i < localized.length; i++){
+            let html = localized[i].en;
+            switch(language){
+                case "ru":
+                    html = localized[i].ru;
+                    break;
+                case "ua":
+                    html = localized[i].ua;
+                    break;
+            }
+            if(localized[i].id == "title"){
+                document.title = html;
+            }
+            document.getElementById(localized[i].id).innerHTML = html;
+        }
+        console.log(jsDate.toDateString());
+
+        function copyToClipboard() {
+            document.getElementById('popup').style.display = 'block';
+            const inputc = document.body.appendChild(document.createElement("input"));
+            inputc.value = window.location.href;
+            inputc.focus();
+            inputc.select();
+            document.execCommand('copy');
+            inputc.parentNode.removeChild(inputc);
+            setTimeout(function(){
+                document.getElementById('popup').style.display = 'none';
+            }, 2000)
+        }   
+    </script>
+</body>
+</html>
