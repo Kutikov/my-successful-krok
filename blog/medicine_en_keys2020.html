@@ -1,0 +1,136 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>My successful KROK blog</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="">
+  <meta name="author" content="Damir A. Kutikov, Julia V. Kizurina">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:url"           content="https://kutikov.github.io/my-successful-krok/" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Blog" />
+  <meta property="og:description"   content="" />
+  <meta property="og:image"         content="https://kutikov.github.io/my-successful-krok/blog/header.png" />
+
+  <link href="main.css?id=124" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="mainHolder" style="display: flex; height: 100%;">
+        <div id="mainBackground" class="mainBackground"></div>
+        <div id="scrollSource" class="scrollSource">
+            <div id="mainCard" class="mainCard">
+                <div class="copyPopup" id="popup">
+                    <p class="copyText3" id="copied">Copied</p>
+                </div>
+                <div id="topPanel" class="topPanel">
+                    <a class="file_link" id="backLink1" href="https://kutikov.github.io/my-successful-krok/blog/index.html">
+                        <svg class="topPanelIcon" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+                        </svg>
+                    </a>
+                    <a class="file_link topPanelText" id="backLink2" href="https://google.com">
+                        <p id="backToMenu" class="topPanelText">К списку постов</p>
+                    </a>
+                    <svg class="topPanelIcon" viewBox="0 0 24 24" onclick="copyToClipboard();">
+                        <path fill="currentColor" d="M10.59,13.41C11,13.8 11,14.44 10.59,14.83C10.2,15.22 9.56,15.22 9.17,14.83C7.22,12.88 7.22,9.71 9.17,7.76V7.76L12.71,4.22C14.66,2.27 17.83,2.27 19.78,4.22C21.73,6.17 21.73,9.34 19.78,11.29L18.29,12.78C18.3,11.96 18.17,11.14 17.89,10.36L18.36,9.88C19.54,8.71 19.54,6.81 18.36,5.64C17.19,4.46 15.29,4.46 14.12,5.64L10.59,9.17C9.41,10.34 9.41,12.24 10.59,13.41M13.41,9.17C13.8,8.78 14.44,8.78 14.83,9.17C16.78,11.12 16.78,14.29 14.83,16.24V16.24L11.29,19.78C9.34,21.73 6.17,21.73 4.22,19.78C2.27,17.83 2.27,14.66 4.22,12.71L5.71,11.22C5.7,12.04 5.83,12.86 6.11,13.65L5.64,14.12C4.46,15.29 4.46,17.19 5.64,18.36C6.81,19.54 8.71,19.54 9.88,18.36L13.41,14.83C14.59,13.66 14.59,11.76 13.41,10.59C13,10.2 13,9.56 13.41,9.17Z" />
+                    </svg>
+                </div>
+                <div class="mobileHeader"></div>
+                <div id="contentSection">
+                    <p id="title" class="title"></p>
+                    <p id="date" class="date"></p>
+                    <p class="paragraph" id="p1"></p>
+                    <a href="https://drive.google.com/file/d/18G04N_HFYmxmS2M5iCBnlPSzypz0GOYc/view?usp=sharing" class="file_link">
+                        <div class="file_card">
+                            <svg class="file_icon" viewBox="0 0 24 24">
+                                <path fill="#004d40" d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M12,19L8,15H10.5V12H13.5V15H16L12,19Z" />
+                            </svg>
+                            <p class="file_name">Найважливіші переклади з англійської у КРОК 1</p>
+                        </div>
+                    </a>
+                    <p class="paragraph" id="p3"></p>
+                </div>
+                <div id="bottomPanel" class="bottomPanel">
+                    <div class="bottomPanelLeft">
+                        <p id="devs1" class="bottomPanelText2">Разработчики приложения</p>
+                        <p id="devs2" class="bottomPanelText2">Дамир А. Кутиков</p>
+                        <p id="devs3" class="bottomPanelText2">Юлия В. Кизюрина</p>
+                    </div>
+                    <div id="icon" class="bottomPanelIcon2"></div>
+                    <div class="bottomPanelRight">
+                        <p id="appname" class="bottomPanelRightTitle">Мой успешный КРОК</p>
+                        <p class="bottomPanleRightCopyRight">Damir A. Kutikov © 2018–2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+  		const urlParams = new URLSearchParams(window.location.search);
+        const language = urlParams.get('language');
+        let jsDate = new Date();
+        try{
+            let dateParts = urlParams.get('date').split("-");
+            jsDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2].substr(0,2));
+        }
+        catch{
+        }
+        const localized = [
+            {id: "copied", ru: "Скопировано", ua: "Скопійовано", en: "Copied"},
+            {id: "appname", ru: "Мой успешный КРОК", ua: "Мій успішний КРОК", en: "My successful KROK"},
+            {id: "devs1", ru: "Разработчики приложения", ua: "Розробники додатку", en: "Application developers"},
+            {id: "devs2", ru: "Дамир А. Кутиков", ua: "Дамір О. Кутіков", en: "Damir A. Kutikov"},
+            {id: "devs3", ru: "Юлия В. Кизюрина", ua: "Юлія В. Кізюріна", en: "Julia V. Kizurina"},
+            {id: "backToMenu", ru: "К списку постов", ua: "До списку постів", en: "To posts list"},
+
+            
+            {id: "title", ru: "Важнейшие переводы с английского для КРОК 1 Медицина", ua: "Найважливіші переклади з англійської для КРОК 1 Медицина", en: "The most important English translations for KROK 1 Medicine for UA and RU"},
+            {id: "date", ru: "Суббота, 19-ое июня 2021", ua: "Субота, 19-е червня 2021", en: "Saturday, 19th of June 2021"},
+            {id: "p1", ru: "Дорогой пользователь, <b>как мы и обещали</b> делимся с Вами ценными для подготовки файлами, в этот раз для <b>КРОК 1</b>. Обращаем Ваше внимание, что данные файлы не наши, поэтому <u><i>мы не несем ответсвенности за качество информации в них</i></u>. Благодарим за работу над этим файлом <a href=\"https://t.me/smart_lib\">♻️Библиотека \"Выжить в Меде\"♻️</a>.", ua: "Дорогий користувач, <b>як ми і обіцяли</b> ділимося з Вами цінними для підготовки файлами, в цей раз для <b>КРОК 1</b>. Звертаємо Вашу увагу, що ці файли не наші, тому <u><i>ми не несемо відповідальності за якість інформації в них</i></u>. Дякуємо за роботу над цим файлом <a href=\"https://t.me/smart_lib\">♻️Библиотека \"Выжить в Меде\"♻️</a>", en: "Dear user, <b>as we promised</b> we share with you valuable files for preparation, this time for <b>STEP 1</b>. Please note that this files are not ours, so <u><i>we are not responsible for the quality of the information in it</i></u>"},
+            {id: "p3", ru: "Если Вам интересно обсудить КРОК и все аспекты, с ним связанные, с Вашими коллегами, присоединяйтесь к нашей <a href=\"https://t.me/my_successful_krok_2021\">беседе в Telegram</a>.<br/><br/>Не забывайте подписываться на нас в <a href=\"https://www.instagram.com/my_successful_krok_2021\">Instagram</a>, там много полезного и интересного.", ua: "Якщо Вам цікаво обговорити КРОК і всі аспекти, з ним пов'язані, з Вашими колегами, приєднуйтесь до нашої <a href=\"https://t.me/my_successful_krok_2021\">бесіди в Telegram</a>.<br/><br/>Не забувайте підписуватися на нас у <a href=\"https://www.instagram.com/my_successful_krok_2021\">Instagram</a>, там багато корисного та цікавого.", en: ""}
+        ];
+
+        document.getElementById('backLink1').href = "https://kutikov.github.io/my-successful-krok/blog/index.html?language=" + language + "&date=" + urlParams.get('date');
+        document.getElementById('backLink2').href = "https://kutikov.github.io/my-successful-krok/blog/index.html?language=" + language + "&date=" + urlParams.get('date');
+        for(let i = 0; i < localized.length; i++){
+            let html = localized[i].en;
+            switch(language){
+                case "ru":
+                    html = localized[i].ru;
+                    break;
+                case "ua":
+                    html = localized[i].ua;
+                    break;
+            }
+            if(localized[i].id == "title"){
+                document.title = html;
+            }
+            document.getElementById(localized[i].id).innerHTML = html;
+        }
+        console.log(jsDate.toDateString());
+
+        function copyToClipboard() {
+            document.getElementById('popup').style.display = 'block';
+            const inputc = document.body.appendChild(document.createElement("input"));
+            inputc.value = window.location.href;
+            inputc.focus();
+            inputc.select();
+            document.execCommand('copy');
+            inputc.parentNode.removeChild(inputc);
+            setTimeout(function(){
+                document.getElementById('popup').style.display = 'none';
+            }, 2000)
+        }   
+    </script>
+</body>
+</html>
