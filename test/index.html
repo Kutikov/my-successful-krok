@@ -1,40 +1,42 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>My successful KROK blog</title>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <meta name="description" content="">
-  <meta name="author" content="Damir A. Kutikov, Julia V. Kizurina">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My successful KROK blog</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="">
+    <meta name="author" content="Damir A. Kutikov, Julia V. Kizurina">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:url"           content="https://kutikov.github.io/my-successful-krok/" />
-  <meta property="og:type"          content="website" />
-  <meta property="og:title"         content="Blog" />
-  <meta property="og:description"   content="" />
-  <meta property="og:image"         content="https://kutikov.github.io/my-successful-krok/blog/header.png" />
+    <meta property="og:url" content="https://kutikov.github.io/my-successful-krok/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Blog" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="https://kutikov.github.io/my-successful-krok/blog/header.png" />
 
-  <link href="main.css?id=124" rel="stylesheet">
-  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script> 
-  <script src="encoding-indexes.js"></script>
-  <script src="encoding.js"></script>
+    <link href="main.css?id=124" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="encoding-indexes.js"></script>
+    <script src="encoding.js"></script>
+    <script src="base64js.min.js"></script>
 </head>
 
 </head>
 
 <body>
-    
+
     <script type="text/javascript">
-  		var firebaseConfig = {
+        var firebaseConfig = {
             apiKey: "AIzaSyBKqO5q1O0TB--X0mt-e1bep0jeppC8PYw",
             authDomain: "test-414ca.firebaseapp.com",
             databaseURL: "https://test-414ca.firebaseio.com",
@@ -43,7 +45,7 @@
             messagingSenderId: "282306699058",
             appId: "1:282306699058:web:7a1fded73750a55b8d012b"
         };
-  // Initialize Firebase
+        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         let db = firebase.firestore();
         /*console.log(db.collection("users").where("first", "==", "Ada"));/*.then((querySnapshot) => {
@@ -51,21 +53,29 @@
                 console.log(`${doc.id} => ${doc.data()}`);
             });
         });*/
-        let code = (function(){
-            return{
-                encryptMessage: function(messageToencrypt = '', secretkey = ''){
+        let code = (function () {
+            return {
+                encryptMessage: function (messageToencrypt = '', secretkey = '') {
                     var encryptedMessage = CryptoJS.AES.encrypt(messageToencrypt, secretkey);
                     return encryptedMessage.toString();
                 },
-                decryptMessage: function(encryptedMessage = '', secretkey = ''){
+                decryptMessage: function (encryptedMessage = '', secretkey = '') {
                     var decryptedBytes = CryptoJS.AES.decrypt(encryptedMessage, secretkey);
                     var decryptedMessage = decryptedBytes.toString(CryptoJS.enc.Utf8);
                     return decryptedMessage;
+                },
+                decryptAdvance: function (encryptedMessage = '', secretkey = '') {
+                    const decrypt = CryptoJS.AES.decrypt(CryptoJS.enc.Base64.parse(encryptedMessage).toString(), secretkey, {
+                        mode: CryptoJS.mode.CBC,
+                        padding: CryptoJS.pad.Pkcs7,
+                        keySize: 128
+                    });
+                    return CryptoJS.enc.Utf8.stringify(decrypt);
                 }
             }
         })();
 
-        async function getGithubFile(url){
+        async function getGithubFile(url) {
             const response = await window.fetch(url, {
                 method: 'GET',
                 cache: 'no-cache',
@@ -74,34 +84,29 @@
             });
             return await response.body.getReader();
         }
-        
+
         let source = '';
         let mode = '';
         const ASSISTANT = 'Assistant';
         const GIFT = 'GIFT';
         const ENCRYPTED = 'ENCODED';
-        getGithubFile('https://kutikov.github.io/my-successful-krok/source/КРОК 1 Бази/КРОК 1. Анатомія ЗЛП/2014.qst')
+        //getGithubFile('https://kutikov.github.io/my-successful-krok/source/КРОК 1 Бази/КРОК 1. Анатомія ЗЛП/2014.qst')
+        getGithubFile('https://kutikov.github.io/my-successful-krok/source/КРОК 1/КРОК 1. Стоматология РУС/2004.qst')
             .then(async (reader) => {
-                let {value: chunk, done: readerDone} = await reader.read();
+                let { value: chunk, done: readerDone } = await reader.read();
                 const win1251Decoder = new TextDecoder('windows-1251');
                 const utf8Decoder = new TextDecoder('utf-8');
                 let decoder = null;
                 chunk = chunk ? win1251Decoder.decode(chunk) : "";
-                if(chunk.startsWith("<ENCRYPTED>")){
-                    
+                if (chunk.startsWith("<ENCRYPTED>")) {
                     mode = ENCRYPTED;
                     decoder = utf8Decoder;
-                    encrypted = code.encryptMessage('hello','bismillahi');
-                    let reslt = code.decryptMessage(encrypted, 'bismillahi');
-                    console.log(reslt);
                 }
-                else if(sourceText.startsWith("<GIFT>")){
-                    console.log('GIFT');
+                else if (sourceText.startsWith("<GIFT>")) {
                     mode = GIFT;
                     decoder = utf8Decoder;
                 }
-                else{
-                    console.log(sourceText);
+                else {
                     mode = ASSISTANT;
                     decoder = win1251Decoder;
                 }
@@ -110,14 +115,14 @@
                 let startIndex = 0;
                 let result;
 
-                for (;;) {
+                for (; ;) {
                     let result = re.exec(chunk);
                     if (!result) {
                         if (readerDone) {
                             break;
                         }
                         let remainder = chunk.substr(startIndex);
-                        ({value: chunk, done: readerDone} = await reader.read());
+                        ({ value: chunk, done: readerDone } = await reader.read());
                         chunk = remainder + (chunk ? decoder.decode(chunk) : "");
                         startIndex = re.lastIndex = 0;
                         continue;
@@ -128,7 +133,7 @@
                 if (startIndex < chunk.length) {
                     source = source + '\n' + chunk.substr(startIndex);
                 }
-                switch(mode){
+                switch (mode) {
                     case ASSISTANT:
                         console.log(source);
                         break;
@@ -136,9 +141,13 @@
                         console.log(source);
                         break;
                     case ENCRYPTED:
-                        encrypted = decodeURIComponent(atob(srd).split('').map(function(c) {
-                            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                        }).join(''));
+                        source = source.split('\n')[2];
+                        //let bytes = base64js.toByteArray(source);
+                        //console.log(bytes)
+                        //source = utf8Decoder.decode(bytes);
+                        console.log(source);
+                        let reslt = code.decryptAdvance(source, 'bismillahi');
+                        console.log(reslt)
                         break;
                 }
             })
@@ -175,9 +184,10 @@
                         console.log(sourceText);
                     }
                 }
-            }            
+            }
         }
         client.send();*/
     </script>
 </body>
+
 </html>
