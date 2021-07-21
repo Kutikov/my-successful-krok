@@ -24,16 +24,21 @@
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script> 
   <script src="encoding-indexes.js"></script>
   <script src="encoding.js"></script>
+  <script src="TestAccont.js"></script>
+  <script src="QstParsers.js"></script>
 </head>
 
 </head>
 
 <body>
-    
+    <input type="file" id="upload_file" accept=".qst">
     <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            setup('upload_file');
+        })
   		var firebaseConfig = {
             apiKey: "AIzaSyBKqO5q1O0TB--X0mt-e1bep0jeppC8PYw",
             authDomain: "test-414ca.firebaseapp.com",
@@ -130,10 +135,10 @@
                 }
                 switch(mode){
                     case ASSISTANT:
-                        console.log(source);
+                        //console.log(source);
                         break;
                     case GIFT:
-                        console.log(source);
+                        //console.log(source);
                         break;
                     case ENCRYPTED:
                         encrypted = decodeURIComponent(atob(srd).split('').map(function(c) {
