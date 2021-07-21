@@ -85,14 +85,14 @@ function setup(fileinputId){
                     //decrypt(source);
                     break;
             }
-            console.log(testsArray);
+            firebaseApi.writeTests(testsArray);
         }
         fr.readAsArrayBuffer(this.files[0]);
     });
 }
 
 function parseQST(input, fork = '', unit = ''){
-    input = "\n" + input.replace(/\t/i, ' ').replace(/(?:[\r\n])/g, '\n');
+    input = "\n\n" + input.replace(/\t/i, ' ').replace(/(?:[\r\n])/g, '\n');
     const fragments = input.split("\n\n?");
     const objectsArrayList = [];
     for (let i = 1; i < fragments.length; i++) {

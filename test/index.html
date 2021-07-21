@@ -25,9 +25,12 @@
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script> 
   <script src="encoding-indexes.js"></script>
   <script src="encoding.js"></script>
+  <script src="FireBaseAPI.js"></script>
   <script src="TestAccont.js"></script>
   <script src="QstParsers.js"></script>
 </head>
@@ -37,160 +40,11 @@
 <body>
     <input type="file" id="upload_file" accept=".qst">
     <script type="text/javascript">
+        const firebaseApi = new FireBaseAPI();
         document.addEventListener('DOMContentLoaded', () => {
             setup('upload_file');
+            firebaseApi.readTests('fork r', 'unit 88');
         })
-  		var firebaseConfig = {
-            apiKey: "AIzaSyBKqO5q1O0TB--X0mt-e1bep0jeppC8PYw",
-            authDomain: "test-414ca.firebaseapp.com",
-            databaseURL: "https://test-414ca.firebaseio.com",
-            projectId: "test-414ca",
-            storageBucket: "test-414ca.appspot.com",
-            messagingSenderId: "282306699058",
-            appId: "1:282306699058:web:7a1fded73750a55b8d012b"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        let db = firebase.firestore();
-        /*console.log(db.collection("users").where("first", "==", "Ada"));/*.then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                console.log(`${doc.id} => ${doc.data()}`);
-            });
-        });*/
-        let code = (function () {
-            return {
-                encryptMessage: function (messageToencrypt = '', secretkey = '') {
-                    var encryptedMessage = CryptoJS.AES.encrypt(messageToencrypt, secretkey);
-                    return encryptedMessage.toString();
-                },
-                decryptMessage: function (encryptedMessage = '', secretkey = '') {
-                    var decryptedBytes = CryptoJS.AES.decrypt(encryptedMessage, secretkey);
-                    var decryptedMessage = decryptedBytes.toString(CryptoJS.enc.Utf8);
-                    return decryptedMessage;
-                },
-                decryptAdvance: function (encryptedMessage = '', secretkey = '') {
-                    const decrypt = CryptoJS.AES.decrypt(CryptoJS.enc.Base64.parse(encryptedMessage).toString(), secretkey, {
-                        mode: CryptoJS.mode.CBC,
-                        padding: CryptoJS.pad.Pkcs7,
-                        keySize: 128
-                    });
-                    return CryptoJS.enc.Utf8.stringify(decrypt);
-                }
-            }
-        })();
-
-        async function getGithubFile(url) {
-            const response = await window.fetch(url, {
-                method: 'GET',
-                cache: 'no-cache',
-                //mode: 'no-cors',
-                credentials: 'omit'
-            });
-            return await response.body.getReader();
-        }
-
-        let source = '';
-        let mode = '';
-        const ASSISTANT = 'Assistant';
-        const GIFT = 'GIFT';
-        const ENCRYPTED = 'ENCODED';
-        //getGithubFile('https://kutikov.github.io/my-successful-krok/source/КРОК 1 Бази/КРОК 1. Анатомія ЗЛП/2014.qst')
-        getGithubFile('https://kutikov.github.io/my-successful-krok/source/КРОК 1/КРОК 1. Стоматология РУС/2004.qst')
-            .then(async (reader) => {
-                let { value: chunk, done: readerDone } = await reader.read();
-                const win1251Decoder = new TextDecoder('windows-1251');
-                const utf8Decoder = new TextDecoder('utf-8');
-                let decoder = null;
-                chunk = chunk ? win1251Decoder.decode(chunk) : "";
-                if (chunk.startsWith("<ENCRYPTED>")) {
-                    mode = ENCRYPTED;
-                    decoder = utf8Decoder;
-                }
-                else if (sourceText.startsWith("<GIFT>")) {
-                    mode = GIFT;
-                    decoder = utf8Decoder;
-                }
-                else {
-                    mode = ASSISTANT;
-                    decoder = win1251Decoder;
-                }
-
-                let re = /\n|\r|\r\n/gm;
-                let startIndex = 0;
-                let result;
-
-                for (; ;) {
-                    let result = re.exec(chunk);
-                    if (!result) {
-                        if (readerDone) {
-                            break;
-                        }
-                        let remainder = chunk.substr(startIndex);
-                        ({ value: chunk, done: readerDone } = await reader.read());
-                        chunk = remainder + (chunk ? decoder.decode(chunk) : "");
-                        startIndex = re.lastIndex = 0;
-                        continue;
-                    }
-                    source = source + '\n' + chunk.substring(startIndex, result.index);
-                    startIndex = re.lastIndex;
-                }
-                if (startIndex < chunk.length) {
-                    source = source + '\n' + chunk.substr(startIndex);
-                }
-                switch (mode) {
-                    case ASSISTANT:
-                        //console.log(source);
-                        break;
-                    case GIFT:
-                        //console.log(source);
-                        break;
-                    case ENCRYPTED:
-                        source = source.split('\n')[2];
-                        //let bytes = base64js.toByteArray(source);
-                        //console.log(bytes)
-                        //source = utf8Decoder.decode(bytes);
-                        console.log(source);
-                        let reslt = code.decryptAdvance(source, 'bismillahi');
-                        console.log(reslt)
-                        break;
-                }
-            })
-        //var client = new XMLHttpRequest();
-        let sourceText = '';
-        /*client.open('GET', 'https://kutikov.github.io/my-successful-krok/source/КРОК 1 Бази/КРОК 1. Анатомія ЗЛП/2014.qst', true);
-        client.onreadystatechange = function() {
-            if(client.status === 200) {
-                /*let binary = client.responseText;
-                const bytes = new Uint8Array(binary.length);
-                for (let i = 0; i < bytes.length; i++) {
-                    bytes[i] = binary.charCodeAt(i);
-                }
-                encrypted = encrypted + String.fromCharCode(...new Uint16Array(bytes.buffer));
-                if(client.readyState === XMLHttpRequest.DONE){
-                    console.log(code.decryptMessage(encrypted, 'bismillahi'));
-                }
-                sourceText = sourceText + client.responseText;
-                if(client.readyState === XMLHttpRequest.DONE){
-                    if(sourceText.startsWith("<ENCRYPTED>")){
-                        let srd = '';
-                        console.log(srd);
-                        encrypted = decodeURIComponent(atob(srd).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
-                        encrypted = code.encryptMessage('hello','bismillahi');
-                        let reslt = code.decryptMessage(encrypted, 'bismillahi');
-                        console.log(reslt);
-                    }
-                    else if(sourceText.startsWith("<GIFT>")){
-                        console.log('GIFT');
-                    }
-                    else{
-                        console.log(sourceText);
-                    }
-                }
-            }
-        }
-        client.send();*/
     </script>
 </body>
 

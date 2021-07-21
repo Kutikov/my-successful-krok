@@ -8,6 +8,7 @@ class TestAccount{
         this.answersFalse = [];
         this.fork_unitId = this.unitId + '@' + this.forkId;
         this.testId = '';
+        this.needUpdate = false;
     }
 
     static GetTestAccount(task, comment, answersTrueL, answersFalseL, fork, unit, i){
@@ -17,6 +18,18 @@ class TestAccount{
         testAccount.comment = comment;
         testAccount.answersTrue = answersTrueL;
         testAccount.answersFalse = answersFalseL;
+        testAccount.needUpdate = true;
+        return testAccount;
+    }
+
+    static DecodeTestAccount(testId, record){
+        const testAccount = new TestAccount(record.unitId, record.forkId);
+        testAccount.testId = testId;
+        testAccount.task = record.task;
+        testAccount.comment = record.comment;
+        testAccount.answersTrue = record.answersTrueL;
+        testAccount.answersFalse = record.answersFalseL;
+        testAccount.needUpdate = false;
         return testAccount;
     }
 }
