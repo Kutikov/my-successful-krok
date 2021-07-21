@@ -27,9 +27,9 @@
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script> 
-  <script src="encoding-indexes.js"></script>
-  <script src="encoding.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <script src="Unit.js"></script>
+  <script src="Fork.js"></script>
   <script src="FireBaseAPI.js"></script>
   <script src="TestAccont.js"></script>
   <script src="QstParsers.js"></script>
@@ -41,10 +41,35 @@
     <input type="file" id="upload_file" accept=".qst">
     <script type="text/javascript">
         const firebaseApi = new FireBaseAPI();
+        let author = 'Kozlov';
+
+        let currentFork = null;
+        let forksArray = [];
+        let currentUnit = null;
+        let currentUnitsArray = [];
+        let currentTestArray = [];
+
         document.addEventListener('DOMContentLoaded', () => {
             setup('upload_file');
-            firebaseApi.readTests('fork r', 'unit 88');
-        })
+            firebaseApi.readForks(author);
+        });
+
+        function coreSignalHandler(signal, mode = ''){
+            console.log(signal + ' ' + mode);
+            switch(signal){
+                case FireBaseAPI.Signals.forksLoaded:
+                    currentFork = forksArray[0];
+                    firebaseApi.readUnits(currentFork);
+                    break;
+                case FireBaseAPI.Signals.unitsLoaded:
+                    currentUnit = currentUnitsArray[0];
+                    firebaseApi.readTests(currentUnit);
+                    break;
+                case FireBaseAPI.Signals.testsLoaded:
+                    //TODO add drawing of tests 
+                    break;
+            }
+        }
     </script>
 </body>
 

@@ -76,16 +76,16 @@ function setup(fileinputId){
             switch(encoding){
                 case EncodingE.QST_WIN1251:
                 case EncodingE.QST_UTF8:
-                    testsArray = parseQST(source, 'fork r', 'unit 88');
+                    testsArray = parseQST(source, currentFork.name, currentUnit.unitId);
                     break;
                 case EncodingE.GIFT:
-                    testsArray = parseGift(source, 'fork r', 'unit 88');
+                    testsArray = parseGift(source, currentFork.name, currentUnit.unitId);
                     break;
                 case EncodingE.QST_ENCRYPTED:
                     //decrypt(source);
                     break;
             }
-            firebaseApi.writeTests(testsArray);
+            currentTestArray = testsArray;
         }
         fr.readAsArrayBuffer(this.files[0]);
     });
