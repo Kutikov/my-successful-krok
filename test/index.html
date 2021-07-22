@@ -21,7 +21,6 @@
     <meta property="og:description" content="" />
     <meta property="og:image" content="https://kutikov.github.io/my-successful-krok/blog/header.png" />
 
-  <link href="main.css?id=124" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
@@ -31,6 +30,7 @@
   <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="style.css" rel="stylesheet">
   <script src="Unit.js"></script>
   <script src="Fork.js"></script>
   <script src="FireBaseAPI.js"></script>
@@ -40,7 +40,7 @@
 
 </head>
 
-<body>
+<body style="background-color: #f0f0f0;">
     <input type="file" id="upload_file" accept=".qst">
     <div id="main-dialog" class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="mdc-dialog-with-list-label" aria-describedby="mdc-dialog-with-list-description" bis_skin_checked="1">
         <div class="mdc-dialog__scrim" bis_skin_checked="1"></div>
@@ -57,9 +57,10 @@
             </div>
         </div>
     </div>
-    <div style="width: 300px;">
-       
+    <div id="testListMainPage" style="overflow-y:scroll; overflow-x:hidden; max-width: 500px;">
+        
     </div>
+    
     <template id="testEditTemplate">
         <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
             <span class="mdc-notched-outline">
@@ -96,6 +97,26 @@
               <textarea class="mdc-text-field__input" id="commentEditTextArea" rows="2" cols="100" aria-label="Label"></textarea>
             </span>
         </label>
+        <p class="card__text negative__answer"></p>
+    </template>
+    <template id="testCardTemplate">
+        <div class='mdc-card' style="margin-top: 6px; margin-bottom: 8px; background-color: #fff;">
+            <p class="card__text card__task"></p>
+            <div class="card__answers_list"></div>
+            <p class="card__text card__comment"></p>
+            <div class="mdc-card__actions">
+                <div class="mdc-card__action-buttons">
+                    <button class="mdc-button mdc-card__action mdc-card__action--button">
+                        <div class="mdc-button__ripple"></div>
+                        <span class="mdc-button__label">Изменить тест</span>
+                    </button>
+                </div>
+                <div class="mdc-card__action-icons">
+                    <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon">delete</button>
+                    <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon">expand_less</button>
+                    <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon">expand_more</button>
+                </div>
+        </div>
     </template>
     <template id="answerEditTemplate">
         <div class="mdc-card" style="margin-top: 6px; margin-bottom: 8px; background-color: #f0f0f0;">
@@ -126,11 +147,24 @@
             </div>
         </div>
     </template>
+    <template id="answerCardPositiveTemplate">
+        <div style="display: flex; flex-direction: row; align-items: center;">
+            <span class="material-icons-answer positive__answer">done</span>
+            <p class="card__text card__answer positive__answer"></p>
+        </div>
+    </template>
+    <template id="answerCardNegativeTemplate">
+        <div style="display: flex; flex-direction: row; align-items: center;">
+            <span class="material-icons-answer negative__answer">clear</span>
+            <p class="card__text card__answer negative__answer"></p>
+        </div>
+    </template>
     <script type="text/javascript">
         const dialog = new mdc.dialog.MDCDialog(document.getElementById('main-dialog'));
         const dialogTitle = document.getElementById('main-dialog-title');
         const dialogContent = document.getElementById('main-dialog-content');
         const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
+        const testListMainPage = document.getElementById('testListMainPage');
         let ripples;
         let texts;
 
@@ -146,13 +180,20 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             setup('upload_file');
-            firebaseApi.readForks(author);
+            currentTestAccount = TestAccount.CreateEmptyTest('dev', 'dev', 0);
+            currentTestAccount.GetTestCard(0);
+            currentTestAccount = TestAccount.CreateEmptyTest('dev', 'dev', 1);
+            currentTestAccount.GetTestCard(1);
+            //firebaseApi.readForks(author);
         });
 
         function accept(){
             if(currentTestAccount != null){
                 if(currentTestAccount.SaveTest()){
                     dialog.close();
+                    while (dialogContent.firstChild) {
+                        dialogContent.removeChild(dialogContent.lastChild);
+                    }
                     console.log(currentTestAccount);
                     currentTestAccount = null;
                 }
@@ -160,6 +201,9 @@
         }
 
         function cancel(){
+            while (dialogContent.firstChild) {
+                dialogContent.removeChild(dialogContent.lastChild);
+            }
             dialog.close();
         }
 

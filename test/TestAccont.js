@@ -36,7 +36,7 @@ class TestAccount{
     static CreateEmptyTest(unit, fork, i){
         const testAccount = new TestAccount(unit, fork);
         testAccount.testId = i.toString() + '@' + testAccount.fork_unitId;;
-        testAccount.task = 'Enter task here!';
+        testAccount.task = 'Enter task here!' + Math.random().toString();
         testAccount.comment = '';
         testAccount.answersTrue = ['+Correct answer here'];
         testAccount.answersFalse = ['-Wrong answer here'];
@@ -44,11 +44,76 @@ class TestAccount{
         return testAccount;
     }
 
+
+    GetTestCard(order){
+        this.answerTextArray = [];
+        const id = 'answerCardM' + order;
+        const contentL = document.getElementById('testCardTemplate').content.cloneNode(true);
+        const answersList = contentL.querySelector('.card__answers_list');
+        const image_actions = contentL.querySelectorAll('.mdc-card__action--icon')
+        contentL.querySelector('.mdc-card').id = id;
+        contentL.querySelector('.card__task').innerText = this.task;
+        if(this.comment != ''){
+            contentL.querySelector('.card__comment').innerText = this.comment;
+        }
+        else{
+            contentL.querySelector('.card__comment').style.display = 'none';
+        }
+        contentL.querySelector('.mdc-card__action--button').addEventListener('click', () => {
+            currentTestAccount = this;
+            dialog.open();
+            this.GetTestEdit();
+        });
+        for(let i = 0; i < this.answersTrue.length; i++){
+            const answerP = document.getElementById('answerCardPositiveTemplate').content.cloneNode(true);
+            answerP.querySelector('.card__answer').innerText = this.answersTrue[i].substring(1, this.answersTrue[i].length);
+            answersList.appendChild(answerP);
+        }
+        for(let i = 0; i < this.answersFalse.length; i++){
+            const answerP = document.getElementById('answerCardNegativeTemplate').content.cloneNode(true);
+            answerP.querySelector('.card__answer').innerText = this.answersFalse[i].substring(1, this.answersFalse[i].length);
+            answersList.appendChild(answerP);
+        }
+        image_actions[0].addEventListener('click', () => {
+            testListMainPage.removeChild(document.getElementById(id));
+        });
+        image_actions[1].addEventListener('click', () => {
+            const parent = document.getElementById(id).parentNode;
+            let index = 0;
+            for(let i = 0; i < parent.childNodes.length; i++){
+                if(parent.childNodes[i].id == id){
+                    index = i;
+                    break;
+                }
+            }
+            if(index > 0){
+                parent.insertBefore(document.getElementById(id), parent.childNodes[index - 1]);
+            }
+        });
+        image_actions[2].addEventListener('click', () => {
+            const parent = document.getElementById(id).parentNode;
+            let index = 0;
+            for(let i = 0; i < parent.childNodes.length; i++){
+                if(parent.childNodes[i].id == id){
+                    index = i;
+                    break;
+                }
+            }
+            if(index < parent.childNodes.length - 1){
+                parent.insertBefore(parent.childNodes[index + 1], document.getElementById(id));
+            }
+        });
+        testListMainPage.appendChild(contentL);
+        ripples = [].map.call(document.querySelectorAll(selector), function(el) {
+            return new mdc.ripple.MDCRipple(el);
+        });
+    }
+
     GetTestEdit(){
         this.answerTextArray = [];
-        this.content = document.getElementById('testEditTemplate').content;
-        this.answersList = this.content.getElementById('answersList');
-        this.content.getElementById('createAnswerButton').addEventListener('click', () => {
+        const contentL = document.getElementById('testEditTemplate').content.cloneNode(true);
+        this.answersList = contentL.getElementById('answersList');
+        contentL.getElementById('createAnswerButton').addEventListener('click', () => {
             this.GetAnswerEditCard('Wrong answer here', false);
             texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
                 return new mdc.textField.MDCTextField(el);
@@ -57,15 +122,15 @@ class TestAccount{
                 return new mdc.ripple.MDCRipple(el);
             });
         });
-        this.content.getElementById('taskEditTextArea').value = this.task;
-        this.content.getElementById('commentEditTextArea').value = this.comment;
+        contentL.getElementById('taskEditTextArea').value = this.task;
+        contentL.getElementById('commentEditTextArea').value = this.comment;
         for(let i = 0; i < this.answersTrue.length; i++){
             this.GetAnswerEditCard(this.answersTrue[i].substring(1, this.answersTrue[i].length), true);
         }
         for(let i = 0; i < this.answersFalse.length; i++){
             this.GetAnswerEditCard(this.answersFalse[i].substring(1, this.answersFalse[i].length), false);
         }
-        dialogContent.appendChild(this.content);
+        dialogContent.appendChild(contentL);
         dialogTitle.innerText = 'Изменить тест'
         texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
             return new mdc.textField.MDCTextField(el);
@@ -97,9 +162,11 @@ class TestAccount{
 
     SaveTest(){
         if(document.getElementById('taskEditTextArea').value == ''){
+            document.querySelector('.card__text.negative__answer').innerText = "Нет текста задания";
             return false;
         }
         if(this.answerTextArray.length == 0){
+            document.querySelector('.card__text.negative__answer').innerText = "Нет щтветов";
             return false;
         }
         let foundTrueAnswer = false;
@@ -113,6 +180,7 @@ class TestAccount{
             }
         }
         if(!foundTrueAnswer){
+            document.querySelector('.card__text.negative__answer').innerText = "Нет правильного ответа";
             return false;
         }
         this.task = document.getElementById('taskEditTextArea').value;
@@ -129,8 +197,6 @@ class TestAccount{
             }
         }
         this.needUpdate = true;
-        dialogContent.innerHtml = '';
-        this.content = null;
         this.answersList = null;
         this.answerTextArray = [];
         return true;
