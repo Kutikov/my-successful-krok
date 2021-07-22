@@ -86,6 +86,7 @@ function setup(fileinputId){
                     break;
             }
             currentTestArray = testsArray;
+            firebaseApi.writeTests();
         }
         fr.readAsArrayBuffer(this.files[0]);
     });

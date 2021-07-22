@@ -1,5 +1,6 @@
 class Fork{
 
+    static AddNewModuleString = 'Добавить новый модуль'
     Spec = {
         LECH: "LECH",
         STOM: "STOM",
@@ -48,8 +49,8 @@ class Fork{
         this.needUpdate = false; 
     }
 
-    static Decode(record){
-        const fork = new Fork(record.name, record.author);
+    static Decode(forkId, record){
+        const fork = new Fork(forkId, record.author);
         fork.extensionRate = record.extensionRate;
         fork.extensionVar = record.extensionVar;
         fork.extensionStage = record.extensionStage;
@@ -58,8 +59,75 @@ class Fork{
         fork.testsCount = record.testsCount;
         fork.isPremium = record.isPremium;
         fork.needUpdate = false;
-        return testAccount;
+        return fork;
     }
 
+    static CreateFork(){
+        const contentL = document.getElementById('textinputTemplate').content.cloneNode(true);
+        dialogTitle.innerText = 'Введите имя нового модуля';
+        currentFork = new Fork('New module', author);
+        contentL.querySelector('.mdc-text-field__input').value = 'New module';
+        dialogContent.appendChild(contentL);
+        dialog.open();
+    }
 
+    SaveFork(){
+        const tempName = dialogContent.querySelector('.mdc-text-field__input').value;
+        if(tempName == ''){
+            dialogContent.querySelector('.negative__answer').innerText = 'Пустое имя модуля!';
+            return false;
+        }
+        else{
+            let foundDuplicate = false;
+            for(let i = 0; i < forksArray.length; i++){
+                if(forksArray[i].name == tempName){
+                    foundDuplicate = true;
+                }
+            }
+            if(foundDuplicate){
+                dialogContent.querySelector('.negative__answer').innerText = 'Имя не уникально!';
+                return false;
+            }
+            else{
+                currentFork.name = tempName;
+                currentFork.needUpdate = true;
+                forksArray.push(currentFork);
+                firebaseApi.writeForks();
+                firebaseApi.readUnits(currentFork);
+                Fork.DrawForks();
+                return true;
+            }
+        }
+    }
+
+    static DrawForks(){
+        document.getElementById('forks-selected-text').addEventListener("DOMSubtreeModified", (i) => {
+            if(document.getElementById('forks-selected-text').innerText != this.AddNewModuleString){
+                for(let i = 0; i < forksArray.length; i++){
+                    if(forksArray[i].name == document.getElementById('forks-selected-text').innerText){
+                        currentFork = forksArray[i];
+                        firebaseApi.readUnits(forksArray[i]);
+                        break;
+                    }
+                }
+            }
+            else{
+                this.CreateFork();
+            }
+        });
+        const forksList = document.getElementById('forksList');
+        while (forksList.firstChild) {
+            forksList.removeChild(forksList.lastChild);
+        }
+        for(let i = 0; i < forksArray.length; i++){
+            const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
+            listItem.querySelector('.mdc-list-item__text').innerText = forksArray[i].name;
+            listItem.querySelector('.mdc-list-item').dataset.value = forksArray[i].name;
+            forksList.appendChild(listItem);
+        }
+        const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
+        listItem.querySelector('.mdc-list-item__text').innerText = this.AddNewModuleString;
+        listItem.querySelector('.mdc-list-item').dataset.value = this.AddNewModuleString;
+        forksList.appendChild(listItem);
+    }
 }

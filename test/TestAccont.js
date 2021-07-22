@@ -27,8 +27,8 @@ class TestAccount{
         testAccount.testId = testId;
         testAccount.task = record.task;
         testAccount.comment = record.comment;
-        testAccount.answersTrue = record.answersTrueL;
-        testAccount.answersFalse = record.answersFalseL;
+        testAccount.answersTrue = record.answersTrue;
+        testAccount.answersFalse = record.answersFalse;
         testAccount.needUpdate = false;
         return testAccount;
     }

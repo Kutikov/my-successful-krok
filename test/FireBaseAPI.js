@@ -4,6 +4,7 @@ class FireBaseAPI{
         testLoaded: 'testLoaded',
         testFailed: 'testFailed',
         testEmpty: 'testEmpty',
+        testFinished: 'testFinished',
         forksLoaded: 'forksLoaded',
         forksFailed: 'forksFailed',
         forksEmpty: 'forksEmpty',
@@ -47,7 +48,7 @@ class FireBaseAPI{
             if(snapshot.exists()){
                 const forksArrayLocal = [];
                 for(const forkId in snapshot.val()){
-                    forksArrayLocal.push(Fork.Decode(snapshot.val()[forkId]));
+                    forksArrayLocal.push(Fork.Decode(forkId, snapshot.val()[forkId]));
                 }
                 forksArray = forksArrayLocal;
                 coreSignalHandler(this.Signals.forksLoaded, this.Mode.read);
@@ -93,18 +94,18 @@ class FireBaseAPI{
             if(snapshot.exists()){
                 const unitsArrayLocal = [];
                 for(const fork_unitId in snapshot.val()){
-                    unitsArrayLocal.push(fork_unitId, Unit.Decode(snapshot.val()[fork_unitId], fork));
+                    unitsArrayLocal.push(Unit.Decode(fork_unitId, snapshot.val()[fork_unitId], fork));
                 }
                 currentUnitsArray = unitsArrayLocal;
-                coreSignalHandler(this.Signals.unitsLoaded, this.Mode.read);
+                coreSignalHandler(this.Signals.unitLoaded, this.Mode.read);
             }
             else {
                 currentUnitsArray = [];
-                coreSignalHandler(this.Signals.unitsEmpty, this.Mode.read);
+                coreSignalHandler(this.Signals.unitEmpty, this.Mode.read);
             }
         }).catch((error) => {
             console.log(error);
-            coreSignalHandler(this.Signals.unitsFailed, this.Mode.read);
+            coreSignalHandler(this.Signals.unitFailed, this.Mode.read);
         })
     }
 
@@ -117,10 +118,10 @@ class FireBaseAPI{
                     testsCount: currentUnitsArray[i].testsCount
                 }, (error) => {
                     if(error){
-                        coreSignalHandler(this.Signals.unitsLoaded, this.Mode.write);
+                        coreSignalHandler(this.Signals.unitLoaded, this.Mode.write);
                     }
                     else{
-                        coreSignalHandler(this.Signals.unitsLoaded, this.Mode.write);
+                        coreSignalHandler(this.Signals.unitLoaded, this.Mode.write);
                     }
                 });
             }
@@ -152,6 +153,7 @@ class FireBaseAPI{
     }
 
     writeTests(){
+        let allOk = true;
         for(let i = 0; i < currentTestArray.length; i++){
             if(currentTestArray[i].needUpdate){
                 this.realdatabase.ref('tests/' + currentTestArray[i].testId).set({
@@ -164,13 +166,17 @@ class FireBaseAPI{
                     fork_unitId: currentTestArray[i].fork_unitId
                 }, (error) => {
                     if(error){
-                        coreSignalHandler(this.Signals.testLoaded, this.Mode.write);
+                        allOk = false;
+                        coreSignalHandler(this.Signals.testFailed, this.Mode.write);
                     }
                     else{
-                        coreSignalHandler(this.Signals.testFailed, this.Mode.write);
+                        coreSignalHandler(this.Signals.testLoaded, this.Mode.write);
                     }
                 });
             }
+        }
+        if(allOk){
+            coreSignalHandler(this.Signals.testFinished, '');
         }
     }
 

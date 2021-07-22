@@ -57,6 +57,54 @@
             </div>
         </div>
     </div>
+
+    <div class="mdc-select mdc-select--outlined">
+        <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+            <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                    <span id="outlined-select-label" class="mdc-floating-label">Модуль</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <span class="mdc-select__selected-text-container">
+                <span id="forks-selected-text" class="mdc-select__selected-text"></span>
+            </span>
+            <span class="mdc-select__dropdown-icon">
+                <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+            </svg>
+          </span>
+        </div>
+        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+            <ul id="forksList" class="mdc-list"></ul>
+        </div>
+    </div>
+    <div class="mdc-select mdc-select--outlined">
+        <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+            <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                    <span id="outlined-select-label" class="mdc-floating-label">Лекция</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <span class="mdc-select__selected-text-container">
+                <span id="units-selected-text" class="mdc-select__selected-text"></span>
+            </span>
+            <span class="mdc-select__dropdown-icon">
+                <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+            </svg>
+          </span>
+        </div>
+        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+            <ul id="unitsList" class="mdc-list"></ul>
+        </div>
+    </div>
+
     <div id="testListMainPage" style="overflow-y:scroll; overflow-x:hidden; max-width: 500px;">
         
     </div>
@@ -142,7 +190,7 @@
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
                     <input type="text" class="mdc-text-field__input" id="answerTextInput" aria-labelledby="answerTextLabel">
-                  </label>
+                </label>
                 <button class="mdc-icon-button material-icons" style="flex-shrink: 0; flex-grow: 0;">delete</button>
             </div>
         </div>
@@ -159,12 +207,32 @@
             <p class="card__text card__answer negative__answer"></p>
         </div>
     </template>
+    <template id="listItemTemplate">
+        <li class="mdc-list-item">
+            <span class="mdc-list-item__ripple"></span>
+            <span class="mdc-list-item__text"></span>
+        </li>
+    </template>
+    <template id="textinputTemplate">
+        <label class="mdc-text-field mdc-text-field--outlined" style="flex-grow: 1; margin: 10px 0 4px 0; width: 100%;">
+            <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input type="text" class="mdc-text-field__input" aria-label="answerTextLabel">
+        </label>
+        <p class="card__text negative__answer"></p>
+    </template>
+
     <script type="text/javascript">
         const dialog = new mdc.dialog.MDCDialog(document.getElementById('main-dialog'));
         const dialogTitle = document.getElementById('main-dialog-title');
         const dialogContent = document.getElementById('main-dialog-content');
         const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
         const testListMainPage = document.getElementById('testListMainPage');
+        menues = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
+            return new mdc.select.MDCSelect(el);
+        });
         let ripples;
         let texts;
 
@@ -180,11 +248,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             setup('upload_file');
-            currentTestAccount = TestAccount.CreateEmptyTest('dev', 'dev', 0);
-            currentTestAccount.GetTestCard(0);
-            currentTestAccount = TestAccount.CreateEmptyTest('dev', 'dev', 1);
-            currentTestAccount.GetTestCard(1);
-            //firebaseApi.readForks(author);
+            firebaseApi.readForks(author);
         });
 
         function accept(){
@@ -194,8 +258,23 @@
                     while (dialogContent.firstChild) {
                         dialogContent.removeChild(dialogContent.lastChild);
                     }
-                    console.log(currentTestAccount);
                     currentTestAccount = null;
+                }
+            }
+            else if(currentUnit != null){
+                if(currentUnit.SaveUnit()){
+                    dialog.close();
+                    while (dialogContent.firstChild) {
+                        dialogContent.removeChild(dialogContent.lastChild);
+                    }
+                }
+            }
+            else if(currentFork != null){
+                if(currentFork.SaveFork()){
+                    dialog.close();
+                    while (dialogContent.firstChild) {
+                        dialogContent.removeChild(dialogContent.lastChild);
+                    }
                 }
             }
         }
@@ -210,16 +289,34 @@
         function coreSignalHandler(signal, mode = ''){
             console.log(signal + ' ' + mode);
             switch(signal){
-                case FireBaseAPI.Signals.forksLoaded:
-                    currentFork = forksArray[0];
-                    firebaseApi.readUnits(currentFork);
+                case firebaseApi.Signals.forksLoaded:
+                case firebaseApi.Signals.forksEmpty:
+                    Fork.DrawForks();
                     break;
-                case FireBaseAPI.Signals.unitsLoaded:
-                    currentUnit = currentUnitsArray[0];
-                    firebaseApi.readTests(currentUnit);
+                case firebaseApi.Signals.unitLoaded:
+                case firebaseApi.Signals.unitEmpty:
+                    Unit.DrawUnits();
                     break;
-                case FireBaseAPI.Signals.testsLoaded:
-                    //TODO add drawing of tests 
+                case firebaseApi.Signals.testFinished:
+                    while (testListMainPage.firstChild) {
+                        testListMainPage.removeChild(testListMainPage.lastChild);
+                    }
+                    for(let i = 0; i < currentTestArray.length; i++){
+                        currentTestArray[i].GetTestCard(i);
+                    }
+                    break;
+                case firebaseApi.Signals.testLoaded:
+                    if(mode == firebaseApi.Mode.read){
+                        while (testListMainPage.firstChild) {
+                        testListMainPage.removeChild(testListMainPage.lastChild);
+                        }
+                        for(let i = 0; i < currentTestArray.length; i++){
+                            currentTestArray[i].GetTestCard(i);
+                        }
+                    }
+                    break;
+                case firebaseApi.Signals.forksFailed:
+                    firebaseApi.readForks(author);
                     break;
             }
         }
