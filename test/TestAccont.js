@@ -41,5 +41,96 @@ class TestAccount{
         testAccount.answersTrue = ['+Correct answer here'];
         testAccount.answersFalse = ['-Wrong answer here'];
         testAccount.needUpdate = true;
+        return testAccount;
+    }
+
+    GetTestEdit(){
+        this.answerTextArray = [];
+        this.content = document.getElementById('testEditTemplate').content;
+        this.answersList = this.content.getElementById('answersList');
+        this.content.getElementById('createAnswerButton').addEventListener('click', () => {
+            this.GetAnswerEditCard('Wrong answer here', false);
+            texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
+                return new mdc.textField.MDCTextField(el);
+            });
+            ripples = [].map.call(document.querySelectorAll(selector), function(el) {
+                return new mdc.ripple.MDCRipple(el);
+            });
+        });
+        this.content.getElementById('taskEditTextArea').value = this.task;
+        this.content.getElementById('commentEditTextArea').value = this.comment;
+        for(let i = 0; i < this.answersTrue.length; i++){
+            this.GetAnswerEditCard(this.answersTrue[i].substring(1, this.answersTrue[i].length), true);
+        }
+        for(let i = 0; i < this.answersFalse.length; i++){
+            this.GetAnswerEditCard(this.answersFalse[i].substring(1, this.answersFalse[i].length), false);
+        }
+        dialogContent.appendChild(this.content);
+        dialogTitle.innerText = 'Изменить тест'
+        texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
+            return new mdc.textField.MDCTextField(el);
+        });
+        ripples = [].map.call(document.querySelectorAll(selector), function(el) {
+            return new mdc.ripple.MDCRipple(el);
+        });
+    }
+
+    GetAnswerEditCard(answer = '', correct){
+        let answerEditTemplate = document.getElementById('answerEditTemplate');
+        const id = 'answerCard' + this.answerTextArray.length;
+        const contentL = answerEditTemplate.content.cloneNode(true);
+        if(correct){
+            contentL.querySelector('.mdc-checkbox__native-control').click();
+        }
+        contentL.querySelector('.mdc-card').id = id;
+        contentL.querySelector('.mdc-text-field__input').value = answer;
+        contentL.querySelector('.mdc-icon-button').addEventListener('click', () => {
+            this.answersList.removeChild(document.getElementById(id));
+            const index = this.answerTextArray.indexOf(contentL);
+            if(index > -1){
+                this.answerTextArray.splice(index, 1);
+            }
+        });
+        this.answerTextArray.push(contentL);
+        this.answersList.appendChild(contentL);
+    }
+
+    SaveTest(){
+        if(this.content.getElementById('taskEditTextArea').value == ''){
+            return false;
+        }
+        if(answerTextArray.length == 0){
+            return false;
+        }
+        let foundTrueAnswer = false;
+        for(let i = 0; i < this.answerTextArray.length; i++){
+            if(this.answerTextArray[i].getElementById('answerTextInput').value == ''){
+                return false;
+            }
+            if(this.answerTextArray[i].getElementById('answerCheckbox').checked){
+                foundTrueAnswer = true;
+            }
+        }
+        if(!foundTrueAnswer){
+            return false;
+        }
+        this.task = this.answerTextArray[i].getElementById('taskEditTextArea').value;
+        this.comment = this.answerTextArray[i].getElementById('commentEditTextArea').value;
+        this.answersFalse = [];
+        this.answersTrue = [];
+        for(let i = 0; i < this.answerTextArray.length; i++){
+            if(this.answerTextArray[i].getElementById('answerCheckbox').checked){
+                this.answersTrue.push('+' + this.answerTextArray[i].getElementById('answerTextInput').value);
+            }
+            else{
+                this.answersFalse.push('-' + this.answerTextArray[i].getElementById('answerTextInput').value);
+            }
+        }
+        this.needUpdate = true;
+        dialogContent.removeChild(this.content);
+        this.content = null;
+        this.answersList = null;
+        this.answerTextArray = [];
+        return true;
     }
 }
