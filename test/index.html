@@ -42,7 +42,7 @@
 
 <body>
     <input type="file" id="upload_file" accept=".qst">
-    <div id="main-dialog" class="mdc-dialog mdc-dialog--open" role="alertdialog" aria-modal="true" aria-labelledby="mdc-dialog-with-list-label" aria-describedby="mdc-dialog-with-list-description" bis_skin_checked="1">
+    <div id="main-dialog" class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="mdc-dialog-with-list-label" aria-describedby="mdc-dialog-with-list-description" bis_skin_checked="1">
         <div class="mdc-dialog__scrim" bis_skin_checked="1"></div>
         <div class="mdc-dialog__container" bis_skin_checked="1">
             <div class="mdc-dialog__surface" bis_skin_checked="1">
@@ -146,17 +146,17 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             setup('upload_file');
-            dialog.open();
-            currentTestAccount = TestAccount.CreateEmptyTest('gwdve', 'wieqyfcbc' , 1);
-            currentTestAccount.GetTestEdit();
-            //firebaseApi.readForks(author);
+            firebaseApi.readForks(author);
         });
 
         function accept(){
-            dialog.close();
-            setTimeout(function(){
-                dialog.open()
-            }, 1000);
+            if(currentTestAccount != null){
+                if(currentTestAccount.SaveTest()){
+                    dialog.close();
+                    console.log(currentTestAccount);
+                    currentTestAccount = null;
+                }
+            }
         }
 
         function cancel(){

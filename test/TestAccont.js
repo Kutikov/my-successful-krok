@@ -86,48 +86,50 @@ class TestAccount{
         contentL.querySelector('.mdc-text-field__input').value = answer;
         contentL.querySelector('.mdc-icon-button').addEventListener('click', () => {
             this.answersList.removeChild(document.getElementById(id));
-            const index = this.answerTextArray.indexOf(contentL);
+            const index = this.answerTextArray.indexOf(id);
             if(index > -1){
                 this.answerTextArray.splice(index, 1);
             }
         });
-        this.answerTextArray.push(contentL);
+        this.answerTextArray.push(id);
         this.answersList.appendChild(contentL);
     }
 
     SaveTest(){
-        if(this.content.getElementById('taskEditTextArea').value == ''){
+        if(document.getElementById('taskEditTextArea').value == ''){
             return false;
         }
-        if(answerTextArray.length == 0){
+        if(this.answerTextArray.length == 0){
             return false;
         }
         let foundTrueAnswer = false;
         for(let i = 0; i < this.answerTextArray.length; i++){
-            if(this.answerTextArray[i].getElementById('answerTextInput').value == ''){
+            const card = document.getElementById(this.answerTextArray[i]);
+            if(card.querySelector('.mdc-text-field__input').value == ''){
                 return false;
             }
-            if(this.answerTextArray[i].getElementById('answerCheckbox').checked){
+            if(card.querySelector('.mdc-checkbox__native-control').checked){
                 foundTrueAnswer = true;
             }
         }
         if(!foundTrueAnswer){
             return false;
         }
-        this.task = this.answerTextArray[i].getElementById('taskEditTextArea').value;
-        this.comment = this.answerTextArray[i].getElementById('commentEditTextArea').value;
+        this.task = document.getElementById('taskEditTextArea').value;
+        this.comment = document.getElementById('commentEditTextArea').value;
         this.answersFalse = [];
         this.answersTrue = [];
         for(let i = 0; i < this.answerTextArray.length; i++){
-            if(this.answerTextArray[i].getElementById('answerCheckbox').checked){
-                this.answersTrue.push('+' + this.answerTextArray[i].getElementById('answerTextInput').value);
+            const card = document.getElementById(this.answerTextArray[i]);
+            if(card.querySelector('.mdc-checkbox__native-control').checked){
+                this.answersTrue.push('+' + card.querySelector('.mdc-text-field__input').value);
             }
             else{
-                this.answersFalse.push('-' + this.answerTextArray[i].getElementById('answerTextInput').value);
+                this.answersFalse.push('-' + card.querySelector('.mdc-text-field__input').value);
             }
         }
         this.needUpdate = true;
-        dialogContent.removeChild(this.content);
+        dialogContent.innerHtml = '';
         this.content = null;
         this.answersList = null;
         this.answerTextArray = [];
