@@ -90,12 +90,12 @@
                 </div>
             </div>
             <div style="display: flex; margin-left:16px; flex-grow: 1; flex-shrink: 0;">
-                <button class="mdc-button mdc-button--raised" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;">
+                <button class="mdc-button mdc-button--raised" id="importButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" onclick="import_file();" disabled>
                     <span class="mdc-button__ripple"></span>
                     <i class="material-icons mdc-button__icon" aria-hidden="true">upload</i>
                     <span class="mdc-button__label">Импорт</span>
                 </button>
-                <button class="mdc-button mdc-button--raised" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;">
+                <button class="mdc-button mdc-button--raised" id="saveButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" onclick="save_file();" disabled>
                     <span class="mdc-button__ripple"></span>
                     <i class="material-icons mdc-button__icon" aria-hidden="true">save</i>
                     <span class="mdc-button__label">Сохранить</span>
@@ -104,7 +104,7 @@
             </div>
             
         </div>
-        <div id="testListMainPage" style="overflow-y:scroll; overflow-x:hidden; max-width: 800px; flex-grow: 1;">
+        <div id="testListMainPage" class="testListMainPage">
             
         </div>
     </div>
@@ -245,6 +245,8 @@
         const dialogContent = document.getElementById('main-dialog-content');
         const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
         const testListMainPage = document.getElementById('testListMainPage');
+        const importButton = document.getElementById('importButton');
+        const saveButton = document.getElementById('saveButton');
         menues = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
             return new mdc.select.MDCSelect(el);
         });
@@ -260,6 +262,7 @@
         let currentUnitsArray = [];
         let currentTestAccount = null;
         let currentTestArray = [];
+        let currentTestArrayShadow = [];
 
         document.addEventListener('DOMContentLoaded', () => {
             setup('upload_file');
@@ -274,6 +277,8 @@
                         dialogContent.removeChild(dialogContent.lastChild);
                     }
                     currentTestAccount = null;
+                    TestAccount.ReDrawTests();
+                    saveButton.disabled = false;
                 }
             }
             else if(currentUnit != null){
@@ -301,6 +306,14 @@
             dialog.close();
         }
 
+        function import_file(){
+            document.getElementById('upload_file').click();
+        }
+
+        function save_file(){
+            firebaseApi.writeTests();
+        }
+
         function coreSignalHandler(signal, mode = ''){
             console.log(signal + ' ' + mode);
             switch(signal){
@@ -313,21 +326,15 @@
                     Unit.DrawUnits();
                     break;
                 case firebaseApi.Signals.testFinished:
-                    while (testListMainPage.firstChild) {
-                        testListMainPage.removeChild(testListMainPage.lastChild);
-                    }
-                    for(let i = 0; i < currentTestArray.length; i++){
-                        currentTestArray[i].GetTestCard(i);
-                    }
+                    TestAccount.ReDrawTests();
+                    break;
+                case firebaseApi.Signals.testEmpty:
+                    importButton.disabled = false;
                     break;
                 case firebaseApi.Signals.testLoaded:
                     if(mode == firebaseApi.Mode.read){
-                        while (testListMainPage.firstChild) {
-                        testListMainPage.removeChild(testListMainPage.lastChild);
-                        }
-                        for(let i = 0; i < currentTestArray.length; i++){
-                            currentTestArray[i].GetTestCard(i);
-                        }
+                        TestAccount.ReDrawTests();
+                        importButton.disabled = false;
                     }
                     break;
                 case firebaseApi.Signals.forksFailed:

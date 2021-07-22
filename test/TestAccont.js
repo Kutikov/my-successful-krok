@@ -75,38 +75,67 @@ class TestAccount{
             answersList.appendChild(answerP);
         }
         image_actions[0].addEventListener('click', () => {
-            testListMainPage.removeChild(document.getElementById(id));
+            const parent = document.getElementById(id).parentNode;
+            let index = 0;
+            for(let i = 0; i < parent.childNodes.length; i++){
+                if(parent.childNodes[i].id == id){
+                    index = (i - 1) / 2;
+                    break;
+                }
+            }
+            currentTestArray.splice(index, 1);
+            TestAccount.ReDrawTests();
+            saveButton.disabled = false;
         });
         image_actions[1].addEventListener('click', () => {
             const parent = document.getElementById(id).parentNode;
             let index = 0;
             for(let i = 0; i < parent.childNodes.length; i++){
                 if(parent.childNodes[i].id == id){
-                    index = i;
+                    index = (i - 1) / 2;
                     break;
                 }
             }
             if(index > 0){
-                parent.insertBefore(document.getElementById(id), parent.childNodes[index - 1]);
-            }
+                TestAccount.arraymove(currentTestArray, index, index - 1);
+                TestAccount.ReDrawTests();
+                saveButton.disabled = false;
+            }            
         });
         image_actions[2].addEventListener('click', () => {
             const parent = document.getElementById(id).parentNode;
             let index = 0;
             for(let i = 0; i < parent.childNodes.length; i++){
                 if(parent.childNodes[i].id == id){
-                    index = i;
+                    index = (i - 1) / 2;
                     break;
                 }
             }
             if(index < parent.childNodes.length - 1){
-                parent.insertBefore(parent.childNodes[index + 1], document.getElementById(id));
+                TestAccount.arraymove(currentTestArray, index, index + 1);
+                TestAccount.ReDrawTests();
+                saveButton.disabled = false;
             }
         });
         testListMainPage.appendChild(contentL);
         ripples = [].map.call(document.querySelectorAll(selector), function(el) {
             return new mdc.ripple.MDCRipple(el);
         });
+    }
+
+    static arraymove(arr, fromIndex, toIndex) {
+        var element = arr[fromIndex];
+        arr.splice(fromIndex, 1);
+        arr.splice(toIndex, 0, element);
+    }
+
+    static ReDrawTests(){
+        while (testListMainPage.firstChild) {
+            testListMainPage.removeChild(testListMainPage.lastChild);
+        }
+        for(let i = 0; i < currentTestArray.length; i++){
+            currentTestArray[i].GetTestCard(i);
+        }
     }
 
     GetTestEdit(){

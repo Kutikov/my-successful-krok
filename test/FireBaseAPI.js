@@ -135,10 +135,19 @@ class FireBaseAPI{
         ref.get().then((snapshot) => {
             if(snapshot.exists()){
                 const testsArray = [];
-                for(const testId in snapshot.val()){
-                    testsArray.push(TestAccount.Decode(testId, snapshot.val()[testId]));
+                for(let i = 0; i < snapshot.val().length; i++){
+                    testsArray.push(null);
                 }
-                currentTestArray = testsArray;
+                for(const testId in snapshot.val()){
+                    const index = new Number(testId.split('@')[0]) - 1;
+                    testsArray[index] = TestAccount.Decode(testId, snapshot.val()[testId]);
+                }
+                currentTestArray = [];
+                currentTestArrayShadow = [];
+                for(let i =0; i < testsArray.length; i++){
+                    currentTestArrayShadow.push(testsArray[i]);
+                    currentTestArray.push(testsArray[i]);
+                }
                 coreSignalHandler(this.Signals.testLoaded, this.Mode.read);
             }
             else {
@@ -153,7 +162,20 @@ class FireBaseAPI{
     }
 
     writeTests(){
-        let allOk = true;
+        let lastIndex = 0;
+        for(let i = 0; i < currentTestArray.length; i++){
+            if(i < currentTestArrayShadow.length){
+                if(currentTestArray[i].testId != currentTestArrayShadow[i].testId){
+                    currentTestArray[i].testId = currentTestArrayShadow[i].testId;
+                    currentTestArray[i].needUpdate = true;
+                }
+            }
+            lastIndex = i;
+        }
+        if(currentTestArrayShadow.length > lastIndex - 1){
+            currentTestArrayShadow.splice(0, lastIndex);
+            this.deleteTests(currentTestArrayShadow);
+        }
         for(let i = 0; i < currentTestArray.length; i++){
             if(currentTestArray[i].needUpdate){
                 this.realdatabase.ref('tests/' + currentTestArray[i].testId).set({
@@ -166,17 +188,20 @@ class FireBaseAPI{
                     fork_unitId: currentTestArray[i].fork_unitId
                 }, (error) => {
                     if(error){
-                        allOk = false;
                         coreSignalHandler(this.Signals.testFailed, this.Mode.write);
                     }
                     else{
-                        coreSignalHandler(this.Signals.testLoaded, this.Mode.write);
+                        currentTestArray[i].needUpdate = false;
+                        if(i == currentTestArray.length - 1){
+                            coreSignalHandler(this.Signals.testLoaded, this.Mode.write);
+                        }
                     }
                 });
             }
         }
-        if(allOk){
-            coreSignalHandler(this.Signals.testFinished, '');
+        currentTestArrayShadow = [];
+        for(let i = 0; i < currentTestArray.length; i++){
+            currentTestArrayShadow.push(currentTestArray[i]);
         }
     }
 
@@ -184,7 +209,6 @@ class FireBaseAPI{
         for(let i = 0; i < testsToDelete.length; i++){
             this.realdatabase.ref('tests/' + testsToDelete[i].testId).remove();
         }
-        coreSignalHandler(this.Signals.testLoaded, this.Mode.delete);
     }
     //#endregion Tests
 }

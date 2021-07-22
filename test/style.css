@@ -56,3 +56,16 @@
     font-feature-settings: 'liga';
     margin-left: 16px;
 }
+
+.testListMainPage{
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    max-width: 800px; 
+    flex-grow: 1;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+
+.testListMainPage::-webkit-scrollbar {
+    display: none;
+}
