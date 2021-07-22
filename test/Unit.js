@@ -65,14 +65,22 @@ class Unit{
 
     static DrawUnits(){
         document.getElementById('units-selected-text').addEventListener("DOMSubtreeModified", (i) => {
-            if(document.getElementById('units-selected-text').innerText != this.AddNewModuleString){
+            const dropdown = document.getElementById('units-selected-text');
+            if(dropdown.innerText != this.AddNewModuleString && dropdown.innerText != ''){
                 for(let i = 0; i < currentUnitsArray.length; i++){
-                    if(currentUnitsArray[i].unitId.replace('Ø', ' ') == document.getElementById('units-selected-text').innerText){
+                    if(currentUnitsArray[i].unitId.replace('Ø', ' ') == dropdown.innerText){
                         currentUnit = currentUnitsArray[i];
+                        currentTestArray = [];
+                        while (testListMainPage.firstChild) {
+                            testListMainPage.removeChild(testListMainPage.lastChild);
+                        }
                         firebaseApi.readTests(currentUnitsArray[i]);
                         break;
                     }
                 }
+            }
+            else if(dropdown.innerText == ''){
+                
             }
             else{
                 this.CreateUnit();

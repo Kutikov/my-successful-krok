@@ -41,7 +41,73 @@
 </head>
 
 <body style="background-color: #f0f0f0;">
-    <input type="file" id="upload_file" accept=".qst">
+    <div style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
+        <div style="display: flex; flex-direction: row; align-items: center;flex-grow: 0; flex-shrink: 0; flex-wrap: wrap;">
+            <div class="mdc-select mdc-select--outlined" style="margin-top: 16px; margin-left: 16px; margin-right: 16px; margin-bottom: 8px;  flex-grow: 1;  flex-shrink: 1;">
+                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span id="outlined-select-label" class="mdc-floating-label">Модуль</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-select__selected-text-container">
+                        <span id="forks-selected-text" class="mdc-select__selected-text"></span>
+                    </span>
+                    <span class="mdc-select__dropdown-icon">
+                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                        <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                        <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                    </svg>
+                  </span>
+                </div>
+                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                    <ul id="forksList" class="mdc-list"></ul>
+                </div>
+            </div>
+            <div class="mdc-select mdc-select--outlined" style="margin-top: 16px; margin-left: 16px; margin-right: 16px; margin-bottom: 8px; flex-grow: 1; flex-shrink: 1;">
+                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span id="outlined-select-label" class="mdc-floating-label">Лекция</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-select__selected-text-container">
+                        <span id="units-selected-text" class="mdc-select__selected-text"></span>
+                    </span>
+                    <span class="mdc-select__dropdown-icon">
+                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                        <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                        <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                    </svg>
+                  </span>
+                </div>
+                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                    <ul id="unitsList" class="mdc-list"></ul>
+                </div>
+            </div>
+            <div style="display: flex; margin-left:16px; flex-grow: 1; flex-shrink: 0;">
+                <button class="mdc-button mdc-button--raised" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;">
+                    <span class="mdc-button__ripple"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">upload</i>
+                    <span class="mdc-button__label">Импорт</span>
+                </button>
+                <button class="mdc-button mdc-button--raised" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;">
+                    <span class="mdc-button__ripple"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">save</i>
+                    <span class="mdc-button__label">Сохранить</span>
+                </button>
+                <input type="file" id="upload_file" style="width: 0px;" accept=".qst">
+            </div>
+            
+        </div>
+        <div id="testListMainPage" style="overflow-y:scroll; overflow-x:hidden; max-width: 800px; flex-grow: 1;">
+            
+        </div>
+    </div>
     <div id="main-dialog" class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="mdc-dialog-with-list-label" aria-describedby="mdc-dialog-with-list-description" bis_skin_checked="1">
         <div class="mdc-dialog__scrim" bis_skin_checked="1"></div>
         <div class="mdc-dialog__container" bis_skin_checked="1">
@@ -56,57 +122,6 @@
                 </footer>
             </div>
         </div>
-    </div>
-
-    <div class="mdc-select mdc-select--outlined">
-        <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
-            <span class="mdc-notched-outline">
-                <span class="mdc-notched-outline__leading"></span>
-                <span class="mdc-notched-outline__notch">
-                    <span id="outlined-select-label" class="mdc-floating-label">Модуль</span>
-                </span>
-                <span class="mdc-notched-outline__trailing"></span>
-            </span>
-            <span class="mdc-select__selected-text-container">
-                <span id="forks-selected-text" class="mdc-select__selected-text"></span>
-            </span>
-            <span class="mdc-select__dropdown-icon">
-                <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
-            </svg>
-          </span>
-        </div>
-        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-            <ul id="forksList" class="mdc-list"></ul>
-        </div>
-    </div>
-    <div class="mdc-select mdc-select--outlined">
-        <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
-            <span class="mdc-notched-outline">
-                <span class="mdc-notched-outline__leading"></span>
-                <span class="mdc-notched-outline__notch">
-                    <span id="outlined-select-label" class="mdc-floating-label">Лекция</span>
-                </span>
-                <span class="mdc-notched-outline__trailing"></span>
-            </span>
-            <span class="mdc-select__selected-text-container">
-                <span id="units-selected-text" class="mdc-select__selected-text"></span>
-            </span>
-            <span class="mdc-select__dropdown-icon">
-                <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
-            </svg>
-          </span>
-        </div>
-        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-            <ul id="unitsList" class="mdc-list"></ul>
-        </div>
-    </div>
-
-    <div id="testListMainPage" style="overflow-y:scroll; overflow-x:hidden; max-width: 500px;">
-        
     </div>
     
     <template id="testEditTemplate">
@@ -148,7 +163,7 @@
         <p class="card__text negative__answer"></p>
     </template>
     <template id="testCardTemplate">
-        <div class='mdc-card' style="margin-top: 6px; margin-bottom: 8px; background-color: #fff;">
+        <div class='mdc-card' style="margin-top: 6px; margin-bottom: 8px; background-color: #fff; margin-left: 16px; margin-right: 16px;">
             <p class="card__text card__task"></p>
             <div class="card__answers_list"></div>
             <p class="card__text card__comment"></p>

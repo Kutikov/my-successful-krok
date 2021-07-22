@@ -105,7 +105,13 @@ class Fork{
             if(document.getElementById('forks-selected-text').innerText != this.AddNewModuleString){
                 for(let i = 0; i < forksArray.length; i++){
                     if(forksArray[i].name == document.getElementById('forks-selected-text').innerText){
+                        document.getElementById('units-selected-text').innerText ='';
                         currentFork = forksArray[i];
+                        currentUnit = null;
+                        currentTestArray = [];
+                        while (testListMainPage.firstChild) {
+                            testListMainPage.removeChild(testListMainPage.lastChild);
+                        }
                         firebaseApi.readUnits(forksArray[i]);
                         break;
                     }
