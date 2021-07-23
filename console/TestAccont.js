@@ -48,7 +48,7 @@ class TestAccount{
     static CreateEmptyTest(unit, fork, i){
         const testAccount = new TestAccount(unit, fork);
         testAccount.testId = i.toString() + '@' + testAccount.fork_unitId;;
-        testAccount.task = 'Enter task here!' + Math.random().toString();
+        testAccount.task = 'Enter task here!';
         testAccount.comment = '';
         testAccount.answersTrue = ['+Correct answer here'];
         testAccount.answersFalse = ['-Wrong answer here'];

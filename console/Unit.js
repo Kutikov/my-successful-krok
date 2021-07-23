@@ -41,6 +41,7 @@ class Unit{
     
     static CreateUnit(){
         const contentL = document.getElementById('textinputTemplate').content.cloneNode(true);
+        dialogContent.innerHTML = '';
         dialogTitle.innerText = 'Введите имя новой лекции';
         currentUnit = new Unit(currentFork, 'New lecture');
         contentL.querySelector('.mdc-text-field__input').value = 'New lecture';
@@ -98,7 +99,7 @@ class Unit{
                 }
             }
             else if(dropdown.innerText == ''){
-
+                fab.classList.add('mdc-fab--exited');
             }
             else{
                 this.CreateUnit();

@@ -124,6 +124,7 @@ class Fork{
                         document.getElementById('units-selected-text').innerText ='';
                         importButton.disabled = true;
                         saveButton.disabled = true;
+                        fab.classList.add('mdc-fab--exited');
                         currentFork = forksArray[i];
                         currentUnit = null;
                         if(EDITOR_MODE == Fork.Editor_modes.tests){

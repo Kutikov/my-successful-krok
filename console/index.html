@@ -108,6 +108,11 @@
             
         </div>
     </div>
+    <button class="mdc-fab mdc-fab--extended" id="fab" style="position:fixed; bottom: 16px; right: 16px;">
+        <div class="mdc-fab__ripple"></div>
+        <span class="material-icons mdc-fab__icon">add</span>
+        <span class="mdc-fab__label">Create</span>
+    </button>
     <div id="main-dialog" class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="mdc-dialog-with-list-label" aria-describedby="mdc-dialog-with-list-description" bis_skin_checked="1">
         <div class="mdc-dialog__scrim" bis_skin_checked="1"></div>
         <div class="mdc-dialog__container" bis_skin_checked="1">
@@ -123,7 +128,7 @@
             </div>
         </div>
     </div>
-    <div id="loadingTemplate" style="bottom: 0; top: 0; right: 0; left: 0; position: absolute;background-color: #fff; display: none; align-items: center; flex-direction: row;">
+    <div id="loadingTemplate" style="bottom: 0; top: 0; right: 0; left: 0; position: absolute;background-color: #fff; display: none; align-items: center; flex-direction: row; z-index: 10000;">
         <div style="display: flex; width: 100%; align-items: center; flex-direction: column;">
             <p class="card__text" id="loadingText">Loading...</p>
             <div style="width: 100%; height: 20px;"></div>
@@ -262,7 +267,7 @@
         const dialog = new mdc.dialog.MDCDialog(document.getElementById('main-dialog'));
         const dialogTitle = document.getElementById('main-dialog-title');
         const dialogContent = document.getElementById('main-dialog-content');
-        const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
+        const selector = '.mdc-button, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
         const testListMainPage = document.getElementById('testListMainPage');
         const importButton = document.getElementById('importButton');
         const saveButton = document.getElementById('saveButton');
@@ -270,6 +275,7 @@
         const linearProgress1 = new mdc.linearProgress.MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
         const loadingTemplate = document.getElementById('loadingTemplate');
         const loadingText = document.getElementById('loadingText');
+        const fab = document.getElementById('fab');
         menues = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
             return new mdc.select.MDCSelect(el);
         });
@@ -289,6 +295,14 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             setup('upload_file');
+            fab.classList.add('mdc-fab--exited');
+            fab.addEventListener('click', () => {
+                const newTest = TestAccount.CreateEmptyTest(currentUnit.unitId, currentFork.name, currentTestArray.length);
+                currentTestArray.push(newTest);
+                currentTestAccount = newTest;
+                dialog.open();
+                newTest.GetTestEdit();
+            });
             firebaseApi.readForks(author);
         });
 
@@ -367,11 +381,13 @@
                     break;
                 case firebaseApi.Signals.testEmpty:
                     importButton.disabled = false;
+                    fab.classList.remove('mdc-fab--exited');
                     break;
                 case firebaseApi.Signals.testLoaded:
                     if(mode == firebaseApi.Mode.read){
                         TestAccount.ReDrawTests();
                         importButton.disabled = false;
+                        fab.classList.remove('mdc-fab--exited');
                     }
                     break;
                 case firebaseApi.Signals.forksFailed:

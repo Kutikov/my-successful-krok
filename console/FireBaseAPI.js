@@ -167,7 +167,7 @@ class FireBaseAPI{
         if(currentTestArrayShadow.length - 1 > lastIndex){
             const refs = [];
             for(let i = lastIndex + 1; i < currentTestArrayShadow.length; i++){
-                refs.push('tests/' + (i + 1).toString() + currentUnit.fork_unitId)
+                refs.push('tests/' + (i + 1).toString() + '@' + currentUnit.fork_unitId)
             }
             this.performDbAction(refs, null, this.Action.deleteDb, this.deleteTestsCallback);
         }
@@ -227,6 +227,7 @@ class FireBaseAPI{
                     this.performDbAction(refs, objects, this.Action.writeDb, this.writeTestsCallback);
                 })
                 .catch((error) => {
+                    progressToUi('Проблема с удалением тестов', false);
                     coreSignalHandler(this.Signals.testFailed, this.Mode.write);                    
                 });
         }
