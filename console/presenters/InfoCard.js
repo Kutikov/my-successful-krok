@@ -29,4 +29,16 @@ class InfoCard{
         this.textColor = Paragraph.TextColor.Grey;
         this.textAlign = Paragraph.TextAlign.jf;
     }
+
+    static PrepareEdit(props, contentL){
+
+    }
+
+    static Save(presenter){
+
+    }
+
+    static Draw(props, contentL){
+        
+    }
 }

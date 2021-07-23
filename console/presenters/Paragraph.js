@@ -56,11 +56,15 @@ class Paragraph{
         this.textAlign = Paragraph.TextAlign.jf;
     }
 
-    SetupController(){
+    static PrepareEdit(props, contentL){
 
     }
 
-    Draw(){
+    static Save(presenter){
 
+    }
+
+    static Draw(props, contentL){
+        
     }
 }

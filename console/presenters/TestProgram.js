@@ -18,4 +18,16 @@ class TestProgram{
         this.isLocker = false;
         this.lockerPercent = 0;
     }
+
+    static PrepareEdit(props, contentL){
+
+    }
+
+    static Save(presenter){
+
+    }
+
+    static Draw(props, contentL){
+        
+    }
 }
