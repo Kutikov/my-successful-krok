@@ -12,30 +12,24 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta name="description" content="">
-    <meta name="author" content="Damir A. Kutikov, Julia V. Kizurina">
+    <meta name="author" content="Damir A. Kutikov">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta property="og:url" content="https://kutikov.github.io/my-successful-krok/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Blog" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="https://kutikov.github.io/my-successful-krok/blog/header.png" />
-
-  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link href="style.css" rel="stylesheet">
-  <script src="Unit.js"></script>
-  <script src="Fork.js"></script>
-  <script src="FireBaseAPI.js"></script>
-  <script src="TestAccont.js"></script>
-  <script src="QstParsers.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="style.css" rel="stylesheet">
+    <script src="Unit.js"></script>
+    <script src="Fork.js"></script>
+    <script src="FireBaseAPI.js"></script>
+    <script src="tests/TestAccont.js"></script>
+    <script src="tests/QstParsers.js"></script>
 </head>
 
 </head>
@@ -90,11 +84,7 @@
                 </div>
             </div>
             <div style="display: flex; margin-left:16px; flex-grow: 1; flex-shrink: 0;">
-                <button class="mdc-button mdc-button--raised" id="importButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" onclick="import_file();" disabled>
-                    <span class="mdc-button__ripple"></span>
-                    <i class="material-icons mdc-button__icon" aria-hidden="true">upload</i>
-                    <span class="mdc-button__label">Импорт</span>
-                </button>
+                
                 <button class="mdc-button mdc-button--raised" id="saveButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" onclick="save_file();" disabled>
                     <span class="mdc-button__ripple"></span>
                     <i class="material-icons mdc-button__icon" aria-hidden="true">save</i>
@@ -263,13 +253,12 @@
     </template>
 
     <script type="text/javascript">
-        const EDITOR_MODE = 'tests';
+        const EDITOR_MODE = 'presenters';
         const dialog = new mdc.dialog.MDCDialog(document.getElementById('main-dialog'));
         const dialogTitle = document.getElementById('main-dialog-title');
         const dialogContent = document.getElementById('main-dialog-content');
         const selector = '.mdc-button, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
         const testListMainPage = document.getElementById('testListMainPage');
-        const importButton = document.getElementById('importButton');
         const saveButton = document.getElementById('saveButton');
         const linearProgress = document.querySelector('.mdc-linear-progress');
         const linearProgress1 = new mdc.linearProgress.MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
@@ -289,32 +278,32 @@
         let forksArray = [];
         let currentUnit = null;
         let currentUnitsArray = [];
-        let currentTestAccount = null;
-        let currentTestArray = [];
-        let currentTestArrayShadow = [];
+        let currentPresenter = null;
+        let currentPresenterArray = [];
+        let currentPresenterArrayShadow = [];
 
         document.addEventListener('DOMContentLoaded', () => {
             setup('upload_file');
             fab.classList.add('mdc-fab--exited');
             fab.addEventListener('click', () => {
-                const newTest = TestAccount.CreateEmptyTest(currentUnit.unitId, currentFork.name, currentTestArray.length);
-                currentTestArray.push(newTest);
-                currentTestAccount = newTest;
+                const newPresenter = Presenter.CreateEmptyPresenter(currentUnit.unitId, currentFork.name, currentPresenterArray.length);
+                currentPresenterArray.push(newPresenter);
+                currentPresenter = newPresenter;
                 dialog.open();
-                newTest.GetTestEdit();
+                newPresenter.GetPresenterEdit();
             });
             firebaseApi.readForks(author);
         });
 
         function accept(){
-            if(currentTestAccount != null){
-                if(currentTestAccount.SaveTest()){
+            if(currentPresenter != null){
+                if(currentPresenter.SavePresenter()){
                     dialog.close();
                     while (dialogContent.firstChild) {
                         dialogContent.removeChild(dialogContent.lastChild);
                     }
-                    currentTestAccount = null;
-                    TestAccount.ReDrawTests();
+                    currentPresenter = null;
+                    Presenter.ReDraw();
                     saveButton.disabled = false;
                 }
             }
@@ -362,7 +351,7 @@
         }
 
         function save_file(){
-            firebaseApi.writeTests();
+            firebaseApi.writePresenters();
         }
 
         function coreSignalHandler(signal, mode = ''){
@@ -376,17 +365,15 @@
                 case firebaseApi.Signals.unitEmpty:
                     Unit.DrawUnits();
                     break;
-                case firebaseApi.Signals.testFinished:
-                    TestAccount.ReDrawTests();
+                case firebaseApi.Signals.presentersFinished:
+                    Presenter.ReDraw();
                     break;
-                case firebaseApi.Signals.testEmpty:
-                    importButton.disabled = false;
+                case firebaseApi.Signals.presentersEmpty:
                     fab.classList.remove('mdc-fab--exited');
                     break;
-                case firebaseApi.Signals.testLoaded:
+                case firebaseApi.Signals.presentersLoaded:
                     if(mode == firebaseApi.Mode.read){
-                        TestAccount.ReDrawTests();
-                        importButton.disabled = false;
+                        Presenter.ReDraw();
                         fab.classList.remove('mdc-fab--exited');
                     }
                     break;

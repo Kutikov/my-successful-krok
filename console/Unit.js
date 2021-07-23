@@ -10,6 +10,7 @@ class Unit{
         this.forkId = fork.name.replace(' ', 'Ø');
         this.fork_unitId = this.unitId + '@' + this.forkId;
         this.testsCount = 0;
+        this.presentersCount = 0;
         this.unitName = unit.replace('Ø', ' ');
         this.needUpdate = false;
     }
@@ -18,7 +19,8 @@ class Unit{
         return {
             unitId: this.unitId,
             forkId: this.forkId,
-            testsCount: this.testsCount
+            testsCount: this.testsCount,
+            presentersCount: this.presentersCount
         };
     }
 
@@ -26,6 +28,7 @@ class Unit{
         const unit = new Unit(fork, record.unitId);
         unit.fork_unitId = fork_unitId;
         unit.testsCount = record.testsCount;
+        unit.presentersCount = record.presentersCount;
         unit.needUpdate = false;
         return unit;
     }
@@ -38,6 +41,14 @@ class Unit{
         currentFork.testCount = currentFork.testCount - prevCount + testsArray.length;
     }
 
+    
+    updatePresentersCount(presentersArray){
+        this.needUpdate = true;
+        const prevCount = this.presentersCount;
+        this.presentersCount = presentersArray.length;
+        currentFork.needUpdate = true;
+        currentFork.presentersCount = currentFork.presentersCount - prevCount + presentersArray.length;
+    }
     
     static CreateUnit(){
         const contentL = document.getElementById('textinputTemplate').content.cloneNode(true);
@@ -74,6 +85,9 @@ class Unit{
                 if(EDITOR_MODE == Unit.Editor_modes.tests){
                     firebaseApi.readTests(currentUnit);
                 }
+                else if(EDITOR_MODE == Unit.Editor_modes.presenters){
+                    firebaseApi.readPresenters(currentUnit);
+                }
                 Unit.DrawUnits();
                 return true;
             }
@@ -93,6 +107,13 @@ class Unit{
                                 testListMainPage.removeChild(testListMainPage.lastChild);
                             }
                             firebaseApi.readTests(currentUnitsArray[i]);
+                        }
+                        else if(EDITOR_MODE == Unit.Editor_modes.presenters){
+                            currentPresenterArray = [];
+                            while (testListMainPage.firstChild) {
+                                testListMainPage.removeChild(testListMainPage.lastChild);
+                            }
+                            firebaseApi.readPresenters(currentUnitsArray[i]);
                         }
                         break;
                     }

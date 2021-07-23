@@ -47,6 +47,7 @@ class Fork{
         this.name = name;
         this.language = '';
         this.testCount = 0;
+        this.presentersCount = 0;
         this.author = author;
         this.isPremium = false;
         this.needUpdate = false; 
@@ -60,6 +61,7 @@ class Fork{
             extensionSpec: this.extensionSpec,
             language: this.language,
             testCount: this.testCount,
+            presentersCount: this.presentersCount,
             author: this.author,
             isPremium: this.isPremium
         };
@@ -73,6 +75,7 @@ class Fork{
         fork.extensionSpec = record.extensionSpec;
         fork.language = record.language;
         fork.testCount = record.testCount;
+        fork.presentersCount = record.presentersCount;
         fork.isPremium = record.isPremium;
         fork.needUpdate = false;
         return fork;
@@ -129,6 +132,12 @@ class Fork{
                         currentUnit = null;
                         if(EDITOR_MODE == Fork.Editor_modes.tests){
                             currentTestArray = [];
+                            while (testListMainPage.firstChild) {
+                                testListMainPage.removeChild(testListMainPage.lastChild);
+                            }
+                        }
+                        else if(EDITOR_MODE == Fork.Editor_modes.presenters){
+                            currentPresenterArray = [];
                             while (testListMainPage.firstChild) {
                                 testListMainPage.removeChild(testListMainPage.lastChild);
                             }

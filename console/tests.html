@@ -1,0 +1,395 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>My successful KROK blog</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="">
+    <meta name="author" content="Damir A. Kutikov">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="style.css" rel="stylesheet">
+    <script src="Unit.js"></script>
+    <script src="Fork.js"></script>
+    <script src="FireBaseAPI.js"></script>
+    <script src="tests/TestAccont.js"></script>
+    <script src="tests/QstParsers.js"></script>
+</head>
+
+</head>
+
+<body style="background-color: #f0f0f0;">
+    <div style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
+        <div style="display: flex; flex-direction: row; align-items: center;flex-grow: 0; flex-shrink: 0; flex-wrap: wrap;">
+            <div class="mdc-select mdc-select--outlined" style="margin-top: 16px; margin-left: 16px; margin-right: 16px; margin-bottom: 8px;  flex-grow: 1;  flex-shrink: 1;">
+                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span id="outlined-select-label" class="mdc-floating-label">Модуль</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-select__selected-text-container">
+                        <span id="forks-selected-text" class="mdc-select__selected-text"></span>
+                    </span>
+                    <span class="mdc-select__dropdown-icon">
+                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                        <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                        <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                    </svg>
+                  </span>
+                </div>
+                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                    <ul id="forksList" class="mdc-list"></ul>
+                </div>
+            </div>
+            <div class="mdc-select mdc-select--outlined" style="margin-top: 16px; margin-left: 16px; margin-right: 16px; margin-bottom: 8px; flex-grow: 1; flex-shrink: 1;">
+                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span id="outlined-select-label" class="mdc-floating-label">Лекция</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-select__selected-text-container">
+                        <span id="units-selected-text" class="mdc-select__selected-text"></span>
+                    </span>
+                    <span class="mdc-select__dropdown-icon">
+                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                        <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                        <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                    </svg>
+                  </span>
+                </div>
+                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                    <ul id="unitsList" class="mdc-list"></ul>
+                </div>
+            </div>
+            <div style="display: flex; margin-left:16px; flex-grow: 1; flex-shrink: 0;">
+                <button class="mdc-button mdc-button--raised" id="importButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" onclick="import_file();" disabled>
+                    <span class="mdc-button__ripple"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">upload</i>
+                    <span class="mdc-button__label">Импорт</span>
+                </button>
+                <button class="mdc-button mdc-button--raised" id="saveButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" onclick="save_file();" disabled>
+                    <span class="mdc-button__ripple"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">save</i>
+                    <span class="mdc-button__label">Сохранить</span>
+                </button>
+                <input type="file" id="upload_file" style="width: 0px;" accept=".qst">
+            </div>
+            
+        </div>
+        <div id="testListMainPage" class="testListMainPage">
+            
+        </div>
+    </div>
+    <button class="mdc-fab mdc-fab--extended" id="fab" style="position:fixed; bottom: 16px; right: 16px;">
+        <div class="mdc-fab__ripple"></div>
+        <span class="material-icons mdc-fab__icon">add</span>
+        <span class="mdc-fab__label">Create</span>
+    </button>
+    <div id="main-dialog" class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="mdc-dialog-with-list-label" aria-describedby="mdc-dialog-with-list-description" bis_skin_checked="1">
+        <div class="mdc-dialog__scrim" bis_skin_checked="1"></div>
+        <div class="mdc-dialog__container" bis_skin_checked="1">
+            <div class="mdc-dialog__surface" bis_skin_checked="1">
+                <h2 id="main-dialog-title" class="mdc-dialog__title">Измени</h2>
+                <section id="main-dialog-content" class="mdc-dialog__content">
+                    
+                </section>
+                <footer class="mdc-dialog__actions">
+                    <button type="button" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" onclick="cancel()">Отмена</button>
+                    <button type="button" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" onclick="accept()">Сохранить</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <div id="loadingTemplate" style="bottom: 0; top: 0; right: 0; left: 0; position: absolute;background-color: #fff; display: none; align-items: center; flex-direction: row; z-index: 10000;">
+        <div style="display: flex; width: 100%; align-items: center; flex-direction: column;">
+            <p class="card__text" id="loadingText">Loading...</p>
+            <div style="width: 100%; height: 20px;"></div>
+            <div role="progressbar" style="width: 80%;" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+                <div class="mdc-linear-progress__buffer">
+                  <div class="mdc-linear-progress__buffer-bar"></div>
+                  <div class="mdc-linear-progress__buffer-dots"></div>
+                </div>
+                <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                  <span class="mdc-linear-progress__bar-inner"></span>
+                </div>
+                <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                  <span class="mdc-linear-progress__bar-inner"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <template id="testEditTemplate">
+        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+            <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__notch">
+                <span class="mdc-floating-label" id="taskEditLabel">Текст вопроса</span>
+              </span>
+              <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <span class="mdc-text-field__resizer">
+              <textarea class="mdc-text-field__input" id="taskEditTextArea" rows="4" cols="100" aria-label="Label" required minlength="3"></textarea>
+            </span>
+        </label>
+        <h5 style="margin-top: 8px; margin-bottom: 4px;">Ответы</h5>
+        <div id="answersList">
+
+        </div>
+        <button class="mdc-button" id="createAnswerButton">
+            <span class="mdc-button__ripple"></span>
+            <i class="material-icons mdc-button__icon" aria-hidden="true"
+              >create</i
+            >
+            <span class="mdc-button__label">Добавить ответ</span>
+          </button>
+        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+            <span class="mdc-notched-outline">
+              <span class="mdc-notched-outline__leading"></span>
+              <span class="mdc-notched-outline__notch">
+                <span class="mdc-floating-label" id="commentEditLabel">Текст комметария</span>
+              </span>
+              <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <span class="mdc-text-field__resizer">
+              <textarea class="mdc-text-field__input" id="commentEditTextArea" rows="2" cols="100" aria-label="Label"></textarea>
+            </span>
+        </label>
+        <p class="card__text negative__answer"></p>
+    </template>
+    <template id="testCardTemplate">
+        <div class='mdc-card' style="margin-top: 6px; margin-bottom: 8px; background-color: #fff; margin-left: 16px; margin-right: 16px;">
+            <p class="card__text card__task"></p>
+            <div class="card__answers_list"></div>
+            <p class="card__text card__comment"></p>
+            <div class="mdc-card__actions">
+                <div class="mdc-card__action-buttons">
+                    <button class="mdc-button mdc-card__action mdc-card__action--button">
+                        <div class="mdc-button__ripple"></div>
+                        <span class="mdc-button__label">Изменить тест</span>
+                    </button>
+                </div>
+                <div class="mdc-card__action-icons">
+                    <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon">delete</button>
+                    <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon">expand_less</button>
+                    <button class="material-icons mdc-icon-button mdc-card__action mdc-card__action--icon">expand_more</button>
+                </div>
+        </div>
+    </template>
+    <template id="answerEditTemplate">
+        <div class="mdc-card" style="margin-top: 6px; margin-bottom: 8px; background-color: #f0f0f0;">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+                <div class="mdc-form-field" style="flex-shrink: 0; flex-grow: 0;">
+                    <div class="mdc-checkbox">
+                        <input type="checkbox" class="mdc-checkbox__native-control"/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                        <div class="mdc-checkbox__ripple"></div>
+                    </div>
+                </div>
+                <label class="mdc-text-field mdc-text-field--outlined" style="flex-grow: 1; margin: 10px 0 4px 0;">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="answerTextLabel">Текст ответа</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="text" class="mdc-text-field__input" id="answerTextInput" aria-labelledby="answerTextLabel">
+                </label>
+                <button class="mdc-icon-button material-icons" style="flex-shrink: 0; flex-grow: 0;">delete</button>
+            </div>
+        </div>
+    </template>
+    <template id="answerCardPositiveTemplate">
+        <div style="display: flex; flex-direction: row; align-items: center;">
+            <span class="material-icons-answer positive__answer">done</span>
+            <p class="card__text card__answer positive__answer"></p>
+        </div>
+    </template>
+    <template id="answerCardNegativeTemplate">
+        <div style="display: flex; flex-direction: row; align-items: center;">
+            <span class="material-icons-answer negative__answer">clear</span>
+            <p class="card__text card__answer negative__answer"></p>
+        </div>
+    </template>
+    <template id="listItemTemplate">
+        <li class="mdc-list-item">
+            <span class="mdc-list-item__ripple"></span>
+            <span class="mdc-list-item__text"></span>
+        </li>
+    </template>
+    <template id="textinputTemplate">
+        <label class="mdc-text-field mdc-text-field--outlined" style="flex-grow: 1; margin: 10px 0 4px 0; width: 100%;">
+            <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input type="text" class="mdc-text-field__input" aria-label="answerTextLabel">
+        </label>
+        <p class="card__text negative__answer"></p>
+    </template>
+
+    <script type="text/javascript">
+        const EDITOR_MODE = 'tests';
+        const dialog = new mdc.dialog.MDCDialog(document.getElementById('main-dialog'));
+        const dialogTitle = document.getElementById('main-dialog-title');
+        const dialogContent = document.getElementById('main-dialog-content');
+        const selector = '.mdc-button, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
+        const testListMainPage = document.getElementById('testListMainPage');
+        const importButton = document.getElementById('importButton');
+        const saveButton = document.getElementById('saveButton');
+        const linearProgress = document.querySelector('.mdc-linear-progress');
+        const linearProgress1 = new mdc.linearProgress.MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
+        const loadingTemplate = document.getElementById('loadingTemplate');
+        const loadingText = document.getElementById('loadingText');
+        const fab = document.getElementById('fab');
+        menues = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
+            return new mdc.select.MDCSelect(el);
+        });
+        let ripples;
+        let texts;
+
+        const firebaseApi = new FireBaseAPI();
+        let author = 'Kozlov';
+
+        let currentFork = null;
+        let forksArray = [];
+        let currentUnit = null;
+        let currentUnitsArray = [];
+        let currentTestAccount = null;
+        let currentTestArray = [];
+        let currentTestArrayShadow = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setup('upload_file');
+            fab.classList.add('mdc-fab--exited');
+            fab.addEventListener('click', () => {
+                const newTest = TestAccount.CreateEmptyTest(currentUnit.unitId, currentFork.name, currentTestArray.length);
+                currentTestArray.push(newTest);
+                currentTestAccount = newTest;
+                dialog.open();
+                newTest.GetTestEdit();
+            });
+            firebaseApi.readForks(author);
+        });
+
+        function accept(){
+            if(currentTestAccount != null){
+                if(currentTestAccount.SaveTest()){
+                    dialog.close();
+                    while (dialogContent.firstChild) {
+                        dialogContent.removeChild(dialogContent.lastChild);
+                    }
+                    currentTestAccount = null;
+                    TestAccount.ReDrawTests();
+                    saveButton.disabled = false;
+                }
+            }
+            else if(currentUnit != null){
+                if(currentUnit.SaveUnit()){
+                    dialog.close();
+                    while (dialogContent.firstChild) {
+                        dialogContent.removeChild(dialogContent.lastChild);
+                    }
+                }
+            }
+            else if(currentFork != null){
+                if(currentFork.SaveFork()){
+                    dialog.close();
+                    while (dialogContent.firstChild) {
+                        dialogContent.removeChild(dialogContent.lastChild);
+                    }
+                }
+            }
+        }
+
+        function progressToUi(action = '', show = true){
+            if(show){
+                linearProgress.style.display = 'block';
+                loadingTemplate.style.display = 'flex';
+            }
+            else{
+                linearProgress.style.display = 'none';
+                setTimeout(() => {
+                    loadingTemplate.style.display = 'none';
+                }, 2000);
+            }
+            loadingText.innerText = action;
+        }
+
+        function cancel(){
+            while (dialogContent.firstChild) {
+                dialogContent.removeChild(dialogContent.lastChild);
+            }
+            dialog.close();
+        }
+
+        function import_file(){
+            document.getElementById('upload_file').click();
+        }
+
+        function save_file(){
+            firebaseApi.writeTests();
+        }
+
+        function coreSignalHandler(signal, mode = ''){
+            console.log(signal + ' ' + mode);
+            switch(signal){
+                case firebaseApi.Signals.forksLoaded:
+                case firebaseApi.Signals.forksEmpty:
+                    Fork.DrawForks();
+                    break;
+                case firebaseApi.Signals.unitLoaded:
+                case firebaseApi.Signals.unitEmpty:
+                    Unit.DrawUnits();
+                    break;
+                case firebaseApi.Signals.testFinished:
+                    TestAccount.ReDrawTests();
+                    break;
+                case firebaseApi.Signals.testEmpty:
+                    importButton.disabled = false;
+                    fab.classList.remove('mdc-fab--exited');
+                    break;
+                case firebaseApi.Signals.testLoaded:
+                    if(mode == firebaseApi.Mode.read){
+                        TestAccount.ReDrawTests();
+                        importButton.disabled = false;
+                        fab.classList.remove('mdc-fab--exited');
+                    }
+                    break;
+                case firebaseApi.Signals.forksFailed:
+                    firebaseApi.readForks(author);
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

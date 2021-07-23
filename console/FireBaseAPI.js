@@ -5,6 +5,10 @@ class FireBaseAPI{
         testFailed: 'testFailed',
         testEmpty: 'testEmpty',
         testFinished: 'testFinished',
+        presentersLoaded: 'presentersLoaded',
+        presentersFailed: 'presentersFailed',
+        presentersEmpty: 'presentersEmpty',
+        presentersFinished: 'presentersFinished',
         forksLoaded: 'forksLoaded',
         forksFailed: 'forksFailed',
         forksEmpty: 'forksEmpty',
@@ -250,6 +254,135 @@ class FireBaseAPI{
         }
     }
     //#endregion Tests
+
+    //#region Presenters
+    readPresenters(unit){
+        let ref = this.realdatabase.ref('presenters').orderByChild('fork_unitId').equalTo(unit.fork_unitId);
+        ref.get().then((snapshot) => {
+            if(snapshot.exists()){
+                const presentersArray = [];
+                for(let i = 0; i < snapshot.val().length; i++){
+                    presentersArray.push(null);
+                }
+                for(const presenterId in snapshot.val()){
+                    const index = new Number(presentertId.split('@')[0]) - 1;
+                    presentersArray[index] = Presenter.Decode(presenterId, snapshot.val()[presenterId]);
+                }
+                currentPresenterArray = [];
+                currentPresenterArrayShadow = [];
+                for(let i =0; i < presentersArray.length; i++){
+                    currentPresenterArrayShadow.push(presentersArray[i]);
+                    currentPresenterArray.push(presentersArray[i]);
+                }
+                coreSignalHandler(this.Signals.presentersLoaded, this.Mode.read);
+            }
+            else {
+                currentPresenterArray = [];
+                coreSignalHandler(this.Signals.presentersEmpty, this.Mode.read);
+            }
+        }).catch((error) => {
+            console.log(error);
+            currentPresenterArray = [];
+            coreSignalHandler(this.Signals.PresenterFailed, this.Mode.read);
+        })
+    }
+
+    writePresenters(){
+        let lastIndex = 0;
+        for(let i = 0; i < currentPresenterArray.length; i++){
+            const neededIndex = (i + 1).toString() + '@' + currentUnit.fork_unitId;
+            if(currentPresenterArray[i].presenterId != neededIndex){
+                currentPresenterArray[i].presenterId = neededIndex;
+                currentPresenterArray[i].needUpdate = true;
+            }
+            lastIndex = i;
+        }
+        if(currentPresenterArrayShadow.length - 1 > lastIndex){
+            const refs = [];
+            for(let i = lastIndex + 1; i < currentPresenterArrayShadow.length; i++){
+                refs.push('presenters/' + (i + 1).toString() + '@' + currentUnit.fork_unitId)
+            }
+            this.performDbAction(refs, null, this.Action.deleteDb, this.deletePresentersCallback);
+        }
+        else{
+            this.deletePresentersCallback(true);
+        }
+    }
+
+    deletePresentersCallback(success){
+        if(!success){
+            progressToUi('Проблема с удалением тестов', false);
+            coreSignalHandler(this.Signals.presentersFailed, this.Mode.delete);
+        }
+        else{
+            const refs = [];
+            const objects = [];
+            if(currentUnit.presentersCount != currentPresenterArray.length){
+                currentUnit.updatePresentersCount(currentPresenterArray);
+                refs.push('units/' + currentUnit.fork_unitId);
+                objects.push(currentUnit.GetFirebaseObject());
+                refs.push('forks/' + currentFork.name);
+                objects.push(currentFork.GetFirebaseObject());
+            }
+            for(let i = 0; i < currentPresenterArray.length; i++){
+                if(currentPresenterArray[i].needUpdate){
+                    refs.push('presenters/' + currentPresenterArray[i].presenterId);
+                    objects.push(currentPresenterArray[i].GetFirebaseObject());
+                }
+            }
+            this.realdatabase.ref().child('commits').child(this.getDateStamp()).get()
+                .then((snapshot) => {
+                    let addFork = true;
+                    let addUnit = true;
+                    const commitOutArr = [];
+                    const unitText = currentUnit.fork_unitId + "#" + EDITOR_MODE;
+                    if(snapshot.exists()){
+                        const changed = snapshot.val()['changed'];
+                        for(let i = 0; i < changed.length; i++){
+                            if(changed[i] == unitText){
+                                addUnit = false;
+                                addFork = false;
+                            }
+                            if(changed[i] == currentFork.name){
+                                addFork = false;
+                            }
+                            commitOutArr.push(changed[i]);
+                        }
+                    }
+                    if(addFork){
+                        commitOutArr.push(currentFork.name);
+                    }
+                    if(addUnit){
+                        commitOutArr.push(unitText);
+                    }
+                    refs.push('commits/' + this.getDateStamp());
+                    objects.push({changed: commitOutArr});
+                    this.performDbAction(refs, objects, this.Action.writeDb, this.writePresentersCallback);
+                })
+                .catch((error) => {
+                    progressToUi('Проблема с удалением презентеров', false);
+                    coreSignalHandler(this.Signals.presentersFailed, this.Mode.write);                    
+                });
+        }
+    }
+
+    writePresentersCallback(success){
+        if(!success){ 
+            progressToUi('Проблема с записью презентеров', false);
+            coreSignalHandler(this.Signals.presentersFailed, this.Mode.write);
+        }
+        else{
+            currentPresenterArrayShadow = [];
+            saveButton.disabled = true;
+            for(let i = 0; i < currentPresenterArray.length; i++){
+                currentPresenterArray[i].needUpdate = false;
+                currentPresenterArrayShadow.push(currentPresenterArray[i]);
+            }
+            progressToUi('Успешно записаны все презентеры!', false);
+            coreSignalHandler(this.Signals.presentersLoaded, this.Mode.write);
+        }
+    }
+    //#endregion Presenters
 
     performDbAction(refs, objects, action, callback, i = 0){
         switch (action){
