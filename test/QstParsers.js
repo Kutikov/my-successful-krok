@@ -86,7 +86,8 @@ function setup(fileinputId){
                     break;
             }
             currentTestArray = testsArray;
-            firebaseApi.writeTests();
+            TestAccount.ReDrawTests();
+            saveButton.disabled = false;
         }
         fr.readAsArrayBuffer(this.files[0]);
     });

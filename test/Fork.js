@@ -1,5 +1,8 @@
 class Fork{
-
+    static Editor_modes = {
+        tests: 'tests',
+        presenters: 'presenters'
+    }    
     static AddNewModuleString = 'Добавить новый модуль'
     Spec = {
         LECH: "LECH",
@@ -49,6 +52,19 @@ class Fork{
         this.needUpdate = false; 
     }
 
+    GetFirebaseObject(){
+        return {
+            extensionRate: this.extensionRate,
+            extensionVar: this.extensionVar,
+            extensionStage: this.extensionStage,
+            extensionSpec: this.extensionSpec,
+            language: this.language,
+            testCount: this.testCount,
+            author: this.author,
+            isPremium: this.isPremium
+        };
+    }
+
     static Decode(forkId, record){
         const fork = new Fork(forkId, record.author);
         fork.extensionRate = record.extensionRate;
@@ -56,7 +72,7 @@ class Fork{
         fork.extensionStage = record.extensionStage;
         fork.extensionSpec = record.extensionSpec;
         fork.language = record.language;
-        fork.testsCount = record.testsCount;
+        fork.testCount = record.testCount;
         fork.isPremium = record.isPremium;
         fork.needUpdate = false;
         return fork;
@@ -110,9 +126,11 @@ class Fork{
                         saveButton.disabled = true;
                         currentFork = forksArray[i];
                         currentUnit = null;
-                        currentTestArray = [];
-                        while (testListMainPage.firstChild) {
-                            testListMainPage.removeChild(testListMainPage.lastChild);
+                        if(EDITOR_MODE == Fork.Editor_modes.tests){
+                            currentTestArray = [];
+                            while (testListMainPage.firstChild) {
+                                testListMainPage.removeChild(testListMainPage.lastChild);
+                            }
                         }
                         firebaseApi.readUnits(forksArray[i]);
                         break;

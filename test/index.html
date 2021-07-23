@@ -123,6 +123,24 @@
             </div>
         </div>
     </div>
+    <div id="loadingTemplate" style="bottom: 0; top: 0; right: 0; left: 0; position: absolute;background-color: #fff; display: none; align-items: center; flex-direction: row;">
+        <div style="display: flex; width: 100%; align-items: center; flex-direction: column;">
+            <p class="card__text" id="loadingText">Loading...</p>
+            <div style="width: 100%; height: 20px;"></div>
+            <div role="progressbar" style="width: 80%;" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+                <div class="mdc-linear-progress__buffer">
+                  <div class="mdc-linear-progress__buffer-bar"></div>
+                  <div class="mdc-linear-progress__buffer-dots"></div>
+                </div>
+                <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                  <span class="mdc-linear-progress__bar-inner"></span>
+                </div>
+                <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                  <span class="mdc-linear-progress__bar-inner"></span>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <template id="testEditTemplate">
         <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
@@ -240,6 +258,7 @@
     </template>
 
     <script type="text/javascript">
+        const EDITOR_MODE = 'tests';
         const dialog = new mdc.dialog.MDCDialog(document.getElementById('main-dialog'));
         const dialogTitle = document.getElementById('main-dialog-title');
         const dialogContent = document.getElementById('main-dialog-content');
@@ -247,6 +266,10 @@
         const testListMainPage = document.getElementById('testListMainPage');
         const importButton = document.getElementById('importButton');
         const saveButton = document.getElementById('saveButton');
+        const linearProgress = document.querySelector('.mdc-linear-progress');
+        const linearProgress1 = new mdc.linearProgress.MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
+        const loadingTemplate = document.getElementById('loadingTemplate');
+        const loadingText = document.getElementById('loadingText');
         menues = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
             return new mdc.select.MDCSelect(el);
         });
@@ -297,6 +320,20 @@
                     }
                 }
             }
+        }
+
+        function progressToUi(action = '', show = true){
+            if(show){
+                linearProgress.style.display = 'block';
+                loadingTemplate.style.display = 'flex';
+            }
+            else{
+                linearProgress.style.display = 'none';
+                setTimeout(() => {
+                    loadingTemplate.style.display = 'none';
+                }, 2000);
+            }
+            loadingText.innerText = action;
         }
 
         function cancel(){

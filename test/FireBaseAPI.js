@@ -19,6 +19,11 @@ class FireBaseAPI{
         delete: 'delete'
     }
 
+    Action = {
+        writeDb: 'write',
+        deleteDb: 'delete'
+    }
+
     constructor(){
         this.firebaseConfigDamirkut = {
             apiKey: "AIzaSyBKqO5q1O0TB--X0mt-e1bep0jeppC8PYw",
@@ -61,24 +66,15 @@ class FireBaseAPI{
             coreSignalHandler(this.Signals.forksFailed, this.Mode.read);
         })
     }
-
     writeForks(){
         for(let i = 0; i < forksArray.length; i++){
             if(forksArray[i].needUpdate){
-                this.realdatabase.ref('forks/' + forksArray[i].name).set({
-                    extensionRate: forksArray[i].extensionRate,
-                    extensionVar: forksArray[i].extensionVar,
-                    extensionStage: forksArray[i].extensionStage,
-                    extensionSpec: forksArray[i].extensionSpec,
-                    language: forksArray[i].language,
-                    testCount: forksArray[i].testCount,
-                    author: forksArray[i].author,
-                    isPremium: forksArray[i].isPremium
-                }, (error) => {
+                this.realdatabase.ref('forks/' + forksArray[i].name).set(forksArray[i].GetFirebaseObject(), (error) => {
                     if(error){
                         coreSignalHandler(this.Signals.forksLoaded, this.Mode.write);
                     }
                     else{
+                        forksArray[i].needUpdate = false;
                         coreSignalHandler(this.Signals.forksLoaded, this.Mode.write);
                     }
                 });
@@ -112,15 +108,12 @@ class FireBaseAPI{
     writeUnits(){
         for(let i = 0; i < currentUnitsArray.length; i++){
             if(currentUnitsArray[i].needUpdate){
-                this.realdatabase.ref('units/' + currentUnitsArray[i].fork_unitId).set({
-                    unitId: currentUnitsArray[i].unitId,
-                    forkId: currentUnitsArray[i].forkId,
-                    testsCount: currentUnitsArray[i].testsCount
-                }, (error) => {
+                this.realdatabase.ref('units/' + currentUnitsArray[i].fork_unitId).set(currentUnitsArray[i].GetFirebaseObject(), (error) => {
                     if(error){
                         coreSignalHandler(this.Signals.unitLoaded, this.Mode.write);
                     }
                     else{
+                        currentUnitsArray[i].needUpdate = false;
                         coreSignalHandler(this.Signals.unitLoaded, this.Mode.write);
                     }
                 });
@@ -164,51 +157,139 @@ class FireBaseAPI{
     writeTests(){
         let lastIndex = 0;
         for(let i = 0; i < currentTestArray.length; i++){
-            if(i < currentTestArrayShadow.length){
-                if(currentTestArray[i].testId != currentTestArrayShadow[i].testId){
-                    currentTestArray[i].testId = currentTestArrayShadow[i].testId;
-                    currentTestArray[i].needUpdate = true;
-                }
+            const neededIndex = (i + 1).toString() + '@' + currentUnit.fork_unitId;
+            if(currentTestArray[i].testId != neededIndex){
+                currentTestArray[i].testId = neededIndex;
+                currentTestArray[i].needUpdate = true;
             }
             lastIndex = i;
         }
-        if(currentTestArrayShadow.length > lastIndex - 1){
-            currentTestArrayShadow.splice(0, lastIndex);
-            this.deleteTests(currentTestArrayShadow);
-        }
-        for(let i = 0; i < currentTestArray.length; i++){
-            if(currentTestArray[i].needUpdate){
-                this.realdatabase.ref('tests/' + currentTestArray[i].testId).set({
-                    unitId: currentTestArray[i].unitId,
-                    forkId: currentTestArray[i].forkId,
-                    task: currentTestArray[i].task,
-                    comment: currentTestArray[i].comment,
-                    answersTrue: currentTestArray[i].answersTrue,
-                    answersFalse: currentTestArray[i].answersFalse,
-                    fork_unitId: currentTestArray[i].fork_unitId
-                }, (error) => {
-                    if(error){
-                        coreSignalHandler(this.Signals.testFailed, this.Mode.write);
-                    }
-                    else{
-                        currentTestArray[i].needUpdate = false;
-                        if(i == currentTestArray.length - 1){
-                            coreSignalHandler(this.Signals.testLoaded, this.Mode.write);
-                        }
-                    }
-                });
+        if(currentTestArrayShadow.length - 1 > lastIndex){
+            const refs = [];
+            for(let i = lastIndex + 1; i < currentTestArrayShadow.length; i++){
+                refs.push('tests/' + (i + 1).toString() + currentUnit.fork_unitId)
             }
+            this.performDbAction(refs, null, this.Action.deleteDb, this.deleteTestsCallback);
         }
-        currentTestArrayShadow = [];
-        for(let i = 0; i < currentTestArray.length; i++){
-            currentTestArrayShadow.push(currentTestArray[i]);
+        else{
+            this.deleteTestsCallback(true);
         }
     }
 
-    deleteTests(testsToDelete){
-        for(let i = 0; i < testsToDelete.length; i++){
-            this.realdatabase.ref('tests/' + testsToDelete[i].testId).remove();
+    deleteTestsCallback(success){
+        if(!success){
+            progressToUi('Проблема с удалением тестов', false);
+            coreSignalHandler(this.Signals.testFailed, this.Mode.delete);
+        }
+        else{
+            const refs = [];
+            const objects = [];
+            if(currentUnit.testsCount != currentTestArray.length){
+                currentUnit.updateTestsCount(currentTestArray);
+                refs.push('units/' + currentUnit.fork_unitId);
+                objects.push(currentUnit.GetFirebaseObject());
+                refs.push('forks/' + currentFork.name);
+                objects.push(currentFork.GetFirebaseObject());
+            }
+            for(let i = 0; i < currentTestArray.length; i++){
+                if(currentTestArray[i].needUpdate){
+                    refs.push('tests/' + currentTestArray[i].testId);
+                    objects.push(currentTestArray[i].GetFirebaseObject());
+                }
+            }
+            this.realdatabase.ref().child('commits').child(this.getDateStamp()).get()
+                .then((snapshot) => {
+                    let addFork = true;
+                    let addUnit = true;
+                    const commitOutArr = [];
+                    const unitText = currentUnit.fork_unitId + "#" + EDITOR_MODE;
+                    if(snapshot.exists()){
+                        const changed = snapshot.val()['changed'];
+                        for(let i = 0; i < changed.length; i++){
+                            if(changed[i] == unitText){
+                                addUnit = false;
+                                addFork = false;
+                            }
+                            if(changed[i] == currentFork.name){
+                                addFork = false;
+                            }
+                            commitOutArr.push(changed[i]);
+                        }
+                    }
+                    if(addFork){
+                        commitOutArr.push(currentFork.name);
+                    }
+                    if(addUnit){
+                        commitOutArr.push(unitText);
+                    }
+                    refs.push('commits/' + this.getDateStamp());
+                    objects.push({changed: commitOutArr});
+                    this.performDbAction(refs, objects, this.Action.writeDb, this.writeTestsCallback);
+                })
+                .catch((error) => {
+                    coreSignalHandler(this.Signals.testFailed, this.Mode.write);                    
+                });
+        }
+    }
+
+    writeTestsCallback(success){
+        if(!success){ 
+            progressToUi('Проблема с записью тестов', false);
+            coreSignalHandler(this.Signals.testFailed, this.Mode.write);
+        }
+        else{
+            currentTestArrayShadow = [];
+            saveButton.disabled = true;
+            for(let i = 0; i < currentTestArray.length; i++){
+                currentTestArray[i].needUpdate = false;
+                currentTestArrayShadow.push(currentTestArray[i]);
+            }
+            progressToUi('Успешно записаны все тесты!', false);
+            coreSignalHandler(this.Signals.testLoaded, this.Mode.write);
         }
     }
     //#endregion Tests
+
+    performDbAction(refs, objects, action, callback, i = 0){
+        switch (action){
+            case this.Action.writeDb:
+                progressToUi('Записано ' + (Math.round(100 * (i / refs.length))).toString() + "%", true);
+                this.realdatabase.ref(refs[i]).set(objects[i], (error) => {
+                    if(error){
+                        callback.apply(this, [false]);
+                    }
+                    else{
+                        if(i == refs.length - 1){
+                            callback.apply(this, [true]);
+                        }
+                        else{
+                            this.performDbAction(refs, objects, action, callback, i + 1);
+                        }
+                    }
+                });
+                break;
+            case this.Action.deleteDb:
+                progressToUi('Очищено ' + (Math.round(100 * (i / refs.length))).toString() + "%", true);
+                this.realdatabase.ref(refs[i]).remove()
+                    .then(() => {
+                        if(i == refs.length - 1){
+                            callback.apply(this, [true]);
+                        }
+                        else{
+                            this.performDbAction(refs, objects, action, callback, i + 1);
+                        }
+                    })
+                    .catch(() => {
+                        callback.apply(this, [false]);
+                    });
+                break;
+        }
+    }
+
+    getDateStamp(){
+        const date = new Date();
+        return date.getUTCFullYear() + '-' +
+            ('00' + (date.getUTCMonth()+1)).slice(-2) + '-' +
+            ('00' + date.getUTCDate()).slice(-2);
+    }
 }

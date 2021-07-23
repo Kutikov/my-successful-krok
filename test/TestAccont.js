@@ -11,15 +11,16 @@ class TestAccount{
         this.needUpdate = false;
     }
 
-    static GetTestAccount(task, comment, answersTrueL, answersFalseL, fork, unit, i){
-        const testAccount = new TestAccount(unit, fork);
-        testAccount.testId = i.toString() + '@' + testAccount.fork_unitId;
-        testAccount.task = task;
-        testAccount.comment = comment;
-        testAccount.answersTrue = answersTrueL;
-        testAccount.answersFalse = answersFalseL;
-        testAccount.needUpdate = true;
-        return testAccount;
+    GetFirebaseObject(){
+        return {
+            unitId: this.unitId,
+            forkId: this.forkId,
+            task: this.task,
+            comment: this.comment,
+            answersTrue: this.answersTrue,
+            answersFalse: this.answersFalse,
+            fork_unitId: this.fork_unitId
+        };
     }
 
     static Decode(testId, record){
@@ -30,6 +31,17 @@ class TestAccount{
         testAccount.answersTrue = record.answersTrue;
         testAccount.answersFalse = record.answersFalse;
         testAccount.needUpdate = false;
+        return testAccount;
+    }
+
+    static GetTestAccount(task, comment, answersTrueL, answersFalseL, fork, unit, i){
+        const testAccount = new TestAccount(unit, fork);
+        testAccount.testId = i.toString() + '@' + testAccount.fork_unitId;
+        testAccount.task = task;
+        testAccount.comment = comment;
+        testAccount.answersTrue = answersTrueL;
+        testAccount.answersFalse = answersFalseL;
+        testAccount.needUpdate = true;
         return testAccount;
     }
 

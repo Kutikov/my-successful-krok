@@ -1,11 +1,25 @@
 class Unit{
+
+    static Editor_modes = {
+        tests: 'tests',
+        presenters: 'presenters'
+    }
     static AddNewModuleString = 'Добавить новую лекцию'
     constructor(fork, unit){
         this.unitId = unit.replace(' ', 'Ø');
         this.forkId = fork.name.replace(' ', 'Ø');
         this.fork_unitId = this.unitId + '@' + this.forkId;
         this.testsCount = 0;
+        this.unitName = unit.replace('Ø', ' ');
         this.needUpdate = false;
+    }
+
+    GetFirebaseObject(){
+        return {
+            unitId: this.unitId,
+            forkId: this.forkId,
+            testsCount: this.testsCount
+        };
     }
 
     static Decode(fork_unitId, record, fork){
@@ -20,8 +34,8 @@ class Unit{
         this.needUpdate = true;
         const prevCount = this.testsCount;
         this.testsCount = testsArray.length;
-        fork.needUpdate = true;
-        fork.testsCount = fork.testsCount - prevCount + testsArray.length;
+        currentFork.needUpdate = true;
+        currentFork.testCount = currentFork.testCount - prevCount + testsArray.length;
     }
 
     
@@ -56,7 +70,9 @@ class Unit{
                 currentUnit.needUpdate = true;
                 currentUnitsArray.push(currentUnit);
                 firebaseApi.writeUnits();
-                firebaseApi.readTests(currentUnit);
+                if(EDITOR_MODE == Unit.Editor_modes.tests){
+                    firebaseApi.readTests(currentUnit);
+                }
                 Unit.DrawUnits();
                 return true;
             }
@@ -70,17 +86,19 @@ class Unit{
                 for(let i = 0; i < currentUnitsArray.length; i++){
                     if(currentUnitsArray[i].unitId.replace('Ø', ' ') == dropdown.innerText){
                         currentUnit = currentUnitsArray[i];
-                        currentTestArray = [];
-                        while (testListMainPage.firstChild) {
-                            testListMainPage.removeChild(testListMainPage.lastChild);
+                        if(EDITOR_MODE == Unit.Editor_modes.tests){
+                            currentTestArray = [];
+                            while (testListMainPage.firstChild) {
+                                testListMainPage.removeChild(testListMainPage.lastChild);
+                            }
+                            firebaseApi.readTests(currentUnitsArray[i]);
                         }
-                        firebaseApi.readTests(currentUnitsArray[i]);
                         break;
                     }
                 }
             }
             else if(dropdown.innerText == ''){
-                
+
             }
             else{
                 this.CreateUnit();
@@ -92,8 +110,8 @@ class Unit{
         }
         for(let i = 0; i < currentUnitsArray.length; i++){
             const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
-            listItem.querySelector('.mdc-list-item__text').innerText = currentUnitsArray[i].unitId.replace('Ø', ' ');
-            listItem.querySelector('.mdc-list-item').dataset.value = currentUnitsArray[i].unitId.replace('Ø', ' ');
+            listItem.querySelector('.mdc-list-item__text').innerText = currentUnitsArray[i].unitName;
+            listItem.querySelector('.mdc-list-item').dataset.value = currentUnitsArray[i].unitName;
             unitsList.appendChild(listItem);
         }
         const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
