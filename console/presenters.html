@@ -28,8 +28,14 @@
     <script src="Unit.js"></script>
     <script src="Fork.js"></script>
     <script src="FireBaseAPI.js"></script>
-    <script src="tests/TestAccont.js"></script>
-    <script src="tests/QstParsers.js"></script>
+    <script src="presenters/Presenter.js"></script>
+    <script src="presenters/FileP.js"></script>
+    <script src="presenters/ImageP.js"></script>
+    <script src="presenters/InfoCard.js"></script>
+    <script src="presenters/LinkP.js"></script>
+    <script src="presenters/Paragraph.js"></script>
+    <script src="presenters/TestProgram.js"></script>
+    <script src="presenters/VideoP.js"></script>
 </head>
 
 </head>
@@ -136,7 +142,7 @@
                                 <span class="mdc-notched-outline__trailing"></span>
                             </span>
                             <span class="mdc-select__selected-text-container">
-                                <span id="forks-selected-text" class="mdc-select__selected-text"></span>
+                                <span id="type-selected-text" class="mdc-select__selected-text"></span>
                             </span>
                             <span class="mdc-select__dropdown-icon">
                                 <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
@@ -188,12 +194,12 @@
                             <span class="mdc-notched-outline">
                               <span class="mdc-notched-outline__leading"></span>
                               <span class="mdc-notched-outline__notch">
-                                <span class="mdc-floating-label" id="taskEditLabel">Текст вопроса</span>
+                                <span class="mdc-floating-label" id="taskEditLabel">Текст параграфа</span>
                               </span>
                               <span class="mdc-notched-outline__trailing"></span>
                             </span>
                             <span class="mdc-text-field__resizer">
-                              <textarea class="mdc-text-field__input" id="taskEditTextArea" rows="4" cols="100" aria-label="Label" required minlength="3"></textarea>
+                              <textarea class="mdc-text-field__input" id="paragraphEditTextArea" rows="4" cols="100" aria-label="Label" required minlength="3"></textarea>
                             </span>
                         </label>
                         <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
@@ -202,18 +208,9 @@
                             <button id="rt_paragraph" class="mdc-icon-button material-icons" onclick="disableSiblings('rt_paragraph', ['lf_paragraph', 'md_paragraph', 'rt_paragraph', 'jf_paragraph'])">format_align_right</button>
                             <button id="jf_paragraph" class="mdc-icon-button material-icons" onclick="disableSiblings('jf_paragraph', ['lf_paragraph', 'md_paragraph', 'rt_paragraph', 'jf_paragraph'])">format_align_justify</button>
                             <div style="width: 2px; background-color: #bbb; margin: 4px;"></div>
-                            <button id="i_paragraph" class="mdc-icon-button" aria-pressed="true">
-                                <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on toggle_on">format_italic</i>
-                                <i class="material-icons mdc-icon-button__icon">format_italic</i>
-                            </button>
-                            <button id="b_paragraph" class="mdc-icon-button" aria-pressed="true">
-                                <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on toggle_on">format_bold</i>
-                                <i class="material-icons mdc-icon-button__icon">format_bold</i>
-                            </button>
-                            <button id="u_paragraph" class="mdc-icon-button" aria-pressed="true">
-                                <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on toggle_on">format_underlined</i>
-                                <i class="material-icons mdc-icon-button__icon">format_underlined</i>
-                            </button>
+                            <button id="i_paragraph" class="mdc-icon-button material-icons" onclick="disableSiblings('i_paragraph', false)">format_italic</button>
+                            <button id="b_paragraph" class="mdc-icon-button material-icons" onclick="disableSiblings('b_paragraph', false)">format_bold</button>
+                            <button id="u_paragraph" class="mdc-icon-button material-icons" onclick="disableSiblings('u_paragraph', false)">format_underlined</button>
                             <div style="width: 2px; background-color: #bbb; margin: 4px;"></div>
                             <div style="width: 48px; height: 48px;" onclick="openPopup('alignPopupParagraph')">                            
                                 <div id='alignPopupParagraph' style="z-index: 100; display: none; background: #eee; position: absolute; margin-top: -100px; border: 1px #eee solid; border-radius: 4px; box-shadow: #0000006c 0px 1px 4px 1px">
@@ -245,7 +242,6 @@
                                 </div>
                                 <button class="mdc-icon-button material-icons">format_size</button>
                             </div>
-                            
                             <div style="width: 48px; height: 48px;" onclick="openPopup('colorPopupParagraph')">                            
                                 <div id='colorPopupParagraph' style="z-index: 100; display: none; background: #eee; position: absolute; margin-top: -250px; border: 1px #eee solid; border-radius: 4px; box-shadow: #0000006c 0px 1px 4px 1px">
                                     <div style="margin: 8px;width: 24px; height: 24px; flex-shrink: 0; background-color: #e53935;" onclick="selectColor('Red')"></div>
@@ -399,7 +395,6 @@
         let currentPresenterArrayShadow = [];
 
         document.addEventListener('DOMContentLoaded', () => {
-            setup('upload_file');
             fab.classList.add('mdc-fab--exited');
             fab.addEventListener('click', () => {
                 const newPresenter = Presenter.CreateEmptyPresenter(currentUnit.unitId, currentFork.name, currentPresenterArray.length);
@@ -408,12 +403,13 @@
                 dialogEdit.open();
                 newPresenter.GetPresenterEdit();
             });
-            dialogEdit.open();
-            //firebaseApi.readForks(author);
+            firebaseApi.readForks(author);
         });
 
         function selectColor(color){
-            alert(color);
+            if(currentPresenter != null){
+                currentPresenter.OnEditAction(null, color)
+            }
         }
 
         function openPopup(id){
@@ -430,11 +426,19 @@
             if(siblings == null){
                 siblings = ['info_iconSelect', 'add_circle_iconSelect', 'edit_iconSelect', 'notifications_iconSelect','schedule_iconSelect', 'thumb_up_iconSelect','thumb_down_iconSelect', 'verified_iconSelect','school_iconSelect', 'paid_iconSelect', 'warning_iconSelect', 'highlight_off_iconSelect','lightbulb_iconSelect', 'menu_book_iconSelect','today_iconSelect', 'insights_iconSelect','done_outline_iconSelect', 'language_iconSelect', 'poll_iconSelect']
             }
-            document.getElementById(id).classList.add('toggle_on');
-            for(let i = 0; i < siblings.length; i++){
-                if(siblings[i] != id){
-                    document.getElementById(siblings[i]).classList.remove('toggle_on');
+            else if(!siblings){
+                document.getElementById(id).classList.toggle('toggle_on');
+            }
+            else{
+                document.getElementById(id).classList.add('toggle_on');
+                for(let i = 0; i < siblings.length; i++){
+                    if(siblings[i] != id){
+                        document.getElementById(siblings[i]).classList.remove('toggle_on');
+                    }
                 }
+            }
+            if(currentPresenter != null){
+                currentPresenter.OnEditAction(id, null)
             }
         }
 

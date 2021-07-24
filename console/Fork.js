@@ -125,7 +125,6 @@ class Fork{
                 for(let i = 0; i < forksArray.length; i++){
                     if(forksArray[i].name == document.getElementById('forks-selected-text').innerText){
                         document.getElementById('units-selected-text').innerText ='';
-                        importButton.disabled = true;
                         saveButton.disabled = true;
                         fab.classList.add('mdc-fab--exited');
                         currentFork = forksArray[i];

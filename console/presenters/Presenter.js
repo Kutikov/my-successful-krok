@@ -1,6 +1,6 @@
 class Presenter{
 
-    static PresenterType = {
+    static presenterType = {
         file: 'file',
         image: 'image',
         infocard: 'infocard',
@@ -174,18 +174,19 @@ class Presenter{
         return presenter;
     }
 
-    CreateEmptyPresenter(unit, fork, i){
+    static CreateEmptyPresenter(unit, fork, i){
         const presenter = new Presenter(unit, fork);
         presenter.presenterId = i.toString() + '@' + presenter.fork_unitId;
-        presenter.presenterType = Presenter.PresenterType.paragraph;
+        presenter.presenterType = Presenter.presenterType.paragraph;
         presenter.presenterProps = new Paragraph();
         presenter.needUpdate = true;
+        return presenter;
     }
 
     GetPresenterEdit(){
         const contentL = dialogEdit;
-        contentL.querySelector('.mdc-select__selected-text').addEventListener("DOMSubtreeModified", (i) => {
-            this.PrepareEdit(contentL.querySelector('.mdc-select__selected-text').innerText);
+        document.getElementById('type-selected-text').addEventListener("DOMSubtreeModified", (i) => {
+            this.PrepareEdit(document.getElementById('type-selected-text').innerText);
         });
         this.PrepareEdit(this.presenterType);
 
@@ -197,7 +198,42 @@ class Presenter{
         });
     }
 
+    OnEditAction(id = null, message = null){
+        const previewHolder = document.getElementById('previewHolder');
+        switch(this.tempType){
+            case Presenter.presenterType.paragraph:
+                    Paragraph.OnEditAction(this.tempProps, id, message);
+                    Paragraph.Draw(this.tempProps, previewHolder);
+                    break;
+                case Presenter.presenterType.file:
+                    FileP.OnEditAction(this.tempProps, id, message);
+                    FileP.Draw(this.tempProps, previewHolder);
+                    break;
+                case Presenter.presenterType.link:
+                    LinkP.OnEditAction(this.tempProps, id, message);
+                    LinkP.Draw(this.tempProps, previewHolder);
+                    break;
+                case Presenter.presenterType.infocard:
+                    InfoCard.OnEditAction(this.tempProps, id, message);
+                    InfoCard.Draw(this.tempProps, previewHolder);
+                    break;
+                case Presenter.presenterType.video:
+                    VideoP.OnEditAction(this.tempProps, id, message);
+                    VideoP.Draw(this.tempProps, previewHolder);
+                    break;
+                case Presenter.presenterType.testprogram:
+                    TestProgram.OnEditAction(this.tempProps, id, message);
+                    TestProgram.Draw(this.tempProps, previewHolder);
+                    break;
+                case Presenter.presenterType.image:
+                    ImageP.OnEditAction(this.tempProps, id, message);
+                    ImageP.Draw(this.tempProps, previewHolder);
+                    break;
+        }
+    }
+
     PrepareEdit(type, contentL){
+        const previewHolder = document.getElementById('previewHolder');
         this.tempType = type;
         if(type == this.presenterType){
             this.tempProps = JSON.parse(JSON.stringify(this.presenterProps));
@@ -231,24 +267,31 @@ class Presenter{
         switch(type){
             case Presenter.presenterType.paragraph:
                 Paragraph.PrepareEdit(props, contentL);
+                Paragraph.Draw(props, previewHolder);
                 break;
             case Presenter.presenterType.file:
                 FileP.PrepareEdit(props, contentL);
+                FileP.Draw(props, previewHolder);
                 break;
             case Presenter.presenterType.link:
                 LinkP.PrepareEdit(props, contentL);
+                LinkP.Draw(props, previewHolder);
                 break;
             case Presenter.presenterType.infocard:
                 InfoCard.PrepareEdit(props, contentL);
+                InfoCard.Draw(props, previewHolder);
                 break;
             case Presenter.presenterType.video:
                 VideoP.PrepareEdit(props, contentL);
+                VideoP.Draw(props, previewHolder);
                 break;
             case Presenter.presenterType.testprogram:
                 TestProgram.PrepareEdit(props, contentL);
+                TestProgram.Draw(props, previewHolder);
                 break;
             case Presenter.presenterType.image:
                 ImageP.PrepareEdit(props, contentL);
+                ImageP.Draw(props, previewHolder);
                 break;
         }
     }

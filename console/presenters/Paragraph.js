@@ -11,6 +11,12 @@ class Paragraph{
         b_i_u: 'b_i_u',
     }
 
+    static TextList = {
+        ol: 'ol',
+        nl: 'nl',
+        ul: 'ul'
+    }
+
     static TextSize = {
         xs: 'xs',
         s: 's',
@@ -42,22 +48,141 @@ class Paragraph{
     }
 
     constructor(){
-        this.text = '';
+        this.text = 'Enter text there';
         this.textStyle = Paragraph.TextStyle.n;
         this.textSize = Paragraph.TextSize.m;
-        this.textColor = Paragraph.TextColor.Grey;
+        this.textColor = Paragraph.TextColor.Black;
         this.textAlign = Paragraph.TextAlign.jf;
+        this.textList = Paragraph.TextList.nl;
     }
 
     static PrepareEdit(props, contentL){
-
+        document.getElementById('paragraphEditTextArea').innerText = props.text;
+        document.getElementById(props.textSize + '_paragraph').click();
+        document.getElementById(props.textSize + '_paragraph').click();
+        document.getElementById(props.textAlign + '_paragraph').click();
+        document.getElementById(props.textList + '_paragraph').click();
+        document.getElementById(props.textList + '_paragraph').click();
+        if(props.textStyle.includes('b')){
+            document.getElementById('b_paragraph').click();
+        }
+        if(props.textStyle.includes('i')){
+            document.getElementById('i_paragraph').click();
+        }
+        if(props.textStyle.includes('u')){
+            document.getElementById('u_paragraph').click();
+        }
     }
 
     static Save(presenter){
 
     }
 
+    static OnEditAction(tempProps, id = null, message = null){
+        tempProps.text = document.getElementById('paragraphEditTextArea').value;
+        const workingIds = [
+            ['lf_paragraph', 'md_paragraph', 'rt_paragraph', 'jf_paragraph'],
+            ['xl_paragraph', 'l_paragraph', 'm_paragraph', 's_paragraph', 'xs_paragraph'],
+            ['nl_paragraph', 'ol_paragraph', 'ul_paragraph'],
+            ['i_paragraph', 'b_paragraph', 'u_paragraph'],
+            ['info_iconSelect', 'add_circle_iconSelect', 'edit_iconSelect', 'notifications_iconSelect','schedule_iconSelect', 'thumb_up_iconSelect','thumb_down_iconSelect', 'verified_iconSelect','school_iconSelect', 'paid_iconSelect', 'warning_iconSelect', 'highlight_off_iconSelect','lightbulb_iconSelect', 'menu_book_iconSelect','today_iconSelect', 'insights_iconSelect','done_outline_iconSelect', 'language_iconSelect', 'poll_iconSelect']
+        ];
+        if(id !== null){
+            for(let i = 0; i < workingIds.length; i++){
+                if(workingIds[i].indexOf(id) !== -1){
+                    switch(i){
+                        case 0:
+                            tempProps.textAlign = id.replace('_paragraph', '');
+                            break;
+                        case 1:
+                            tempProps.textSize = id.replace('_paragraph','');
+                            break;
+                        case 2:
+                            tempProps.textList = id.replace('_paragraph', '');
+                            break;
+                        case 3:
+                            const u = document.getElementById('u_paragraph').classList.contains('toggle_on');
+                            const i = document.getElementById('i_paragraph').classList.contains('toggle_on');
+                            const b = document.getElementById('b_paragraph').classList.contains('toggle_on');
+                            if(u && i && b){
+                                tempProps.textStyle = Paragraph.TextStyle.b_i_u;
+                            }
+                            else if(u && i){
+                                tempProps.textStyle = Paragraph.TextStyle.i_u;
+                            }
+                            else if(i && b){
+                                tempProps.textStyle = Paragraph.TextStyle.b_i;
+                            }
+                            else if(u && b){
+                                tempProps.textStyle = Paragraph.TextStyle.b_u;
+                            }
+                            else if(b){
+                                tempProps.textStyle = Paragraph.TextStyle.b;
+                            }
+                            else if(u){
+                                tempProps.textStyle = Paragraph.TextStyle.u;
+                            }
+                            else if(i){                                
+                                tempProps.textStyle = Paragraph.TextStyle.i;
+                            }
+                            else{
+                                tempProps.textStyle = Paragraph.TextStyle.n;
+                            }
+                            break;
+                    }
+                    break;
+                }
+            }
+        }
+        else if(message !== null){
+            tempProps.textColor = message;
+        }
+    }
+
     static Draw(props, contentL){
-        
+        while (contentL.firstChild) {
+            contentL.removeChild(contentL.lastChild);
+        }
+        const elements = [];
+        const strings = props.text.split('\n');
+        let rootElement;
+        switch(props.textList){
+            case Paragraph.TextList.nl:
+                rootElement = document.createElement('div');
+                break; 
+            case Paragraph.TextList.ul:
+                rootElement = document.createElement('ul');
+                break;                    
+            case Paragraph.TextList.ol:
+                rootElement = document.createElement('ol');
+                break;                    
+        }
+        for(let i = 0; i < strings.length; i++){
+            let elem;
+            switch(props.textList){
+                case Paragraph.TextList.nl:
+                    elem = document.createElement('p');
+                    elem.innerText = strings[i];
+                    elements.push(elem);
+                    break; 
+                case Paragraph.TextList.ul:
+                case Paragraph.TextList.ol:
+                    elem = document.createElement('li');
+                    elem.innerText = strings[i];
+                    elements.push(elem);
+                    break;                    
+            }
+        }
+        rootElement.style.boxSizing = 'border-box';
+        rootElement.style.margin = '0';
+        for(let i = 0; i < elements.length; i++){
+            elements[i].classList.add('par__text');
+            elements[i].classList.add('par__textStyle_' + props.textStyle);
+            elements[i].classList.add('par__textAlign_' + props.textAlign);
+            elements[i].classList.add('par__color_' + props.textColor);
+            elements[i].classList.add('par__size_' + props.textSize);
+            rootElement.appendChild(elements[i]);
+        }
+        contentL.appendChild(rootElement);
     }
 }
