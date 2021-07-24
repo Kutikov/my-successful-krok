@@ -96,7 +96,6 @@
                     <i class="material-icons mdc-button__icon" aria-hidden="true">save</i>
                     <span class="mdc-button__label">Сохранить</span>
                 </button>
-                <input type="file" id="upload_file" style="width: 0px;" accept=".qst">
             </div>
             
         </div>
@@ -370,6 +369,59 @@
                             </div>
                         </div>
                     </div>
+                    <div id="fileEditorHolder" style="width: 100%;">
+                        <div style="width: 100%; display: flex; flex-direction: row; flex-wrap: wrap;">
+                            <button class="mdc-button mdc-button--raised" id="fileUploadButton" style="margin-right:16px;" onclick="uploadFile();">
+                                <span class="mdc-button__ripple"></span>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">attach_file</i>
+                                <span class="mdc-button__label">Выбрать</span>
+                            </button>
+                            <input type="file" id="upload_file" style="width: 0px;" accept=".pdf">
+                            <div class="mdc-form-field" style="flex-grow: 1; flex-shrink: 1;">
+                                <div class="mdc-checkbox">
+                                  <input type="checkbox"
+                                         class="mdc-checkbox__native-control"
+                                         id="checkboxLockerFile"/>
+                                  <div class="mdc-checkbox__background">
+                                    <svg class="mdc-checkbox__checkmark"
+                                         viewBox="0 0 24 24">
+                                      <path class="mdc-checkbox__checkmark-path"
+                                            fill="none"
+                                            d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                    </svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="checkboxLockerFile">Блокировать, пока не открыт</label>
+                            </div>
+                        </div>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 16px;">
+                            <span class="mdc-notched-outline">
+                              <span class="mdc-notched-outline__leading"></span>
+                              <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="task4EditLabel">Название файла</span>
+                              </span>
+                              <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                              <textarea class="mdc-text-field__input" id="fileTextEditTextArea" rows="1" cols="100" aria-label="Label" required minlength="3"></textarea>
+                            </span>
+                        </label>
+                        <p class="card__text" id="loadingFileText" style="margin-bottom: 16px;display: none;">Loading...</p>
+                        <div role="progressbar" id="loadingFileProgress" style="width: 100%;display: none;" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+                            <div class="mdc-linear-progress__buffer">
+                                <div class="mdc-linear-progress__buffer-bar"></div>
+                                <div class="mdc-linear-progress__buffer-dots"></div>
+                            </div>
+                            <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                                <span class="mdc-linear-progress__bar-inner"></spa>
+                            </div>
+                            <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                                <span class="mdc-linear-progress__bar-inner"></span>
+                            </div>
+                        </div>
+                    </div>
                     <h4 style="margin-top: 8px; margin-bottom: 8px;">Превью</h4>
                     <div id="previewHolder"></div>
 
@@ -488,6 +540,10 @@
 
         function uploadImage(){
             document.getElementById('upload_image').click();
+        }
+
+        function uploadFile(){
+            document.getElementById('upload_file').click();
         }
 
         function selectColor(color){

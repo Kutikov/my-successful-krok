@@ -238,6 +238,7 @@ class Presenter{
         document.getElementById('linkEditorHolder').style.display = 'none';
         document.getElementById('paragraphEditorHolder').style.display = 'none';
         document.getElementById('imageEditorHolder').style.display = 'none';
+        document.getElementById('fileEditorHolder').style.display = 'none';
 
 
         this.tempType = type;

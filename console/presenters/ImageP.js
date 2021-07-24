@@ -3,10 +3,9 @@ class ImageP{
     constructor(){
         this.imageUrl = '';
         this.imageSubscription = '';
-        this.hyperName = (Math.round(Math.random() * 1000000000)).toString()
+        this.hyperName = (Math.round(Math.random() * 1000000000)).toString();
         this.isInvertable = false;
         this.tempFileLink = null;
-        this.isLoading = false; 
     }
 
     static PrepareEdit(props, contentL){
@@ -81,7 +80,7 @@ class ImageP{
     }
 
     static Save(presenter){
-        return presenter.tempProps.imageUrl == '';
+        return presenter.tempProps.imageUrl != '';
     }
 
     static Draw(props, contentL){
