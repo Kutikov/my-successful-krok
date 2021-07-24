@@ -19,7 +19,8 @@ class InfoCard{
         insights: 'insights',
         done_outline: 'done_outline',
         language: 'language',
-        poll: 'poll'
+        poll: 'poll',
+        copyright: 'copyright'
     }
 
     constructor(){
@@ -35,11 +36,11 @@ class InfoCard{
     static PrepareEdit(props, contentL){
         Paragraph.PrepareEdit(props, contentL);
         document.getElementById('iconsEditorHolder').style.display = 'block';
+        document.getElementById(tempProps.icon + '_iconSelect').click();
     }
 
     static OnEditAction(tempProps, id = null, message = null){
         Paragraph.OnEditAction(tempProps, id, message);
-        document.getElementById(tempProps.icon + '_iconSelect').click();
     }
 
     static Save(presenter){
@@ -62,5 +63,38 @@ class InfoCard{
         card.appendChild(icon);
         card.appendChild(textElement);
         contentL.appendChild(card);
+    }
+
+    static FillIcons(){
+        const iconsHolderTrue = document.getElementById('iconsHolderTrue');
+        const icons = InfoCard.generateArrayOfIcons();
+        const iconIds = InfoCard.GetListOfIds();
+        for(let i = 0; i < iconIds.length; i++){
+            const button = document.createElement('button');
+            button.id = iconIds[i];
+            button.classList.add('mdc-icon-button');
+            button.classList.add('material-icons');
+            button.innerText = icons[i];
+            button.onclick = function(){
+                disableSiblings(iconIds[i]);
+            }
+            iconsHolderTrue.appendChild(button);
+        }
+    }
+
+    static GetListOfIds(){
+        const arr = InfoCard.generateArrayOfIcons();
+        for(let i = 0; i < arr.length; i++){
+            arr[i] = arr[i] + '_iconSelect';
+        }
+        return arr;
+    }
+
+    static generateArrayOfIcons(){
+        const arr = [];
+        for(let icon in InfoCard.Icons){
+            arr.push(InfoCard.Icons[icon]);
+        }
+        return arr;
     }
 }

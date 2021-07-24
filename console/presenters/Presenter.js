@@ -233,6 +233,12 @@ class Presenter{
 
     PrepareEdit(type, contentL){
         const previewHolder = document.getElementById('previewHolder');
+        
+        document.getElementById('iconsEditorHolder').style.display = 'none';
+        document.getElementById('linkEditorHolder').style.display = 'none';
+        document.getElementById('paragraphEditorHolder').style.display = 'none';
+
+
         this.tempType = type;
         if(type == this.presenterType){
             this.tempProps = JSON.parse(JSON.stringify(this.presenterProps));

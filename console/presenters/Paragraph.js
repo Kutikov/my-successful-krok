@@ -58,9 +58,10 @@ class Paragraph{
 
     static PrepareEdit(props, contentL){
         document.getElementById('paragraphEditorHolder').style.display = 'block';
-        document.getElementById('iconsEditorHolder').style.display = 'none';
-
         document.getElementById('paragraphEditTextArea').innerText = props.text;
+        document.getElementById('paragraphEditTextArea').addEventListener('input', function() {
+            currentPresenter.OnEditAction(null, null);
+        });
         document.getElementById(props.textSize + '_paragraph').click();
         document.getElementById(props.textSize + '_paragraph').click();
         document.getElementById(props.textAlign + '_paragraph').click();
@@ -87,9 +88,9 @@ class Paragraph{
             ['lf_paragraph', 'md_paragraph', 'rt_paragraph', 'jf_paragraph'],
             ['xl_paragraph', 'l_paragraph', 'm_paragraph', 's_paragraph', 'xs_paragraph'],
             ['nl_paragraph', 'ol_paragraph', 'ul_paragraph'],
-            ['i_paragraph', 'b_paragraph', 'u_paragraph'],
-            ['info_iconSelect', 'add_circle_iconSelect', 'edit_iconSelect', 'notifications_iconSelect','schedule_iconSelect', 'thumb_up_iconSelect','thumb_down_iconSelect', 'verified_iconSelect','school_iconSelect', 'paid_iconSelect', 'warning_iconSelect', 'highlight_off_iconSelect','lightbulb_iconSelect', 'menu_book_iconSelect','today_iconSelect', 'insights_iconSelect','done_outline_iconSelect', 'language_iconSelect', 'poll_iconSelect']
+            ['i_paragraph', 'b_paragraph', 'u_paragraph']
         ];
+        workingIds.push(InfoCard.GetListOfIds());
         if(id !== null){
             for(let i = 0; i < workingIds.length; i++){
                 if(workingIds[i].indexOf(id) !== -1){

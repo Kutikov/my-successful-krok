@@ -271,27 +271,51 @@
                     </div>
                     <div id="iconsEditorHolder" style="width:100%">
                         <h4 style="margin-top: 8px; margin-bottom: 0px;">Выберите иконку</h4>
-                        <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;">
-                            <button id="info_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('info_iconSelect')">info</button>
-                            <button id="add_circle_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('add_circle_iconSelect')">add_circle</button>
-                            <button id="edit_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('edit_iconSelect')">edit</button>
-                            <button id="notifications_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('notifications_iconSelect')">notifications_active</button>
-                            <button id="schedule_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('schedule_iconSelect')">schedule</button>
-                            <button id="thumb_up_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('thumb_up_iconSelect')">thumb_up</button>
-                            <button id="thumb_down_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('thumb_down_iconSelect')">thumb_down</button>
-                            <button id="verified_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('verified_iconSelect')">verified</button>
-                            <button id="school_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('school_iconSelect')">school</button>
-                            <button id="paid_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('paid_iconSelect')">paid</button>
-                            <button id="warning_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('warning_iconSelect')">warning</button>
-                            <button id="highlight_off_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('highlight_off_iconSelect')">highlight_off</button>
-                            <button id="lightbulb_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('lightbulb_iconSelect')">lightbulb</button>
-                            <button id="menu_book_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('menu_book_iconSelect')">menu_book</button>
-                            <button id="today_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('today_iconSelect')">today</button>
-                            <button id="insights_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('insights_iconSelect')">insights</button>
-                            <button id="done_outline_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('done_outline_iconSelect')">done_outline</button>
-                            <button id="language_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('language_iconSelect')">language</button>
-                            <button id="poll_iconSelect" class="mdc-icon-button material-icons" onclick="disableSiblings('poll_iconSelect')">poll</button>
-                        </div>
+                        <div id="iconsHolderTrue" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;"></div>
+                    </div>
+                    <div id="linkEditorHolder" style="width: 100%;">
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 16px;">
+                            <span class="mdc-notched-outline">
+                              <span class="mdc-notched-outline__leading"></span>
+                              <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="task2EditLabel">Текст-описание ссылки</span>
+                              </span>
+                              <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                              <textarea class="mdc-text-field__input" id="linkTextEditTextArea" rows="1" cols="100" aria-label="Label" required minlength="3"></textarea>
+                            </span>
+                        </label>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 16px;">
+                            <span class="mdc-notched-outline">
+                              <span class="mdc-notched-outline__leading"></span>
+                              <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="task2EditLabel">URL ссылки</span>
+                              </span>
+                              <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                              <textarea class="mdc-text-field__input" id="linkUrlEditTextArea" rows="1" cols="100" aria-label="Label" required minlength="3"></textarea>
+                            </span>
+                        </label>
+                        <div class="mdc-form-field">
+                            <div class="mdc-checkbox">
+                              <input type="checkbox"
+                                     class="mdc-checkbox__native-control"
+                                     id="checkboxLockUrl"/>
+                              <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark"
+                                     viewBox="0 0 24 24">
+                                  <path class="mdc-checkbox__checkmark-path"
+                                        fill="none"
+                                        d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                              </div>
+                              <div class="mdc-checkbox__ripple"></div>
+                            </div>
+                            <label for="checkboxLockUrl">Блокировать все ниже без предосмотра ссылки</label>
+                          </div>
                     </div>
                     <h4 style="margin-top: 8px; margin-bottom: 8px;">Превью</h4>
                     <div id="previewHolder"></div>
@@ -396,6 +420,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             fab.classList.add('mdc-fab--exited');
+            InfoCard.FillIcons();
             fab.addEventListener('click', () => {
                 const newPresenter = Presenter.CreateEmptyPresenter(currentUnit.unitId, currentFork.name, currentPresenterArray.length);
                 currentPresenterArray.push(newPresenter);
@@ -424,7 +449,7 @@
 
         function disableSiblings(id, siblings = null){
             if(siblings == null){
-                siblings = ['info_iconSelect', 'add_circle_iconSelect', 'edit_iconSelect', 'notifications_iconSelect','schedule_iconSelect', 'thumb_up_iconSelect','thumb_down_iconSelect', 'verified_iconSelect','school_iconSelect', 'paid_iconSelect', 'warning_iconSelect', 'highlight_off_iconSelect','lightbulb_iconSelect', 'menu_book_iconSelect','today_iconSelect', 'insights_iconSelect','done_outline_iconSelect', 'language_iconSelect', 'poll_iconSelect']
+                siblings = InfoCard.GetListOfIds();
             }
             if(!siblings){
                 document.getElementById(id).classList.toggle('toggle_on');
