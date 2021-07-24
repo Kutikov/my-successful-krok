@@ -19,7 +19,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -317,6 +317,59 @@
                             <label for="checkboxLockUrl">Блокировать все ниже без предосмотра ссылки</label>
                           </div>
                     </div>
+                    <div id="imageEditorHolder" style="width: 100%;">
+                        <div style="width: 100%; display: flex; flex-direction: row; flex-wrap: wrap;">
+                            <button class="mdc-button mdc-button--raised" id="imageUploadButton" style="margin-right:16px;" onclick="uploadImage();">
+                                <span class="mdc-button__ripple"></span>
+                                <i class="material-icons mdc-button__icon" aria-hidden="true">add_photo_alternate</i>
+                                <span class="mdc-button__label">Выбрать</span>
+                            </button>
+                            <input type="file" id="upload_image" style="width: 0px;" accept="image/*">
+                            <div class="mdc-form-field" style="flex-grow: 1; flex-shrink: 1;">
+                                <div class="mdc-checkbox">
+                                  <input type="checkbox"
+                                         class="mdc-checkbox__native-control"
+                                         id="checkboxInvertImage"/>
+                                  <div class="mdc-checkbox__background">
+                                    <svg class="mdc-checkbox__checkmark"
+                                         viewBox="0 0 24 24">
+                                      <path class="mdc-checkbox__checkmark-path"
+                                            fill="none"
+                                            d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                    </svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                  </div>
+                                  <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="checkboxInvertImage">Инвертировать в темной теме</label>
+                            </div>
+                        </div>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 16px;">
+                            <span class="mdc-notched-outline">
+                              <span class="mdc-notched-outline__leading"></span>
+                              <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="task3EditLabel">Подпись рисунка</span>
+                              </span>
+                              <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                              <textarea class="mdc-text-field__input" id="imageTextEditTextArea" rows="1" cols="100" aria-label="Label"></textarea>
+                            </span>
+                        </label>
+                        <p class="card__text" id="loadingImageText" style="margin-bottom: 16px;display: none;">Loading...</p>
+                        <div role="progressbar" id="loadingImageProgress" style="width: 100%;display: none;" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+                            <div class="mdc-linear-progress__buffer">
+                                <div class="mdc-linear-progress__buffer-bar"></div>
+                                <div class="mdc-linear-progress__buffer-dots"></div>
+                            </div>
+                            <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                                <span class="mdc-linear-progress__bar-inner"></spa>
+                            </div>
+                            <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                                <span class="mdc-linear-progress__bar-inner"></span>
+                            </div>
+                        </div>
+                    </div>
                     <h4 style="margin-top: 8px; margin-bottom: 8px;">Превью</h4>
                     <div id="previewHolder"></div>
 
@@ -332,7 +385,7 @@
         <div style="display: flex; width: 100%; align-items: center; flex-direction: column;">
             <p class="card__text" id="loadingText">Loading...</p>
             <div style="width: 100%; height: 20px;"></div>
-            <div role="progressbar" style="width: 80%;" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+            <div role="progressbar" style="width: 80%;" id="loadingLinearProgress" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
                 <div class="mdc-linear-progress__buffer">
                   <div class="mdc-linear-progress__buffer-bar"></div>
                   <div class="mdc-linear-progress__buffer-dots"></div>
@@ -390,8 +443,7 @@
         const selector = '.mdc-button, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
         const testListMainPage = document.getElementById('testListMainPage');
         const saveButton = document.getElementById('saveButton');
-        const linearProgress = document.querySelector('.mdc-linear-progress');
-        const linearProgress1 = new mdc.linearProgress.MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
+        const linearProgress = document.getElementById('loadingLinearProgress');
         const loadingTemplate = document.getElementById('loadingTemplate');
         const loadingText = document.getElementById('loadingText');
         const fab = document.getElementById('fab');
@@ -403,6 +455,9 @@
         });
         toggles = [].map.call(document.querySelectorAll('.mdc-icon-button'), function(el) {
             return new mdc.iconButton.MDCIconButtonToggle(el);
+        });
+        progresses = [].map.call(document.querySelectorAll('.mdc-linear-progress'), function(el) {
+            return new mdc.linearProgress.MDCLinearProgress(el);
         });
         let ripples;
         let texts;
@@ -430,6 +485,10 @@
             });
             firebaseApi.readForks(author);
         });
+
+        function uploadImage(){
+            document.getElementById('upload_image').click();
+        }
 
         function selectColor(color){
             if(currentPresenter != null){
