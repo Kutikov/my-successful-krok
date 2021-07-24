@@ -177,6 +177,11 @@
     font-weight: normal;
     text-decoration: none;
 }
+.par__textStyle_u{
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: underline;
+}
 .par__textStyle_b_u{
     font-style: normal;
     font-weight: bold;
@@ -213,6 +218,9 @@
     flex-grow: 0;
     flex-shrink: 0;
     margin-right: 8px;
+    margin-top: 0px;
+    align-self: center;
+    margin-bottom: 0px;
 }
 
 .infocard__text{
@@ -221,50 +229,50 @@
 }
 
 .infocard__color_Red{
-    color: red;
-    background-color: #eee;
+    color: #b71c1c;
+    background-color: #ffbcaf;
 }
 .infocard__color_Pink{
-    color: red;
-    background-color: #eee;
+    color: #880e4f;
+    background-color: #ffb2dd;
 }
 .infocard__color_Purple{
-    color: red;
-    background-color: #eee;
+    color: #4a148c;
+    background-color: #e1bee7;
 }
 .infocard__color_Indigo{
-    color: red;
-    background-color: #eee;
+    color: #1a237e;
+    background-color: #c0cfff;
 }
 .infocard__color_Light_Blue{
-    color: red;
-    background-color: #eee;
+    color: #01579b;
+    background-color: #b3e5fc;
 }
 .infocard__color_Teal{
-    color: red;
-    background-color: #eee;
+    color: #004d40;
+    background-color: #b2dfdb;
 }
 .infocard__color_Green{
-    color: red;
-    background-color: #eee;
+    color: #1b5e20;
+    background-color: #a5d6a7;
 }
 .infocard__color_Lime{
-    color: red;
-    background-color: #eee;
+    color: #827717;
+    background-color: #e6ee9c;
 }
 .infocard__color_Yellow{
-    color: red;
-    background-color: #eee;
+    color: #f57f17;
+    background-color: #ffffbf;
 }
 .infocard__color_Orange{
-    color: red;
-    background-color: #eee;
+    color: #dd2c00;
+    background-color: #ffcc80;
 }
 .infocard__color_Blue_Grey{
-    color: red;
-    background-color: #eee;
+    color: #37474f;
+    background-color: #cfd8dc;
 }
 .infocard__color_Black{
-    color: red;
-    background-color: #eee;
+    color: #424242;
+    background-color: #c2c2c2;
 }

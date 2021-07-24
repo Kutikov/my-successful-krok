@@ -23,23 +23,44 @@ class InfoCard{
     }
 
     constructor(){
-        this.text = '';
+        this.text = 'Enter text there';
         this.icon = InfoCard.Icons.info;
         this.textStyle = Paragraph.TextStyle.n;
         this.textSize = Paragraph.TextSize.m;
-        this.textColor = Paragraph.TextColor.Grey;
+        this.textColor = Paragraph.TextColor.Blue_Grey;
         this.textAlign = Paragraph.TextAlign.jf;
+        this.textList = Paragraph.TextList.nl;
     }
 
     static PrepareEdit(props, contentL){
+        Paragraph.PrepareEdit(props, contentL);
+        document.getElementById('iconsEditorHolder').style.display = 'block';
+    }
 
+    static OnEditAction(tempProps, id = null, message = null){
+        Paragraph.OnEditAction(tempProps, id, message);
+        document.getElementById(tempProps.icon + '_iconSelect').click();
     }
 
     static Save(presenter){
-
+        return presenter.tempProps.text == '';
     }
 
     static Draw(props, contentL){
-        
+        while (contentL.firstChild) {
+            contentL.removeChild(contentL.lastChild);
+        }
+        const card = document.createElement('div');
+        const textElement = Paragraph.DrawCommon(props, false);
+        const icon = document.createElement('p');
+        card.classList.add('infocard');
+        card.classList.add('infocard__color_' + props.textColor);
+        icon.innerText = props.icon;
+        icon.classList.add('material-icons');
+        icon.classList.add('infocard__icon');
+        textElement.classList.add('infocard__text');
+        card.appendChild(icon);
+        card.appendChild(textElement);
+        contentL.appendChild(card);
     }
 }

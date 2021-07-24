@@ -57,6 +57,9 @@ class Paragraph{
     }
 
     static PrepareEdit(props, contentL){
+        document.getElementById('paragraphEditorHolder').style.display = 'block';
+        document.getElementById('iconsEditorHolder').style.display = 'none';
+
         document.getElementById('paragraphEditTextArea').innerText = props.text;
         document.getElementById(props.textSize + '_paragraph').click();
         document.getElementById(props.textSize + '_paragraph').click();
@@ -75,7 +78,7 @@ class Paragraph{
     }
 
     static Save(presenter){
-
+        return presenter.tempProps.text == '';
     }
 
     static OnEditAction(tempProps, id = null, message = null){
@@ -129,6 +132,9 @@ class Paragraph{
                                 tempProps.textStyle = Paragraph.TextStyle.n;
                             }
                             break;
+                        case 4:
+                            tempProps.icon = id.replace('_iconSelect', '');
+                            break;
                     }
                     break;
                 }
@@ -143,6 +149,11 @@ class Paragraph{
         while (contentL.firstChild) {
             contentL.removeChild(contentL.lastChild);
         }
+        const rootElement = Paragraph.DrawCommon(props, true);
+        contentL.appendChild(rootElement);
+    }
+
+    static DrawCommon(props, forParagraph){
         const elements = [];
         const strings = props.text.split('\n');
         let rootElement;
@@ -179,10 +190,12 @@ class Paragraph{
             elements[i].classList.add('par__text');
             elements[i].classList.add('par__textStyle_' + props.textStyle);
             elements[i].classList.add('par__textAlign_' + props.textAlign);
-            elements[i].classList.add('par__color_' + props.textColor);
+            if(forParagraph){
+                elements[i].classList.add('par__color_' + props.textColor);
+            }
             elements[i].classList.add('par__size_' + props.textSize);
             rootElement.appendChild(elements[i]);
         }
-        contentL.appendChild(rootElement);
+        return rootElement;
     }
 }

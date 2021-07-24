@@ -426,7 +426,7 @@
             if(siblings == null){
                 siblings = ['info_iconSelect', 'add_circle_iconSelect', 'edit_iconSelect', 'notifications_iconSelect','schedule_iconSelect', 'thumb_up_iconSelect','thumb_down_iconSelect', 'verified_iconSelect','school_iconSelect', 'paid_iconSelect', 'warning_iconSelect', 'highlight_off_iconSelect','lightbulb_iconSelect', 'menu_book_iconSelect','today_iconSelect', 'insights_iconSelect','done_outline_iconSelect', 'language_iconSelect', 'poll_iconSelect']
             }
-            else if(!siblings){
+            if(!siblings){
                 document.getElementById(id).classList.toggle('toggle_on');
             }
             else{

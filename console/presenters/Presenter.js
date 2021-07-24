@@ -184,12 +184,11 @@ class Presenter{
     }
 
     GetPresenterEdit(){
-        const contentL = dialogEdit;
-        document.getElementById('type-selected-text').addEventListener("DOMSubtreeModified", (i) => {
-            this.PrepareEdit(document.getElementById('type-selected-text').innerText);
+        const typeSelector = document.getElementById('type-selected-text');
+        typeSelector.addEventListener("DOMSubtreeModified", (i) => {
+            this.PrepareEdit(typeSelector.innerText);
         });
-        this.PrepareEdit(this.presenterType);
-
+        typeSelector.innerText = this.presenterType;
         texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
             return new mdc.textField.MDCTextField(el);
         });
