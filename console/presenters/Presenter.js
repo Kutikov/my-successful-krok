@@ -48,27 +48,28 @@ class Presenter{
         const contentL = document.getElementById('testCardTemplate').content.cloneNode(true);
         const image_actions = contentL.querySelectorAll('.mdc-card__action--icon')
         contentL.querySelector('.mdc-card').id = id;
+        const holder = contentL.querySelector('.card__presenter_holder');
         switch(this.presenterType){
             case Presenter.presenterType.paragraph:
-                Paragraph.Draw(props, contentL);
+                Paragraph.Draw(props, holder);
                 break;
             case Presenter.presenterType.file:
-                FileP.Draw(props, contentL);
+                FileP.Draw(props, holder);
                 break;
             case Presenter.presenterType.link:
-                LinkP.Draw(props, contentL);
+                LinkP.Draw(props, holder);
                 break;
             case Presenter.presenterType.infocard:
-                InfoCard.Draw(props, contentL);
+                InfoCard.Draw(props, holder);
                 break;
             case Presenter.presenterType.video:
-                VideoP.Draw(props, contentL);
+                VideoP.Draw(props, holder);
                 break;
             case Presenter.presenterType.testprogram:
-                TestProgram.Draw(props, contentL);
+                TestProgram.Draw(props, holder);
                 break;
             case Presenter.presenterType.image:
-                ImageP.Draw(props, contentL);
+                ImageP.Draw(props, holder);
                 break;
         }
         contentL.querySelector('.mdc-card__action--button').addEventListener('click', () => {
@@ -172,38 +173,6 @@ class Presenter{
         presenter.presenterProps = JSON.parse(window.atob(record.presenterProps));
         return presenter;
     }
-    
-    ChangeType(type){
-        this.tempType = type;
-        if(type == this.presenterType){
-            this.tempProps = JSON.parse(JSON.stringify(this.presenterProps));
-        }
-        else{
-            switch(type){
-                case Presenter.presenterType.paragraph:
-                    this.tempProps = new Paragraph();
-                    break;
-                case Presenter.presenterType.file:
-                    this.tempProps = new FileP();
-                    break;
-                case Presenter.presenterType.link:
-                    this.tempProps = new LinkP();
-                    break;
-                case Presenter.presenterType.infocard:
-                    this.tempProps = new InfoCard();
-                    break;
-                case Presenter.presenterType.video:
-                    this.tempProps = new VideoP();
-                    break;
-                case Presenter.presenterType.testprogram:
-                    this.tempProps = new TestProgram();
-                    break;
-                case Presenter.presenterType.image:
-                    this.tempProps = new ImageP();
-                    break;
-            }
-        }        
-    }
 
     CreateEmptyPresenter(unit, fork, i){
         const presenter = new Presenter(unit, fork);
@@ -214,13 +183,12 @@ class Presenter{
     }
 
     GetPresenterEdit(){
-        const contentL = document.getElementById('presenterEditTemplate').content.cloneNode(true);
+        const contentL = dialogEdit;
         contentL.querySelector('.mdc-select__selected-text').addEventListener("DOMSubtreeModified", (i) => {
             this.PrepareEdit(contentL.querySelector('.mdc-select__selected-text').innerText);
         });
         this.PrepareEdit(this.presenterType);
-        dialogContent.appendChild(contentL);
-        dialogTitle.innerText = 'Изменить презентер'
+
         texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
             return new mdc.textField.MDCTextField(el);
         });

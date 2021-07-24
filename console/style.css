@@ -13,6 +13,10 @@
     margin: 8px 16px;
 }
 
+.card__presenter_holder{
+    background-color: #f0f0f0;
+}
+
 .card__task {
     color: rgb(0, 0, 0);
 }
@@ -69,4 +73,9 @@
 
 .testListMainPage::-webkit-scrollbar {
     display: none;
+}
+
+.toggle_on{
+    color: #ab47bc;
+    opacity: 1.0;
 }

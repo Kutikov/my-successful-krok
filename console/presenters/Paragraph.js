@@ -30,22 +30,15 @@ class Paragraph{
         Red: 'Red',
         Pink: 'Pink',
         Purple: 'Purple',
-        Deep_Purple: 'Deep_Purple',
         Indigo: 'Indigo',
-        Blue: 'Blue',
         Light_Blue: 'Light_Blue',
-        Cyan: 'Cyan',
         Teal: 'Teal',
         Green: 'Green',
-        Light_Green: 'Light_Green',
         Lime: 'Lime',
         Yellow: 'Yellow',
-        Amber: 'Amber',
         Orange: 'Orange',
-        Deep_Orange: 'Deep_Orange',
-        Brown: 'Brown',
-        Grey: 'Grey',
         Blue_Grey: 'Blue_Grey',
+        Black: 'Black'
     }
 
     constructor(){

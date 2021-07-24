@@ -2,9 +2,9 @@ class InfoCard{
     
     static Icons = {
         info: 'info',
-        add: 'add',
+        add_circle: 'add_circle',
         edit: 'edit',
-        notification: 'notification', 
+        notifications_active: 'notifications_active', 
         schedule: 'schedule',
         thumb_up: 'thumb_up',
         thumb_down: 'thumb_down',
@@ -18,7 +18,8 @@ class InfoCard{
         today: 'today',
         insights: 'insights',
         done_outline: 'done_outline',
-        language: 'language'
+        language: 'language',
+        poll: 'poll'
     }
 
     constructor(){
