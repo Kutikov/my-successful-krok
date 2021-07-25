@@ -13,9 +13,7 @@ class FileP{
             currentPresenter.OnEditAction(null, null);
         });
         document.getElementById('fileTextEditTextArea').value = props.text;
-        if(props.isLocker){
-            document.getElementById('checkboxLockerFile').click();
-        }
+        document.getElementById('checkboxLockerFile').checked = props.isLocker;
         file_loader.onchange = evt => {
             const file = file_loader.files[0];
             if (file) {

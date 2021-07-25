@@ -15,9 +15,7 @@ class ImageP{
             currentPresenter.OnEditAction(null, null);
         });
         document.getElementById('imageTextEditTextArea').value = props.imageSubscription;
-        if(props.isInvertable){
-            document.getElementById('checkboxInvertImage').click();
-        }
+        document.getElementById('checkboxInvertImage').checked = props.isInvertable
         image_loader.onchange = evt => {
             const file = image_loader.files[0];
             if (file) {

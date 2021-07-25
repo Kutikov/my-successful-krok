@@ -15,9 +15,7 @@ class LinkP{
             currentPresenter.OnEditAction(null, null);
         });
         document.getElementById('linkUrlEditTextArea').value = props.url;
-        if(props.isLocker){
-            document.getElementById('checkboxLockUrl').click();
-        }
+        document.getElementById('checkboxLockUrl').checked = props.isLocker;
     }
     static OnEditAction(tempProps, id = null, message = null){
         tempProps.text =  document.getElementById('linkTextEditTextArea').value;

@@ -276,3 +276,30 @@
     color: #424242;
     background-color: #c2c2c2;
 }
+
+.video__preview_holder{
+    background-color: #ccc;
+    position: relative;
+    width: 100%;
+	padding-bottom: 56.25%; /* 16:9 */
+	height: 0;
+}
+
+.video__preview{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+
+.video__preview_icon{
+    margin: auto;
+    color: #fff;
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    bottom: 0; 
+    right: 0;
+}

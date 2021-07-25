@@ -241,6 +241,7 @@ class Presenter{
         document.getElementById('imageEditorHolder').style.display = 'none';
         document.getElementById('fileEditorHolder').style.display = 'none';
         document.getElementById('testProgramEditorHolder').style.display = 'none';
+        document.getElementById('videoEditorHolder').style.display = 'none';
 
 
         this.tempType = type;

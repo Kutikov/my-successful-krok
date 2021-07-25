@@ -145,36 +145,9 @@ class TestProgram{
         adr.testProgramFrom.value = props.startFrom.toString();
         adr.testProgramTo.value = props.finishOn.toString();
         adr.testProgramRand.value = props.testsCount.toString();
-        if(props.allowNotesAndImages){
-            if(!adr.checkboxAllowSave.checked){
-                adr.checkboxAllowSave.click();
-            }
-        }
-        else{
-            if(adr.checkboxAllowSave.checked){
-                adr.checkboxAllowSave.click();
-            }
-        }
-        if(props.isLocker){
-            if(!adr.checkboxLockerTestProgram.checked){
-                adr.checkboxLockerTestProgram.click();
-            }
-        }
-        else{
-            if(adr.checkboxLockerTestProgram.checked){
-                adr.checkboxLockerTestProgram.click();
-            }
-        }
-        if(props.mixTests){
-            if(!adr.checkboxMixTest.checked){
-                adr.checkboxMixTest.click();
-            }
-        }
-        else{
-            if(adr.checkboxMixTest.checked){
-                adr.checkboxMixTest.click();
-            }
-        }
+        adr.checkboxAllowSave.checked = props.allowNotesAndImages;
+        adr.checkboxLockerTestProgram.checked = props.isLocker;
+        adr.checkboxMixTest.checked = props.mixTests;
         if(props.unit != ''){
             for(let i = 0; i < currentUnitsArray.length; i++){
                 if(currentUnitsArray[i].fork_unitId == props.unit){
