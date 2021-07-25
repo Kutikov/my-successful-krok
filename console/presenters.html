@@ -128,8 +128,8 @@
         <div class="mdc-dialog__scrim" bis_skin_checked="1"></div>
         <div class="mdc-dialog__container" bis_skin_checked="1">
             <div class="mdc-dialog__surface" bis_skin_checked="1">
-                <h2 id="main-dialog-title" class="mdc-dialog__title">Измени</h2>
-                <section id="main-dialog-content" class="mdc-dialog__content">
+                <h2 id="edit_dialog-dialog-title" class="mdc-dialog__title">Изменить презентер</h2>
+                <section id="edit_dialog-dialog-content" class="mdc-dialog__content">
                     
                     <div class="mdc-select mdc-select--outlined" style="margin-top: 4px; margin-bottom: 8px; width: 100%;">
                         <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
@@ -422,6 +422,179 @@
                             </div>
                         </div>
                     </div>
+                    <div id="testProgramEditorHolder" style="width: 100%;">
+                        <div class="mdc-select mdc-select--outlined" id="testProgramUnitSelector" style="margin-top: 8px; margin-bottom: 8px; width: 100%;">
+                            <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                        <span id="outlined-select-label" class="mdc-floating-label">Выберите лекцию</span>
+                                    </span>
+                                    <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-select__selected-text-container">
+                                    <span id="testUnit-selected-text" class="mdc-select__selected-text"></span>
+                                </span>
+                                <span class="mdc-select__dropdown-icon">
+                                    <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                    <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                    <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                </svg>
+                              </span>
+                            </div>
+                            <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                <ul id="testProgramList" class="mdc-list">
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+                            <span class="mdc-notched-outline">
+                              <span class="mdc-notched-outline__leading"></span>
+                              <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="task5EditLabel">Название теста</span>
+                              </span>
+                              <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                              <textarea class="mdc-text-field__input" id="testProgramTextEditTextArea" rows="1" cols="100" aria-label="Label" required minlength="3"></textarea>
+                            </span>
+                        </label>
+                        <h4 style="margin-top: 8px; margin-bottom: 0px;">Выберите режим</h4>
+                        <div style="width: 100%; display: flex; flex-direction: row; flex-wrap: wrap;">
+                            <div class="mdc-form-field" style="margin-right: 16px;">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="radioFree" name="radios" checked>
+                                    <div class="mdc-radio__background">
+                                      <div class="mdc-radio__outer-circle"></div>
+                                      <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div class="mdc-radio__ripple"></div>
+                                </div>
+                                <label for="radioFree">Свободный</label>
+                            </div>
+                            <div class="mdc-form-field" style="margin-right: 16px;">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="radioTraining" name="radios">
+                                    <div class="mdc-radio__background">
+                                      <div class="mdc-radio__outer-circle"></div>
+                                      <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div class="mdc-radio__ripple"></div>
+                                </div>
+                                <label for="radioTraining">Тренинг</label>
+                            </div>
+                            <div class="mdc-form-field" style="margin-right: 16px;">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="radioControl" name="radios">
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div class="mdc-radio__ripple"></div>
+                                </div>
+                                <label for="radioControl">Контроль</label>
+                            </div>
+                            <div class="mdc-form-field" style="margin-right: 16px;">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="radioKrok" name="radios">
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div class="mdc-radio__ripple"></div>
+                                </div>
+                                <label for="radioKrok">КРОК</label>
+                            </div>
+                        </div>
+                        <h4 style="margin-top: 8px; margin-bottom: 0px;">Настройки</h4>
+                        <div class="mdc-form-field" style="flex-grow: 1; flex-shrink: 1;">
+                            <div class="mdc-checkbox">
+                                <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxAllowSave"/>
+                                <div class="mdc-checkbox__background">
+                                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                        <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                    </svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                </div>
+                                <div class="mdc-checkbox__ripple"></div>
+                            </div>
+                            <label for="checkboxAllowSave">Разрешить сохранение заметок и создание изображения тестов</label>
+                        </div>
+                        <div class="mdc-form-field" style="flex-grow: 1; flex-shrink: 1;">
+                            <div class="mdc-checkbox">
+                                <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxLockerTestProgram"/>
+                                <div class="mdc-checkbox__background">
+                                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                        <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                    </svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                </div>
+                                <div class="mdc-checkbox__ripple"></div>
+                            </div>
+                            <label for="checkboxLockerTestProgram">Блокировать, пока не пройдено тестирование на %</label>
+                        </div>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" id="testProgramMinPercentHolder" style="margin-top: 16px; margin-bottom: 8px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label" id="task8EditLabel">Минимальный % прохождения</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="testProgramMinPercent" rows="1" cols="100" aria-label="Label" required minlength="1"></textarea>
+                            </span>
+                        </label>
+                        <div class="mdc-form-field" id="checkboxMixTestHolder" style="flex-grow: 1; flex-shrink: 1; margin-bottom: 8px;">
+                            <div class="mdc-checkbox">
+                                <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxMixTest"/>
+                                <div class="mdc-checkbox__background">
+                                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                        <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                    </svg>
+                                    <div class="mdc-checkbox__mixedmark"></div>
+                                </div>
+                                <div class="mdc-checkbox__ripple"></div>
+                            </div>
+                            <label for="checkboxMixTest">Перемешивать тесты</label>
+                        </div>
+                        <div style="display: flex; width: 100%; align-items: center;" id="countHolder">
+                            <p class="card__text" style="margin-left: 0px;">С</p>
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"">
+                                <span class="mdc-notched-outline">
+                                  <span class="mdc-notched-outline__leading"></span>
+                                  <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                  <textarea class="mdc-text-field__input" id="testProgramFrom" rows="1" cols="15" aria-label="Label"></textarea>
+                                </span>
+                            </label>
+                            <p class="card__text">по</p>
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"">
+                                <span class="mdc-notched-outline">
+                                  <span class="mdc-notched-outline__leading"></span>
+                                  <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                  <textarea class="mdc-text-field__input" id="testProgramTo" rows="1" cols="15" aria-label="Label"></textarea>
+                                </span>
+                            </label>
+                            <p class="card__text">тесты</p>
+                        </div>
+                        <div style="display: flex; width: 100%; align-items: center;" id="randomHolder">
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea">
+                                <span class="mdc-notched-outline">
+                                  <span class="mdc-notched-outline__leading"></span>
+                                  <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                  <textarea class="mdc-text-field__input" id="testProgramRand" rows="1" cols="10" aria-label="Label"></textarea>
+                                </span>
+                            </label>
+                            <p class="card__text">случайных тестов</p>
+                        </div>
+                    </div>
                     <h4 style="margin-top: 8px; margin-bottom: 8px;">Превью</h4>
                     <div id="previewHolder"></div>
 
@@ -508,6 +681,12 @@
         toggles = [].map.call(document.querySelectorAll('.mdc-icon-button'), function(el) {
             return new mdc.iconButton.MDCIconButtonToggle(el);
         });
+        radios = [].map.call(document.querySelectorAll('.mdc-radio'), function(el) {
+            return new mdc.radio.MDCRadio(el);
+        });
+        fields = [].map.call(document.querySelectorAll('.mdc-form-field'), function(el) {
+            return new mdc.formField.MDCFormField(el);
+        });
         progresses = [].map.call(document.querySelectorAll('.mdc-linear-progress'), function(el) {
             return new mdc.linearProgress.MDCLinearProgress(el);
         });
@@ -537,6 +716,30 @@
             });
             firebaseApi.readForks(author);
         });
+
+        function updateClone(){
+            let el = document.getElementById('edit_dialog-dialog-content');
+            let elClone = el.cloneNode(true);
+            el.parentNode.replaceChild(elClone, el);
+            menues = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
+                return new mdc.textField.MDCTextField(el);
+            });
+            texts3 = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
+                return new mdc.select.MDCSelect(el);
+            });
+            toggles = [].map.call(document.querySelectorAll('.mdc-icon-button'), function(el) {
+                return new mdc.iconButton.MDCIconButtonToggle(el);
+            });
+            radios = [].map.call(document.querySelectorAll('.mdc-radio'), function(el) {
+                return new mdc.radio.MDCRadio(el);
+            });
+            fields = [].map.call(document.querySelectorAll('.mdc-form-field'), function(el) {
+                return new mdc.formField.MDCFormField(el);
+            });
+            progresses = [].map.call(document.querySelectorAll('.mdc-linear-progress'), function(el) {
+                return new mdc.linearProgress.MDCLinearProgress(el);
+            });
+        }
 
         function uploadImage(){
             document.getElementById('upload_image').click();

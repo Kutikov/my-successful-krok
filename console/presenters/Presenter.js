@@ -184,6 +184,7 @@ class Presenter{
     }
 
     GetPresenterEdit(){
+        updateClone();
         const typeSelector = document.getElementById('type-selected-text');
         typeSelector.addEventListener("DOMSubtreeModified", (i) => {
             this.PrepareEdit(typeSelector.innerText);
@@ -239,6 +240,7 @@ class Presenter{
         document.getElementById('paragraphEditorHolder').style.display = 'none';
         document.getElementById('imageEditorHolder').style.display = 'none';
         document.getElementById('fileEditorHolder').style.display = 'none';
+        document.getElementById('testProgramEditorHolder').style.display = 'none';
 
 
         this.tempType = type;

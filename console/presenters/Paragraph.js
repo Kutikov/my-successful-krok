@@ -174,13 +174,13 @@ class Paragraph{
             switch(props.textList){
                 case Paragraph.TextList.nl:
                     elem = document.createElement('p');
-                    elem.innerText = strings[i];
+                    elem.innerHTML = strings[i];
                     elements.push(elem);
                     break; 
                 case Paragraph.TextList.ul:
                 case Paragraph.TextList.ol:
                     elem = document.createElement('li');
-                    elem.innerText = strings[i];
+                    elem.innerHTML = strings[i];
                     elements.push(elem);
                     break;                    
             }
