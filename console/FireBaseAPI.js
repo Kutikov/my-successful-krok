@@ -265,7 +265,7 @@ class FireBaseAPI{
                     presentersArray.push(null);
                 }
                 for(const presenterId in snapshot.val()){
-                    const index = new Number(presentertId.split('@')[0]) - 1;
+                    const index = new Number(presenterId.split('@')[0]) - 1;
                     presentersArray[index] = Presenter.Decode(presenterId, snapshot.val()[presenterId]);
                 }
                 currentPresenterArray = [];

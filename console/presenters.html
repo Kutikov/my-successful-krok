@@ -659,8 +659,8 @@
 
                 </section>
                 <footer class="mdc-dialog__actions">
-                    <button type="button" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" onclick="cancel()">Отмена</button>
-                    <button type="button" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" onclick="accept()">Сохранить</button>
+                    <button type="button" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" onclick="cancel(true)">Отмена</button>
+                    <button type="button" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" onclick="accept(true)">Сохранить</button>
                 </footer>
             </div>
         </div>
@@ -751,6 +751,7 @@
         });
         let ripples;
         let texts;
+        let tempVideoId;
 
         const firebaseApi = new FireBaseAPI();
         let author = 'Kozlov';
@@ -850,31 +851,32 @@
             }
         }
 
-        function accept(){
-            if(currentPresenter != null){
-                if(currentPresenter.SavePresenter()){
-                    dialog.close();
-                    while (dialogContent.firstChild) {
-                        dialogContent.removeChild(dialogContent.lastChild);
-                    }
-                    currentPresenter = null;
-                    Presenter.ReDraw();
-                    saveButton.disabled = false;
-                }
-            }
-            else if(currentUnit != null){
-                if(currentUnit.SaveUnit()){
-                    dialog.close();
-                    while (dialogContent.firstChild) {
-                        dialogContent.removeChild(dialogContent.lastChild);
+        function accept(fromEditoDialog = false){
+            if(fromEditoDialog){
+                if(currentPresenter != null){
+                    if(currentPresenter.SavePresenter()){
+                        dialogEdit.close();
+                        currentPresenter = null;
+                        Presenter.ReDraw();
+                        saveButton.disabled = false;
                     }
                 }
             }
-            else if(currentFork != null){
-                if(currentFork.SaveFork()){
-                    dialog.close();
-                    while (dialogContent.firstChild) {
-                        dialogContent.removeChild(dialogContent.lastChild);
+            else{
+                if(currentUnit != null){
+                    if(currentUnit.SaveUnit()){
+                        dialog.close();
+                        while (dialogContent.firstChild) {
+                            dialogContent.removeChild(dialogContent.lastChild);
+                        }
+                    }
+                }
+                else if(currentFork != null){
+                    if(currentFork.SaveFork()){
+                        dialog.close();
+                        while (dialogContent.firstChild) {
+                            dialogContent.removeChild(dialogContent.lastChild);
+                        }
                     }
                 }
             }
@@ -894,11 +896,16 @@
             loadingText.innerText = action;
         }
 
-        function cancel(){
-            while (dialogContent.firstChild) {
-                dialogContent.removeChild(dialogContent.lastChild);
+        function cancel(fromEditoDialog = false){
+            if(fromEditoDialog){
+                dialogEdit.close();
             }
-            dialog.close();
+            else{
+                while (dialogContent.firstChild) {
+                    dialogContent.removeChild(dialogContent.lastChild);
+                }
+                dialog.close();
+            }
         }
 
         function import_file(){

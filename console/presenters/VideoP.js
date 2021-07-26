@@ -182,7 +182,62 @@ class VideoP{
         return presenter.tempProps.maxTime != 0 && presenter.tempProps.videoId != '';
     }
 
-    static Draw(props, contentL){
+    static OnDraw(props){
+        const startS = VideoP.StringToSeconds(props.startPoint).seconds;
+        const endS = VideoP.StringToSeconds(props.endPoint).seconds;
+        const lockP = new YT.Player(tempVideoId, {
+            height: '360',
+            width: '640',
+            videoId: props.videoId,
+            playerVars: {
+                fs: 1,
+                start: startS,
+                controls: 0,
+                autoplay: 0,
+                disablekb: 1,
+                enablejsapi: 1,
+                rel: 0,
+                showinfo: 0,
+                end: endS
+            },
+            events: {
+                'onReady': (event) => {
+                    const previewL = document.getElementById(tempVideoId);
+                    const previewButtonL = document.getElementById(tempVideoId + 'button');
+                    previewButtonL.innerText = 'play_arrow';
+                    previewL.style.display = 'block';
+                    previewL.style.position = 'absolute';
+                    previewL.style.width = '100%';
+                    previewL.style.height = '100%';
+                    previewButtonL.addEventListener('click', function () {
+                        switch (lockP.getPlayerState()) {
+                            case 0:
+                            case -1:
+                            case 2:
+                            case 5:
+                                lockP.playVideo();
+                                previewButtonL.style.opacity = '0.0';
+                                break;
+                            case 1:
+                                lockP.pauseVideo();
+                                previewButtonL.style.opacity = '1.0';
+                                break;
+                        }
+                    });
+                },
+                'onStateChange': (event) => {
+                    const previewButtonL = document.getElementById(tempVideoId + 'button');
+                    if(lockP.getPlayerState() == 0){
+                        lockP.pauseVideo();
+                        previewButtonL.style.opacity = '1.0';
+                        lockP.seekTo(startS, true);
+                    }
+                }
+            }
+        });
+    }
+
+    static Draw(props, contentL, inPreview = false){
         while (contentL.firstChild) {
             contentL.removeChild(contentL.lastChild);
         }
@@ -211,55 +266,9 @@ class VideoP{
         contentL.appendChild(previewHolder);
         contentL.appendChild(titlePar);
         contentL.appendChild(timePar);
-        const lockP = new YT.Player(preview.id, {
-            height: '360',
-            width: '640',
-            videoId: props.videoId,
-            playerVars: {
-                fs: 1,
-                start: startS,
-                controls: 0,
-                autoplay: 0,
-                disablekb: 1,
-                enablejsapi: 1,
-                rel: 0,
-                showinfo: 0,
-                end: endS
-            },
-            events: {
-                'onReady': (event) => {
-                    const previewL = document.getElementById(preview.id);
-                    const previewButtonL = document.getElementById(preview.id + 'button');
-                    previewButtonL.innerText = 'play_arrow';
-                    previewL.style.display = 'block';
-                    previewL.style.position = 'absolute';
-                    previewL.style.width = '100%';
-                    previewL.style.height = '100%';
-                    previewButtonL.addEventListener('click', function () {
-                        switch (lockP.getPlayerState()) {
-                            case 0:
-                            case -1:
-                            case 2:
-                            case 5:
-                                lockP.playVideo();
-                                previewButtonL.style.opacity = '0.0';
-                                break;
-                            case 1:
-                                lockP.pauseVideo();
-                                previewButtonL.style.opacity = '1.0';
-                                break;
-                        }
-                    });
-                },
-                'onStateChange': (event) => {
-                    const previewButtonL = document.getElementById(preview.id + 'button');
-                    if(lockP.getPlayerState() == 0){
-                        lockP.pauseVideo();
-                        previewButtonL.style.opacity = '1.0';
-                        lockP.seekTo(startS, true);
-                    }
-                }
-            }
-        });
+        tempVideoId = preview.id;
+        if(inPreview){
+            VideoP.OnDraw(props);
+        }
     }
 }

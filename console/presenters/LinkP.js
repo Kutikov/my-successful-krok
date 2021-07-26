@@ -24,8 +24,8 @@ class LinkP{
     }
 
     static Save(presenter){
-        const url = presenter.tempProps.url == '';
-        const text = presenter.tempProps.text == '';
+        const url = presenter.tempProps.url != '';
+        const text = presenter.tempProps.text != '';
         if(url){
             presenter.tempProps.isLocker = document.getElementById('checkboxLockUrl').checked;
         }

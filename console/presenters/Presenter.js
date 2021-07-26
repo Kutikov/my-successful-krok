@@ -45,7 +45,7 @@ class Presenter{
     GetPresenterCard(order){
         const id = 'presenterCardM' + order;
         const props = this.presenterProps;
-        const contentL = document.getElementById('testCardTemplate').content.cloneNode(true);
+        const contentL = document.getElementById('presenterCardTemplate').content.cloneNode(true);
         const image_actions = contentL.querySelectorAll('.mdc-card__action--icon')
         contentL.querySelector('.mdc-card').id = id;
         const holder = contentL.querySelector('.card__presenter_holder');
@@ -73,8 +73,8 @@ class Presenter{
                 break;
         }
         contentL.querySelector('.mdc-card__action--button').addEventListener('click', () => {
-            currentPresenterAccount = this;
-            dialog.open();
+            currentPresenter = this;
+            dialogEdit.open();
             this.GetPresenterEdit();
         });
         image_actions[0].addEventListener('click', () => {
@@ -100,7 +100,7 @@ class Presenter{
                 }
             }
             if(index > 0){
-                Presenter.arraymove(currentTestArray, index, index - 1);
+                Presenter.arraymove(currentPresenterArray, index, index - 1);
                 Presenter.ReDraw();
                 saveButton.disabled = false;
             }            
@@ -124,7 +124,9 @@ class Presenter{
         ripples = [].map.call(document.querySelectorAll(selector), function(el) {
             return new mdc.ripple.MDCRipple(el);
         });
-
+        if(this.presenterType == Presenter.presenterType.video){
+            VideoP.OnDraw(this.presenterProps);
+        }
     }
 
     static arraymove(arr, fromIndex, toIndex) {
@@ -162,11 +164,12 @@ class Presenter{
             return false;
         }
         this.presenterType = this.tempType;
+        this.presenterProps = JSON.parse(JSON.stringify(this.tempProps));
         this.needUpdate = true;
         return true;
     }
 
-    Decode(presenterId, record){
+    static Decode(presenterId, record){
         const presenter = new Presenter(record.unitId, record.forkId);
         presenter.presenterId = presenterId;
         presenter.presenterType = record.presenterType;
@@ -219,7 +222,7 @@ class Presenter{
                     break;
                 case Presenter.presenterType.video:
                     VideoP.OnEditAction(this.tempProps, id, message);
-                    VideoP.Draw(this.tempProps, previewHolder);
+                    VideoP.Draw(this.tempProps, previewHolder, true);
                     break;
                 case Presenter.presenterType.testprogram:
                     TestProgram.OnEditAction(this.tempProps, id, message);
@@ -242,7 +245,6 @@ class Presenter{
         document.getElementById('fileEditorHolder').style.display = 'none';
         document.getElementById('testProgramEditorHolder').style.display = 'none';
         document.getElementById('videoEditorHolder').style.display = 'none';
-
 
         this.tempType = type;
         if(type == this.presenterType){

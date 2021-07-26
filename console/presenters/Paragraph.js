@@ -57,29 +57,44 @@ class Paragraph{
     }
 
     static PrepareEdit(props, contentL){
+
+        document.getElementById('paragraphEditTextArea').innerText = '';
+        const buttons = [ 'b_paragraph', 'i_paragraph', 'u_paragraph' ];
+        for(let it in Paragraph.TextSize){
+            buttons.push(Paragraph.TextSize[it] + '_paragraph');
+        }
+        for(let it in Paragraph.TextAlign){
+            buttons.push(Paragraph.TextAlign[it] + '_paragraph');
+        }
+        for(let it in Paragraph.TextList){
+            buttons.push(Paragraph.TextList[it] + '_paragraph');
+        }
+        for(let i = 0; i < buttons.length; i++){
+            document.getElementById(buttons[i]).classList.remove('toggle_on');
+        }
+
         document.getElementById('paragraphEditorHolder').style.display = 'block';
         document.getElementById('paragraphEditTextArea').innerText = props.text;
         document.getElementById('paragraphEditTextArea').addEventListener('input', function() {
             currentPresenter.OnEditAction(null, null);
         });
-        document.getElementById(props.textSize + '_paragraph').click();
-        document.getElementById(props.textSize + '_paragraph').click();
-        document.getElementById(props.textAlign + '_paragraph').click();
-        document.getElementById(props.textList + '_paragraph').click();
-        document.getElementById(props.textList + '_paragraph').click();
+        document.getElementById(props.textSize + '_paragraph').classList.add('toggle_on')
+        document.getElementById(props.textAlign + '_paragraph').classList.add('toggle_on')
+        document.getElementById(props.textList + '_paragraph').classList.add('toggle_on');
         if(props.textStyle.includes('b')){
-            document.getElementById('b_paragraph').click();
+            document.getElementById('b_paragraph').classList.add('toggle_on')
         }
         if(props.textStyle.includes('i')){
-            document.getElementById('i_paragraph').click();
+            document.getElementById('i_paragraph').classList.add('toggle_on')
         }
         if(props.textStyle.includes('u')){
-            document.getElementById('u_paragraph').click();
+            document.getElementById('u_paragraph').classList.add('toggle_on')
         }
+        currentPresenter.OnEditAction(null, null);
     }
 
     static Save(presenter){
-        return presenter.tempProps.text == '';
+        return presenter.tempProps.text != '';
     }
 
     static OnEditAction(tempProps, id = null, message = null){

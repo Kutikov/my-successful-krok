@@ -36,7 +36,7 @@ class InfoCard{
     static PrepareEdit(props, contentL){
         Paragraph.PrepareEdit(props, contentL);
         document.getElementById('iconsEditorHolder').style.display = 'block';
-        document.getElementById(tempProps.icon + '_iconSelect').click();
+        document.getElementById(props.icon + '_iconSelect').click();
     }
 
     static OnEditAction(tempProps, id = null, message = null){
@@ -44,7 +44,7 @@ class InfoCard{
     }
 
     static Save(presenter){
-        return presenter.tempProps.text == '';
+        return presenter.tempProps.text != '';
     }
 
     static Draw(props, contentL){
@@ -76,7 +76,7 @@ class InfoCard{
             button.classList.add('material-icons');
             button.innerText = icons[i];
             button.onclick = function(){
-                disableSiblings(iconIds[i]);
+                disableSiblings(iconIds[i], null);
             }
             iconsHolderTrue.appendChild(button);
         }
