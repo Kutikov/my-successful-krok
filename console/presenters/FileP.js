@@ -88,7 +88,7 @@ class FileP{
         link.target = "_blank";
         link.rel = "noopener noreferrer";
         card.classList.add('infocard');
-        card.classList.add('infocard__color_Blue_Gray');
+        card.classList.add('infocard__color_Blue_Grey');
         icon.innerText = 'picture_as_pdf';
         icon.classList.add('material-icons');
         icon.classList.add('infocard__icon');

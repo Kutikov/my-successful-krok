@@ -36,6 +36,7 @@ class InfoCard{
     static PrepareEdit(props, contentL){
         Paragraph.PrepareEdit(props, contentL);
         document.getElementById('iconsEditorHolder').style.display = 'block';
+        InfoCard.FillIcons();
         document.getElementById(props.icon + '_iconSelect').click();
     }
 
@@ -60,6 +61,9 @@ class InfoCard{
         icon.classList.add('material-icons');
         icon.classList.add('infocard__icon');
         textElement.classList.add('infocard__text');
+        if(props.textList != Paragraph.TextList.nl){
+            textElement.style.paddingInlineStart = '20px';
+        }
         card.appendChild(icon);
         card.appendChild(textElement);
         contentL.appendChild(card);
@@ -67,6 +71,9 @@ class InfoCard{
 
     static FillIcons(){
         const iconsHolderTrue = document.getElementById('iconsHolderTrue');
+        while (iconsHolderTrue.firstChild) {
+            iconsHolderTrue.removeChild(iconsHolderTrue.lastChild);
+        }
         const icons = InfoCard.generateArrayOfIcons();
         const iconIds = InfoCard.GetListOfIds();
         for(let i = 0; i < iconIds.length; i++){

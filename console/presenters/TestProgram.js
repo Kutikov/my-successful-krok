@@ -226,46 +226,52 @@ class TestProgram{
     }
 
     static Draw(tempProps, contentL){
-        let text1 = '<b>' + tempProps.text + '</b>\nЛекция: ';
-        let maxTest = 0;
-        for(let i = 0; i < currentUnitsArray.length; i++){
-            if(currentUnitsArray[i].fork_unitId == tempProps.unit){
-                text1 = text1 + currentUnitsArray[i].unitName;
-                maxTest = currentUnitsArray[i].testsCount;
-                break;
+        let text1 = '';
+        if(!generalPreviewBoolean){
+            text1 = '<b>' + tempProps.text + '</b>\nЛекция: ';
+            let maxTest = 0;
+            for(let i = 0; i < currentUnitsArray.length; i++){
+                if(currentUnitsArray[i].fork_unitId == tempProps.unit){
+                    text1 = text1 + currentUnitsArray[i].unitName;
+                    maxTest = currentUnitsArray[i].testsCount;
+                    break;
+                }
+            }
+            const adr = TestProgram.GetNamedControls();
+            text1 = text1 + '\nСохранение: ' + (tempProps.allowNotesAndImages ? 'разрешено' : 'запрещено');
+            text1 = text1 + '\nПорог: ' + (tempProps.isLocker ? tempProps.lockerPercent.toString() + '% для открытия следующих разделов' : 'нету');
+            text1 = text1 + '\nPежим: ';
+            let nextSettings = false;
+            switch(tempProps.mode){
+                case TestProgram.TestingMode.free:
+                    nextSettings = false;
+                    text1 = text1 + 'пользователь настраивает сам';
+                    break;
+                case TestProgram.TestingMode.training:
+                    nextSettings = true;
+                    text1 = text1 + 'тренинг';
+                    break;
+                case TestProgram.TestingMode.control:
+                    nextSettings = true;
+                    text1 = text1 + 'контроль';
+                    break;
+                case TestProgram.TestingMode.krok:
+                    nextSettings = true;
+                    text1 = text1 + 'КРОК';
+                    break;
+            }
+            if(nextSettings){
+                text1 = text1 + '\nПеремешивание тестов: ' + (tempProps.mixTests ? 'перемешивать' : 'НЕ перемешивать');
+                if(tempProps.mixTests){
+                    text1 = text1 + '\nТесты в программе: ' + (tempProps.testsCount == -1 ? 'все ' + maxTest.toString() + ' тестов' : tempProps.testsCount.toString() + ' случайных из ' + maxTest.toString() + ' тестов');
+                }
+                else {
+                    text1 = text1 + '\nТесты в программе: ' + (tempProps.startFrom == -1 ? 'с 1 до ' : "с " + tempProps.startFrom.toString() + ' до ') + (tempProps.finishOn == -1 ?  maxTest.toString() + ' последнего теста' : tempProps.finishOn.toString() + ' по порядку из ' + maxTest.toString() + ' тестов');
+                }
             }
         }
-        const adr = TestProgram.GetNamedControls();
-        text1 = text1 + '\nСохранение: ' + (tempProps.allowNotesAndImages ? 'разрешено' : 'запрещено');
-        text1 = text1 + '\nПорог: ' + (tempProps.isLocker ? tempProps.lockerPercent.toString() + '% для открытия следующих разделов' : 'нету');
-        text1 = text1 + '\nPежим: ';
-        let nextSettings = false;
-        switch(tempProps.mode){
-            case TestProgram.TestingMode.free:
-                nextSettings = false;
-                text1 = text1 + 'пользователь настраивает сам';
-                break;
-            case TestProgram.TestingMode.training:
-                nextSettings = true;
-                text1 = text1 + 'тренинг';
-                break;
-            case TestProgram.TestingMode.control:
-                nextSettings = true;
-                text1 = text1 + 'контроль';
-                break;
-            case TestProgram.TestingMode.krok:
-                nextSettings = true;
-                text1 = text1 + 'КРОК';
-                break;
-        }
-        if(nextSettings){
-            text1 = text1 + '\nПеремешивание тестов: ' + (tempProps.mixTests ? 'перемешивать' : 'НЕ перемешивать');
-            if(tempProps.mixTests){
-                text1 = text1 + '\nТесты в программе: ' + (tempProps.testsCount == -1 ? 'все ' + maxTest.toString() + ' тестов' : tempProps.testsCount.toString() + ' случайных из ' + maxTest.toString() + ' тестов');
-            }
-            else {
-                text1 = text1 + '\nТесты в программе: ' + (tempProps.startFrom == -1 ? 'с 1 до ' : "с " + tempProps.startFrom.toString() + ' до ') + (tempProps.finishOn == -1 ?  maxTest.toString() + ' последнего теста' : tempProps.finishOn.toString() + ' по порядку из ' + maxTest.toString() + ' тестов');
-            }
+        else{
+            text1 = '<b>' + tempProps.text + '</b>\nПройдено: 2\nМаксимамальный результат: 22%';
         }
         while (contentL.firstChild) {
             contentL.removeChild(contentL.lastChild);
@@ -276,7 +282,7 @@ class TestProgram{
         const textElement = Paragraph.DrawCommon(localProps, false);
         const icon = document.createElement('p');
         card.classList.add('infocard');
-        card.classList.add('infocard__color_Blue_Gray');
+        card.classList.add('infocard__color_Blue_Grey');
         icon.innerText = 'rule';
         icon.classList.add('material-icons');
         icon.classList.add('infocard__icon');

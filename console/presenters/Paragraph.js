@@ -58,7 +58,7 @@ class Paragraph{
 
     static PrepareEdit(props, contentL){
 
-        document.getElementById('paragraphEditTextArea').innerText = '';
+        document.getElementById('paragraphEditTextArea').value = '';
         const buttons = [ 'b_paragraph', 'i_paragraph', 'u_paragraph' ];
         for(let it in Paragraph.TextSize){
             buttons.push(Paragraph.TextSize[it] + '_paragraph');
@@ -74,7 +74,7 @@ class Paragraph{
         }
 
         document.getElementById('paragraphEditorHolder').style.display = 'block';
-        document.getElementById('paragraphEditTextArea').innerText = props.text;
+        document.getElementById('paragraphEditTextArea').value = props.text;
         document.getElementById('paragraphEditTextArea').addEventListener('input', function() {
             currentPresenter.OnEditAction(null, null);
         });

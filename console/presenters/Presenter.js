@@ -29,7 +29,7 @@ class Presenter{
             forkId: this.forkId,
             fork_unitId: this.fork_unitId,
             presenterType: this.presenterType,
-            presenterProps: window.btoa(JSON.stringify(this.presenterProps))
+            presenterProps: JSON.stringify(this.presenterProps)
         };
     }
 
@@ -45,10 +45,75 @@ class Presenter{
     GetPresenterCard(order){
         const id = 'presenterCardM' + order;
         const props = this.presenterProps;
-        const contentL = document.getElementById('presenterCardTemplate').content.cloneNode(true);
-        const image_actions = contentL.querySelectorAll('.mdc-card__action--icon')
-        contentL.querySelector('.mdc-card').id = id;
-        const holder = contentL.querySelector('.card__presenter_holder');
+        let holder;
+        if(!generalPreviewBoolean){
+            const contentL = document.getElementById('presenterCardTemplate').content.cloneNode(true);
+            const image_actions = contentL.querySelectorAll('.mdc-card__action--icon')
+            contentL.querySelector('.mdc-card').id = id;
+            holder = contentL.querySelector('.card__presenter_holder');
+            contentL.querySelector('.mdc-card__action--button').addEventListener('click', () => {
+                currentPresenter = this;
+                dialogEdit.open();
+                this.GetPresenterEdit();
+            });
+            image_actions[0].addEventListener('click', () => {
+                const parent = document.getElementById(id).parentNode;
+                let index = 0;
+                for(let i = 0; i < parent.childNodes.length; i++){
+                    if(parent.childNodes[i].id == id){
+                        index = (i - 1) / 2;
+                        break;
+                    }
+                }
+                currentPresenterArray.splice(index, 1);
+                Presenter.ReDraw();
+                saveButton.disabled = false;
+            });
+            image_actions[1].addEventListener('click', () => {
+                const parent = document.getElementById(id).parentNode;
+                let index = 0;
+                for(let i = 0; i < parent.childNodes.length; i++){
+                    if(parent.childNodes[i].id == id){
+                        index = (i - 1) / 2;
+                        break;
+                    }
+                }
+                if(index > 0){
+                    Presenter.arraymove(currentPresenterArray, index, index - 1);
+                    Presenter.ReDraw();
+                    saveButton.disabled = false;
+                }            
+            });
+            image_actions[2].addEventListener('click', () => {
+                const parent = document.getElementById(id).parentNode;
+                let index = 0;
+                for(let i = 0; i < parent.childNodes.length; i++){
+                    if(parent.childNodes[i].id == id){
+                        index = (i - 1) / 2;
+                        break;
+                    }
+                }
+                if(index < parent.childNodes.length - 1){
+                    Presenter.arraymove(currentPresenterArray, index, index + 1);
+                    Presenter.ReDraw();
+                    saveButton.disabled = false;
+                }
+            });
+            testListMainPage.appendChild(contentL);
+            ripples = [].map.call(document.querySelectorAll(selector), function(el) {
+                return new mdc.ripple.MDCRipple(el);
+            });
+        }
+        else{
+            holder = document.createElement('div');
+            holder.style.backgroundColor = '#fff';
+            holder.style.paddingTop = '8px';
+            holder.style.paddingBottom = '8px';
+            holder.style.paddingLeft = '16px';
+            holder.style.paddingRight = '16px';
+            holder.id = id;
+            testListMainPage.appendChild(holder);
+        }
         switch(this.presenterType){
             case Presenter.presenterType.paragraph:
                 Paragraph.Draw(props, holder);
@@ -71,61 +136,6 @@ class Presenter{
             case Presenter.presenterType.image:
                 ImageP.Draw(props, holder);
                 break;
-        }
-        contentL.querySelector('.mdc-card__action--button').addEventListener('click', () => {
-            currentPresenter = this;
-            dialogEdit.open();
-            this.GetPresenterEdit();
-        });
-        image_actions[0].addEventListener('click', () => {
-            const parent = document.getElementById(id).parentNode;
-            let index = 0;
-            for(let i = 0; i < parent.childNodes.length; i++){
-                if(parent.childNodes[i].id == id){
-                    index = (i - 1) / 2;
-                    break;
-                }
-            }
-            currentPresenterArray.splice(index, 1);
-            Presenter.ReDraw();
-            saveButton.disabled = false;
-        });
-        image_actions[1].addEventListener('click', () => {
-            const parent = document.getElementById(id).parentNode;
-            let index = 0;
-            for(let i = 0; i < parent.childNodes.length; i++){
-                if(parent.childNodes[i].id == id){
-                    index = (i - 1) / 2;
-                    break;
-                }
-            }
-            if(index > 0){
-                Presenter.arraymove(currentPresenterArray, index, index - 1);
-                Presenter.ReDraw();
-                saveButton.disabled = false;
-            }            
-        });
-        image_actions[2].addEventListener('click', () => {
-            const parent = document.getElementById(id).parentNode;
-            let index = 0;
-            for(let i = 0; i < parent.childNodes.length; i++){
-                if(parent.childNodes[i].id == id){
-                    index = (i - 1) / 2;
-                    break;
-                }
-            }
-            if(index < parent.childNodes.length - 1){
-                Presenter.arraymove(currentPresenterArray, index, index + 1);
-                Presenter.ReDraw();
-                saveButton.disabled = false;
-            }
-        });
-        testListMainPage.appendChild(contentL);
-        ripples = [].map.call(document.querySelectorAll(selector), function(el) {
-            return new mdc.ripple.MDCRipple(el);
-        });
-        if(this.presenterType == Presenter.presenterType.video){
-            VideoP.OnDraw(this.presenterProps);
         }
     }
 
@@ -173,7 +183,7 @@ class Presenter{
         const presenter = new Presenter(record.unitId, record.forkId);
         presenter.presenterId = presenterId;
         presenter.presenterType = record.presenterType;
-        presenter.presenterProps = JSON.parse(window.atob(record.presenterProps));
+        presenter.presenterProps = JSON.parse(record.presenterProps);
         return presenter;
     }
 
@@ -222,7 +232,7 @@ class Presenter{
                     break;
                 case Presenter.presenterType.video:
                     VideoP.OnEditAction(this.tempProps, id, message);
-                    VideoP.Draw(this.tempProps, previewHolder, true);
+                    VideoP.Draw(this.tempProps, previewHolder);
                     break;
                 case Presenter.presenterType.testprogram:
                     TestProgram.OnEditAction(this.tempProps, id, message);

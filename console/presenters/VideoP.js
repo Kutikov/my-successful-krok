@@ -182,7 +182,7 @@ class VideoP{
         return presenter.tempProps.maxTime != 0 && presenter.tempProps.videoId != '';
     }
 
-    static OnDraw(props){
+    static OnDraw(tempVideoId, props){
         const startS = VideoP.StringToSeconds(props.startPoint).seconds;
         const endS = VideoP.StringToSeconds(props.endPoint).seconds;
         const lockP = new YT.Player(tempVideoId, {
@@ -237,7 +237,7 @@ class VideoP{
         });
     }
 
-    static Draw(props, contentL, inPreview = false){
+    static Draw(props, contentL){
         while (contentL.firstChild) {
             contentL.removeChild(contentL.lastChild);
         }
@@ -255,20 +255,18 @@ class VideoP{
         previewHolder.appendChild(previewIcon);
         const startS = VideoP.StringToSeconds(props.startPoint).seconds;
         const endS = VideoP.StringToSeconds(props.endPoint).seconds;
-        
-        const titlePar = document.createElement('p');
-        titlePar.classList.add('card__text');
-        titlePar.classList.add('par__textStyle_b');
-        titlePar.innerText = props.videoTitle;
-        const timePar = document.createElement('p');
-        timePar.classList.add('card__text');
-        timePar.innerText = 'С ' + props.startPoint + " по " + props.endPoint + " (всего " + VideoP.SecondToString(endS - startS) + ")." + (props.isLocker ? ' Блокирует дальнейший просмотр.' : '');
         contentL.appendChild(previewHolder);
-        contentL.appendChild(titlePar);
-        contentL.appendChild(timePar);
-        tempVideoId = preview.id;
-        if(inPreview){
-            VideoP.OnDraw(props);
+        if(!generalPreviewBoolean){
+            const titlePar = document.createElement('p');
+            titlePar.classList.add('card__text');
+            titlePar.classList.add('par__textStyle_b');
+            titlePar.innerText = props.videoTitle;
+            const timePar = document.createElement('p');
+            timePar.classList.add('card__text');
+            timePar.innerText = 'С ' + props.startPoint + " по " + props.endPoint + " (всего " + VideoP.SecondToString(endS - startS) + ")." + (props.isLocker ? ' Блокирует дальнейший просмотр.' : '');
+            contentL.appendChild(titlePar);
+            contentL.appendChild(timePar);
         }
+        VideoP.OnDraw(preview.id, props);
     }
 }
