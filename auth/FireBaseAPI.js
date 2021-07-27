@@ -187,6 +187,8 @@ class FireBaseAPI{
                                     changeCard('register');
                                     showMessage('expiredTermReresetPass');
                                     break;
+                                case 'auth/invalid-action-code':
+                                    return true;
                             }
                         });
                     break;
@@ -205,6 +207,8 @@ class FireBaseAPI{
                                 case 'auth/expired-action-code':
                                     showMessage('expiredTermReregister');
                                     break;
+                                case 'auth/invalid-action-code':
+                                    return true;
                             }
                         });
                     break;
