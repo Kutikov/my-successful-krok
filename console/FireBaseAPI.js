@@ -9,6 +9,9 @@ class FireBaseAPI{
         presentersFailed: 'presentersFailed',
         presentersEmpty: 'presentersEmpty',
         presentersFinished: 'presentersFinished',
+        bucketsLoaded: 'bucketsLoaded',
+        bucketsFailed: 'bucketsFailed',
+        bucketsEmpty: 'bucketsEmpty',
         forksLoaded: 'forksLoaded',
         forksFailed: 'forksFailed',
         forksEmpty: 'forksEmpty',
@@ -70,6 +73,27 @@ class FireBaseAPI{
             coreSignalHandler(this.Signals.forksFailed, this.Mode.read);
         })
     }
+
+    readAllForks(){
+        let ref = this.realdatabase.ref('forks').orderByChild('author');
+        ref.get().then((snapshot) => {
+            if(snapshot.exists()){
+                const forksArrayLocal = [];
+                for(const forkId in snapshot.val()){
+                    forksArrayLocal.push(forkId);
+                }
+                allForksArray = forksArrayLocal;
+                coreSignalHandler(this.Signals.forksLoaded, this.Mode.read);
+            }
+            else {
+                coreSignalHandler(this.Signals.forksEmpty, this.Mode.read);
+            }
+        }).catch((error) => {
+            console.log(error);
+            coreSignalHandler(this.Signals.forksFailed, this.Mode.read);
+        })
+    }
+
     writeForks(){
         for(let i = 0; i < forksArray.length; i++){
             if(forksArray[i].needUpdate){
@@ -87,6 +111,48 @@ class FireBaseAPI{
     }
     //#endregion Forks
 
+    //#region Buckets
+    readAllBuckets(){
+        let ref = this.realdatabase.ref('buckets');
+        ref.get().then((snapshot) => {
+            if(snapshot.exists()){
+                const bucketsArrayLocal = [];
+                for(const bucketId in snapshot.val()){
+                    bucketsArrayLocal.push(Bucket.Decode(bucketId, snapshot.val()[bucketId]));
+                }
+                allBucketsArray = bucketsArrayLocal;
+                coreSignalHandler(this.Signals.bucketsLoaded, this.Mode.read);
+            }
+            else {
+                coreSignalHandler(this.Signals.bucketsEmpty, this.Mode.read);
+            }
+        }).catch((error) => {
+            console.log(error);
+            coreSignalHandler(this.Signals.bucketsFailed, this.Mode.read);
+        })
+    }
+    writeBucket(bucket){
+        this.realdatabase.ref('buckets/' + bucket.bucketId).set(bucket.GetFirebaseObject(), (error) => {
+            if(error){
+                coreSignalHandler(this.Signals.bucketsFailed, this.Mode.write);
+            }
+            else{
+                coreSignalHandler(this.Signals.bucketsLoaded, this.Mode.write);
+            }
+        });
+    }
+
+    deleteBucket(bucket){
+        this.realdatabase.ref(bucket.bucketId).remove()
+            .then(() => {
+                coreSignalHandler(this.Signals.bucketsLoaded, this.Mode.delete);
+            })
+            .catch(() => {
+                coreSignalHandler(this.Signals.bucketsFailed, this.Mode.delete);
+            });
+    }
+    //#endregion Buckets
+
     //#region Units
     readUnits(fork){
         let ref = this.realdatabase.ref('units').orderByChild('forkId').equalTo(fork.name.replace(' ', 'Ø'));
@@ -101,6 +167,27 @@ class FireBaseAPI{
             }
             else {
                 currentUnitsArray = [];
+                coreSignalHandler(this.Signals.unitEmpty, this.Mode.read);
+            }
+        }).catch((error) => {
+            console.log(error);
+            coreSignalHandler(this.Signals.unitFailed, this.Mode.read);
+        })
+    }
+
+    readAllUnits(){
+        let ref = this.realdatabase.ref('units').orderByChild('author');
+        ref.get().then((snapshot) => {
+            if(snapshot.exists()){
+                const unitsArrayLocal = [];
+                for(const fork_unitId in snapshot.val()){
+                    unitsArrayLocal.push(fork_unitId);
+                }
+                allUnitsArray = unitsArrayLocal;
+                coreSignalHandler(this.Signals.unitLoaded, this.Mode.read);
+            }
+            else {
+                allUnitsArray = [];
                 coreSignalHandler(this.Signals.unitEmpty, this.Mode.read);
             }
         }).catch((error) => {
