@@ -43,7 +43,7 @@ class FireBaseAPI{
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                document.cookie = "cr=" + JSON.stringify({ lg: user.email, ps: password, ver: false });
+                document.cookie = "cr=" + JSON.stringify({ lg: email, ps: password, ver: false });
                 user.updateProfile({
                     displayName: name
                 });
@@ -127,7 +127,7 @@ class FireBaseAPI{
                 });
         }
         else{
-            firebase.auth().currentUser.sendPasswordResetEmail(email, null)
+            firebase.auth().sendPasswordResetEmail(email, null)
                 .then(() => {
                     changeCard('success');
                     showMessage('passwordEmailSended');
@@ -177,6 +177,7 @@ class FireBaseAPI{
                     firebase.auth().verifyPasswordResetCode(actionCode)
                         .then((email) => {
                             changeCard('login');
+                            updatePassword = true;
                             document.getElementById('loginButtonB').disabled = true;
                             document.getElementById('emailLogin').value = email;
                             showMessage('enterNewPassword');
