@@ -23,7 +23,8 @@
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="FireBaseAPI.js"></script>
+    <script src="User.js?id=123"></script>
+    <script src="FireBaseAPI.js?id=123"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -222,23 +223,22 @@
         };
 
         const messages = {
-            emptyName: ['Некоректне ім\'я', 'Некорректное имя', 'Incorrect name'],
-            needVerification: ['Вам на пошту надійшов лист з посиланням для підтверждення реєстрації. Відкрийте його та натисніть на посилання.', 'Вам на почту пришло письмо со ссылкой для подтверждения регистрации. Откройте его и нажмите на ссылку.', 'You have received an email with a link to confirm registration. Open it and click on the link.'],
-            weakPassword: ["Пароль недостатньо надійний", 'Пароль недостаточно надежен', 'The password is not strong enough'],
-            duplicateEmail: ["Користувач з такою email адресою вже зареєстрований", 'Пользователь с таким email адресу уже зарегистрирован', 'A user with this email address is already registered'],
-            emptyEmail: ["Некоректний email", 'Некорректный email', 'Incorrect email'],
-            logedIn: ["Ви успішно увійшли в акаунт! Не забудьте також увійти на Ваших 2 пристроях з додатком Мій успішний КРОК.", 'Вы успешно вошли в аккаунт! Не забудьте также войти на Ваших 2 устройствах с приложением Мой успешный КРОК.', 'You have successfully logged in! Don\'t forget to sign in on your 2 devices with the My Successful KROK app.'],
-            wrongPassword: ["Невірний пароль", 'Неверный пароль', 'Invalid password'],
-            notFoundEmail: ["Користувача з такою поштою не знайдено", 'Пользователя с таким почте не найдено', 'No user with this mail was found'],
-            expiredTermReresetPass: ["Нажаль вийшов термін коду скидання пароля, скиньте пароль іще раз", 'К сожалению вышел срок кода сброса пароля, сбросьте пароль еще раз', 'Sorry, the password reset code has expired, reset your password again'],
-            passwordEmailSended: ["Вам надіслано на пошту лист з посиланням для скидання пароля. Відкрийте його та натисніть на посилання.", 'Вам отправлено на почту письмо со ссылкой для сброса пароля. Откройте его и нажмите на ссылку.', 'You have received an email with a link to reset your password. Open it and click on the link.'],
-            enterNewPassword: ["Введіть новий пароль", 'Введите новий пароль', 'Enter a new password'],
-            expiredTermReregister: ["Нажаль вийшов термін підтвердження акаунту. Вам на пошту щойно надійшов лист з посиланням для підтверждення реєстрації. Відкрийти його та натисніть на посилання.", 'К сожалению вышел срок подтверждения аккаунта. Вам на почту только пришло письмо со ссылкой для подтверждения регистрации. Видкрийты его и нажмите на ссылку.', 'Sorry, your account verification deadline has expired. You have just received an email with a link to confirm registration. Open it and click on the link.'],
+            emptyName: ['Некоректне ім\'я', 'Некорректное имя', 'Incorrect name'],/*+*/
+            needVerification: ['Вам на пошту надійшов лист з посиланням для підтверждення реєстрації. Відкрийте його та натисніть на посилання.', 'Вам на почту пришло письмо со ссылкой для подтверждения регистрации. Откройте его и нажмите на ссылку.', 'You have received an email with a link to confirm registration. Open it and click on the link.'],/*+*/
+            weakPassword: ["Пароль недостатньо надійний", 'Пароль недостаточно надежен', 'The password is not strong enough'],/*-*/
+            duplicateEmail: ["Користувач з такою email адресою вже зареєстрований", 'Пользователь с таким email адресу уже зарегистрирован', 'A user with this email address is already registered'],/*+*/
+            emptyEmail: ["Некоректний email", 'Некорректный email', 'Incorrect email'],/*+*/
+            logedIn: ["Ви успішно увійшли в акаунт! Не забудьте також увійти на Ваших 2 пристроях з додатком Мій успішний КРОК.", 'Вы успешно вошли в аккаунт! Не забудьте также войти на Ваших 2 устройствах с приложением Мой успешный КРОК.', 'You have successfully logged in! Don\'t forget to sign in on your 2 devices with the My Successful KROK app.'],/*+*/
+            wrongPassword: ["Невірний пароль", 'Неверный пароль', 'Invalid password'],/*+*/
+            notFoundEmail: ["Користувача з такою поштою не знайдено", 'Пользователя с таким почте не найдено', 'No user with this mail was found'],/*+*/
+            expiredTermReresetPass: ["Нажаль вийшов термін коду скидання пароля, скиньте пароль іще раз", 'К сожалению вышел срок кода сброса пароля, сбросьте пароль еще раз', 'Sorry, the password reset code has expired, reset your password again'],/*+*/
+            passwordEmailSended: ["Вам надіслано на пошту лист з посиланням для скидання пароля. Відкрийте його та натисніть на посилання.", 'Вам отправлено на почту письмо со ссылкой для сброса пароля. Откройте его и нажмите на ссылку.', 'You have received an email with a link to reset your password. Open it and click on the link.'],/*+*/
+            enterNewPassword: ["Введіть новий пароль", 'Введите новий пароль', 'Enter a new password'],/*+*/
             emailVerified: ["Вашу пошту підтвержено! Тепер Ви маєте повний доступ до всієї платформи. Не забудьте також увійти на Ваших 2 пристроях з додатком Мій успішний КРОК.", 'Почта подтверждена! Теперь Вы имеете полный доступ ко всей платформы. Не забудьте также войти на Ваших 2 устройствах с приложением Мой успешный КРОК.', 'Your mail has been confirmed! You now have full access to the entire platform. Don\'t forget to sign in on your 2 devices with the My Successful KROK app.'],
-            emptyPassword: ["Некоректний пароль", 'Некорректный пароль', 'Incorrect password'],
-            emptyPassword2: ["Некоректно повторений пароль", 'Некорректно повторен пароль', 'Incorrectly repeated password'],
-            passwordMismatch: ["Паролі не співпадають", 'Пароли не совпадают', 'Passwords do not match'],
-            agreeConsent: ["Підтвердьте, що згодні з умовами користування додатком", 'Подтвердите, что согласны с условиями пользования приложением', 'Confirm that you agree to the terms of use of the application']
+            emptyPassword: ["Некоректний пароль", 'Некорректный пароль', 'Incorrect password'],/*+*/
+            emptyPassword2: ["Некоректно повторений пароль", 'Некорректно повторен пароль', 'Incorrectly repeated password'],/*+*/
+            passwordMismatch: ["Паролі не співпадають", 'Пароли не совпадают', 'Passwords do not match'],/*+*/
+            agreeConsent: ["Підтвердьте, що згодні з умовами користування додатком", 'Подтвердите, что согласны с условиями пользования приложением', 'Confirm that you agree to the terms of use of the application']/*+*/
         };
 
         let message = ''
@@ -362,7 +362,7 @@
             document.getElementById('registerProgress').style.display = 'block';
         }
 
-        function showMessage(message1){
+        function showMessage(message1, prevent = false){
             message = message1;
             loginConsole.style.display = 'block';
             successConsole.style.display = 'block';
@@ -372,9 +372,11 @@
             loginConsole.innerHTML = messages[message][lang];
             successConsole.innerHTML = messages[message][lang];
             registerConsole.innerHTML = messages[message][lang];
-            document.getElementById('registartionButtonB').disabled = false;
-            document.getElementById('loginButtonB').disabled = false;
-            document.getElementById('resetButtonB').disabled = false;
+            if(!prevent){
+                document.getElementById('registartionButtonB').disabled = false;
+                document.getElementById('loginButtonB').disabled = false;
+                document.getElementById('resetButtonB').disabled = false;
+            }
         }
 
         function changeCard(type){

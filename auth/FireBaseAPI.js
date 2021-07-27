@@ -43,19 +43,32 @@ class FireBaseAPI{
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                document.cookie = "cr=" + JSON.stringify({ lg: email, ps: password, ver: false });
                 user.updateProfile({
                     displayName: name
                 });
-                firebase.auth().currentUser.sendEmailVerification(null)
-                    .then(() => {
-                        changeCard('success');
-                        showMessage('needVerification');
+                firebase.auth().signInWithEmailAndPassword(email, password)
+                    .then((userCredential2) => {
+                        userCredential2.user.sendEmailVerification(null)
+                            .then(() => {
+                                const userFireStrore = new User(email, name);
+                                firebase.firestore().collection('users').doc(email).set(userFireStrore.GetFireStroreObject())
+                                    .then(() => {
+                                        changeCard('success');
+                                        showMessage('needVerification');
+                                        document.cookie = "cr=" + JSON.stringify({ lg: email, ps: password, ver: false });
+                                    })
+                                    .catch((error) => {
+                                        console.log(error);
+                                    });
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            });
                     })
                     .catch((error) => {
-                        const errorCode = error.code;
-                        console.log(errorCode);
+                        console.log(error);
                     });
+                
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -113,6 +126,7 @@ class FireBaseAPI{
             firebase.auth().confirmPasswordReset(actionCode, newPassword)
                 .then((resp) => {
                     this.login(email, newPassword);
+                    window.location.href = window.location.href.split('?')[0];
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -121,7 +135,7 @@ class FireBaseAPI{
                             showMessage('expiredTermReresetPass');
                             break;
                         case 'auth/weak-password':
-                            showMessage('emptyEmail');
+                            showMessage('weakPassword');
                             break;
                     }
                 });
@@ -179,17 +193,17 @@ class FireBaseAPI{
                             changeCard('login');
                             updatePassword = true;
                             document.getElementById('loginButtonB').disabled = true;
+                            document.getElementById('registartionButtonB').disabled = true;
                             document.getElementById('emailLogin').value = email;
-                            showMessage('enterNewPassword');
+                            showMessage('enterNewPassword', true);
                         })
                         .catch((error) => {
                             const errorCode = error.code;
                             switch(errorCode){
                                 case 'auth/expired-action-code':
-                                    changeCard('register');
-                                    showMessage('expiredTermReresetPass');
-                                    break;
                                 case 'auth/invalid-action-code':
+                                    changeCard('login');
+                                    showMessage('expiredTermReresetPass');
                                     return true;
                             }
                         });
