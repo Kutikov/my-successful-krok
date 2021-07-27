@@ -1,0 +1,31 @@
+.listMainPage{
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    max-width: 600px; 
+    width: 100%;
+    justify-content: center;
+    flex-grow: 1;
+    flex-direction: column;
+    display: flex;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+
+.listMainPage::-webkit-scrollbar {
+    display: none;
+}
+
+.card__text {
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.0rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    text-align: justify;
+    letter-spacing: .0178571429em;
+    text-decoration: inherit;
+    text-transform: inherit;
+    word-break: normal;
+    margin: 8px 16px;
+}
