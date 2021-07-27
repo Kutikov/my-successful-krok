@@ -34,18 +34,20 @@
         <div style="display: flex; flex-direction: row; align-items: center; flex-grow: 0; flex-shrink: 0; flex-wrap: wrap; background-color: #fff; z-index: 100; box-shadow: 0px 0px 8px 4px #0006; width: 100%;">
             <div style="margin: 16px 8px 8px 16px; height: 48px; width: 48px; background-image: url('ic_launcher.png'); background-size: contain; flex-grow: 0; flex-shrink: 0;"></div> 
             <p class="card__text" id="pageTitle" style="font-size: 28px; font-weight: 500; flex-grow: 1; margin-left: 16px;"></p>
-            <button class="mdc-button mdc-button--outlined" style="margin: 8px" onclick="localize(0)">
-                <span class="mdc-button__ripple"></span>
-                <span class="mdc-button__label">ua</span>
-            </button>
-            <button class="mdc-button mdc-button--outlined" style="margin: 8px" onclick="localize(2)">
-                <span class="mdc-button__ripple"></span>
-                <span class="mdc-button__label">en</span>
-            </button>
-            <button class="mdc-button mdc-button--outlined" style="margin: 8px 16px 8px 8px;" onclick="localize(1)">
-                <span class="mdc-button__ripple"></span>
-                <span class="mdc-button__label">ru</span>
-            </button>
+            <div style="display: flex; flex-direction: row; margin-right: 8px; margin-left: 8px; flex-grow: 0; flex-shrink: 0; flex-wrap: nowrap;">
+                <button class="mdc-button mdc-button--outlined" style="margin: 8px" onclick="localize(0)">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">ua</span>
+                </button>
+                <button class="mdc-button mdc-button--outlined" style="margin: 8px" onclick="localize(2)">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">en</span>
+                </button>
+                <button class="mdc-button mdc-button--outlined" style="margin: 8px" onclick="localize(1)">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">ru</span>
+                </button>
+            </div>
         </div>
         <div id="listMainPage" class="listMainPage">
             <div class='mdc-card' id="cardLogin" style="margin: 16px; background-color: #fff;">

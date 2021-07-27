@@ -23,6 +23,7 @@ class FireBaseAPI{
         if(this.verifyOnLoadActions()){
             const cookie = document.cookie.replace(/(?:(?:^|.*;\s*)cr\s*\=\s*([^;]*).*$)|^.*$/, "$1");
             if(cookie != ''){
+                console.log(cookie);
                 firebase.auth().signOut ()
                     .then(() => {
                     })
@@ -42,7 +43,7 @@ class FireBaseAPI{
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                document.cookie = "cr={lg:'" + user.email + "',ps:'" + password + "',ver:false}";
+                document.cookie = "cr=" + JSON.stringify({ lg: user.email, ps: password, ver: false });
                 user.updateProfile({
                     displayName: name
                 });
@@ -78,7 +79,7 @@ class FireBaseAPI{
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                document.cookie = "cr={lg:" + user.email + ",ps:" + password + ",ver:" + user.emailVerified + "}";
+                document.cookie = "cr=" + JSON.stringify({ lg: user.email, ps: password, ver: user.emailVerified });
                 changeCard('success');
                 if(user.emailVerified){
                     showMessage('logedIn');
