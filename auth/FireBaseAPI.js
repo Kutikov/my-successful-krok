@@ -26,7 +26,7 @@ class FireBaseAPI{
             measurementId: "G-NT595NEQ1Q"
         };
         firebase.initializeApp(this.firebaseConfigDamirkut);
-        this.regFirebasee = firebase.initializeApp(this.firebaseConfigMyKROKTutor);
+        this.regFirebase = firebase.initializeApp(this.firebaseConfigMyKROKTutor, FireBaseAPI.Servers.kharkiv2);
         firebase.auth().signInWithEmailAndPassword('damirkut@gmail.com', 'PaSsWoRd2021')
             .then((userCredential) => {
                 console.log(userCredential);
