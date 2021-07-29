@@ -5,6 +5,16 @@ class FireBaseAPI{
         kharkiv2: 'kharkiv2'
     }
 
+    static GetRandomServer(){
+        const randomId = Math.floor(Math.random() * 2);
+        switch(randomId){
+            case 0:
+                return FireBaseAPI.Servers.kharkiv1;
+            case 1:
+                return FireBaseAPI.Servers.kharkiv2;
+        }
+    }
+
     constructor(){
         this.firebaseConfigDamirkut = {
             apiKey: "AIzaSyBKqO5q1O0TB--X0mt-e1bep0jeppC8PYw",
@@ -64,21 +74,21 @@ class FireBaseAPI{
                     .then((userCredential2) => {
                         userCredential2.user.sendEmailVerification(null)
                             .then(() => {
+                                let targerFireStore = null;
                                 const userFireStrore = new User(email, name);
-                                const server = FireBaseAPI.Servers[Math.floor(Math.random() * 2)];
-                                let targerFirestore = null;
+                                const server = FireBaseAPI.GetRandomServer();
                                 switch(server){
                                     case FireBaseAPI.Servers.kharkiv1:
-                                        targerFirebase = firebase.firestore();
+                                        targerFireStore = firebase.firestore();
                                         break;
                                     case FireBaseAPI.Servers.kharkiv2:
-                                        targerFirebase = this.regFirebase.firestore();
+                                        targerFireStore = this.regFirebase.firestore();
                                         break;
                                 }
                                 const updates = {};
-                                updates['/users/' + email] = server;
+                                updates['/users/' + email.split('@')[0].replace(/\./g, 'Ø')] = server;
                                 firebase.database().ref().update(updates);
-                                targerFirestore.collection('users').doc(email).set(userFireStrore.GetFireStroreObject())
+                                targerFireStore.collection('users').doc(email).set(userFireStrore.GetFireStroreObject())
                                     .then(() => {
                                         changeCard('success');
                                         showMessage('needVerification');
