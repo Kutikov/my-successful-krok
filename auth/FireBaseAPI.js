@@ -1,5 +1,10 @@
 class FireBaseAPI{
 
+    static Servers = {
+        kharkiv1: 'kharkiv1',
+        kharkiv2: 'kharkiv2'
+    }
+
     constructor(){
         this.firebaseConfigDamirkut = {
             apiKey: "AIzaSyBKqO5q1O0TB--X0mt-e1bep0jeppC8PYw",
@@ -10,9 +15,18 @@ class FireBaseAPI{
             messagingSenderId: "282306699058",
             appId: "1:282306699058:web:7a1fded73750a55b8d012b"
         };
+        this.firebaseConfigMyKROKTutor = {
+            apiKey: "AIzaSyD4FNLmDuvVACkRgOBQ19EZ2tzblhQ1oZc",
+            authDomain: "mysuccessfulkrok.firebaseapp.com",
+            databaseURL: "https://mysuccessfulkrok-default-rtdb.firebaseio.com",
+            projectId: "mysuccessfulkrok",
+            storageBucket: "mysuccessfulkrok.appspot.com",
+            messagingSenderId: "824994683052",
+            appId: "1:824994683052:web:889e746f4862b1ac336709",
+            measurementId: "G-NT595NEQ1Q"
+        };
         firebase.initializeApp(this.firebaseConfigDamirkut);
-        this.firestore = firebase.firestore();
-        this.realdatabase = firebase.database();
+        this.regFirebasee = firebase.initializeApp(this.firebaseConfigMyKROKTutor);
         firebase.auth().signInWithEmailAndPassword('damirkut@gmail.com', 'PaSsWoRd2021')
             .then((userCredential) => {
                 console.log(userCredential);
@@ -40,18 +54,31 @@ class FireBaseAPI{
     }
 
     register(email, password, name){
-        firebase.auth().createUserWithEmailAndPassword(email, password)
+        this.regFirebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
                 user.updateProfile({
                     displayName: name
                 });
-                firebase.auth().signInWithEmailAndPassword(email, password)
+                this.regFirebase.auth().signInWithEmailAndPassword(email, password)
                     .then((userCredential2) => {
                         userCredential2.user.sendEmailVerification(null)
                             .then(() => {
                                 const userFireStrore = new User(email, name);
-                                firebase.firestore().collection('users').doc(email).set(userFireStrore.GetFireStroreObject())
+                                const server = FireBaseAPI.Servers[Math.floor(Math.random() * 2)];
+                                let targerFirestore = null;
+                                switch(server){
+                                    case FireBaseAPI.Servers.kharkiv1:
+                                        targerFirebase = firebase.firestore();
+                                        break;
+                                    case FireBaseAPI.Servers.kharkiv2:
+                                        targerFirebase = this.regFirebase.firestore();
+                                        break;
+                                }
+                                const updates = {};
+                                updates['/users/' + email] = server;
+                                firebase.database().ref().update(updates);
+                                targerFirestore.collection('users').doc(email).set(userFireStrore.GetFireStroreObject())
                                     .then(() => {
                                         changeCard('success');
                                         showMessage('needVerification');
@@ -89,7 +116,7 @@ class FireBaseAPI{
     }
 
     login(email, password){
-        firebase.auth().signInWithEmailAndPassword(email, password)
+        this.regFirebase.auth().signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
                 document.cookie = "cr=" + JSON.stringify({ lg: user.email, ps: password, ver: user.emailVerified });
@@ -123,7 +150,7 @@ class FireBaseAPI{
     resetPass(email, newPassword = null, updatePassword){
         if(updatePassword){
             const actionCode = this.getParameterByName('oobCode');
-            firebase.auth().confirmPasswordReset(actionCode, newPassword)
+            this.regFirebase.auth().confirmPasswordReset(actionCode, newPassword)
                 .then((resp) => {
                     this.login(email, newPassword);
                     window.location.href = window.location.href.split('?')[0];
@@ -141,7 +168,7 @@ class FireBaseAPI{
                 });
         }
         else{
-            firebase.auth().sendPasswordResetEmail(email, null)
+            this.regFirebase.auth().sendPasswordResetEmail(email, null)
                 .then(() => {
                     changeCard('success');
                     showMessage('passwordEmailSended');
@@ -188,7 +215,7 @@ class FireBaseAPI{
         if (mode) {
             switch (mode) {
                 case 'resetPassword':
-                    firebase.auth().verifyPasswordResetCode(actionCode)
+                    this.regFirebase.auth().verifyPasswordResetCode(actionCode)
                         .then((email) => {
                             changeCard('login');
                             updatePassword = true;
@@ -211,7 +238,7 @@ class FireBaseAPI{
                 case 'recoverEmail':
                     break;
                 case 'verifyEmail':
-                    firebase.auth().applyActionCode(actionCode)
+                    this.regFirebase.auth().applyActionCode(actionCode)
                         .then((resp) => {
                             console.log(resp);
                             changeCard('success');
