@@ -6,12 +6,12 @@ class Unit{
     }
     static AddNewModuleString = 'Добавить новую лекцию'
     constructor(fork, unit){
-        this.unitId = unit.replace(' ', 'ø');
-        this.forkId = fork.name.replace(' ', 'ø');
+        this.unitId = unit.replace(/ /g, 'ø');
+        this.forkId = fork.name.replace(/ /g, 'ø');
         this.fork_unitId = this.unitId + '@' + this.forkId;
         this.testsCount = 0;
         this.presentersCount = 0;
-        this.unitName = unit.replace('ø', ' ');
+        this.unitName = unit.replace(/ø/g, ' ');
         this.needUpdate = false;
     }
 
@@ -78,6 +78,7 @@ class Unit{
                 return false;
             }
             else{
+                currentUnit = new Unit(currentFork, tempName);
                 currentUnit.name = tempName;
                 currentUnit.needUpdate = true;
                 currentUnitsArray.push(currentUnit);
@@ -99,7 +100,7 @@ class Unit{
             const dropdown = document.getElementById('units-selected-text');
             if(dropdown.innerText != this.AddNewModuleString && dropdown.innerText != ''){
                 for(let i = 0; i < currentUnitsArray.length; i++){
-                    if(currentUnitsArray[i].unitId.replace('ø', ' ') == dropdown.innerText){
+                    if(currentUnitsArray[i].unitId.replace(/ø/g, ' ') == dropdown.innerText){
                         currentUnit = currentUnitsArray[i];
                         if(EDITOR_MODE == Unit.Editor_modes.tests){
                             currentTestArray = [];

@@ -11,8 +11,8 @@ class Presenter{
     }
 
     constructor(unit, fork){
-        this.unitId = unit.replace(' ', 'ø');
-        this.forkId = fork.replace(' ', 'ø');
+        this.unitId = unit.replace(/ /g, 'ø');
+        this.forkId = fork.replace(/ /g, 'ø');
         this.fork_unitId = this.unitId + '@' + this.forkId;
         this.presenterId = '';
         this.presenterType = '';

@@ -155,7 +155,7 @@ class FireBaseAPI{
 
     //#region Units
     readUnits(fork){
-        let ref = this.realdatabase.ref('units').orderByChild('forkId').equalTo(fork.name.replace(' ', 'ø'));
+        let ref = this.realdatabase.ref('units').orderByChild('forkId').equalTo(fork.name.replace(/ /g, 'ø'));
         ref.get().then((snapshot) => {
             if(snapshot.exists()){
                 const unitsArrayLocal = [];
@@ -314,7 +314,7 @@ class FireBaseAPI{
                         commitOutArr.push(unitText);
                     }
                     refs.push('commits/' + this.getDateStamp());
-                    objects.push({changed: commitOutArr});
+                    objects.push({changed: commitOutArr, timestamp: new Date().getTime()});
                     this.performDbAction(refs, objects, this.Action.writeDb, this.writeTestsCallback);
                 })
                 .catch((error) => {
@@ -443,7 +443,7 @@ class FireBaseAPI{
                         commitOutArr.push(unitText);
                     }
                     refs.push('commits/' + this.getDateStamp());
-                    objects.push({changed: commitOutArr});
+                    objects.push({changed: commitOutArr, timestamp: new Date().getTime()});
                     this.performDbAction(refs, objects, this.Action.writeDb, this.writePresentersCallback);
                 })
                 .catch((error) => {

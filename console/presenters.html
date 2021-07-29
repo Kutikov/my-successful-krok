@@ -90,14 +90,19 @@
                 </div>
             </div>
             <div style="display: flex; margin-left:16px; flex-grow: 1; flex-shrink: 0; align-items: center;">
-                <div class="mdc-switch" id='previewSwitch'>
-                    <div class="mdc-switch__track"></div>
-                    <div class="mdc-switch__thumb-underlay">
-                      <div class="mdc-switch__thumb"></div>
-                      <input type="checkbox" id="basic-switch" class="mdc-switch__native-control" role="switch" aria-checked="false">
+                <div class="mdc-form-field" style="margin-right: 16px;">
+                    <div class="mdc-checkbox">
+                        <input type="checkbox" class="mdc-checkbox__native-control" id="previewSwitch"/>
+                        <div class="mdc-checkbox__background">
+                            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                            </svg>
+                            <div class="mdc-checkbox__mixedmark"></div>
+                        </div>
+                        <div class="mdc-checkbox__ripple"></div>
                     </div>
-                  </div>
-                <label for="basic-switch" class='card__text' style="margin-right: 48px;">Превью</label>
+                    <label for="previewSwitch">Превью</label>
+                </div>
                 <button class="mdc-button mdc-button--raised" id="saveButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" onclick="save_file();" disabled>
                     <span class="mdc-button__ripple"></span>
                     <i class="material-icons mdc-button__icon" aria-hidden="true">save</i>
@@ -321,7 +326,7 @@
                               <div class="mdc-checkbox__ripple"></div>
                             </div>
                             <label for="checkboxLockUrl">Блокировать все ниже без предосмотра ссылки</label>
-                          </div>
+                        </div>
                     </div>
                     <div id="imageEditorHolder" style="width: 100%;">
                         <div style="width: 100%; display: flex; flex-direction: row; flex-wrap: wrap;">
@@ -731,7 +736,7 @@
         const dialogEdit = new mdc.dialog.MDCDialog(document.getElementById('edit-dialog'));
         const dialogTitle = document.getElementById('main-dialog-title');
         const dialogContent = document.getElementById('main-dialog-content');
-        const selector = '.mdc-button, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
+        const selector = '.mdc-button, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button, .mdc-switch';
         const testListMainPage = document.getElementById('testListMainPage');
         const saveButton = document.getElementById('saveButton');
         const linearProgress = document.getElementById('loadingLinearProgress');
@@ -739,11 +744,10 @@
         const loadingText = document.getElementById('loadingText');
         const fab = document.getElementById('fab');
         const previewSwitch = document.getElementById('previewSwitch');
-        pS =  new mdc.switchControl.MDCSwitch(document.querySelector('.mdc-switch'));
-        menues = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
+        texts3 = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
             return new mdc.textField.MDCTextField(el);
         });
-        texts3 = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
+        menues = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
             return new mdc.select.MDCSelect(el);
         });
         toggles = [].map.call(document.querySelectorAll('.mdc-icon-button'), function(el) {
@@ -757,6 +761,9 @@
         });
         progresses = [].map.call(document.querySelectorAll('.mdc-linear-progress'), function(el) {
             return new mdc.linearProgress.MDCLinearProgress(el);
+        });
+        ripples2 = [].map.call(document.querySelectorAll(selector), function(el) {
+            return new mdc.ripple.MDCRipple(el);
         });
         let ripples;
         let texts;
@@ -783,7 +790,7 @@
             fab.classList.add('mdc-fab--exited');
             previewSwitch.addEventListener('click', () => {
                 if(currentPresenterArray != null){
-                    generalPreviewBoolean = !previewSwitch.classList.contains('mdc-switch--checked');
+                    generalPreviewBoolean = previewSwitch.checked;
                     Presenter.ReDraw();
                 }
             });
