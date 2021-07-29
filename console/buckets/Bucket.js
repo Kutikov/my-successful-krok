@@ -27,13 +27,13 @@ class Bucket {
     }
 
     static StringifyIncludesId(fork, unit){
-        return unit.replace(' ', 'Ø') + '@' + fork.replace(' ', 'Ø')
+        return unit.replace(' ', 'ø') + '@' + fork.replace(' ', 'ø')
     }
 
     static ParseIncludedId(strId) {
         return {
-            fork: strId.split('@')[1].replace('Ø', ' '),
-            unit: strId.split('@')[0].replace('Ø', ' ')
+            fork: strId.split('@')[1].replace('ø', ' '),
+            unit: strId.split('@')[0].replace('ø', ' ')
         }
     }
 
@@ -41,8 +41,8 @@ class Bucket {
         const ret = ['*'];
         for (let i = 0; i < allUnitsArray.length; i++) {
             const sp = allUnitsArray[i].split('@');
-            if (sp[1] == forkId.replace(' ', 'Ø')) {
-                ret.push(sp[0].replace('Ø', ' '));
+            if (sp[1] == forkId.replace(' ', 'ø')) {
+                ret.push(sp[0].replace('ø', ' '));
             }
         }
         return ret;
@@ -68,8 +68,8 @@ class Bucket {
         });
         for (let j = 0; j < allForksArray.length; j++) {
             const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
-            listItem.querySelector('.mdc-list-item__text').innerText = allForksArray[i].replace('Ø', ' ');
-            listItem.querySelector('.mdc-list-item').dataset.value = allForksArray[i].replace('Ø', ' ');
+            listItem.querySelector('.mdc-list-item__text').innerText = allForksArray[i].replace('ø', ' ');
+            listItem.querySelector('.mdc-list-item').dataset.value = allForksArray[i].replace('ø', ' ');
             lists[0].appendChild(listItem);
         }
         selectors[0].innerText = parsed.fork;

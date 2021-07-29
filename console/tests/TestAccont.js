@@ -1,7 +1,7 @@
 class TestAccount{
     constructor(unit, fork){
-        this.unitId = unit.replace(' ', 'Ø');
-        this.forkId = fork.replace(' ', 'Ø');
+        this.unitId = unit.replace(' ', 'ø');
+        this.forkId = fork.replace(' ', 'ø');
         this.task = '';
         this.comment = '';
         this.answersTrue = [];

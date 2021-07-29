@@ -86,7 +86,7 @@ class FireBaseAPI{
                                         break;
                                 }
                                 const updates = {};
-                                updates['/users/' + email.split('@')[0].replace(/\./g, 'Ø')] = server;
+                                updates['/users/' + email.split('@')[0].replace(/\./g, 'ø')] = server;
                                 firebase.database().ref().update(updates);
                                 targerFireStore.collection('users').doc(email).set(userFireStrore.GetFireStroreObject())
                                     .then(() => {

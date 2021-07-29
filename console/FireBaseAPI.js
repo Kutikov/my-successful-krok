@@ -155,7 +155,7 @@ class FireBaseAPI{
 
     //#region Units
     readUnits(fork){
-        let ref = this.realdatabase.ref('units').orderByChild('forkId').equalTo(fork.name.replace(' ', 'Ø'));
+        let ref = this.realdatabase.ref('units').orderByChild('forkId').equalTo(fork.name.replace(' ', 'ø'));
         ref.get().then((snapshot) => {
             if(snapshot.exists()){
                 const unitsArrayLocal = [];
