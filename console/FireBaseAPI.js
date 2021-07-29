@@ -176,7 +176,7 @@ class FireBaseAPI{
     }
 
     readAllUnits(){
-        let ref = this.realdatabase.ref('units').orderByChild('author');
+        let ref = this.realdatabase.ref('units');
         ref.get().then((snapshot) => {
             if(snapshot.exists()){
                 const unitsArrayLocal = [];
