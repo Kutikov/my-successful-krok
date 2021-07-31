@@ -53,6 +53,29 @@ class FireBaseAPI{
             })
     }
 
+    //#region Index
+    login(email, password, author, target){
+        firebase.auth().signOut()
+            .then(() => {
+                firebase.auth().signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    window.open(target + '.html?author=' + author, '_self');
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    switch(errorCode){
+                        case 'auth/wrong-password':
+                            document.getElementById('message' + author).style.display = 'block';
+                            break;
+                    }
+                });     
+            })
+            .catch((error) => {
+                console.log(error);
+            }); 
+    }
+    //#endregion
+
     //#region Forks
     readForks(author){
         let ref = this.realdatabase.ref('forks').orderByChild('author').equalTo(author);
