@@ -7,6 +7,7 @@ class Presenter{
         link: 'link',
         paragraph: 'paragraph',
         testprogram: 'testprogram',
+        testitem: 'testitem',
         video: 'video'
     }
 
@@ -136,6 +137,9 @@ class Presenter{
             case Presenter.presenterType.image:
                 ImageP.Draw(props, holder);
                 break;
+            case Presenter.presenterType.testitem:
+                TestItem.Draw(props, holder);
+                break;
         }
     }
 
@@ -168,6 +172,9 @@ class Presenter{
                 break;
             case Presenter.presenterType.image:
                 allowSaving = ImageP.Save(this);
+                break;
+            case Presenter.presenterType.testitem:
+                allowSaving = TestItem.Save(this);
                 break;
         }
         if(!allowSaving){
@@ -215,33 +222,37 @@ class Presenter{
         const previewHolder = document.getElementById('previewHolder');
         switch(this.tempType){
             case Presenter.presenterType.paragraph:
-                    Paragraph.OnEditAction(this.tempProps, id, message);
-                    Paragraph.Draw(this.tempProps, previewHolder);
-                    break;
-                case Presenter.presenterType.file:
-                    FileP.OnEditAction(this.tempProps, id, message);
-                    FileP.Draw(this.tempProps, previewHolder);
-                    break;
-                case Presenter.presenterType.link:
-                    LinkP.OnEditAction(this.tempProps, id, message);
-                    LinkP.Draw(this.tempProps, previewHolder);
-                    break;
-                case Presenter.presenterType.infocard:
-                    InfoCard.OnEditAction(this.tempProps, id, message);
-                    InfoCard.Draw(this.tempProps, previewHolder);
-                    break;
-                case Presenter.presenterType.video:
-                    VideoP.OnEditAction(this.tempProps, id, message);
-                    VideoP.Draw(this.tempProps, previewHolder);
-                    break;
-                case Presenter.presenterType.testprogram:
-                    TestProgram.OnEditAction(this.tempProps, id, message);
-                    TestProgram.Draw(this.tempProps, previewHolder);
-                    break;
-                case Presenter.presenterType.image:
-                    ImageP.OnEditAction(this.tempProps, id, message);
-                    ImageP.Draw(this.tempProps, previewHolder);
-                    break;
+                Paragraph.OnEditAction(this.tempProps, id, message);
+                Paragraph.Draw(this.tempProps, previewHolder);
+                break;
+             case Presenter.presenterType.file:
+                FileP.OnEditAction(this.tempProps, id, message);
+                FileP.Draw(this.tempProps, previewHolder);
+                break;
+            case Presenter.presenterType.link:
+                LinkP.OnEditAction(this.tempProps, id, message);
+                LinkP.Draw(this.tempProps, previewHolder);
+                break;
+            case Presenter.presenterType.infocard:
+                InfoCard.OnEditAction(this.tempProps, id, message);
+                InfoCard.Draw(this.tempProps, previewHolder);
+                break;
+            case Presenter.presenterType.video:
+                VideoP.OnEditAction(this.tempProps, id, message);
+                VideoP.Draw(this.tempProps, previewHolder);
+                break;
+            case Presenter.presenterType.testprogram:
+                TestProgram.OnEditAction(this.tempProps, id, message);
+                TestProgram.Draw(this.tempProps, previewHolder);
+                break;
+            case Presenter.presenterType.image:
+                ImageP.OnEditAction(this.tempProps, id, message);
+                ImageP.Draw(this.tempProps, previewHolder);
+                break;
+            case Presenter.presenterType.testitem:
+                TestItem.OnEditAction(this.tempProps, id, message);
+                TestItem.Draw(this.tempProps, previewHolder);
+                break;
         }
     }
 
@@ -254,6 +265,7 @@ class Presenter{
         document.getElementById('imageEditorHolder').style.display = 'none';
         document.getElementById('fileEditorHolder').style.display = 'none';
         document.getElementById('testProgramEditorHolder').style.display = 'none';
+        document.getElementById('testItemEditorHolder').style.display = 'none';
         document.getElementById('videoEditorHolder').style.display = 'none';
 
         this.tempType = type;
@@ -282,6 +294,9 @@ class Presenter{
                     break;
                 case Presenter.presenterType.image:
                     this.tempProps = new ImageP();
+                    break;
+                case Presenter.presenterType.testitem:
+                    this.tempProps = new TestItem();
                     break;
             }
         }
@@ -314,6 +329,10 @@ class Presenter{
             case Presenter.presenterType.image:
                 ImageP.PrepareEdit(props, contentL);
                 ImageP.Draw(props, previewHolder);
+                break;
+            case Presenter.presenterType.testitem:
+                TestItem.PrepareEdit(props, contentL);
+                TestItem.Draw(props, previewHolder);
                 break;
         }
     }
