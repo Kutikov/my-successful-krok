@@ -195,6 +195,10 @@
                                     <span class="mdc-list-item__ripple"></span>
                                     <span class="mdc-list-item__text">testprogram</span>
                                 </li>
+                                <li class="mdc-list-item">
+                                    <span class="mdc-list-item__ripple"></span>
+                                    <span class="mdc-list-item__text">testitem</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -590,6 +594,194 @@
                             </label>
                             <p class="card__text">случайных тестов</p>
                         </div>
+                    </div>
+                    <div id="testItemEditorHolder" style="width: 100%;">
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 16px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label">Текст вопроса</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="testItemTaskEditTextArea" rows="3" cols="100" aria-label="Label" required minlength="1"></textarea>
+                            </span>
+                        </label>
+                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+                            <div class="mdc-form-field" style="flex-grow: 0; flex-shrink: 0; margin-top: 16px;">
+                                <div class="mdc-checkbox">
+                                    <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxTestItemAns1"/>
+                                    <div class="mdc-checkbox__background">
+                                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                        </svg>
+                                        <div class="mdc-checkbox__mixedmark"></div>
+                                    </div>
+                                    <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="checkboxTestItemAns1"></label>
+                            </div>
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 16px; flex-grow: 1; flex-shrink: 1;">
+                                <span class="mdc-notched-outline">
+                                  <span class="mdc-notched-outline__leading"></span>
+                                  <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label">Текст ответа №1</span>
+                                  </span>
+                                  <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                    <textarea class="mdc-text-field__input" id="testAnswer1TextArea" rows="1" cols="100" aria-label="Label" required minlength="1"></textarea>
+                                </span>
+                            </label>
+                        </div>
+                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+                            <div class="mdc-form-field" style="flex-grow: 0; flex-shrink: 0; margin-top: 16px;">
+                                <div class="mdc-checkbox">
+                                    <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxTestItemAns2"/>
+                                    <div class="mdc-checkbox__background">
+                                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                        </svg>
+                                        <div class="mdc-checkbox__mixedmark"></div>
+                                    </div>
+                                    <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="checkboxTestItemAns2"></label>
+                            </div>
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 16px; flex-grow: 1; flex-shrink: 1;">
+                                <span class="mdc-notched-outline">
+                                  <span class="mdc-notched-outline__leading"></span>
+                                  <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label">Текст ответа №2</span>
+                                  </span>
+                                  <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                    <textarea class="mdc-text-field__input" id="testAnswer2TextArea" rows="1" cols="100" aria-label="Label" required minlength="3"></textarea>
+                                </span>
+                            </label>
+                        </div>
+                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+                            <div class="mdc-form-field" style="flex-grow: 0; flex-shrink: 0; margin-top: 16px;">
+                                <div class="mdc-checkbox">
+                                    <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxTestItemAns3"/>
+                                    <div class="mdc-checkbox__background">
+                                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                        </svg>
+                                        <div class="mdc-checkbox__mixedmark"></div>
+                                    </div>
+                                    <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="checkboxTestItemAns3"></label>
+                            </div>
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 16px; flex-grow: 1; flex-shrink: 1;">
+                                <span class="mdc-notched-outline">
+                                  <span class="mdc-notched-outline__leading"></span>
+                                  <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label">Текст ответа №3</span>
+                                  </span>
+                                  <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                    <textarea class="mdc-text-field__input" id="testAnswer3TextArea" rows="1" cols="100" aria-label="Label" required minlength="1"></textarea>
+                                </span>
+                            </label>
+                        </div>
+                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+                            <div class="mdc-form-field" style="flex-grow: 0; flex-shrink: 0; margin-top: 16px;">
+                                <div class="mdc-checkbox">
+                                    <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxTestItemAns4"/>
+                                    <div class="mdc-checkbox__background">
+                                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                        </svg>
+                                        <div class="mdc-checkbox__mixedmark"></div>
+                                    </div>
+                                    <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="checkboxTestItemAns4"></label>
+                            </div>
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 16px; flex-grow: 1; flex-shrink: 1;">
+                                <span class="mdc-notched-outline">
+                                  <span class="mdc-notched-outline__leading"></span>
+                                  <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label">Текст ответа №4</span>
+                                  </span>
+                                  <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                    <textarea class="mdc-text-field__input" id="testAnswer4TextArea" rows="1" cols="100" aria-label="Label"></textarea>
+                                </span>
+                            </label>
+                        </div>
+                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+                            <div class="mdc-form-field" style="flex-grow: 0; flex-shrink: 0; margin-top: 16px;">
+                                <div class="mdc-checkbox">
+                                    <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxTestItemAns5"/>
+                                    <div class="mdc-checkbox__background">
+                                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                        </svg>
+                                        <div class="mdc-checkbox__mixedmark"></div>
+                                    </div>
+                                    <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="checkboxTestItemAns5"></label>
+                            </div>
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 16px; flex-grow: 1; flex-shrink: 1;">
+                                <span class="mdc-notched-outline">
+                                  <span class="mdc-notched-outline__leading"></span>
+                                  <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label">Текст ответа №5</span>
+                                  </span>
+                                  <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                    <textarea class="mdc-text-field__input" id="testAnswer5TextArea" rows="1" cols="100" aria-label="Label"></textarea>
+                                </span>
+                            </label>
+                        </div>
+                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+                            <div class="mdc-form-field" style="flex-grow: 0; flex-shrink: 0; margin-top: 16px;">
+                                <div class="mdc-checkbox">
+                                    <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxTestItemAns6"/>
+                                    <div class="mdc-checkbox__background">
+                                        <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                        </svg>
+                                        <div class="mdc-checkbox__mixedmark"></div>
+                                    </div>
+                                    <div class="mdc-checkbox__ripple"></div>
+                                </div>
+                                <label for="checkboxTestItemAns6"></label>
+                            </div>
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 16px; flex-grow: 1; flex-shrink: 1;">
+                                <span class="mdc-notched-outline">
+                                  <span class="mdc-notched-outline__leading"></span>
+                                  <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label">Текст ответа №6</span>
+                                  </span>
+                                  <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                    <textarea class="mdc-text-field__input" id="testAnswer6TextArea" rows="1" cols="100" aria-label="Label"></textarea>
+                                </span>
+                            </label>
+                        </div>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 16px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label">Текст комментария</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="testItemCommentEditTextArea" rows="3" cols="100" aria-label="Label"></textarea>
+                            </span>
+                        </label>
                     </div>
                     <div id="videoEditorHolder" style="width: 100%;">
                         <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
