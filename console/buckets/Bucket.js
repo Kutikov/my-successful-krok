@@ -7,11 +7,12 @@ class Bucket {
         this.description = '';
         this.detailsURL = '';
         this.name = '';
+        this.TTL = 0;
         this.shopURL = '';
         this.templateURL = '';
     }
 
-    static Decode(bucketId, record){
+    static Decode(bucketId, record) {
         const bucket = new Bucket();
         bucket.bucketId = bucketId;
         bucket.addresses = record.addresses;
@@ -21,11 +22,15 @@ class Bucket {
         bucket.detailsURL = record.detailsURL;
         bucket.name = record.name;
         bucket.shopURL = record.shopURL;
+        bucket.TTL = record.TTL;
         bucket.templateURL = record.templateURL;
+        if (bucket.TTL == undefined) {
+            bucket.TTL = 0;
+        }
         return bucket;
     }
 
-    GetFirebaseObject(){
+    GetFirebaseObject() {
         return {
             addresses: this.addresses,
             beneficiary: this.beneficiary,
@@ -34,17 +39,18 @@ class Bucket {
             detailsURL: this.detailsURL,
             name: this.name,
             shopURL: this.shopURL,
-            templateURL: this.templateURL
+            templateURL: this.templateURL,
+            TTL: this.TTL
         };
     }
 
-    static DrawAll(){
-        for(let i = 0; i < allBucketsArray.length; i++){
+    static DrawAll() {
+        for (let i = 0; i < allBucketsArray.length; i++) {
             Bucket.Draw(allBucketsArray[i]);
         }
     }
 
-    static StringifyIncludesId(fork, unit){
+    static StringifyIncludesId(fork, unit) {
         return unit.replace(/ /g, 'ø') + '@' + fork.replace(/ /g, 'ø')
     }
 
@@ -68,13 +74,19 @@ class Bucket {
 
     static MakeNode(parentNode, bucket, i, parsed) {
         const contentF = document.getElementById('editItemTeplate').content.cloneNode(true);
+        const areas = contentF.querySelectorAll('.mdc-select__anchor');
+        const labels = contentF.querySelectorAll('.mdc-floating-label');
         const selectorsH = contentF.querySelectorAll('.mdc-select');
         const selectors = contentF.querySelectorAll('.mdc-select__selected-text');
         const lists = contentF.querySelectorAll('.mdc-list');
-        selectors[0].id = bucket.bucketId + 'forkSelector' + i.toString();
-        selectors[1].id = bucket.bucketId + 'unitSelector' + i.toString();
-        selectorsH[0].id = bucket.bucketId + 'forkSelectorH' + i.toString();
-        selectorsH[1].id = bucket.bucketId + 'unitSelectorH' + i.toString();
+        selectors[0].id = 'b' + bucket.bucketId + 'forkSelector' + i.toString();
+        selectors[1].id = 'b' + bucket.bucketId + 'unitSelector' + i.toString();
+        selectorsH[0].id = 'b' + bucket.bucketId + 'forkSelectorH' + i.toString();
+        selectorsH[1].id = 'b' + bucket.bucketId + 'unitSelectorH' + i.toString();
+        labels[0].id = 'l' + bucket.bucketId + 'forkLabel' + i.toString();
+        labels[1].id = 'l' + bucket.bucketId + 'unitLabel' + i.toString();
+        areas[0].setAttribute('aria-labelledby', labels[0].id);
+        areas[1].setAttribute('aria-labelledby', labels[1].id);
         for (let j = 0; j < allForksArray.length; j++) {
             const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
             listItem.querySelector('.mdc-list-item__text').innerText = allForksArray[j].replace(/ø/g, ' ');
@@ -85,7 +97,7 @@ class Bucket {
         let sel1 = new mdc.select.MDCSelect(document.getElementById(selectorsH[0].id));
         let sel2 = new mdc.select.MDCSelect(document.getElementById(selectorsH[1].id));
         selectors[0].addEventListener('DOMSubtreeModified', (k) => {
-            if(!document.getElementById(bucket.bucketId + 'add').disabled){
+            if (!document.getElementById('addButton').disabled) {
                 while (lists[1].firstChild) {
                     lists[1].removeChild(lists[1].lastChild);
                 }
@@ -103,72 +115,77 @@ class Bucket {
     }
 
     static Draw(bucket) {
-        const contentL = document.getElementById('bucketCardTemplate').content.cloneNode(true);
+        const contentL = document.getElementById('bucketCard');
         const image_actions = contentL.querySelectorAll('.mdc-card__action--button');
         const texts = contentL.querySelectorAll('.mdc-text-field__input');
         const holder = contentL.querySelector('.card__presenter_holder');
         const radios = contentL.querySelectorAll('.mdc-radio__native-control');
-        contentL.querySelector('.mdc-card').id = 'card' + bucket.bucketId;
         testListMainPage.appendChild(contentL);
-        texts[0].value = bucket.name; 
-        texts[1].value = bucket.description; 
-        texts[2].value = bucket.beneficiary; 
-        texts[3].value = bucket.cost.split(' ')[0]; 
-        texts[4].value = bucket.shopURL; 
-        texts[5].value = bucket.detailsURL; 
-        texts[6].value = bucket.templateURL;
+        document.getElementById('nameEditText').value = bucket.name;
+        document.getElementById('descriptionEditText').value = bucket.description;
+        document.getElementById('beneficiarEditText').value = bucket.beneficiary;
+        document.getElementById('costEditText').value = bucket.cost.split(' ')[0];
+        document.getElementById('shopUrlEditText').value = bucket.shopURL;
+        document.getElementById('detailsUrlEditText').value = bucket.detailsURL;
+        document.getElementById('schemaUrlEditText').value = bucket.templateURL;
+        document.getElementById('monthEditText').value = bucket.TTL;
         radios[0].checked = bucket.cost.split(' ')[1] == "USD";
         radios[1].checked = bucket.cost.split(' ')[1] == "UAH";
-        image_actions[0].id = bucket.bucketId + 'edit';
-        image_actions[1].id = bucket.bucketId + 'add';
-        image_actions[2].id = bucket.bucketId + 'save';
-        image_actions[3].id = bucket.bucketId + 'delete';
         image_actions[0].addEventListener('click', () => {
-            document.getElementById(bucket.bucketId + 'edit').disabled = true;
-            document.getElementById(bucket.bucketId + 'add').disabled = false;
-            document.getElementById(bucket.bucketId + 'save').disabled = false;
-            document.getElementById(bucket.bucketId + 'delete').disabled = true;
+            document.getElementById('editButton').disabled = true;
+            document.getElementById('addButton').disabled = false;
+            document.getElementById('saveButton').disabled = false;
+            document.getElementById('deleteButton').disabled = true;
         });
         image_actions[2].addEventListener('click', () => {
             let allValid = true;
-            for(let textI = 0; textI < texts.length; textI++){
-                if(!texts[textI].checkValidity()){
+            for (let textI = 0; textI < texts.length; textI++) {
+                if (!texts[textI].checkValidity()) {
                     allValid = false;
                 }
             }
-            if(allValid && holder.childElementCount > 0){
-                document.getElementById(bucket.bucketId + 'edit').disabled = false;
-                document.getElementById(bucket.bucketId + 'save').disabled = true;
-                document.getElementById(bucket.bucketId + 'add').disabled = true;
-                document.getElementById(bucket.bucketId + 'delete').disabled = false;
+            if (allValid && holder.childElementCount > 0) {
+                document.getElementById('editButton').disabled = false;
+                document.getElementById('addButton').disabled = true;
+                document.getElementById('saveButton').disabled = true;
+                document.getElementById('deleteButton').disabled = false;
                 const includes = [];
-                for(let i = 0; i < holder.childElementCount / 2; i++){
+                for (let i = 0; i < holder.childElementCount / 2; i++) {
                     includes.push(Bucket.StringifyIncludesId(
-                        document.getElementById(bucket.bucketId + 'forkSelector' + i.toString()).innerText,
-                        document.getElementById(bucket.bucketId + 'unitSelector' + i.toString()).innerText,
+                        document.getElementById('b' + bucket.bucketId + 'forkSelector' + i.toString()).innerText,
+                        document.getElementById('b' + bucket.bucketId + 'unitSelector' + i.toString()).innerText,
                     ));
                 }
                 bucket.addresses = includes;
-                bucket.name = texts[0].value;
-                bucket.description = texts[1].value;
-                bucket.beneficiary = texts[2].value;
-                bucket.cost = texts[3].value + (radios[0].checked ? " USD" : " UAH");
-                bucket.shopURL = texts[4].value;
-                bucket.detailsURL = texts[5].value;
-                bucket.templateURL = texts[6].value;
+                bucket.name = document.getElementById('nameEditText').value;
+                bucket.description = document.getElementById('descriptionEditText').value;
+                bucket.beneficiary = document.getElementById('beneficiarEditText').value;
+                bucket.cost = document.getElementById('costEditText').value + (radios[0].checked ? " USD" : " UAH");
+                bucket.shopURL = document.getElementById('shopUrlEditText').value;
+                bucket.detailsURL = document.getElementById('detailsUrlEditText').value;
+                bucket.templateURL = document.getElementById('schemaUrlEditText').value;
                 firebaseApi.writeBucket(bucket);
             }
         });
         image_actions[1].addEventListener('click', () => {
-            Bucket.MakeNode(holder, bucket, holder.childElementCount / 2, { fork: allForksArray[0], unit: '*'});
+            Bucket.MakeNode(holder, bucket, holder.childElementCount / 2, { fork: allForksArray[0], unit: '*' });
         });
         image_actions[3].addEventListener('click', () => {
-            contentL.getParentNode().removeChild(contentL);
+            for (let i = 0; i < allBucketsArray.length; i++) {
+                if (allBucketsArray[i].bucketId === bucket.bucketId) {
+                    allBucketsArray[i].splice(i, 1);
+                    break;
+                }
+            }
+            if (allBucketsArray.length == 0) {
+                allBucketsArray.push(new Bucket());
+            }
+            Bucket.Draw(allBucketsArray[0]);
             firebaseApi.deleteBucket(bucket);
         });
         image_actions[1].disabled = true;
         image_actions[2].disabled = true;
-        if(bucket.addresses == null){
+        if (bucket.addresses == null) {
             bucket.addresses = [];
         }
         for (let i = 0; i < bucket.addresses.length; i++) {

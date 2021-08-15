@@ -29,37 +29,237 @@
     <script src="buckets/Bucket.js"></script>
 </head>
 
-<body style="background-color: #f0f0f0;">
-    <div style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
-        <div id="testListMainPage" class="testListMainPage">
-            
+<body style="background-color: #f0f0f0; margin: 0px;">
+    <aside class="mdc-drawer mdc-drawer--modal mdc-drawer--open">
+        <div class="mdc-drawer__content">
+            <nav class="mdc-list">
+                <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" tabindex="0">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+                    <span class="mdc-list-item__text">Inbox</span>
+                </a>
+                <a class="mdc-list-item" href="#">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+                    <span class="mdc-list-item__text">Outgoing</span>
+                </a>
+                <a class="mdc-list-item" href="#">
+                    <span class="mdc-list-item__ripple"></span>
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+                    <span class="mdc-list-item__text">Drafts</span>
+                </a>
+            </nav>
         </div>
-    </div>
-    <button class="mdc-fab mdc-fab--extended" id="fab" style="position:fixed; bottom: 16px; right: 16px;">
-        <div class="mdc-fab__ripple"></div>
-        <span class="material-icons mdc-fab__icon">add</span>
-        <span class="mdc-fab__label">Create</span>
-    </button>
-    <div id="loadingTemplate" style="bottom: 0; top: 0; right: 0; left: 0; position: absolute;background-color: #fff; display: none; align-items: center; flex-direction: row; z-index: 10000;">
-        <div style="display: flex; width: 100%; align-items: center; flex-direction: column;">
-            <p class="card__text" id="loadingText">Loading...</p>
-            <div style="width: 100%; height: 20px;"></div>
-            <div role="progressbar" style="width: 80%;" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
-                <div class="mdc-linear-progress__buffer">
-                  <div class="mdc-linear-progress__buffer-bar"></div>
-                  <div class="mdc-linear-progress__buffer-dots"></div>
+    </aside>
+    <div class="mdc-drawer-scrim"></div>
+    <div id="mainCotent">
+        <div
+            style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
+            <div id="testListMainPage" class="testListMainPage">
+                <div class='mdc-card' id="bucketCard"
+                    style="margin-top: 6px; margin-bottom: 8px; background-color: #fff; margin-left: 16px; margin-right: 16px;">
+                    <div style="margin: 8px; margin-bottom: 0px;">
+                        <div style="display: flex; flex-wrap: wrap; flex-direction: row;">
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+                                style="margin-top: 16px; min-width: 200px; flex-shrink: 1; flex-grow: 1;">
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                        <span class="mdc-floating-label">Название</span>
+                                    </span>
+                                    <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                    <textarea class="mdc-text-field__input" id="nameEditText" rows="1"
+                                        aria-label="Label" required minlength="3"></textarea>
+                                </span>
+                            </label>
+                            <div style="width: 16px;"></div>
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+                                style="margin-top: 16px; min-width: 200px; flex-shrink: 1; flex-grow: 1;">
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                        <span class="mdc-floating-label">Бенефициар</span>
+                                    </span>
+                                    <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                    <textarea class="mdc-text-field__input" id="beneficiarEditText" rows="1"
+                                        aria-label="Label" required minlength="3"></textarea>
+                                </span>
+                            </label>
+                        </div>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+                            style="margin-top: 16px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label">Описание</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="descriptionEditText" rows="3" cols="100"
+                                    aria-label="Label" required minlength="3"></textarea>
+                            </span>
+                        </label>
+                        <div style="display: flex; flex-direction: row; flex-wrap: wrap; width: 100%;">
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+                                style="margin-top: 16px; min-width: 100px; flex-grow: 1;">
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                        <span class="mdc-floating-label">Месяцев</span>
+                                    </span>
+                                    <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                    <textarea class="mdc-text-field__input" id="monthEditText" rows="1" cols="10"
+                                        aria-label="Label" required pattern="[0-9]+"></textarea>
+                                </span>
+                            </label>
+                            <div style="width: 16px;"></div>
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+                                style="margin-top: 16px; min-width: 100px; flex-grow: 1;">
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                        <span class="mdc-floating-label">Цена</span>
+                                    </span>
+                                    <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-text-field__resizer">
+                                    <textarea class="mdc-text-field__input" id="costEditText" rows="1" cols="10"
+                                        aria-label="Label" required pattern="[0-9]+\.[0-9]{2}"></textarea>
+                                </span>
+                            </label>
+                            <div class="mdc-form-field" style="margin-right: 16px; margin-top: 16px;">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="usdRadio" name="radios">
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div class="mdc-radio__ripple"></div>
+                                </div>
+                                <label for="radioFree">Доллар</label>
+                            </div>
+                            <div class="mdc-form-field" style="margin-right: 16px; margin-top: 16px;">
+                                <div class="mdc-radio">
+                                    <input class="mdc-radio__native-control" type="radio" id="uahRadio" name="radios">
+                                    <div class="mdc-radio__background">
+                                        <div class="mdc-radio__outer-circle"></div>
+                                        <div class="mdc-radio__inner-circle"></div>
+                                    </div>
+                                    <div class="mdc-radio__ripple"></div>
+                                </div>
+                                <label for="radioTraining">Гривня</label>
+                            </div>
+                        </div>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+                            style="margin-top: 16px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label">URL покупки</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="shopUrlEditText" rows="1" cols="100"
+                                    aria-label="Label" required minlength="3"></textarea>
+                            </span>
+                        </label>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+                            style="margin-top: 16px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label">URL деталей</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="detailsUrlEditText" rows="1" cols="100"
+                                    aria-label="Label" required minlength="3"></textarea>
+                            </span>
+                        </label>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+                            style="margin-top: 16px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label">URL JSON схемы</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="schemaUrlEditText" rows="1" cols="100"
+                                    aria-label="Label" required minlength="3"></textarea>
+                            </span>
+                        </label>
+                        <div class="card__presenter_holder"
+                            style="margin-top: 8px; margin-right: -8px; margin-left: -8px; background-color: #ddd;">
+                        </div>
+                    </div>
+                    <div class="mdc-card__actions">
+                        <div class="mdc-card__action-buttons">
+                            <button class="mdc-button mdc-card__action mdc-card__action--button" id="editButton">
+                                <div class="mdc-button__ripple"></div>
+                                <span class="mdc-button__label material-icons">edit</span>
+                            </button>
+                        </div>
+                        <div class="mdc-card__action-buttons">
+                            <button class="mdc-button mdc-card__action mdc-card__action--button" id="addButton">
+                                <div class="mdc-button__ripple"></div>
+                                <span class="mdc-button__label material-icons">add_circle_outline</span>
+                            </button>
+                        </div>
+                        <div class="mdc-card__action-buttons">
+                            <button class="mdc-button mdc-card__action mdc-card__action--button" id="saveButton">
+                                <div class="mdc-button__ripple"></div>
+                                <span class="mdc-button__label material-icons">save</span>
+                            </button>
+                        </div>
+                        <div class="mdc-card__action-buttons">
+                            <button class="mdc-button mdc-card__action mdc-card__action--button" id="deleteButton">
+                                <div class="mdc-button__ripple"></div>
+                                <span class="mdc-button__label material-icons">delete</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
-                  <span class="mdc-linear-progress__bar-inner"></span>
-                </div>
-                <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
-                  <span class="mdc-linear-progress__bar-inner"></span>
+            </div>
+        </div>
+        <button class="mdc-fab mdc-fab--extended" id="fab" style="position:fixed; bottom: 16px; right: 16px;">
+            <div class="mdc-fab__ripple"></div>
+            <span class="material-icons mdc-fab__icon">add</span>
+            <span class="mdc-fab__label">Create</span>
+        </button>
+        <div id="loadingTemplate"
+            style="bottom: 0; top: 0; right: 0; left: 0; position: absolute;background-color: #fff; display: none; align-items: center; flex-direction: row; z-index: 10000;">
+            <div style="display: flex; width: 100%; align-items: center; flex-direction: column;">
+                <p class="card__text" id="loadingText">Loading...</p>
+                <div style="width: 100%; height: 20px;"></div>
+                <div role="progressbar" style="width: 80%;"
+                    class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar"
+                    aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+                    <div class="mdc-linear-progress__buffer">
+                        <div class="mdc-linear-progress__buffer-bar"></div>
+                        <div class="mdc-linear-progress__buffer-dots"></div>
+                    </div>
+                    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                        <span class="mdc-linear-progress__bar-inner"></span>
+                    </div>
+                    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                        <span class="mdc-linear-progress__bar-inner"></span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    
+
     <template id='editItemTeplate'>
         <div style="width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; align-content: space-between;">
             <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%; padding: 0px 8px;">
@@ -67,7 +267,7 @@
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span id="outlined-select-label" class="mdc-floating-label">Модуль</span>
+                            <span class="mdc-floating-label">Модуль</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
@@ -76,10 +276,12 @@
                     </span>
                     <span class="mdc-select__dropdown-icon">
                         <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                        <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                        <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
-                    </svg>
-                  </span>
+                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd"
+                                points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd"
+                                points="7 15 12 10 17 15"></polygon>
+                        </svg>
+                    </span>
                 </div>
                 <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
                     <ul class="mdc-list"></ul>
@@ -90,7 +292,7 @@
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span id="outlined-select-label" class="mdc-floating-label">Лекция</span>
+                            <span class="mdc-floating-label">Лекция</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
@@ -99,10 +301,12 @@
                     </span>
                     <span class="mdc-select__dropdown-icon">
                         <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                        <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
-                        <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
-                    </svg>
-                  </span>
+                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd"
+                                points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd"
+                                points="7 15 12 10 17 15"></polygon>
+                        </svg>
+                    </span>
                 </div>
                 <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
                     <ul class="mdc-list"></ul>
@@ -110,148 +314,6 @@
             </div>
         </div>
         <div style="margin-top: 8px; background-color: #ccc; height: 1px; width: 100%;"></div>
-    </template>
-    <template id="bucketCardTemplate">
-        <div class='mdc-card' style="margin-top: 6px; margin-bottom: 8px; background-color: #fff; margin-left: 16px; margin-right: 16px;">
-            <div style="margin: 8px;">
-                
-            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
-                <span class="mdc-notched-outline">
-                    <span class="mdc-notched-outline__leading"></span>
-                    <span class="mdc-notched-outline__notch">
-                        <span class="mdc-floating-label">Название</span>
-                    </span>
-                    <span class="mdc-notched-outline__trailing"></span>
-                </span>
-                <span class="mdc-text-field__resizer">
-                    <textarea class="mdc-text-field__input" rows="1" cols="100" aria-label="Label" required minlength="3"></textarea>
-                </span>
-            </label>
-            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
-                <span class="mdc-notched-outline">
-                    <span class="mdc-notched-outline__leading"></span>
-                    <span class="mdc-notched-outline__notch">
-                        <span class="mdc-floating-label">Описание</span>
-                    </span>
-                    <span class="mdc-notched-outline__trailing"></span>
-                </span>
-                <span class="mdc-text-field__resizer">
-                    <textarea class="mdc-text-field__input" rows="3" cols="100" aria-label="Label" required minlength="3"></textarea>
-                </span>
-            </label>
-            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
-                <span class="mdc-notched-outline">
-                    <span class="mdc-notched-outline__leading"></span>
-                    <span class="mdc-notched-outline__notch">
-                        <span class="mdc-floating-label">Бенефициар</span>
-                    </span>
-                    <span class="mdc-notched-outline__trailing"></span>
-                </span>
-                <span class="mdc-text-field__resizer">
-                    <textarea class="mdc-text-field__input" rows="1" cols="100" aria-label="Label" required minlength="3"></textarea>
-                </span>
-            </label>
-            <div style="display: flex; flex-direction: row; flex-wrap: nowrap; width: 100%;">
-                <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label">Цена</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
-                    </span>
-                    <span class="mdc-text-field__resizer">
-                        <textarea class="mdc-text-field__input" rows="1" cols="10" aria-label="Label" required 
-                        pattern="[0-9]+\.[0-9]{2}"></textarea>
-                    </span>
-                </label>
-                <div class="mdc-form-field" style="margin-right: 16px;">
-                    <div class="mdc-radio">
-                        <input class="mdc-radio__native-control" type="radio" name="radios">
-                        <div class="mdc-radio__background">
-                          <div class="mdc-radio__outer-circle"></div>
-                          <div class="mdc-radio__inner-circle"></div>
-                        </div>
-                        <div class="mdc-radio__ripple"></div>
-                    </div>
-                    <label for="radioFree">Доллар</label>
-                </div>
-                <div class="mdc-form-field" style="margin-right: 16px;">
-                    <div class="mdc-radio">
-                        <input class="mdc-radio__native-control" type="radio" name="radios">
-                        <div class="mdc-radio__background">
-                          <div class="mdc-radio__outer-circle"></div>
-                          <div class="mdc-radio__inner-circle"></div>
-                        </div>
-                        <div class="mdc-radio__ripple"></div>
-                    </div>
-                    <label for="radioTraining">Гривня</label>
-                </div>
-            </div>            
-            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
-                <span class="mdc-notched-outline">
-                    <span class="mdc-notched-outline__leading"></span>
-                    <span class="mdc-notched-outline__notch">
-                        <span class="mdc-floating-label">URL покупки</span>
-                    </span>
-                    <span class="mdc-notched-outline__trailing"></span>
-                </span>
-                <span class="mdc-text-field__resizer">
-                    <textarea class="mdc-text-field__input" rows="1" cols="100" aria-label="Label" required minlength="3"></textarea>
-                </span>
-            </label>
-            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
-                <span class="mdc-notched-outline">
-                    <span class="mdc-notched-outline__leading"></span>
-                    <span class="mdc-notched-outline__notch">
-                        <span class="mdc-floating-label">URL деталей</span>
-                    </span>
-                    <span class="mdc-notched-outline__trailing"></span>
-                </span>
-                <span class="mdc-text-field__resizer">
-                    <textarea class="mdc-text-field__input" rows="1" cols="100" aria-label="Label" required minlength="3"></textarea>
-                </span>
-            </label>
-            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
-                <span class="mdc-notched-outline">
-                    <span class="mdc-notched-outline__leading"></span>
-                    <span class="mdc-notched-outline__notch">
-                        <span class="mdc-floating-label">URL JSON схемы</span>
-                    </span>
-                    <span class="mdc-notched-outline__trailing"></span>
-                </span>
-                <span class="mdc-text-field__resizer">
-                    <textarea class="mdc-text-field__input" rows="1" cols="100" aria-label="Label" required minlength="3"></textarea>
-                </span>
-            </label>
-            <div class="card__presenter_holder" style="margin-top: 8px; margin-right: -8px; margin-left: -8px; background-color: #ddd;"></div>
-            </div>
-            <div class="mdc-card__actions">
-                <div class="mdc-card__action-buttons">
-                    <button class="mdc-button mdc-card__action mdc-card__action--button">
-                        <div class="mdc-button__ripple"></div>
-                        <span class="mdc-button__label material-icons">edit</span>
-                    </button>
-                </div>
-                <div class="mdc-card__action-buttons">
-                    <button class="mdc-button mdc-card__action mdc-card__action--button">
-                        <div class="mdc-button__ripple"></div>
-                        <span class="mdc-button__label material-icons">add_circle_outline</span>
-                    </button>
-                </div>
-                <div class="mdc-card__action-buttons">
-                    <button class="mdc-button mdc-card__action mdc-card__action--button">
-                        <div class="mdc-button__ripple"></div>
-                        <span class="mdc-button__label material-icons">save</span>
-                    </button>
-                </div>
-                <div class="mdc-card__action-buttons">
-                    <button class="mdc-button mdc-card__action mdc-card__action--button">
-                        <div class="mdc-button__ripple"></div>
-                        <span class="mdc-button__label material-icons">delete</span>
-                    </button>
-                </div>
-        </div>
     </template>
     <template id="listItemTemplate">
         <li class="mdc-list-item">
@@ -262,13 +324,16 @@
 
     <script type="text/javascript">
         const EDITOR_MODE = 'buckets';
-        const selector = '.mdc-button, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
+        const selector = '.mdc-button, .mdc-list-item__ripple, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
         const testListMainPage = document.getElementById('testListMainPage');
         const linearProgress = document.querySelector('.mdc-linear-progress');
         const linearProgress1 = new mdc.linearProgress.MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
         const loadingTemplate = document.getElementById('loadingTemplate');
         const loadingText = document.getElementById('loadingText');
         const fab = document.getElementById('fab');
+        const list = mdc.list.MDCList.attachTo(document.querySelector('.mdc-list'));
+        list.wrapFocus = true;
+        const drawer = mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
         let ripples;
         let texts;
 
@@ -286,23 +351,27 @@
                 Bucket.Draw(newBucket);
             });
             firebaseApi.readAllForks();
+            drawer.open = true;
         });
 
-        function updateDesign(){
+        function updateDesign() {
             ripples = [].map.call(document.querySelectorAll(selector), function (el) {
                 return new mdc.ripple.MDCRipple(el);
             });
-            texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
+            texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function (el) {
                 return new mdc.textField.MDCTextField(el);
             });
+            /*[].map.call(document.querySelectorAll('.mdc-notched-outline'), function (el) {
+                el.classList.add('mdc-notched-outline--notched');
+            });*/
         }
 
-        function progressToUi(action = '', show = true){
-            if(show){
+        function progressToUi(action = '', show = true) {
+            if (show) {
                 linearProgress.style.display = 'block';
                 loadingTemplate.style.display = 'flex';
             }
-            else{
+            else {
                 linearProgress.style.display = 'none';
                 setTimeout(() => {
                     loadingTemplate.style.display = 'none';
@@ -311,9 +380,9 @@
             loadingText.innerText = action;
         }
 
-        function coreSignalHandler(signal, mode = ''){
+        function coreSignalHandler(signal, mode = '') {
             console.log(signal + ' ' + mode);
-            switch(signal){
+            switch (signal) {
                 case firebaseApi.Signals.forksLoaded:
                 case firebaseApi.Signals.forksEmpty:
                     firebaseApi.readAllUnits();
@@ -326,7 +395,7 @@
                     fab.classList.remove('mdc-fab--exited');
                     break;
                 case firebaseApi.Signals.bucketsLoaded:
-                    if(mode == firebaseApi.Mode.read){
+                    if (mode == firebaseApi.Mode.read) {
                         Bucket.DrawAll();
                         fab.classList.remove('mdc-fab--exited');
                     }
