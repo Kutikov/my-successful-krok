@@ -30,29 +30,26 @@
 </head>
 
 <body style="background-color: #f0f0f0; margin: 0px;">
-    <aside class="mdc-drawer mdc-drawer--modal mdc-drawer--open">
+    <aside class="mdc-drawer mdc-drawer--modal">
         <div class="mdc-drawer__content">
-            <nav class="mdc-list">
-                <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" tabindex="0">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-                    <span class="mdc-list-item__text">Inbox</span>
-                </a>
-                <a class="mdc-list-item" href="#">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-                    <span class="mdc-list-item__text">Outgoing</span>
-                </a>
-                <a class="mdc-list-item" href="#">
-                    <span class="mdc-list-item__ripple"></span>
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-                    <span class="mdc-list-item__text">Drafts</span>
-                </a>
-            </nav>
+            <div class="mdc-list" aria-orientation="vertical" id="drawerRoot">
+            </div>
         </div>
     </aside>
     <div class="mdc-drawer-scrim"></div>
-    <div id="mainCotent">
+    <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+        <div class="mdc-top-app-bar__row">
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu" onclick="openMenu()">menu</button>
+            <span class="mdc-top-app-bar__title">Page title</span>
+          </section>
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite">translate</button>
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">search</button>
+          </section>
+        </div>
+      </header>
+    <div class=".mdc-top-app-bar--fixed-adjust" id="mainCotent">
         <div
             style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
             <div id="testListMainPage" class="testListMainPage">
@@ -321,21 +318,41 @@
             <span class="mdc-list-item__text"></span>
         </li>
     </template>
+    <template id="drawerListItemSub">
+        <a class="mdc-list-item" href="#" style="margin: 2px 6px 2px 16px; border-radius: 6px;">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">article</i>
+            <span class="mdc-list-item__text">Drafts</span>
+        </a>
+    </template>
+    <template id="drawerListItem">
+        <a class="mdc-list-item mdc-list-item--activated accordion" href="#" aria-current="page">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+            <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Inbox</span>
+            <span aria-hidden="true" class="material-icons mdc-list-item__meta accordionIcon" style="margin-left: auto;">expand_more</span>
+        </a>
+        <div class="panel">
+            <div class="mdc-list" aria-orientation="vertical">
+            </div>
+        </div>
+    </template>
 
     <script type="text/javascript">
         const EDITOR_MODE = 'buckets';
-        const selector = '.mdc-button, .mdc-list-item__ripple, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
+        const selector = '.mdc-button, .mdc-list-item, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
         const testListMainPage = document.getElementById('testListMainPage');
         const linearProgress = document.querySelector('.mdc-linear-progress');
         const linearProgress1 = new mdc.linearProgress.MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
         const loadingTemplate = document.getElementById('loadingTemplate');
         const loadingText = document.getElementById('loadingText');
         const fab = document.getElementById('fab');
-        const list = mdc.list.MDCList.attachTo(document.querySelector('.mdc-list'));
-        list.wrapFocus = true;
         const drawer = mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+        const topBar = new mdc.topAppBar.MDCTopAppBar(document.querySelector('.mdc-top-app-bar'));
         let ripples;
         let texts;
+        let list;
+        let listItemRipples;
 
         const firebaseApi = new FireBaseAPI();
 
@@ -351,8 +368,21 @@
                 Bucket.Draw(newBucket);
             });
             firebaseApi.readAllForks();
-            drawer.open = true;
+            
         });
+
+        function drawerHandler(src){
+            drawer.open = false;
+            for(let i = 0; i < allBucketsArray.length; i++){
+                if(allBucketsArray[i].bucketId == src){
+                    Bucket.Draw(allBucketsArray[i]);
+                }
+            }
+        }
+
+        function openMenu(){
+            document.querySelector('.mdc-drawer').classList.toggle("mdc-drawer--open");
+        }
 
         function updateDesign() {
             ripples = [].map.call(document.querySelectorAll(selector), function (el) {
@@ -361,9 +391,10 @@
             texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function (el) {
                 return new mdc.textField.MDCTextField(el);
             });
-            /*[].map.call(document.querySelectorAll('.mdc-notched-outline'), function (el) {
-                el.classList.add('mdc-notched-outline--notched');
-            });*/
+            list = new mdc.list.MDCList(document.querySelector('.mdc-list'));
+            listItemRipples = [].map.call(document.querySelectorAll(selector), function(el) {
+                return new mdc.ripple.MDCRipple(el);
+            });
         }
 
         function progressToUi(action = '', show = true) {
@@ -398,6 +429,47 @@
                     if (mode == firebaseApi.Mode.read) {
                         Bucket.DrawAll();
                         fab.classList.remove('mdc-fab--exited');
+            const items = [
+                {text: "item1", icon: "monetization_on"}
+            ];
+            for(let i = 0; i < allBucketsArray.length; i++){
+                items.push({
+                    text: allBucketsArray[i].name,
+                    link: allBucketsArray[i].bucketId
+                })
+            }
+            let currentParent;
+            for(let i = 0; i < items.length; i++){
+                if(items[i].icon !== undefined){
+                    const contentL1 = document.getElementById('drawerListItem').content.cloneNode(true);
+                    contentL1.querySelector(".mdc-list-item__graphic").innerText = items[i].icon;
+                    contentL1.querySelector(".mdc-list-item__text").innerText = items[i].text;
+                    currentParent = contentL1.querySelector(".mdc-list");
+                    document.getElementById('drawerRoot').appendChild(contentL1);
+                }
+                else{
+                    const contentL2 = document.getElementById('drawerListItemSub').content.cloneNode(true);
+                    contentL2.querySelector(".mdc-list-item").href = 'javascript:drawerHandler(' + items[i].link + ');';
+                    contentL2.querySelector(".mdc-list-item__text").innerText = items[i].text;
+                    currentParent.appendChild(contentL2);
+                }
+            }
+            const accordions = document.querySelectorAll('.accordion');
+            for (let i = 0; i < accordions.length; i++) {
+                accordions[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    const panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                        this.querySelector('.accordionIcon').innerText = 'expand_more';
+                    } 
+                    else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                        this.querySelector('.accordionIcon').innerText = 'expand_less';
+                    } 
+                });
+            }
+            updateDesign();
                     }
                     break;
                 case firebaseApi.Signals.bucketsFailed:

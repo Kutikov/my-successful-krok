@@ -338,3 +338,44 @@
     display: block !important;
     background-color: #eee;
 }
+
+.mdc-list-item{
+    padding: 8px;
+}
+
+.mdc-list-item__graphic{
+    margin-left: 8px;
+    margin-right: 16px;
+}
+
+.mdc-list-item--activated{
+    color: var(--mdc-theme-primary, inherit) !important;
+}
+
+
+
+.accordion {
+    transition: 0.4s;
+    background-color: #fff;
+}
+  
+.active, .accordion:hover {
+    background-color: #fff;
+}
+  
+.accordion .accordionIcon {
+    content: 'expand_more';
+}
+  
+.active .accordionIcon {
+    content: "expand_less";
+}
+  
+.panel {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+

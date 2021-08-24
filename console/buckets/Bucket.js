@@ -45,9 +45,7 @@ class Bucket {
     }
 
     static DrawAll() {
-        for (let i = 0; i < allBucketsArray.length; i++) {
-            Bucket.Draw(allBucketsArray[i]);
-        }
+        Bucket.Draw(allBucketsArray[0]);
     }
 
     static StringifyIncludesId(fork, unit) {
