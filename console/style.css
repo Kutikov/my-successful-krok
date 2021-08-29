@@ -66,6 +66,8 @@
     overflow-x: hidden;
     max-width: 800px; 
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     flex-grow: 1;
     padding-bottom: 64px;
     -ms-overflow-style: none;  /* IE and Edge */
@@ -339,10 +341,6 @@
     background-color: #eee;
 }
 
-.mdc-list-item{
-    padding: 8px;
-}
-
 .mdc-list-item__graphic{
     margin-left: 8px;
     margin-right: 16px;
@@ -356,11 +354,12 @@
 
 .accordion {
     transition: 0.4s;
-    background-color: #fff;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
   
 .active, .accordion:hover {
-    background-color: #fff;
+    background-color: #ffffff00;
 }
   
 .accordion .accordionIcon {
@@ -378,4 +377,30 @@
     transition: max-height 0.2s ease-out;
 }
 
+.mdc-drawer__content{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+
+.mdc-drawer__content::-webkit-scrollbar {
+    display: none;
+}
+
+.mdc-fab{
+    background-color: var(--mdc-theme-primary, #018786);
+}
+
+.console__title{
+    margin-left: 0px;
+    font-size: 22px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    height: auto;
+    width: 1px;
+    flex-grow: 1;
+    margin-top: auto;
+    text-overflow: ellipsis;
+    margin-bottom: auto;
+}
 

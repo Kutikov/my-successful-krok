@@ -5,9 +5,14 @@ class Unit{
         presenters: 'presenters'
     }
     static AddNewModuleString = 'Добавить новую лекцию'
-    constructor(fork, unit){
+    constructor(fork, unit, forkId){
         this.unitId = unit.replace(/ /g, 'ø');
-        this.forkId = fork.name.replace(/ /g, 'ø');
+        if(fork != null){
+            this.forkId = fork.name.replace(/ /g, 'ø');
+        }
+        else{
+            this.forkId = forkId;
+        }
         this.fork_unitId = this.unitId + '@' + this.forkId;
         this.testsCount = 0;
         this.presentersCount = 0;
@@ -24,8 +29,8 @@ class Unit{
         };
     }
 
-    static Decode(fork_unitId, record, fork){
-        const unit = new Unit(fork, record.unitId);
+    static Decode(fork_unitId, record, fork, forkId = ""){
+        const unit = new Unit(fork, record.unitId, forkId);
         unit.fork_unitId = fork_unitId;
         unit.testsCount = record.testsCount;
         unit.presentersCount = record.presentersCount;
@@ -68,8 +73,8 @@ class Unit{
         }
         else{
             let foundDuplicate = false;
-            for(let i = 0; i < forksArray.length; i++){
-                if(forksArray[i].name == tempName){
+            for(let i = 0; i < allUnitsArray.length; i++){
+                if(allUnitsArray[i].unitName == tempName && allUnitsArray[i].forkId == currentFork.name.replace(/ /g, 'ø')){
                     foundDuplicate = true;
                 }
             }
@@ -81,7 +86,7 @@ class Unit{
                 currentUnit = new Unit(currentFork, tempName);
                 currentUnit.name = tempName;
                 currentUnit.needUpdate = true;
-                currentUnitsArray.push(currentUnit);
+                allUnitsArray.push(currentUnit);
                 firebaseApi.writeUnits();
                 if(EDITOR_MODE == Unit.Editor_modes.tests){
                     firebaseApi.readTests(currentUnit);
@@ -89,7 +94,8 @@ class Unit{
                 else if(EDITOR_MODE == Unit.Editor_modes.presenters){
                     firebaseApi.readPresenters(currentUnit);
                 }
-                Unit.DrawUnits();
+                //Unit.DrawUnits();
+                drawUnitsAndForks();
                 return true;
             }
         }

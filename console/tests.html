@@ -31,10 +31,21 @@
     <script src="tests/QstParsers.js"></script>
 </head>
 
-<body style="background-color: #f0f0f0;">
-    <div style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
-        <div style="display: flex; flex-direction: row; align-items: center;flex-grow: 0; flex-shrink: 0; flex-wrap: wrap;">
-            <div class="mdc-select mdc-select--outlined" style="margin-top: 16px; margin-left: 16px; margin-right: 16px; margin-bottom: 8px;  flex-grow: 1;  flex-shrink: 1;">
+<body style="background-color: #f0f0f0; margin: 0;">
+    <aside class="mdc-drawer mdc-drawer--modal">
+        <div class="mdc-drawer__content">
+            <div style="display: flex;">
+                <button id="backBurger" onclick="drawer2.open = false" class="mdc-icon-button material-icons">arrow_back</button>
+                <h3 class="card__text console__title">Закрыть</h3>
+            </div>
+            <div id="modalDrawer">
+            </div>
+        </div>
+    </aside>
+    <div class="mdc-drawer-scrim"></div>
+    <div style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: stretch;">
+        <div style="display: flex; flex-direction: row; align-items: center;flex-grow: 0; flex-shrink: 0; flex-wrap: wrap; background-color: #fff; box-shadow: 0px 2px 8px #00000075;">
+            <div class="mdc-select mdc-select--outlined" style="display:none; margin-top: 16px; margin-left: 16px; margin-right: 16px; margin-bottom: 8px;  flex-grow: 1;  flex-shrink: 1;">
                 <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
@@ -57,7 +68,7 @@
                     <ul id="forksList" class="mdc-list"></ul>
                 </div>
             </div>
-            <div class="mdc-select mdc-select--outlined" style="margin-top: 16px; margin-left: 16px; margin-right: 16px; margin-bottom: 8px; flex-grow: 1; flex-shrink: 1;">
+            <div class="mdc-select mdc-select--outlined" style="display:none;margin-top: 16px; margin-left: 16px; margin-right: 16px; margin-bottom: 8px; flex-grow: 1; flex-shrink: 1;">
                 <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
@@ -81,6 +92,10 @@
                 </div>
             </div>
             <div style="display: flex; margin-left:16px; flex-grow: 1; flex-shrink: 0;">
+                <button id="burger" class="mdc-icon-button material-icons" style="margin-left: -16px;">menu</button>
+                <h3 id="pageTitleL" class="card__text console__title">Выберите лекцию</h3>
+            </div>
+            <div style="display: flex; margin-left:16px; flex-shrink: 0;">
                 <button class="mdc-button mdc-button--raised" id="importButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" onclick="import_file();" disabled>
                     <span class="mdc-button__ripple"></span>
                     <i class="material-icons mdc-button__icon" aria-hidden="true">upload</i>
@@ -95,14 +110,60 @@
             </div>
             
         </div>
-        <div id="testListMainPage" class="testListMainPage">
-            
+        <div style="display: flex; flex-direction: row; flex-wrap: nowrap; height: auto; flex-grow: 1; height: 1px;">
+            <div style="width: 256px; flex-grow: 0; flex-shrink: 0;" id="drawerHolder">
+                <aside id="fixedDrawer" class="mdc-drawer mdc-drawer--fixed">
+                    <div class="mdc-drawer__content">
+                        <div class="mdc-drawer__header">
+                          <h3 class="mdc-drawer__title">Alexander KOZLOV</h3>
+                          <h6 class="mdc-drawer__subtitle">kozlov@karazin.ua</h6>
+                        </div>
+                        <div class="mdc-list" aria-orientation="vertical" id="drawerRootFixed">
+                            <a class="mdc-list-item accordion" href="#">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">widgets</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Презентеры</span>
+                            </a>
+                            <a class="mdc-list-item mdc-list-item--activated accordion" href="#">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">checklist</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Тесты</span>
+                                <span aria-hidden="true" class="material-icons mdc-list-item__meta accordionIcon" style="margin-left: auto;">expand_less</span>
+                            </a>
+                            <div style="max-height: 12000px; background-color: #f5f5f5;">
+                                <div class="mdc-list" aria-orientation="vertical" style="margin-left: 16px;" id="drawerRoot"></div>
+                            </div>
+                            <a class="mdc-list-item accordion" href="#">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">insert_chart_outlined</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Статистика</span>
+                            </a>
+                            <a class="mdc-list-item accordion" href="#">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">monetization_on</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Бакеты</span>
+                            </a>
+                            <a class="mdc-list-item accordion" href="#">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">schema</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Схемы</span>
+                            </a>
+                            <a class="mdc-list-item accordion" href="#">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Мануал</span>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div id="testListMainPage" class="testListMainPage"></div>
         </div>
     </div>
     <button class="mdc-fab mdc-fab--extended" id="fab" style="position:fixed; bottom: 16px; right: 16px;">
         <div class="mdc-fab__ripple"></div>
         <span class="material-icons mdc-fab__icon">add</span>
-        <span class="mdc-fab__label">Create</span>
+        <span class="mdc-fab__label">Создать</span>
     </button>
     <div id="main-dialog" class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="mdc-dialog-with-list-label" aria-describedby="mdc-dialog-with-list-description" bis_skin_checked="1">
         <div class="mdc-dialog__scrim" bis_skin_checked="1"></div>
@@ -252,13 +313,35 @@
         </label>
         <p class="card__text negative__answer"></p>
     </template>
+    <template id="drawerListItemSub">
+        <a class="mdc-list-item" href="#" style="border-radius: 6px; padding-top: 8px; padding-bottom: 8px; margin-right: 6px;">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">article</i>
+            <span class="mdc-list-item__text">
+                <span class="mdc-list-item__primary-text">Two-line item</span>
+                <span class="mdc-list-item__secondary-text">Secondary text</span>
+              </span>
+        </a>
+    </template>
+    <template id="drawerListItem">
+        <a class="mdc-list-item accordion" href="#" aria-current="page">
+            <span class="mdc-list-item__ripple"></span>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+            <span class="mdc-list-item__text">Inbox</span>
+            <span aria-hidden="true" class="material-icons mdc-list-item__meta accordionIcon" style="margin-left: auto;">expand_more</span>
+        </a>
+        <div class="panel" style="margin-left: 16px;">
+            <div class="mdc-list" aria-orientation="vertical">
+            </div>
+        </div>
+    </template>
 
     <script type="text/javascript">
         const EDITOR_MODE = 'tests';
         const dialog = new mdc.dialog.MDCDialog(document.getElementById('main-dialog'));
         const dialogTitle = document.getElementById('main-dialog-title');
         const dialogContent = document.getElementById('main-dialog-content');
-        const selector = '.mdc-button, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
+        const selector = '.mdc-button, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button, .mdc-list-item';
         const testListMainPage = document.getElementById('testListMainPage');
         const importButton = document.getElementById('importButton');
         const saveButton = document.getElementById('saveButton');
@@ -267,6 +350,7 @@
         const loadingTemplate = document.getElementById('loadingTemplate');
         const loadingText = document.getElementById('loadingText');
         const fab = document.getElementById('fab');
+        const drawer2 = mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer--modal'));
         menues = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
             return new mdc.select.MDCSelect(el);
         });
@@ -275,6 +359,8 @@
 
         const firebaseApi = new FireBaseAPI();
         const author = new URLSearchParams(window.location.search).get('author');
+
+        let allUnitsArray = [];
 
         let currentFork = null;
         let forksArray = [];
@@ -294,8 +380,42 @@
                 dialog.open();
                 newTest.GetTestEdit();
             });
-            firebaseApi.readForks(author);
+            switch(author){
+                case 'Kutikov':
+                    document.querySelector('.mdc-drawer__title').innerText = 'Дамир КУТИКОВ';
+                    document.querySelector('.mdc-drawer__subtitle').innerText = 'damirkut@gmail.com';
+                    break;
+                case 'Kozlov':
+                    document.querySelector('.mdc-drawer__title').innerText = 'Александр КОЗЛОВ';
+                    document.querySelector('.mdc-drawer__subtitle').innerText = 'kozlov@karazin.ua';
+                    break;
+                case 'Site':
+                    document.querySelector('.mdc-drawer__title').innerText = 'ИЗИ КРОК';
+                    document.querySelector('.mdc-drawer__subtitle').innerText = 'easykrok@karazin.ua';
+                    break;
+            }
+            document.getElementById('burger').addEventListener('click', function(){
+                drawer2.open = !drawer2.open;
+            });
+            window.addEventListener('resize', function(event) {
+                resize();
+            }, true);
+            resize();
         });
+
+        function resize(){
+            if(window.innerWidth < 256 + 32 + 800){
+                document.getElementById('drawerHolder').style.display = 'none';
+                document.getElementById('burger').style.display = 'block';
+                document.getElementById('modalDrawer').appendChild(document.getElementById('fixedDrawer').children[0]);
+            }
+            else{
+                drawer2.open = false;
+                document.getElementById('drawerHolder').style.display = 'block';
+                document.getElementById('burger').style.display = 'none';
+                document.getElementById('fixedDrawer').appendChild(document.getElementById('modalDrawer').children[0]);
+            }
+        }
 
         function accept(){
             if(currentTestAccount != null){
@@ -356,16 +476,170 @@
             firebaseApi.writeTests();
         }
 
+        function updateDesign() {
+            ripples = [].map.call(document.querySelectorAll(selector), function (el) {
+                return new mdc.ripple.MDCRipple(el);
+            });
+            list = [].map.call(document.querySelectorAll('.mdc-list'), function(el){
+                return new mdc.list.MDCList(el);
+            });
+            listItemRipples = [].map.call(document.querySelectorAll(selector), function(el) {
+                return new mdc.ripple.MDCRipple(el);
+            });
+        }
+
+        function drawUnitsAndForks(){
+            const forksList = document.getElementById('drawerRoot');
+            while (forksList.firstChild) {
+                forksList.removeChild(forksList.lastChild);
+            }
+            const items = [];
+            for(let i = 0; i < forksArray.length; i++){
+                items.push({
+                    text: forksArray[i].name,
+                    link: "#",
+                    type: "fork"
+                });
+                for(let j = 0; j < allUnitsArray.length; j++){
+                    if(allUnitsArray[j].forkId == forksArray[i].name.replace(/ /g, 'ø')){
+                        items.push({
+                            text: allUnitsArray[j].unitName,
+                            subtext: allUnitsArray[j].testsCount + ' тестов', 
+                            link: JSON.stringify({
+                                forkName: forksArray[i].name,
+                                unitId: allUnitsArray[j].unitId
+                            }),
+                            type: "unit"
+                        });
+                    }
+                }
+                items.push({
+                    text: Unit.AddNewModuleString,
+                    link: JSON.stringify({
+                        forkName: forksArray[i].name,
+                        unitId: 'ADD_UNIT'
+                    }),
+                    obj: forksArray[i],
+                    type: "new"
+                });
+            }
+            let currentParent;
+            for(let i = 0; i < items.length; i++){
+                switch(items[i].type){
+                    case "fork":
+                        const contentL1 = document.getElementById('drawerListItem').content.cloneNode(true);
+                        contentL1.querySelector(".mdc-list-item__graphic").innerText = 'dashboard';
+                        contentL1.querySelector(".mdc-list-item__text").innerText = items[i].text;
+                        currentParent = contentL1.querySelector(".mdc-list");
+                        document.getElementById('drawerRoot').appendChild(contentL1);
+                        break;
+                    case "unit":
+                        const contentL2 = document.getElementById('drawerListItemSub').content.cloneNode(true);
+                        contentL2.querySelector(".mdc-list-item").href = 'javascript:drawerHandler(\'' + items[i].link + '\');';
+                        contentL2.querySelector(".mdc-list-item__primary-text").innerText = items[i].text;
+                        contentL2.querySelector(".mdc-list-item__secondary-text").innerText = items[i].subtext;
+                        currentParent.appendChild(contentL2);
+                        break;
+                    case "new":
+                        const contentL3 = document.getElementById('drawerListItemSub').content.cloneNode(true);
+                        contentL3.querySelector(".mdc-list-item__graphic").innerText = 'add';
+                        contentL3.querySelector(".mdc-list-item").href = 'javascript:drawerHandler(\'' + items[i].link + '\');';
+                        contentL3.querySelector(".mdc-list-item__text").innerText = Unit.AddNewModuleString;
+                        currentParent.appendChild(contentL3);
+                        break;
+                }
+            }
+            const contentL2 = document.getElementById('drawerListItemSub').content.cloneNode(true);
+            contentL2.querySelector(".mdc-list-item__graphic").innerText = 'add';
+            contentL2.querySelector(".mdc-list-item").href = 'javascript:drawerHandler("ADD_FORK");';
+            contentL2.querySelector(".mdc-list-item__text").innerText = Fork.AddNewModuleString;
+            document.getElementById('drawerRoot').appendChild(contentL2);
+            const accordions = document.querySelectorAll('.accordion');
+            for (let i = 0; i < accordions.length; i++) {
+                accordions[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    const panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                        this.querySelector('.accordionIcon').innerText = 'expand_more';
+                    } 
+                    else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                        this.querySelector('.accordionIcon').innerText = 'expand_less';
+                    } 
+                });
+            }
+            updateDesign();
+        }
+
+        function drawerHandler(str){
+            drawer2.open = false;
+            if(str == 'ADD_FORK'){
+                Fork.CreateFork();
+            }
+            else{
+                if(EDITOR_MODE == Fork.Editor_modes.tests){
+                    currentTestArray = [];
+                    while (testListMainPage.firstChild) {
+                        testListMainPage.removeChild(testListMainPage.lastChild);
+                    }
+                }
+                else if(EDITOR_MODE == Fork.Editor_modes.presenters){
+                    currentPresenterArray = [];
+                    while (testListMainPage.firstChild) {
+                        testListMainPage.removeChild(testListMainPage.lastChild);
+                    }
+                }
+                const json = JSON.parse(str);
+                for(let i = 0; i < forksArray.length; i++){
+                    if(forksArray[i].name == json.forkName){
+                        currentFork = forksArray[i];
+                        break;
+                    }
+                }
+                saveButton.disabled = true;
+                fab.classList.add('mdc-fab--exited');
+                if(json.unitId == 'ADD_UNIT'){
+                    Unit.CreateUnit();
+                }
+                else{
+                    document.getElementById('pageTitleL').innerText = json.unitId.replace(/ø/g, ' ')
+                    for(let f = 0; f < allUnitsArray.length; f++){
+                        if(allUnitsArray[f].unitId == json.unitId && allUnitsArray[f].forkId == json.forkName.replace(/ /g, 'ø')){
+                            currentUnit = allUnitsArray[f];
+                            if(EDITOR_MODE == Unit.Editor_modes.tests){
+                                currentTestArray = [];
+                                while (testListMainPage.firstChild) {
+                                    testListMainPage.removeChild(testListMainPage.lastChild);
+                                }
+                                firebaseApi.readTests(allUnitsArray[f]);
+                            }
+                            else if(EDITOR_MODE == Unit.Editor_modes.presenters){
+                                currentPresenterArray = [];
+                                while (testListMainPage.firstChild) {
+                                    testListMainPage.removeChild(testListMainPage.lastChild);
+                                }
+                                firebaseApi.readPresenters(allUnitsArray[f]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         function coreSignalHandler(signal, mode = ''){
             console.log(signal + ' ' + mode);
             switch(signal){
+                case firebaseApi.Signals.loggedIn:
+                    firebaseApi.readForks(author);
+                    break;
                 case firebaseApi.Signals.forksLoaded:
                 case firebaseApi.Signals.forksEmpty:
-                    Fork.DrawForks();
+                    firebaseApi.readUnitsA();
                     break;
                 case firebaseApi.Signals.unitLoaded:
                 case firebaseApi.Signals.unitEmpty:
-                    Unit.DrawUnits();
+                    drawUnitsAndForks();
                     break;
                 case firebaseApi.Signals.testFinished:
                     TestAccount.ReDrawTests();
@@ -379,6 +653,9 @@
                         TestAccount.ReDrawTests();
                         importButton.disabled = false;
                         fab.classList.remove('mdc-fab--exited');
+                    }
+                    else{
+                        drawUnitsAndForks();
                     }
                     break;
                 case firebaseApi.Signals.forksFailed:

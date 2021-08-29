@@ -1,6 +1,7 @@
 class FireBaseAPI{
 
     Signals = {
+        loggedIn: 'loggedIn',
         testLoaded: 'testLoaded',
         testFailed: 'testFailed',
         testEmpty: 'testEmpty',
@@ -47,6 +48,7 @@ class FireBaseAPI{
         firebase.auth().signInWithEmailAndPassword('damirkut@gmail.com', 'PaSsWoRd2021')
             .then((userCredential) => {
                 console.log(userCredential);
+                coreSignalHandler(this.Signals.loggedIn, null);
             })
             .catch((error) => {
                 console.log(error);
@@ -198,6 +200,27 @@ class FireBaseAPI{
         })
     }
 
+    readUnitsA(){
+        let ref = this.realdatabase.ref('units');
+        ref.get().then((snapshot) => {
+            if(snapshot.exists()){
+                const unitsArrayLocal = [];
+                for(const fork_unitId in snapshot.val()){
+                    unitsArrayLocal.push(Unit.Decode(fork_unitId, snapshot.val()[fork_unitId], null, fork_unitId.split('@')[1]));
+                }
+                allUnitsArray = unitsArrayLocal;
+                coreSignalHandler(this.Signals.unitLoaded, this.Mode.read);
+            }
+            else {
+                allUnitsArray = [];
+                coreSignalHandler(this.Signals.unitEmpty, this.Mode.read);
+            }
+        }).catch((error) => {
+            console.log(error);
+            coreSignalHandler(this.Signals.unitFailed, this.Mode.read);
+        })
+    }
+
     readAllUnits(){
         let ref = this.realdatabase.ref('units');
         ref.get().then((snapshot) => {
@@ -220,14 +243,14 @@ class FireBaseAPI{
     }
 
     writeUnits(){
-        for(let i = 0; i < currentUnitsArray.length; i++){
-            if(currentUnitsArray[i].needUpdate){
-                this.realdatabase.ref('units/' + currentUnitsArray[i].fork_unitId).set(currentUnitsArray[i].GetFirebaseObject(), (error) => {
+        for(let i = 0; i < allUnitsArray.length; i++){
+            if(allUnitsArray[i].needUpdate){
+                this.realdatabase.ref('units/' + allUnitsArray[i].fork_unitId).set(allUnitsArray[i].GetFirebaseObject(), (error) => {
                     if(error){
                         coreSignalHandler(this.Signals.unitLoaded, this.Mode.write);
                     }
                     else{
-                        currentUnitsArray[i].needUpdate = false;
+                        allUnitsArray[i].needUpdate = false;
                         coreSignalHandler(this.Signals.unitLoaded, this.Mode.write);
                     }
                 });

@@ -112,8 +112,9 @@ class Fork{
                 currentFork.needUpdate = true;
                 forksArray.push(currentFork);
                 firebaseApi.writeForks();
-                firebaseApi.readUnits(currentFork);
-                Fork.DrawForks();
+                //firebaseApi.readUnits(currentFork);
+                //Fork.DrawForks();
+                drawUnitsAndForks();
                 return true;
             }
         }
