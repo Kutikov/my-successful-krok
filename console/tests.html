@@ -119,12 +119,12 @@
                           <h6 class="mdc-drawer__subtitle">kozlov@karazin.ua</h6>
                         </div>
                         <div class="mdc-list" aria-orientation="vertical" id="drawerRootFixed">
-                            <a class="mdc-list-item accordion" href="#">
+                            <a class="mdc-list-item accordion" href="javascript:drawerHandler('PRESENTERS');">
                                 <span class="mdc-list-item__ripple"></span>
                                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">widgets</i>
                                 <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Презентеры</span>
                             </a>
-                            <a class="mdc-list-item mdc-list-item--activated accordion" href="#">
+                            <a class="mdc-list-item mdc-list-item--activated accordion" href="javascript:drawerHandler('TESTS');">
                                 <span class="mdc-list-item__ripple"></span>
                                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">checklist</i>
                                 <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Тесты</span>
@@ -133,22 +133,22 @@
                             <div style="max-height: 12000px; background-color: #f5f5f5;">
                                 <div class="mdc-list" aria-orientation="vertical" style="margin-left: 16px;" id="drawerRoot"></div>
                             </div>
-                            <a class="mdc-list-item accordion" href="#">
+                            <a class="mdc-list-item accordion" href="javascript:drawerHandler('STATISTICS');">
                                 <span class="mdc-list-item__ripple"></span>
                                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">insert_chart_outlined</i>
                                 <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Статистика</span>
                             </a>
-                            <a class="mdc-list-item accordion" href="#">
+                            <a class="mdc-list-item accordion" href="javascript:drawerHandler('BUCKETS');">
                                 <span class="mdc-list-item__ripple"></span>
                                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">monetization_on</i>
                                 <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Бакеты</span>
                             </a>
-                            <a class="mdc-list-item accordion" href="#">
+                            <a class="mdc-list-item accordion" href="javascript:drawerHandler('SCHEMAS');">
                                 <span class="mdc-list-item__ripple"></span>
                                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">schema</i>
                                 <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Схемы</span>
                             </a>
-                            <a class="mdc-list-item accordion" href="#">
+                            <a class="mdc-list-item accordion" href="javascript:drawerHandler('MANUALS');">
                                 <span class="mdc-list-item__ripple"></span>
                                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
                                 <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Мануал</span>
@@ -403,20 +403,6 @@
             resize();
         });
 
-        function resize(){
-            if(window.innerWidth < 256 + 32 + 800){
-                document.getElementById('drawerHolder').style.display = 'none';
-                document.getElementById('burger').style.display = 'block';
-                document.getElementById('modalDrawer').appendChild(document.getElementById('fixedDrawer').children[0]);
-            }
-            else{
-                drawer2.open = false;
-                document.getElementById('drawerHolder').style.display = 'block';
-                document.getElementById('burger').style.display = 'none';
-                document.getElementById('fixedDrawer').appendChild(document.getElementById('modalDrawer').children[0]);
-            }
-        }
-
         function accept(){
             if(currentTestAccount != null){
                 if(currentTestAccount.SaveTest()){
@@ -474,6 +460,20 @@
 
         function save_file(){
             firebaseApi.writeTests();
+        }
+
+        function resize(){
+            if(window.innerWidth < 256 + 32 + 800){
+                document.getElementById('drawerHolder').style.display = 'none';
+                document.getElementById('burger').style.display = 'block';
+                document.getElementById('modalDrawer').appendChild(document.getElementById('fixedDrawer').children[0]);
+            }
+            else{
+                drawer2.open = false;
+                document.getElementById('drawerHolder').style.display = 'block';
+                document.getElementById('burger').style.display = 'none';
+                document.getElementById('fixedDrawer').appendChild(document.getElementById('modalDrawer').children[0]);
+            }
         }
 
         function updateDesign() {
@@ -573,57 +573,78 @@
         }
 
         function drawerHandler(str){
+            const thisPage = "tests";
             drawer2.open = false;
-            if(str == 'ADD_FORK'){
-                Fork.CreateFork();
-            }
-            else{
-                if(EDITOR_MODE == Fork.Editor_modes.tests){
-                    currentTestArray = [];
-                    while (testListMainPage.firstChild) {
-                        testListMainPage.removeChild(testListMainPage.lastChild);
+            switch(str){
+                case 'ADD_FORK':
+                    Fork.CreateFork();
+                    break;
+                case 'BUCKETS':
+                    window.open(window.location.toString().replaceAll(thisPage, "buckets"), "_parent");
+                    break;
+                case 'PRESENTERS':
+                    window.open(window.location.toString().replaceAll(thisPage, "presenters"), "_self");
+                    break;
+                case 'STATISTICS':
+                    window.open(window.location.toString().replaceAll(thisPage, "statistics"), "_self");
+                    break;
+                case 'MANUALS':
+                    window.open(window.location.toString().replaceAll(thisPage, "manuals"), "_self");
+                    break;
+                case 'TESTS':
+                    window.open(window.location.toString().replaceAll(thisPage, "tests"), "_self");
+                    break;
+                case 'SCHEMAS':
+                    window.open(window.location.toString().replaceAll(thisPage, "schemas"), "_self");
+                    break;
+                default:
+                    if(EDITOR_MODE == Fork.Editor_modes.tests){
+                        currentTestArray = [];
+                        while (testListMainPage.firstChild) {
+                            testListMainPage.removeChild(testListMainPage.lastChild);
+                        }
                     }
-                }
-                else if(EDITOR_MODE == Fork.Editor_modes.presenters){
-                    currentPresenterArray = [];
-                    while (testListMainPage.firstChild) {
-                        testListMainPage.removeChild(testListMainPage.lastChild);
+                    else if(EDITOR_MODE == Fork.Editor_modes.presenters){
+                        currentPresenterArray = [];
+                        while (testListMainPage.firstChild) {
+                            testListMainPage.removeChild(testListMainPage.lastChild);
+                        }
                     }
-                }
-                const json = JSON.parse(str);
-                for(let i = 0; i < forksArray.length; i++){
-                    if(forksArray[i].name == json.forkName){
-                        currentFork = forksArray[i];
-                        break;
+                    const json = JSON.parse(str);
+                    for(let i = 0; i < forksArray.length; i++){
+                        if(forksArray[i].name == json.forkName){
+                            currentFork = forksArray[i];
+                            break;
+                        }
                     }
-                }
-                saveButton.disabled = true;
-                fab.classList.add('mdc-fab--exited');
-                if(json.unitId == 'ADD_UNIT'){
-                    Unit.CreateUnit();
-                }
-                else{
-                    document.getElementById('pageTitleL').innerText = json.unitId.replace(/ø/g, ' ')
-                    for(let f = 0; f < allUnitsArray.length; f++){
-                        if(allUnitsArray[f].unitId == json.unitId && allUnitsArray[f].forkId == json.forkName.replace(/ /g, 'ø')){
-                            currentUnit = allUnitsArray[f];
-                            if(EDITOR_MODE == Unit.Editor_modes.tests){
-                                currentTestArray = [];
-                                while (testListMainPage.firstChild) {
-                                    testListMainPage.removeChild(testListMainPage.lastChild);
+                    saveButton.disabled = true;
+                    fab.classList.add('mdc-fab--exited');
+                    if(json.unitId == 'ADD_UNIT'){
+                        Unit.CreateUnit();
+                    }
+                    else{
+                        document.getElementById('pageTitleL').innerText = json.unitId.replace(/ø/g, ' ')
+                        for(let f = 0; f < allUnitsArray.length; f++){
+                            if(allUnitsArray[f].unitId == json.unitId && allUnitsArray[f].forkId == json.forkName.replace(/ /g, 'ø')){
+                                currentUnit = allUnitsArray[f];
+                                if(EDITOR_MODE == Unit.Editor_modes.tests){
+                                    currentTestArray = [];
+                                    while (testListMainPage.firstChild) {
+                                        testListMainPage.removeChild(testListMainPage.lastChild);
+                                    }
+                                    firebaseApi.readTests(allUnitsArray[f]);
                                 }
-                                firebaseApi.readTests(allUnitsArray[f]);
-                            }
-                            else if(EDITOR_MODE == Unit.Editor_modes.presenters){
-                                currentPresenterArray = [];
-                                while (testListMainPage.firstChild) {
-                                    testListMainPage.removeChild(testListMainPage.lastChild);
+                                else if(EDITOR_MODE == Unit.Editor_modes.presenters){
+                                    currentPresenterArray = [];
+                                    while (testListMainPage.firstChild) {
+                                        testListMainPage.removeChild(testListMainPage.lastChild);
+                                    }
+                                    firebaseApi.readPresenters(allUnitsArray[f]);
                                 }
-                                firebaseApi.readPresenters(allUnitsArray[f]);
                             }
                         }
                     }
-                }
+                    break;
             }
         }
 
