@@ -79,7 +79,7 @@
 }
 
 .toggle_on{
-    color: #ab47bc;
+    color: #039be5;
     opacity: 1.0;
 }
 
@@ -377,11 +377,18 @@
     transition: max-height 0.2s ease-out;
 }
 
+.mdc-dialog__content{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
 .mdc-drawer__content{
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;
 }
 
+.mdc-dialog__content::-webkit-scrollbar{
+    display: none;
+}
 .mdc-drawer__content::-webkit-scrollbar {
     display: none;
 }
@@ -403,4 +410,3 @@
     text-overflow: ellipsis;
     margin-bottom: auto;
 }
-

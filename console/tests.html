@@ -20,8 +20,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="material.css">
+    <script src="material.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="style.css" rel="stylesheet">
     <script src="Unit.js"></script>
@@ -200,16 +200,16 @@
     </div>
     
     <template id="testEditTemplate">
-        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea">
             <span class="mdc-notched-outline">
               <span class="mdc-notched-outline__leading"></span>
               <span class="mdc-notched-outline__notch">
-                <span class="mdc-floating-label" id="taskEditLabel">Текст вопроса</span>
+                <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" id="taskEditLabel">Текст вопроса</span>
               </span>
               <span class="mdc-notched-outline__trailing"></span>
             </span>
             <span class="mdc-text-field__resizer">
-              <textarea class="mdc-text-field__input" id="taskEditTextArea" rows="4" cols="100" aria-label="Label" required minlength="3"></textarea>
+              <textarea class="mdc-text-field__input" style="margin-top: 22px;" id="taskEditTextArea" rows="4" cols="100" aria-label="Label" required minlength="3"></textarea>
             </span>
         </label>
         <h5 style="margin-top: 8px; margin-bottom: 4px;">Ответы</h5>
@@ -223,16 +223,16 @@
             >
             <span class="mdc-button__label">Добавить ответ</span>
           </button>
-        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea">
             <span class="mdc-notched-outline">
               <span class="mdc-notched-outline__leading"></span>
               <span class="mdc-notched-outline__notch">
-                <span class="mdc-floating-label" id="commentEditLabel">Текст комметария</span>
+                <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" id="commentEditLabel">Текст комметария</span>
               </span>
               <span class="mdc-notched-outline__trailing"></span>
             </span>
             <span class="mdc-text-field__resizer">
-              <textarea class="mdc-text-field__input" id="commentEditTextArea" rows="2" cols="100" aria-label="Label"></textarea>
+              <textarea class="mdc-text-field__input" style="margin-top: 22px;" id="commentEditTextArea" rows="2" cols="100" aria-label="Label"></textarea>
             </span>
         </label>
         <p class="card__text negative__answer"></p>
@@ -271,15 +271,15 @@
                         <div class="mdc-checkbox__ripple"></div>
                     </div>
                 </div>
-                <label class="mdc-text-field mdc-text-field--outlined" style="flex-grow: 1; margin: 10px 0 4px 0;">
+                <label class="mdc-text-field mdc-text-field--outlined" style="flex-grow: 1; margin: 4px 0 4px 0;">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="answerTextLabel">Текст ответа</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" id="answerTextLabel">Текст ответа</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="text" class="mdc-text-field__input" id="answerTextInput" aria-labelledby="answerTextLabel">
+                    <input type="text" class="mdc-text-field__input" style="margin-top: 6px;" id="answerTextInput" aria-labelledby="answerTextLabel">
                 </label>
                 <button class="mdc-icon-button material-icons" style="flex-shrink: 0; flex-grow: 0;">delete</button>
             </div>

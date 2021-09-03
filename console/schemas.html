@@ -1,0 +1,128 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>My successful KROK blog</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="">
+    <meta name="author" content="Damir A. Kutikov">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="style.css" rel="stylesheet">
+    <script src="Unit.js"></script>
+    <script src="Fork.js"></script>
+    <script src="FireBaseAPI.js"></script>
+    <script src="tests/TestAccont.js"></script>
+    <script src="tests/QstParsers.js"></script>
+</head>
+
+<body style="background-color: #f0f0f0; margin: 0;">
+    <div class="mdc-select mdc-select--outlined" style="margin-top: 4px; margin-bottom: 8px; width: 100%;">
+        <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+            <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__notch">
+                    <span class="mdc-floating-label">Тип презентера</span>
+                </span>
+                <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <span class="mdc-select__selected-text-container">
+                <span id="type-selected-text" class="mdc-select__selected-text"></span>
+            </span>
+            <span class="mdc-select__dropdown-icon">
+                <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+            </svg>
+          </span>
+        </div>
+        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+            <ul class="mdc-list">
+                <li class="mdc-list-item">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text"></span>
+                </li>
+                <li class="mdc-list-item">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">paragraph</span>
+                </li>
+                <li class="mdc-list-item">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">infocard</span>
+                </li>
+                <li class="mdc-list-item">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">link</span>
+                </li>
+                <li class="mdc-list-item">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">image</span>
+                </li>
+                <li class="mdc-list-item">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">video</span>
+                </li>
+                <li class="mdc-list-item">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">file</span>
+                </li>
+                <li class="mdc-list-item">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">testprogram</span>
+                </li>
+                <li class="mdc-list-item">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">testitem</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+        <span class="mdc-notched-outline">
+          <span class="mdc-notched-outline__leading"></span>
+          <span class="mdc-notched-outline__notch">
+            <span class="mdc-floating-label" >Текст параграфа</span>
+          </span>
+          <span class="mdc-notched-outline__trailing"></span>
+        </span>
+        <span class="mdc-text-field__resizer">
+          <textarea class="mdc-text-field__input" id="paragraphEditTextArea" rows="4" cols="100" aria-label="Label" required minlength="3"></textarea>
+        </span>
+    </label>
+    <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+        <span class="mdc-notched-outline">
+          <span class="mdc-notched-outline__leading"></span>
+          <span class="mdc-notched-outline__notch">
+            <span class="mdc-floating-label" >Текст параграфа</span>
+          </span>
+          <span class="mdc-notched-outline__trailing"></span>
+        </span>
+        <span class="mdc-text-field__resizer">
+          <textarea class="mdc-text-field__input" id="paragraphEditTextArea" rows="4" cols="100" aria-label="Label" required minlength="3"></textarea>
+        </span>
+    </label>   
+    <script>
+        texts3 = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
+            return new mdc.textField.MDCTextField(el);
+        });
+        menues = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
+            return new mdc.select.MDCSelect(el);
+        });
+    </script>    
+</body>
+</html>

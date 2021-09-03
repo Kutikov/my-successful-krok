@@ -19,8 +19,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="material.css">
+    <script src="material.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="style.css" rel="stylesheet">
     <script src="Unit.js"></script>
@@ -104,80 +104,73 @@
                     <div style="margin: 8px; margin-bottom: 0px;">
                         <div style="display: flex; flex-wrap: wrap; flex-direction: row;">
                             <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
-                                style="margin-top: 16px; min-width: 200px; flex-shrink: 1; flex-grow: 1;">
+                                style="margin-top: 8px; min-width: 200px; flex-shrink: 1; flex-grow: 1;">
                                 <span class="mdc-notched-outline">
                                     <span class="mdc-notched-outline__leading"></span>
                                     <span class="mdc-notched-outline__notch">
-                                        <span class="mdc-floating-label">Название</span>
+                                        <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >Название</span>
                                     </span>
                                     <span class="mdc-notched-outline__trailing"></span>
                                 </span>
                                 <span class="mdc-text-field__resizer">
-                                    <textarea class="mdc-text-field__input" id="nameEditText" rows="1"
-                                        aria-label="Label" required minlength="3"></textarea>
+                                    <textarea class="mdc-text-field__input" id="nameEditText" rows="1" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
                                 </span>
                             </label>
                             <div style="width: 16px;"></div>
                             <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
-                                style="margin-top: 16px; min-width: 200px; flex-shrink: 1; flex-grow: 1;">
+                                style="margin-top: 8px; min-width: 200px; flex-shrink: 1; flex-grow: 1;">
                                 <span class="mdc-notched-outline">
                                     <span class="mdc-notched-outline__leading"></span>
                                     <span class="mdc-notched-outline__notch">
-                                        <span class="mdc-floating-label">Бенефициар</span>
+                                        <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >Бенефициар</span>
                                     </span>
                                     <span class="mdc-notched-outline__trailing"></span>
                                 </span>
                                 <span class="mdc-text-field__resizer">
-                                    <textarea class="mdc-text-field__input" id="beneficiarEditText" rows="1"
-                                        aria-label="Label" required minlength="3"></textarea>
+                                    <textarea class="mdc-text-field__input" id="beneficiarEditText" rows="1" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
                                 </span>
                             </label>
                         </div>
-                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
-                            style="margin-top: 16px;">
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
                             <span class="mdc-notched-outline">
                                 <span class="mdc-notched-outline__leading"></span>
                                 <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label">Описание</span>
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >Описание</span>
                                 </span>
                                 <span class="mdc-notched-outline__trailing"></span>
                             </span>
                             <span class="mdc-text-field__resizer">
-                                <textarea class="mdc-text-field__input" id="descriptionEditText" rows="3" cols="100"
-                                    aria-label="Label" required minlength="3"></textarea>
+                                <textarea class="mdc-text-field__input" id="descriptionEditText" rows="3" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
                             </span>
                         </label>
                         <div style="display: flex; flex-direction: row; flex-wrap: wrap; width: 100%;">
                             <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
-                                style="margin-top: 16px; min-width: 100px; flex-grow: 1;">
+                                style="margin-top: 8px; min-width: 100px; flex-grow: 1;">
                                 <span class="mdc-notched-outline">
                                     <span class="mdc-notched-outline__leading"></span>
                                     <span class="mdc-notched-outline__notch">
-                                        <span class="mdc-floating-label">Месяцев</span>
+                                        <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >Месяцев</span>
                                     </span>
                                     <span class="mdc-notched-outline__trailing"></span>
                                 </span>
                                 <span class="mdc-text-field__resizer">
-                                    <textarea class="mdc-text-field__input" id="monthEditText" rows="1" cols="10"
-                                        aria-label="Label" required pattern="[0-9]+"></textarea>
+                                    <textarea class="mdc-text-field__input" id="monthEditText" rows="1" cols="10" style="margin-top: 23px;" aria-label="Label" required pattern="[0-9]+"></textarea>
                                 </span>
                             </label>
-                            <div style="width: 16px;"></div>
-                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
-                                style="margin-top: 16px; min-width: 100px; flex-grow: 1;">
+                            <div style="width: 8px;"></div>
+                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px; min-width: 100px; flex-grow: 1;">
                                 <span class="mdc-notched-outline">
                                     <span class="mdc-notched-outline__leading"></span>
                                     <span class="mdc-notched-outline__notch">
-                                        <span class="mdc-floating-label">Цена</span>
+                                        <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >Цена</span>
                                     </span>
                                     <span class="mdc-notched-outline__trailing"></span>
                                 </span>
                                 <span class="mdc-text-field__resizer">
-                                    <textarea class="mdc-text-field__input" id="costEditText" rows="1" cols="10"
-                                        aria-label="Label" required pattern="[0-9]+\.[0-9]{2}"></textarea>
+                                    <textarea class="mdc-text-field__input" id="costEditText" rows="1" cols="10" style="margin-top: 23px;" aria-label="Label" required pattern="[0-9]+\.[0-9]{2}"></textarea>
                                 </span>
                             </label>
-                            <div class="mdc-form-field" style="margin-right: 16px; margin-top: 16px;">
+                            <div class="mdc-form-field" style="margin-right: 16px; margin-top: 8px;">
                                 <div class="mdc-radio">
                                     <input class="mdc-radio__native-control" type="radio" id="usdRadio" name="radios">
                                     <div class="mdc-radio__background">
@@ -188,7 +181,7 @@
                                 </div>
                                 <label for="radioFree">Доллар</label>
                             </div>
-                            <div class="mdc-form-field" style="margin-right: 16px; margin-top: 16px;">
+                            <div class="mdc-form-field" style="margin-right: 16px; margin-top: 8px;">
                                 <div class="mdc-radio">
                                     <input class="mdc-radio__native-control" type="radio" id="uahRadio" name="radios">
                                     <div class="mdc-radio__background">
@@ -200,46 +193,40 @@
                                 <label for="radioTraining">Гривня</label>
                             </div>
                         </div>
-                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
-                            style="margin-top: 16px;">
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
                             <span class="mdc-notched-outline">
                                 <span class="mdc-notched-outline__leading"></span>
                                 <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label">URL покупки</span>
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >URL покупки</span>
                                 </span>
                                 <span class="mdc-notched-outline__trailing"></span>
                             </span>
                             <span class="mdc-text-field__resizer">
-                                <textarea class="mdc-text-field__input" id="shopUrlEditText" rows="1" cols="100"
-                                    aria-label="Label" required minlength="3"></textarea>
+                                <textarea class="mdc-text-field__input" id="shopUrlEditText" rows="1" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
                             </span>
                         </label>
-                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
-                            style="margin-top: 16px;">
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
                             <span class="mdc-notched-outline">
                                 <span class="mdc-notched-outline__leading"></span>
                                 <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label">URL деталей</span>
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >URL деталей</span>
                                 </span>
                                 <span class="mdc-notched-outline__trailing"></span>
                             </span>
                             <span class="mdc-text-field__resizer">
-                                <textarea class="mdc-text-field__input" id="detailsUrlEditText" rows="1" cols="100"
-                                    aria-label="Label" required minlength="3"></textarea>
+                                <textarea class="mdc-text-field__input" id="detailsUrlEditText" rows="1" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
                             </span>
                         </label>
-                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
-                            style="margin-top: 16px;">
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
                             <span class="mdc-notched-outline">
                                 <span class="mdc-notched-outline__leading"></span>
                                 <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label">URL JSON схемы</span>
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >URL JSON схемы</span>
                                 </span>
                                 <span class="mdc-notched-outline__trailing"></span>
                             </span>
                             <span class="mdc-text-field__resizer">
-                                <textarea class="mdc-text-field__input" id="schemaUrlEditText" rows="1" cols="100"
-                                    aria-label="Label" required minlength="3"></textarea>
+                                <textarea class="mdc-text-field__input" id="schemaUrlEditText" rows="1" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
                             </span>
                         </label>
                         <div class="card__presenter_holder"
@@ -310,19 +297,17 @@
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label">Модуль</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Модуль</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
                     <span class="mdc-select__selected-text-container">
-                        <span class="mdc-select__selected-text"></span>
+                        <span class="mdc-select__selected-text" style="margin-top: 6px;"></span>
                     </span>
                     <span class="mdc-select__dropdown-icon">
                         <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd"
-                                points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd"
-                                points="7 15 12 10 17 15"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
                         </svg>
                     </span>
                 </div>
@@ -335,19 +320,17 @@
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label">Лекция</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
                     <span class="mdc-select__selected-text-container">
-                        <span class="mdc-select__selected-text"></span>
+                        <span class="mdc-select__selected-text" style="margin-top: 8px;"></span>
                     </span>
                     <span class="mdc-select__dropdown-icon">
                         <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
-                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd"
-                                points="7 10 12 15 17 10"></polygon>
-                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd"
-                                points="7 15 12 10 17 15"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
                         </svg>
                     </span>
                 </div>
