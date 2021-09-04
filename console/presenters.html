@@ -1285,7 +1285,7 @@
                 switch(items[i].type){
                     case "fork":
                         const contentL1 = document.getElementById('drawerListItem').content.cloneNode(true);
-                        contentL1.querySelector(".mdc-list-item__graphic").innerText = 'dashboard';
+                        contentL1.querySelector(".mdc-list-item__graphic").innerText = 'source';
                         contentL1.querySelector(".mdc-list-item__text").innerText = items[i].text;
                         currentParent = contentL1.querySelector(".mdc-list");
                         document.getElementById('drawerRoot').appendChild(contentL1);

@@ -263,11 +263,6 @@
             </div>
         </div>
     </div>
-    <button class="mdc-fab mdc-fab--extended" id="fab" style="position:fixed; bottom: 16px; right: 16px;">
-        <div class="mdc-fab__ripple"></div>
-        <span class="material-icons mdc-fab__icon">add</span>
-        <span class="mdc-fab__label">Create</span>
-    </button>
     <div id="loadingTemplate"
         style="bottom: 0; top: 0; right: 0; left: 0; position: absolute;background-color: #fff; display: none; align-items: center; flex-direction: row; z-index: 10000;">
         <div style="display: flex; width: 100%; align-items: center; flex-direction: column;">
@@ -378,7 +373,6 @@
         const linearProgress1 = new mdc.linearProgress.MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
         const loadingTemplate = document.getElementById('loadingTemplate');
         const loadingText = document.getElementById('loadingText');
-        const fab = document.getElementById('fab');
         const drawer2 = mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer--modal'));
         let ripples;
         let texts;
@@ -393,12 +387,6 @@
         let allBucketsArray = [];
 
         document.addEventListener('DOMContentLoaded', () => {
-            fab.classList.add('mdc-fab--exited');
-            fab.addEventListener('click', () => {
-                const newBucket = new Bucket();
-                allBucketsArray.push(newBucket);
-                Bucket.Draw(newBucket);
-            });
             switch(author){
                 case 'Kutikov':
                     document.querySelector('.mdc-drawer__title').innerText = 'Дамир КУТИКОВ';
@@ -440,7 +428,6 @@
 
         function drawUnitsAndForks(){
             Bucket.DrawAll();
-            fab.classList.remove('mdc-fab--exited');
             const items = [];
             for(let i = 0; i < allBucketsArray.length; i++){
                 items.push({
@@ -454,6 +441,11 @@
                 contentL2.querySelector(".mdc-list-item__text").innerText = items[i].text;
                 document.getElementById('drawerRoot').appendChild(contentL2);
             }
+            const contentL3 = document.getElementById('drawerListItemSub').content.cloneNode(true);
+            contentL3.querySelector(".mdc-list-item__graphic").innerText = 'add';
+            contentL3.querySelector(".mdc-list-item").href = 'javascript:drawerHandler(\'ADD_BUCKET\');';
+            contentL3.querySelector(".mdc-list-item__text").innerText = "Новый бакет";
+            currentParent.appendChild(contentL3);
             const accordions = document.querySelectorAll('.accordion');
             for (let i = 0; i < accordions.length; i++) {
                 accordions[i].addEventListener("click", function() {
@@ -496,6 +488,11 @@
                     break;
                 case 'SCHEMAS':
                     window.open(window.location.toString().replaceAll(thisPage, "schemas"), "_self");
+                    break;
+                case 'ADD_BUCKET':
+                    const newBucket = new Bucket();
+                    allBucketsArray.push(newBucket);
+                    Bucket.Draw(newBucket);
                     break;
                 default:
                     for(let i = 0; i < allBucketsArray.length; i++){
@@ -546,7 +543,6 @@
                     firebaseApi.readAllBuckets();
                     break;
                 case firebaseApi.Signals.bucketsEmpty:
-                    fab.classList.remove('mdc-fab--exited');
                     break;
                 case firebaseApi.Signals.bucketsLoaded:
                     if (mode == firebaseApi.Mode.read) {

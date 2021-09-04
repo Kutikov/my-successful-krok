@@ -1,7 +1,9 @@
 class Fork{
     static Editor_modes = {
         tests: 'tests',
-        presenters: 'presenters'
+        presenters: 'presenters',
+        forks: 'forks',
+        tables: 'tables'
     }    
     static AddNewModuleString = 'Добавить новый модуль'
     Spec = {

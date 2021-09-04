@@ -2,6 +2,12 @@ class FireBaseAPI{
 
     Signals = {
         loggedIn: 'loggedIn',
+        tablesLoaded: 'tablesLoaded',
+        tablesFailed: 'tablesFailed',
+        tablesFinished: 'tablesFinished',
+        modulesLoaded: 'modulesLoaded',
+        modulesFailed: 'modulesFailed',
+        modulesFinished: 'modulesFinished',
         testLoaded: 'testLoaded',
         testFailed: 'testFailed',
         testEmpty: 'testEmpty',
@@ -177,6 +183,72 @@ class FireBaseAPI{
             });
     }
     //#endregion Buckets
+
+    //#region Modules
+    readAllModules(){
+        let ref = this.realdatabase.ref('modules');
+        ref.get().then((snapshot) => {
+            if(snapshot.exists()){
+                const modulesArrayLocal = [];
+                for(const moduleId in snapshot.val()){
+                    modulesArrayLocal.push(Module.Decode(moduleId, snapshot.val()[moduleId]));
+                }
+                allModulesArray = Module.reDecodeModules(forkUnitHolder, modulesArrayLocal);
+            }
+            else {
+                allModulesArray = Module.reDecodeModules(forkUnitHolder, null);
+            }
+            coreSignalHandler(this.Signals.modulesLoaded, this.Mode.read);
+        }).catch((error) => {
+            console.log(error);
+            coreSignalHandler(this.Signals.modulesFailed, this.Mode.read);
+        })
+    }
+
+    writeModule(module){
+        this.realdatabase.ref('modules/' + module.forkId).set(module.GetFirebaseObject(), (error) => {
+            if(error){
+                coreSignalHandler(this.Signals.modulesFailed, this.Mode.write);
+            }
+            else{
+                coreSignalHandler(this.Signals.modulesLoaded, this.Mode.write);
+            }
+        });
+    }
+    //#endregion Modules
+
+    //#region Tables
+    readAllTables(){
+        let ref = this.realdatabase.ref('tables');
+        ref.get().then((snapshot) => {
+            if(snapshot.exists()){
+                const tablesArrayLocal = [];
+                for(const tableId in snapshot.val()){
+                    tablesArrayLocal.push(Table.Decode(tableId, snapshot.val()[tableId]));
+                }
+                tablesArray = tablesArrayLocal;
+            }
+            else {
+                tablesArray = [];
+            }
+            coreSignalHandler(this.Signals.tablesLoaded, this.Mode.read);
+        }).catch((error) => {
+            console.log(error);
+            coreSignalHandler(this.Signals.tablesFailed, this.Mode.read);
+        })
+    }
+
+    writeTables(table){
+        this.realdatabase.ref('tables/' + table.forkId).set(table.GetFirebaseObject(), (error) => {
+            if(error){
+                coreSignalHandler(this.Signals.tablesFailed, this.Mode.write);
+            }
+            else{
+                coreSignalHandler(this.Signals.tablesLoaded, this.Mode.write);
+            }
+        });
+    }
+    //#endregion Modules
 
     //#region Units
     readUnits(fork){
