@@ -238,7 +238,7 @@ class FireBaseAPI{
         })
     }
 
-    writeTables(table){
+    writeTable(table){
         this.realdatabase.ref('tables/' + table.forkId).set(table.GetFirebaseObject(), (error) => {
             if(error){
                 coreSignalHandler(this.Signals.tablesFailed, this.Mode.write);
