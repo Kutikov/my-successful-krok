@@ -125,7 +125,7 @@ class Bucket {
         document.getElementById('costEditText').value = bucket.cost.split(' ')[0];
         document.getElementById('shopUrlEditText').value = bucket.shopURL;
         document.getElementById('detailsUrlEditText').value = bucket.detailsURL;
-        document.getElementById('schemaUrlEditText').value = bucket.templateURL;
+        document.getElementById('schemaUrlEditText').innerText = bucket.templateURL;
         document.getElementById('monthEditText').value = bucket.TTL;
         radios[0].checked = bucket.cost.split(' ')[1] == "USD";
         radios[1].checked = bucket.cost.split(' ')[1] == "UAH";
@@ -161,7 +161,7 @@ class Bucket {
                 bucket.cost = document.getElementById('costEditText').value + (radios[0].checked ? " USD" : " UAH");
                 bucket.shopURL = document.getElementById('shopUrlEditText').value;
                 bucket.detailsURL = document.getElementById('detailsUrlEditText').value;
-                bucket.templateURL = document.getElementById('schemaUrlEditText').value;
+                bucket.templateURL = document.getElementById('schemaUrlEditText').innerText;
                 firebaseApi.writeBucket(bucket);
             }
         });

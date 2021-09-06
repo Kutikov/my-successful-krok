@@ -142,7 +142,12 @@ class Table{
         for(let i = 0; i < this.table.length; i++){
             for(let j = 0; j < this.table[i].length; j++){
                 const address = i.toString() + "_" + j.toString();
-                Table.DrawCell(modulesArray, address, this.table);
+                const element = Table.DrawCell(modulesArray, address, this.table);
+                const targetCell = document.getElementById(address);
+                while(targetCell.firstChild){
+                    targetCell.removeChild(targetCell.lastChild);
+                }
+                targetCell.appendChild(element);
             }
         }
     }
@@ -183,6 +188,7 @@ class Table{
         modulesList.appendChild(listItem);
 
         moduleSelect.addEventListener('DOMSubtreeModified', () => {
+            saveButton.disabled = false;
             if(moduleSelect.innerText == '-'){
                 table.table[row][column] = null;
                 svgInput.value = '';
@@ -195,6 +201,7 @@ class Table{
             }
         });
         svgInput.addEventListener('input', function(){
+            saveButton.disabled = false;
             if(moduleSelect.innerText == '-'){
                 if(svgInput.value = ''){
                     svgImage.innerHTML = defaultEmptySVG;

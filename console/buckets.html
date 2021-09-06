@@ -217,18 +217,31 @@
                                 <textarea class="mdc-text-field__input" id="detailsUrlEditText" rows="1" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
                             </span>
                         </label>
-                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
-                            <span class="mdc-notched-outline">
-                                <span class="mdc-notched-outline__leading"></span>
-                                <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >URL JSON схемы</span>
+                        <div class="mdc-select mdc-select--outlined" style="margin-top: 8px; margin-bottom: 4px; width: 100%;">
+                            <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                        <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Выберите таблицу</span>
+                                    </span>
+                                    <span class="mdc-notched-outline__trailing"></span>
                                 </span>
-                                <span class="mdc-notched-outline__trailing"></span>
-                            </span>
-                            <span class="mdc-text-field__resizer">
-                                <textarea class="mdc-text-field__input" id="schemaUrlEditText" rows="1" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
-                            </span>
-                        </label>
+                                <span class="mdc-select__selected-text-container">
+                                    <span style="margin-top: 6px;" id="schemaUrlEditText" class="mdc-select__selected-text"></span>
+                                </span>
+                                <span class="mdc-select__dropdown-icon">
+                                    <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                        <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                        <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                <ul class="mdc-list">
+                                    
+                                </ul>
+                            </div>
+                        </div>
                         <div class="card__presenter_holder"
                             style="margin-top: 8px; margin-right: -8px; margin-left: -8px; background-color: #ddd;">
                         </div>
@@ -385,6 +398,7 @@
         let allForksArray = [];
         let allUnitsArray = [];
         let allBucketsArray = [];
+        let tablesArray = [];
 
         document.addEventListener('DOMContentLoaded', () => {
             switch(author){
@@ -540,6 +554,16 @@
                     break;
                 case firebaseApi.Signals.unitLoaded:
                 case firebaseApi.Signals.unitEmpty:
+                    firebaseApi.readAllTables();
+                    break;
+                case firebaseApi.Signals.tablesLoaded:
+                    const tablesList = document.getElementById('tablesList');
+                    for(let i = 0; i < tablesArray.length; i++){
+                        const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
+                        listItem.querySelector('.mdc-list-item__text').innerText = tablesArray[i].tableName;
+                        listItem.querySelector('.mdc-list-item').dataset.value = tablesArray[i].tableName;
+                        tablesList.appendChild(listItem);
+                    }
                     firebaseApi.readAllBuckets();
                     break;
                 case firebaseApi.Signals.bucketsEmpty:

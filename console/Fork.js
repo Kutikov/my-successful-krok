@@ -3,7 +3,8 @@ class Fork{
         tests: 'tests',
         presenters: 'presenters',
         forks: 'forks',
-        tables: 'tables'
+        tables: 'tables',
+        modules: 'modules'
     }    
     static AddNewModuleString = 'Добавить новый модуль'
     Spec = {

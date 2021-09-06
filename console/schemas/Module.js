@@ -92,6 +92,7 @@ class Module{
             unitText.innerText = this.list[i].unitName;
             contentL.querySelector('.mdc-card').id = id;
             image_actions[0].addEventListener('click', () => {
+                saveButton.disabled = false;
                 const visibility = image_actions[0].innerText != 'visibility';
                 const isLocker = image_actions[1].innerText != 'lock';
                 this.updateUnit(this.list[i], visibility, isLocker);
@@ -108,6 +109,7 @@ class Module{
                 image_actions[1].innerText = isLocker ? 'lock' : 'lock_open';
             });
             image_actions[1].addEventListener('click', () => {
+                saveButton.disabled = false;
                 const visibility = image_actions[0].innerText == 'visibility';
                 const isLocker = image_actions[1].innerText == 'lock';
                 this.updateUnit(this.list[i], visibility, isLocker);
@@ -124,6 +126,7 @@ class Module{
                 image_actions[1].innerText = isLocker ? 'lock' : 'lock_open';
             });
             image_actions[2].addEventListener('click', () => {
+                saveButton.disabled = false;
                 const parent = document.getElementById(id).parentNode;
                 let index = 0;
                 for(let i = 0; i < parent.childNodes.length; i++){
@@ -139,6 +142,7 @@ class Module{
                 }            
             });
             image_actions[3].addEventListener('click', () => {
+                saveButton.disabled = false;
                 const parent = document.getElementById(id).parentNode;
                 let index = 0;
                 for(let i = 0; i < parent.childNodes.length; i++){

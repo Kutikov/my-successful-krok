@@ -193,10 +193,10 @@ class FireBaseAPI{
                 for(const moduleId in snapshot.val()){
                     modulesArrayLocal.push(Module.Decode(moduleId, snapshot.val()[moduleId]));
                 }
-                allModulesArray = Module.reDecodeModules(forkUnitHolder, modulesArrayLocal);
+                modulesArray = Module.reDecodeModules(forkUnitHolder, modulesArrayLocal);
             }
             else {
-                allModulesArray = Module.reDecodeModules(forkUnitHolder, null);
+                modulesArray = Module.reDecodeModules(forkUnitHolder, null);
             }
             coreSignalHandler(this.Signals.modulesLoaded, this.Mode.read);
         }).catch((error) => {
@@ -205,12 +205,24 @@ class FireBaseAPI{
         })
     }
 
-    writeModule(module){
+    writeModule(module, tablesArray){
         this.realdatabase.ref('modules/' + module.forkId).set(module.GetFirebaseObject(), (error) => {
             if(error){
                 coreSignalHandler(this.Signals.modulesFailed, this.Mode.write);
             }
             else{
+                const fbObj = {};
+                for(let i = 0; i < tablesArray; i++){
+                    fbObj[tablesArray[i].tableId] = tablesArray[i].GetFirebaseObject();
+                }
+                this.realdatabase.ref('tables').set(fbObj, (error) => {
+                    if(error){
+                        coreSignalHandler(this.Signals.tablesFailed, this.Mode.write);
+                    }
+                    else{
+                        coreSignalHandler(this.Signals.modulesLoaded, this.Mode.write);
+                    }
+                });
                 coreSignalHandler(this.Signals.modulesLoaded, this.Mode.write);
             }
         });
@@ -239,7 +251,7 @@ class FireBaseAPI{
     }
 
     writeTable(table){
-        this.realdatabase.ref('tables/' + table.forkId).set(table.GetFirebaseObject(), (error) => {
+        this.realdatabase.ref('tables/' + table.tableId).set(table.GetFirebaseObject(), (error) => {
             if(error){
                 coreSignalHandler(this.Signals.tablesFailed, this.Mode.write);
             }

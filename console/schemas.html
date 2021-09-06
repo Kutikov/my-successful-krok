@@ -203,6 +203,25 @@
             </div>
         </div>
     </template>
+    <template id="tableTemplate">
+        <div style="width: 100%; margin-top: 8px; display: flex; flex-direction: row; flex-wrap: wrap;">
+            <div style="flex-basis: 33%; width: 10px;" id="0_0"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="0_1"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="0_2"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="1_0"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="1_1"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="1_2"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="2_0"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="2_1"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="2_2"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="3_0"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="3_1"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="3_2"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="4_0"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="4_1"></div>
+            <div style="flex-basis: 33%; width: 10px;" id="4_2"></div>
+        </div>
+    </template>
     <template id="cellCardTemplate">
         <div class='mdc-card' style="margin-top: 6px; margin-bottom: 8px; background-color: #fff; margin-left: 16px; margin-right: 16px;">
             <div class='cell_icon'></div>
@@ -308,10 +327,13 @@
         const author = new URLSearchParams(window.location.search).get('author');
 
         let allUnitsArray = [];
-        let currentFork = null;
-        let forksArray = [];
-        let forkUnitHolder = {};
         let tablesArray = [];
+        let forksArray = [];
+        let modulesArray = [];
+        let forkUnitHolder = {};
+
+        let currentModule = null;
+        let currentTable = null;
 
         document.addEventListener('DOMContentLoaded', () => {
             setup('upload_file');
@@ -369,7 +391,14 @@
         }
         
         function save_file(){
-            firebaseApi.writeTests();
+            switch(EDITOR_MODE){
+                case Fork.Editor_modes.tables:
+                    firebaseApi.writeTable(currentTable);
+                    break;
+                case Fork.Editor_modes.modules:
+                    firebaseApi.writeModule(currentModule, tablesArray);
+                    break;
+            }
         }
 
         function resize(){
@@ -485,7 +514,7 @@
         }
 
         function drawerHandler(str){
-            const thisPage = "tests";
+            const thisPage = "schemas";
             drawer2.open = false;
             switch(str){
                 case 'ADD_TABLE':
@@ -510,51 +539,39 @@
                     window.open(window.location.toString().replaceAll(thisPage, "schemas"), "_self");
                     break;
                 default:
-                    if(EDITOR_MODE == Fork.Editor_modes.tests){
-                        currentTestArray = [];
-                        while (testListMainPage.firstChild) {
-                            testListMainPage.removeChild(testListMainPage.lastChild);
-                        }
-                    }
-                    else if(EDITOR_MODE == Fork.Editor_modes.presenters){
-                        currentPresenterArray = [];
-                        while (testListMainPage.firstChild) {
-                            testListMainPage.removeChild(testListMainPage.lastChild);
-                        }
-                    }
-                    const json = JSON.parse(str);
-                    for(let i = 0; i < forksArray.length; i++){
-                        if(forksArray[i].name == json.forkName){
-                            currentFork = forksArray[i];
-                            break;
-                        }
-                    }
                     saveButton.disabled = true;
-                    if(json.unitId == 'ADD_UNIT'){
-                        Unit.CreateUnit();
-                    }
-                    else{
-                        document.getElementById('pageTitleL').innerText = json.unitId.replace(/ø/g, ' ')
-                        for(let f = 0; f < allUnitsArray.length; f++){
-                            if(allUnitsArray[f].unitId == json.unitId && allUnitsArray[f].forkId == json.forkName.replace(/ /g, 'ø')){
-                                currentUnit = allUnitsArray[f];
-                                if(EDITOR_MODE == Unit.Editor_modes.tests){
-                                    currentTestArray = [];
-                                    while (testListMainPage.firstChild) {
-                                        testListMainPage.removeChild(testListMainPage.lastChild);
-                                    }
-                                    firebaseApi.readTests(allUnitsArray[f]);
+                    const json = JSON.parse(str);
+                    switch(json.type){
+                        case "table":
+                            if(EDITOR_MODE != Fork.Editor_modes.tables){
+                                while (testListMainPage.firstChild) {
+                                    testListMainPage.removeChild(testListMainPage.lastChild);
                                 }
-                                else if(EDITOR_MODE == Unit.Editor_modes.presenters){
-                                    currentPresenterArray = [];
-                                    while (testListMainPage.firstChild) {
-                                        testListMainPage.removeChild(testListMainPage.lastChild);
-                                    }
-                                    firebaseApi.readPresenters(allUnitsArray[f]);
+                                const tableTemplate = document.getElementById('tableTemplate').content.cloneNode(true);
+                                testListMainPage.appendChild(tableTemplate);
+                            }
+                            for(let w = 0; w < tablesArray.length; w++){
+                                if(tablesArray[w].tableName == json.name){
+                                    tablesArray[w].Draw();
+                                    break;
                                 }
                             }
-                        }
+                            EDITOR_MODE = Fork.Editor_modes.tables;
+                            break;
+                        case "module":
+                            while (testListMainPage.firstChild) {
+                                testListMainPage.removeChild(testListMainPage.lastChild);
+                            }
+                            for(let v = 0; v < modulesArray.length; v++){
+                                if(modulesArray[v].forkName == json.name){
+                                    modulesArray[v].Draw();
+                                    break;
+                                }
+                            }
+                            EDITOR_MODE = Fork.Editor_modes.modules;
+                            break;
                     }
+                    saveButton.disabled = false;
                     break;
             }
         }
@@ -579,23 +596,23 @@
                             }
                         }
                     }
-                    drawUnitsAndForks();
+                    firebaseApi.readAllModules();
                     break;
-                case firebaseApi.Signals.testFinished:
-                    TestAccount.ReDrawTests();
-                    break;
-                case firebaseApi.Signals.testEmpty:
-                    importButton.disabled = false;
-                    break;
-                case firebaseApi.Signals.testLoaded:
+                case firebaseApi.Signals.modulesLoaded:
                     if(mode == firebaseApi.Mode.read){
-                        TestAccount.ReDrawTests();
-                        importButton.disabled = false;
+                        firebaseApi.readAllTables();
                     }
                     else{
-                        drawUnitsAndForks();
+                        saveButton.disabled = true;
                     }
                     break;
+                case firebaseApi.Signals.tablesLoaded:
+                    if(mode == firebaseApi.Mode.read){
+                        drawUnitsAndForks();
+                    }
+                    else{
+                        saveButton.disabled = true;
+                    }
                 case firebaseApi.Signals.forksFailed:
                     firebaseApi.readForks(author);
                     break;
