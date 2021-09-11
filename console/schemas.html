@@ -20,8 +20,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="material.css">
+    <script src="material.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="style.css" rel="stylesheet">
     <script src="Unit.js"></script>
@@ -384,7 +384,7 @@
     </template>
 
     <script type="text/javascript">
-        let EDITOR_MODE = For.Editor_modes.forks;
+        let EDITOR_MODE = Fork.Editor_modes.forks;
         const dialog = new mdc.dialog.MDCDialog(document.getElementById('main-dialog'));
         const dialogTitle = document.getElementById('main-dialog-title');
         const dialogContent = document.getElementById('main-dialog-content');
@@ -416,7 +416,6 @@
         let currentTable = null;
 
         document.addEventListener('DOMContentLoaded', () => {
-            setup('upload_file');
             switch(author){
                 case 'Kutikov':
                     document.querySelector('.mdc-drawer__title').innerText = 'Дамир КУТИКОВ';
@@ -508,7 +507,6 @@
         }
 
         function drawUnitsAndForks(){
-            forkUnitHolder = {};
             const forksList = document.getElementById('drawerRoot');
             while (forksList.firstChild) {
                 forksList.removeChild(forksList.lastChild);
@@ -520,11 +518,12 @@
                 type: "parentModules"
             });
             for(let i = 0; i < forksArray.length; i++){
+                const forkName = forksArray[i].name;
                 items.push({
-                    text: forksArray[j].forkName,
-                    subtext: forkUnitHolder[forksArray[j].forkName].length.toString() + ' лекций', 
+                    text: forkName,
+                    subtext: forkUnitHolder[forkName].length.toString() + ' лекций', 
                     link: JSON.stringify({
-                        name: forksArray[j].forkName,
+                        name: forkName,
                         type: "module"
                     }),
                     type: "module"
@@ -537,10 +536,10 @@
             });
             for(let i = 0; i < tablesArray.length; i++){
                 items.push({
-                    text: tablesArray[j].tableName,
+                    text: tablesArray[i].tableName,
                     subtext: 'Нажмите, чтобы изменить', 
                     link: JSON.stringify({
-                        name: tablesArray[j].tableName,
+                        name: tablesArray[i].tableName,
                         type: "table"
                     }),
                     type: "table"
@@ -560,7 +559,7 @@
                     case "table":
                     case "module":
                         const contentL2 = document.getElementById('drawerListItemSub').content.cloneNode(true);
-                        contentL1.querySelector(".mdc-list-item__graphic").innerText = items[i].type == 'table' ? 'table_chart' : 'source';
+                        contentL2.querySelector(".mdc-list-item__graphic").innerText = items[i].type == 'table' ? 'table_chart' : 'source';
                         contentL2.querySelector(".mdc-list-item").href = 'javascript:drawerHandler(\'' + items[i].link + '\');';
                         contentL2.querySelector(".mdc-list-item__primary-text").innerText = items[i].text;
                         contentL2.querySelector(".mdc-list-item__secondary-text").innerText = items[i].subtext;
@@ -632,6 +631,7 @@
                             }
                             for(let w = 0; w < tablesArray.length; w++){
                                 if(tablesArray[w].tableName == json.name){
+                                    currentTable = tablesArray[w];
                                     tablesArray[w].Draw();
                                     document.getElementById('pageTitleL').innerText = json.name.replace(/ø/g, ' ');
                                     break;
@@ -645,6 +645,7 @@
                             }
                             for(let v = 0; v < modulesArray.length; v++){
                                 if(modulesArray[v].forkName == json.name){
+                                    currentModule = modulesArray[v];
                                     modulesArray[v].Draw();
                                     document.getElementById('pageTitleL').innerText = json.name.replace(/ø/g, ' ');
                                     break;
@@ -671,10 +672,11 @@
                 case firebaseApi.Signals.unitLoaded:
                 case firebaseApi.Signals.unitEmpty:
                     for(let i = 0; i < forksArray.length; i++){
-                        forkUnitHolder[forksArray[j].forkName] = [];
+                        const forkName = forksArray[i].name;
+                        forkUnitHolder[forkName] = [];
                         for(let j = 0; j < allUnitsArray.length; j++){
-                            if(allUnitsArray[j].forkId == forksArray[i].name.replace(/ /g, 'ø')){
-                                forkUnitHolder[forksArray[j].forkName].push(allUnitsArray[j]);
+                            if(allUnitsArray[j].forkId == forkName.replace(/ /g, 'ø')){
+                                forkUnitHolder[forkName].push(allUnitsArray[j]);
                             }
                         }
                     }
@@ -695,6 +697,7 @@
                     else{
                         saveButton.disabled = true;
                     }
+                    break;
                 case firebaseApi.Signals.forksFailed:
                     firebaseApi.readForks(author);
                     break;

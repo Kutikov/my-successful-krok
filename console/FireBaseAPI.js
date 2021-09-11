@@ -2,26 +2,33 @@ class FireBaseAPI{
 
     Signals = {
         loggedIn: 'loggedIn',
+
         tablesLoaded: 'tablesLoaded',
         tablesFailed: 'tablesFailed',
         tablesFinished: 'tablesFinished',
+
         modulesLoaded: 'modulesLoaded',
         modulesFailed: 'modulesFailed',
         modulesFinished: 'modulesFinished',
+
         testLoaded: 'testLoaded',
         testFailed: 'testFailed',
         testEmpty: 'testEmpty',
         testFinished: 'testFinished',
+
         presentersLoaded: 'presentersLoaded',
         presentersFailed: 'presentersFailed',
         presentersEmpty: 'presentersEmpty',
         presentersFinished: 'presentersFinished',
+
         bucketsLoaded: 'bucketsLoaded',
         bucketsFailed: 'bucketsFailed',
         bucketsEmpty: 'bucketsEmpty',
+
         forksLoaded: 'forksLoaded',
         forksFailed: 'forksFailed',
         forksEmpty: 'forksEmpty',
+        
         unitLoaded: 'unitLoaded',
         unitFailed: 'unitFailed',
         unitEmpty: 'unitEmpty',

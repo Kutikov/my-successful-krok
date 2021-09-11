@@ -30,15 +30,15 @@
 }
 
 .card__unit_disabled {
-    color: rgb(104, 104, 104);
+    background-color: #fff !important;
 }
 
 .card__unit_locker {
-    color: #0d47a1;
+    background-color: #ffbcaf !important;
 }
 
 .card__unit_nonlocker {
-    color: #33691e;
+    background-color: #a5d6a7 !important;
 }
 
 .card__answer {

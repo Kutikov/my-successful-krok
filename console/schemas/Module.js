@@ -81,80 +81,99 @@ class Module{
         var element = arr[fromIndex];
         arr.splice(fromIndex, 1);
         arr.splice(toIndex, 0, element);
+        return arr;
     }
 
     Draw(){
+        while (testListMainPage.firstChild) {
+            testListMainPage.removeChild(testListMainPage.lastChild);
+        }
         for(let i = 0; i < this.list.length; i++){
             const id = 'unitCardM' + i;
             const contentL = document.getElementById('unitCardTemplate').content.cloneNode(true);
             const image_actions = contentL.querySelectorAll('.mdc-card__action--icon');
             const unitText = contentL.querySelector('.card__text');
+            const card = contentL.querySelector('.mdc-card');
             unitText.innerText = this.list[i].unitName;
             contentL.querySelector('.mdc-card').id = id;
+            image_actions[0].innerText = this.list[i].visibility ? 'visibility' : 'visibility_off';
+            image_actions[1].innerText = this.list[i].isLocker  ? 'lock' : 'lock_open';
+            if(this.list[i].visibility){
+                card.classList.add(this.list[i].isLocker ? 'card__unit_locker' : 'card__unit_nonlocker');
+            }
+            else{
+                card.classList.add('card__unit_disabled');
+            }
             image_actions[0].addEventListener('click', () => {
                 saveButton.disabled = false;
                 const visibility = image_actions[0].innerText != 'visibility';
-                const isLocker = image_actions[1].innerText != 'lock';
-                this.updateUnit(this.list[i], visibility, isLocker);
-                unitText.classList.remove('card__unit_disabled');
-                unitText.classList.remove('card__unit_locker');
-                unitText.classList.remove('card__unit_nonlocker');
+                const isLocker = image_actions[1].innerText == 'lock';
+                this.updateUnit(this.list[i].unitName, visibility, isLocker);
+                card.classList.remove('card__unit_disabled');
+                card.classList.remove('card__unit_locker');
+                card.classList.remove('card__unit_nonlocker');
                 if(visibility){
-                    unitText.classList.add(isLocker ? 'card__unit_locker' : 'card__unit_nonlocker');
+                    card.classList.add(isLocker ? 'card__unit_locker' : 'card__unit_nonlocker');
                 }
                 else{
-                    unitText.classList.add('card__unit_nonlocker');
+                    card.classList.add('card__unit_disabled');
                 }
                 image_actions[0].innerText = visibility ? 'visibility' : 'visibility_off';
-                image_actions[1].innerText = isLocker ? 'lock' : 'lock_open';
+                image_actions[1].innerText = isLocker  ? 'lock' : 'lock_open';
             });
             image_actions[1].addEventListener('click', () => {
                 saveButton.disabled = false;
                 const visibility = image_actions[0].innerText == 'visibility';
-                const isLocker = image_actions[1].innerText == 'lock';
-                this.updateUnit(this.list[i], visibility, isLocker);
-                unitText.classList.remove('card__unit_disabled');
-                unitText.classList.remove('card__unit_locker');
-                unitText.classList.remove('card__unit_nonlocker');
+                const isLocker = image_actions[1].innerText != 'lock';
+                this.updateUnit(this.list[i].unitName, visibility, isLocker);
+                card.classList.remove('card__unit_disabled');
+                card.classList.remove('card__unit_locker');
+                card.classList.remove('card__unit_nonlocker');
                 if(visibility){
-                    unitText.classList.add(isLocker ? 'card__unit_locker' : 'card__unit_nonlocker');
+                    card.classList.add(isLocker ? 'card__unit_locker' : 'card__unit_nonlocker');
                 }
                 else{
-                    unitText.classList.add('card__unit_nonlocker');
+                    card.classList.add('card__unit_disabled');
                 }
                 image_actions[0].innerText = visibility ? 'visibility' : 'visibility_off';
-                image_actions[1].innerText = isLocker ? 'lock' : 'lock_open';
+                image_actions[1].innerText = isLocker  ? 'lock' : 'lock_open';
             });
             image_actions[2].addEventListener('click', () => {
                 saveButton.disabled = false;
                 const parent = document.getElementById(id).parentNode;
                 let index = 0;
+                let divs = 0;
                 for(let i = 0; i < parent.childNodes.length; i++){
-                    if(parent.childNodes[i].id == id){
-                        index = (i - 1) / 2;
-                        break;
+                    if(parent.childNodes[i].nodeName == "DIV"){
+                        if(parent.childNodes[i].id == id){
+                            index = divs;
+                        }
+                        divs++;
                     }
                 }
                 if(index > 0){
-                    Module.arraymove(currentTestArray, index, index - 1);
+                    this.list = Module.arraymove(this.list, index, index - 1);
                     saveButton.disabled = false;
-                    Draw();
+                    this.Draw();
                 }            
             });
             image_actions[3].addEventListener('click', () => {
                 saveButton.disabled = false;
                 const parent = document.getElementById(id).parentNode;
                 let index = 0;
+                let divs = 0;
                 for(let i = 0; i < parent.childNodes.length; i++){
-                    if(parent.childNodes[i].id == id){
-                        index = (i - 1) / 2;
-                        break;
+                    if(parent.childNodes[i].nodeName == "DIV"){
+                        if(parent.childNodes[i].id == id){
+                            index = divs;
+                        }
+                        divs++;
                     }
                 }
-                if(index < parent.childNodes.length - 1){
-                    Module.arraymove(currentTestArray, index, index + 1);
+                if(index < divs - 1){
+                    this.list = Module.arraymove(this.list, index, index + 1);
                     saveButton.disabled = false;
-                    Draw();
+                    this.Draw();
                 }
             });
             testListMainPage.appendChild(contentL);
