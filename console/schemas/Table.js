@@ -5,11 +5,17 @@ class Table{
     static UnitInitial = '        +';
     static TableInitial = '#?';
     static TablePInitial = '#!';
+    static LinkInitial = '*';
 
 
     constructor(tableName){
         this.tableName = tableName;
         this.tableId = tableName.replace(/ /g, 'ø');
+        this.links = [
+            {text: '', url: ''},
+            {text: '', url: ''},
+            {text: '', url: ''}
+        ];
         this.yaml = '';
         this.table = [
             [null, null, null],
@@ -33,11 +39,11 @@ class Table{
         const table = new Table(tableName);
         table.yaml = record.yaml;
         table.tableId = tableId;
-        table.table = Table.YamlToObjects(record.yaml);
+        Table.YamlToObjects(record.yaml, table);
         return table;
     }
 
-    static YamlToObjects(yaml){
+    static YamlToObjects(yaml, tableOut){
         const table = [
             [null, null, null],
             [null, null, null],
@@ -45,35 +51,58 @@ class Table{
             [null, null, null],
             [null, null, null]
         ];
+        const links = [
+            {text: '', url: ''},
+            {text: '', url: ''},
+            {text: '', url: ''}
+        ];
         const lines = yaml.split('\n');
+        let row = 0;
         for(let i = 0; i < lines.length; i++){
             if(lines.startsWith(Table.TableInitial) || lines.startsWith(Table.TablePInitial)){
                 const cells = lines[i].split('|');
-                for(let j = 0; j < cells.length; j++){
-                    if(cells[j] != '' && cells[j] != '_'){
-                        if(table[i][j] == null){
-                            table[i][j] = {
+                for(let column = 0; column < cells.length; column++){
+                    if(cells[column] != '' && cells[column] != '_'){
+                        if(table[row][column] == null){
+                            table[row][column] = {
                                 name: "name",
                                 svg: "svg"
                             };
                         }
                         if(lines.startsWith(Table.TableInitial)){
-                            table[i][j].name = cells[j];
+                            table[row][column].name = cells[column];
                         }
                         else if(lines.startsWith(Table.TablePInitial)){
-                            table[i][j].svg = cells[j];
+                            table[row][column].svg = cells[column];
                         }
                     }
                 }
+                row++;
+                if(row == table.length){
+                    row = 0;
+                }
+            }
+            else if(lines.startsWith(Table.LinkInitial)){
+                const obj = lines[i].split('|');
+                links[row] = {
+                    text: obj[0],
+                    url: obj[1]
+                }
+                row++;
+                if(row == links.length){
+                    row = 0;
+                }
             }
         }
-        return table;
+        tableOut.table = table;
+        tableOut.links = links;
     }
 
     ObjectsToYaml(modulesArray){
         let objYaml = Table.BucketInitial + this.tableName + '\n';
         let tableYaml = '\n';
         let tablePYaml = '\n';
+        let linksYaml = '\n';
         for(let i = 0; i < this.table.length; i++){
             tableYaml = tableYaml + '\n' + Table.TableInitial;
             tablePYaml = tablePYaml + '\n' + Table.TablePInitial;
@@ -100,7 +129,10 @@ class Table{
                 }
             }
         }
-        this.yaml = objYaml + tableYaml + tablePYaml;
+        for(let d = 0; d < 3; d++){
+            linksYaml = linksYaml + '\n' + Table.LinkInitial + this.links[d].text + '|' + this.links[d].url;
+        }
+        this.yaml = objYaml + tableYaml + tablePYaml + linksYaml;
     }
 
     static CreateTable(){
@@ -150,6 +182,39 @@ class Table{
                 targetCell.appendChild(element);
             }
         }
+        for(let i = 0; i < this.links.length; i++){
+            Table.DrawLink(this.links, i);
+        }
+    }
+
+    static DrawLink(links, order){
+        const descrInput = document.getElementById('link' + (order + 1).toString() + 'descr');
+        const urlInput = document.getElementById('link' + (order + 1).toString() + 'url');
+        descrInput.addEventListener('input', function(){
+            saveButton.disabled = false;
+            if(descrInput.value != ''){
+                links[order] = {
+                    text: descrInput.value,
+                    url: urlInput.value
+                };
+            }
+            else if(urlInput.value != ''){
+                urlInput.value = '';
+                links[order] = {
+                    text: '',
+                    url: ''
+                };
+            }
+        });
+        urlInput.addEventListener('input', function(){
+            saveButton.disabled = false;
+            if(descrInput.value != '' && urlInput.value != ''){
+                links[order].url = urlInput.value;
+            }
+            else if(urlInput.value != ''){
+                urlInput.value = '';
+            }
+        });
     }
 
     static DrawCell(modulesArray, address, table){

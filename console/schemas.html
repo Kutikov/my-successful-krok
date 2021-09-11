@@ -204,22 +204,102 @@
         </div>
     </template>
     <template id="tableTemplate">
-        <div style="width: 100%; margin-top: 8px; display: flex; flex-direction: row; flex-wrap: wrap;">
-            <div style="flex-basis: 33%; width: 10px;" id="0_0"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="0_1"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="0_2"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="1_0"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="1_1"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="1_2"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="2_0"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="2_1"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="2_2"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="3_0"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="3_1"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="3_2"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="4_0"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="4_1"></div>
-            <div style="flex-basis: 33%; width: 10px;" id="4_2"></div>
+        <div style="width: 100%;">
+            <div style="width: 100%; margin-top: 8px; display: flex; flex-direction: row; flex-wrap: wrap;">
+                <div style="flex-basis: 33%; width: 10px;" id="0_0"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="0_1"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="0_2"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="1_0"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="1_1"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="1_2"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="2_0"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="2_1"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="2_2"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="3_0"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="3_1"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="3_2"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="4_0"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="4_1"></div>
+                <div style="flex-basis: 33%; width: 10px;" id="4_2"></div>
+            </div>
+            <div style="width: 100%; margin-top: 8px; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between;">
+                <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="width: 10px; flex-basis: 64%;">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">Описание ссылки 1</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-text-field__resizer">
+                        <textarea class="mdc-text-field__input" id="link1descr" style="margin-top: 23px;" rows="2" cols="100" aria-label="Label" required minlength="3"></textarea>
+                    </span>
+                </label>
+                <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="width: 10px; flex-basis: 33%;">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">URL 1</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-text-field__resizer">
+                        <textarea class="mdc-text-field__input" id="link1url" style="margin-top: 23px;" rows="2" cols="100" aria-label="Label" required minlength="3"></textarea>
+                    </span>
+                </label>
+            </div>
+            <div style="width: 100%; margin-top: 8px; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between;">
+                <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="width: 10px; flex-basis: 64%;">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">Описание ссылки 2</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-text-field__resizer">
+                        <textarea class="mdc-text-field__input" id="link2descr" style="margin-top: 23px;" rows="2" cols="100" aria-label="Label" required minlength="3"></textarea>
+                    </span>
+                </label>
+                <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="width: 10px; flex-basis: 33%;">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">URL 2</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-text-field__resizer">
+                        <textarea class="mdc-text-field__input" id="link2url" style="margin-top: 23px;" rows="2" cols="100" aria-label="Label" required minlength="3"></textarea>
+                    </span>
+                </label>
+            </div>
+            <div style="width: 100%; margin-top: 8px; display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between;">
+                <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="width: 10px; flex-basis: 64%;">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">Описание ссылки 3</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-text-field__resizer">
+                        <textarea class="mdc-text-field__input" id="link3descr" style="margin-top: 23px;" rows="2" cols="100" aria-label="Label" required minlength="3"></textarea>
+                    </span>
+                </label>
+                <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="width: 10px; flex-basis: 33%;">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">URL 3</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-text-field__resizer">
+                        <textarea class="mdc-text-field__input" id="link3url" style="margin-top: 23px;" rows="2" cols="100" aria-label="Label" required minlength="3"></textarea>
+                    </span>
+                </label>
+            </div>
         </div>
     </template>
     <template id="cellCardTemplate">
@@ -553,6 +633,7 @@
                             for(let w = 0; w < tablesArray.length; w++){
                                 if(tablesArray[w].tableName == json.name){
                                     tablesArray[w].Draw();
+                                    document.getElementById('pageTitleL').innerText = json.name.replace(/ø/g, ' ');
                                     break;
                                 }
                             }
@@ -565,6 +646,7 @@
                             for(let v = 0; v < modulesArray.length; v++){
                                 if(modulesArray[v].forkName == json.name){
                                     modulesArray[v].Draw();
+                                    document.getElementById('pageTitleL').innerText = json.name.replace(/ø/g, ' ');
                                     break;
                                 }
                             }
