@@ -59,20 +59,20 @@ class Table{
         const lines = yaml.split('\n');
         let row = 0;
         for(let i = 0; i < lines.length; i++){
-            if(lines.startsWith(Table.TableInitial) || lines.startsWith(Table.TablePInitial)){
-                const cells = lines[i].split('|');
+            if(lines[i].startsWith(Table.TableInitial) || lines[i].startsWith(Table.TablePInitial)){
+                const cells = lines[i].replace(Table.TableInitial, '').replace(Table.TablePInitial, '').split('|');
                 for(let column = 0; column < cells.length; column++){
                     if(cells[column] != '' && cells[column] != '_'){
                         if(table[row][column] == null){
                             table[row][column] = {
-                                name: "name",
+                                text: "text",
                                 svg: "svg"
                             };
                         }
-                        if(lines.startsWith(Table.TableInitial)){
-                            table[row][column].name = cells[column];
+                        if(lines[i].startsWith(Table.TableInitial)){
+                            table[row][column].text = cells[column];
                         }
-                        else if(lines.startsWith(Table.TablePInitial)){
+                        else if(lines[i].startsWith(Table.TablePInitial)){
                             table[row][column].svg = cells[column];
                         }
                     }
@@ -82,8 +82,8 @@ class Table{
                     row = 0;
                 }
             }
-            else if(lines.startsWith(Table.LinkInitial)){
-                const obj = lines[i].split('|');
+            else if(lines[i].startsWith(Table.LinkInitial)){
+                const obj = lines[i].replace(Table.LinkInitial, '').split('|');
                 links[row] = {
                     text: obj[0],
                     url: obj[1]
@@ -108,11 +108,11 @@ class Table{
             tablePYaml = tablePYaml + '\n' + Table.TablePInitial;
             for(let j = 0; j < this.table[i].length; j++){
                 if(this.table[i][j] != null){
-                    objYaml = objYaml + Table.ModuleInitial + this.table[i][j].name + '\n';
-                    tableYaml = tableYaml + this.table[i][j].name + '|';
+                    objYaml = objYaml + Table.ModuleInitial + this.table[i][j].text + '\n';
+                    tableYaml = tableYaml + this.table[i][j].text + '|';
                     tablePYaml = tablePYaml + this.table[i][j].svg + '|';
                     for(let k = 0; k < forksArray.length; k++){
-                        if(modulesArray[k].forkName == this.table[i][j].name){
+                        if(modulesArray[k].forkName == this.table[i][j].text){
                             for(let l = 0; l < modulesArray[k].list.length; l++){
                                 const record = modulesArray[k].list[l];
                                 if(record.visibility){
@@ -182,6 +182,14 @@ class Table{
                 targetCell.appendChild(element);
             }
         }
+        updateDesign();
+        for(let i = 0; i < this.table.length; i++){
+            for(let j = 0; j < this.table[i].length; j++){
+                const address = i.toString() + "_" + j.toString();
+                const module = this.table[i][j];
+                document.getElementById('select' + address).innerText = module == null ? '-' : module.text
+            }
+        }
         for(let i = 0; i < this.links.length; i++){
             Table.DrawLink(this.links, i);
         }
@@ -190,6 +198,8 @@ class Table{
     static DrawLink(links, order){
         const descrInput = document.getElementById('link' + (order + 1).toString() + 'descr');
         const urlInput = document.getElementById('link' + (order + 1).toString() + 'url');
+        descrInput.value = links[order].text;
+        urlInput.value = links[order].url;
         descrInput.addEventListener('input', function(){
             saveButton.disabled = false;
             if(descrInput.value != ''){
@@ -220,27 +230,19 @@ class Table{
     static DrawCell(modulesArray, address, table){
         const row = Number(address.split('_')[0]);
         const column = Number(address.split('_')[1]);
-        const module = table[row][column] == null ? null : table[row][column].name;
         const defaultEmptySVG = `<svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                                    <path fill="#333" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                                    <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
                                 </svg>`;
         const defaultNonEmptySVG = `<svg style="width:24px;height:24px" viewBox="0 0 24 24">
                                         <path fill="currentColor" d="M20,17A2,2 0 0,0 22,15V4A2,2 0 0,0 20,2H9.46C9.81,2.61 10,3.3 10,4H20V15H11V17M15,7V9H9V22H7V16H5V22H3V14H1.5V9A2,2 0 0,1 3.5,7H15M8,4A2,2 0 0,1 6,6A2,2 0 0,1 4,4A2,2 0 0,1 6,2A2,2 0 0,1 8,4Z" />
                                     </svg>`;
-                                    
-        let svg = defaultEmptySVG;
-        if(module != null){
-            svg = table[row][column].svg;
-        }
-        const contentL = document.getElementById('unitCardTemplate').content.cloneNode(true);
-        const svgImage = contentL.querySelector('.card__text');
+        const contentL = document.getElementById('cellCardTemplate').content.cloneNode(true);
+        const svgImage = contentL.querySelector('.cell_icon');
         const svgInput = contentL.querySelector('.mdc-text-field__input');
         const modulesList = contentL.querySelector('.mdc-list');
         const moduleSelect = contentL.querySelector('.mdc-select__selected-text');
         svgInput.id = 'svgInput' + address;
-        if(module != null){
-            svgInput.innerText = svg;
-        }
+        moduleSelect.id = 'select' + address;
         for(let i = 0; i < modulesArray.length; i++){
             const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
             listItem.querySelector('.mdc-list-item__text').innerText = modulesArray[i].forkName;
@@ -254,35 +256,50 @@ class Table{
 
         moduleSelect.addEventListener('DOMSubtreeModified', () => {
             saveButton.disabled = false;
-            if(moduleSelect.innerText == '-'){
-                table.table[row][column] = null;
+            if(moduleSelect.innerText == '-' || moduleSelect.innerText == ''){
+                table[row][column] = null;
                 svgInput.value = '';
+                svgInput.dispatchEvent(new Event('input'));
             }
             else{
-                table.table[row][column].name = moduleSelect.innerText;
-                if(svgInput.value == ''){
-                    svgInput.value = defaultNonEmptySVG;
+                if(table[row][column] != null){
+                    table[row][column].text = moduleSelect.innerText;
                 }
+                else{
+                    table[row][column] = {
+                        text: moduleSelect.innerText,
+                        svg: defaultNonEmptySVG
+                    };
+                }
+                svgInput.value = table[row][column].svg;
+                svgInput.dispatchEvent(new Event('input'));
             }
         });
         svgInput.addEventListener('input', function(){
+            let outer = '';
+            const lines = svgInput.value.split('\n');
+            for(let i = 0; i < lines.length; i++){
+                outer = outer + lines[i].trim();
+            }
+            svgInput.value = outer;
             saveButton.disabled = false;
             if(moduleSelect.innerText == '-'){
-                if(svgInput.value = ''){
+                if(svgImage.innerHTML != defaultEmptySVG){
                     svgImage.innerHTML = defaultEmptySVG;
-                }
-                else{
                     svgInput.value = '';
                 }
             }
+            else if(moduleSelect.innerText == ''){
+
+            }
             else{
-                table.table[row][column].svg = moduleSelect.innerText;
+                if(table[row][column] != null){
+                    table[row][column].svg = svgInput.value;
+                }
                 svgImage.innerHTML = svgInput.value;
             }
+            svgImage.firstChild.removeAttribute("style");
         });
-
-        moduleSelect.innerText = module == null ? '-' : module;
-        svgInput.value = svg;
         return contentL;
     }
 }

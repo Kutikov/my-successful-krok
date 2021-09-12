@@ -28,7 +28,7 @@ class FireBaseAPI{
         forksLoaded: 'forksLoaded',
         forksFailed: 'forksFailed',
         forksEmpty: 'forksEmpty',
-        
+
         unitLoaded: 'unitLoaded',
         unitFailed: 'unitFailed',
         unitEmpty: 'unitEmpty',
@@ -219,7 +219,7 @@ class FireBaseAPI{
             }
             else{
                 const fbObj = {};
-                for(let i = 0; i < tablesArray; i++){
+                for(let i = 0; i < tablesArray.length; i++){
                     fbObj[tablesArray[i].tableId] = tablesArray[i].GetFirebaseObject();
                 }
                 this.realdatabase.ref('tables').set(fbObj, (error) => {

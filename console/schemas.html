@@ -303,9 +303,9 @@
         </div>
     </template>
     <template id="cellCardTemplate">
-        <div class='mdc-card' style="margin-top: 6px; margin-bottom: 8px; background-color: #fff; margin-left: 16px; margin-right: 16px;">
+        <div class='mdc-card' style="margin-top: 6px; margin-bottom: 8px; background-color: #fff; margin-left: 8px; margin-right: 8px;">
             <div class='cell_icon'></div>
-            <div class="mdc-select mdc-select--outlined" style="margin-top: 8px; margin-bottom: 4px; width: 100%;">
+            <div class="mdc-select mdc-select--outlined" style="margin-top: 8px; margin-bottom: 4px; margin-left: 8px; margin-right: 8px;">
                 <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
@@ -330,7 +330,7 @@
                     </ul>
                 </div>
             </div>
-            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin: 8px;">
                 <span class="mdc-notched-outline">
                     <span class="mdc-notched-outline__leading"></span>
                     <span class="mdc-notched-outline__notch">
@@ -504,6 +504,9 @@
             listItemRipples = [].map.call(document.querySelectorAll(selector), function(el) {
                 return new mdc.ripple.MDCRipple(el);
             });
+            menues = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
+                return new mdc.select.MDCSelect(el);
+            });
         }
 
         function drawUnitsAndForks(){
@@ -545,6 +548,12 @@
                     type: "table"
                 });
             }
+            items.push({
+                    text: '',
+                    subtext: '', 
+                    link: 'ADD_TABLE',
+                    type: "new"
+                });
             let currentParent;
             for(let i = 0; i < items.length; i++){
                 switch(items[i].type){
@@ -628,6 +637,7 @@
                                 }
                                 const tableTemplate = document.getElementById('tableTemplate').content.cloneNode(true);
                                 testListMainPage.appendChild(tableTemplate);
+                                updateDesign();
                             }
                             for(let w = 0; w < tablesArray.length; w++){
                                 if(tablesArray[w].tableName == json.name){
