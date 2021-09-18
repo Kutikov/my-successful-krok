@@ -433,7 +433,7 @@
             }
         }
 
-        function progressToUi(action = '', show = true){
+        function progressToUi(action = '', show = true, timeout = 2000){
             if(show){
                 linearProgress.style.display = 'block';
                 loadingTemplate.style.display = 'flex';
@@ -442,7 +442,7 @@
                 linearProgress.style.display = 'none';
                 setTimeout(() => {
                     loadingTemplate.style.display = 'none';
-                }, 2000);
+                }, timeout);
             }
             loadingText.innerText = action;
         }

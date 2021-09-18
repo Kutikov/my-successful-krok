@@ -55,7 +55,7 @@ class Module{
                     break;
                 }
             }
-            if(!found){
+            if(!found && unitsArray[i].presentersCount > 0){
                 module.list.push({
                     unitName: unitsArray[i].unitName,
                     fork_unitId: unitsArray[i].fork_unitId,

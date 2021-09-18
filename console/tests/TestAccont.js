@@ -64,7 +64,7 @@ class TestAccount{
         const answersList = contentL.querySelector('.card__answers_list');
         const image_actions = contentL.querySelectorAll('.mdc-card__action--icon')
         contentL.querySelector('.mdc-card').id = id;
-        contentL.querySelector('.card__task').innerText = this.task;
+        contentL.querySelector('.card__task').innerText = (order + 1).toString() + ". " + this.task;
         if(this.comment != ''){
             contentL.querySelector('.card__comment').innerText = this.comment;
         }
@@ -142,12 +142,16 @@ class TestAccount{
     }
 
     static ReDrawTests(){
-        while (testListMainPage.firstChild) {
-            testListMainPage.removeChild(testListMainPage.lastChild);
-        }
-        for(let i = 0; i < currentTestArray.length; i++){
-            currentTestArray[i].GetTestCard(i);
-        }
+        progressToUi('Загрузка ' + currentTestArray.length.toString() + " тестов", true);
+        setTimeout(() => {
+            while (testListMainPage.firstChild) {
+                testListMainPage.removeChild(testListMainPage.lastChild);
+            }
+            for(let i = 0; i < currentTestArray.length; i++){
+                currentTestArray[i].GetTestCard(i);
+            }
+            progressToUi('Загружено ' + currentTestArray.length.toString() + " тестов", false, 10);
+        }, 10);
     }
 
     GetTestEdit(){
