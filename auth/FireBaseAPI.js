@@ -92,7 +92,10 @@ class FireBaseAPI{
                                     .then(() => {
                                         changeCard('success');
                                         showMessage('needVerification');
-                                        document.cookie = "cr=" + JSON.stringify({ lg: email, ps: password, ver: false });
+                                        const loginPass = { lg: email, ps: password, ver: false };
+                                        document.cookie = "cr=" + JSON.stringify(loginPass);
+                                        loginPass['action'] = 'register';
+                                        interactionInterface(JSON.stringify(loginPass));
                                     })
                                     .catch((error) => {
                                         console.log(error);
@@ -129,14 +132,18 @@ class FireBaseAPI{
         this.regFirebase.auth().signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                document.cookie = "cr=" + JSON.stringify({ lg: user.email, ps: password, ver: user.emailVerified });
+                const loginPass = { lg: user.email, ps: password, ver: user.emailVerified };
+                document.cookie = "cr=" + JSON.stringify(loginPass);
                 changeCard('success');
                 if(user.emailVerified){
                     showMessage('logedIn');
+                    loginPass['action'] = 'login';
                 }
                 else{
                     showMessage('needVerification');
+                    loginPass['action'] = 'not_verified';
                 }
+                interactionInterface(JSON.stringify(loginPass));
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -182,6 +189,7 @@ class FireBaseAPI{
                 .then(() => {
                     changeCard('success');
                     showMessage('passwordEmailSended');
+                    interactionInterface('update_password_email');
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -206,7 +214,6 @@ class FireBaseAPI{
     }
 
     verifyOnLoadActions() {
-        // TODO: Implement getParameterByName()
         const mode = this.getParameterByName('mode');
         const actionCode = this.getParameterByName('oobCode');
         const lang = this.getParameterByName('lang') || 'ua';
@@ -253,6 +260,9 @@ class FireBaseAPI{
                             console.log(resp);
                             changeCard('success');
                             showMessage('emailVerified');
+                            const loginPass = JSON.parse(document.cookie);
+                            loginPass['action'] = 'verified';
+                            interactionInterface(JSON.stringify(loginPass));
                         })
                         .catch((error) => {
                             const errorCode = error.code;

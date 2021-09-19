@@ -20,8 +20,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link href="material.css" rel="stylesheet">
+    <script src="material.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="User.js?id=123"></script>
     <script src="FireBaseAPI.js?id=123"></script>
@@ -33,8 +33,8 @@
 <body style="background-image: url('white_image.png'); background-size: cover;">
     <div style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
         <div style="display: flex; flex-direction: row; align-items: center; flex-grow: 0; flex-shrink: 0; flex-wrap: wrap; background-color: #fff; z-index: 100; box-shadow: 0px 0px 8px 4px #0006; width: 100%;">
-            <div style="margin: 16px 8px 8px 16px; height: 48px; width: 48px; background-image: url('ic_launcher.png'); background-size: contain; flex-grow: 0; flex-shrink: 0;"></div> 
-            <p class="card__text" id="pageTitle" style="font-size: 28px; font-weight: 500; flex-grow: 1; margin-left: 16px;"></p>
+            <div style="margin: 12px 8px 8px 12px; height: 32px; width: 32px; background-image: url('ic_launcher.png'); background-size: contain; flex-grow: 0; flex-shrink: 0;"></div> 
+            <p class="card__text" id="pageTitle" style="font-size: 22px; font-weight: 500; flex-grow: 1; margin-left: 16px;"></p>
             <div style="display: flex; flex-direction: row; margin-right: 8px; margin-left: 8px; flex-grow: 0; flex-shrink: 0; flex-wrap: nowrap;">
                 <button class="mdc-button mdc-button--outlined" style="margin: 8px" onclick="localize(0)">
                     <span class="mdc-button__ripple"></span>
@@ -64,21 +64,21 @@
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="emailLoginLabel">Email</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="emailLoginLabel">Email</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="text" id="emailLogin" class="mdc-text-field__input" required pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
+                    <input type="text" id="emailLogin" class="mdc-text-field__input" style="margin-top: 6px;" required pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
                 </label>
                 <label class="mdc-text-field mdc-text-field--outlined" id="passwordLoginH" style="margin: 8px 16px;">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="passwordLoginLabel">Пароль</span>
+                            <span class="mdc-floating-label"  style="transform: translateY(-23px) scale(0.75);"  id="passwordLoginLabel">Пароль</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="password" id="passwordLogin" class="mdc-text-field__input" required minlength="8">
+                    <input type="password" id="passwordLogin" style="margin-top: 6px;"  class="mdc-text-field__input" required minlength="8">
                 </label>
                 <div role="progressbar" id="loginProgress" style="width: 100%; display: none;" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
                     <div class="mdc-linear-progress__buffer">
@@ -121,41 +121,41 @@
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="nameRegisterLabel">Логін у додатку</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="nameRegisterLabel">Логін у додатку</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="text" id="nameRegister" class="mdc-text-field__input" required minlength="4">
+                    <input type="text" id="nameRegister" style="margin-top: 6px;"  class="mdc-text-field__input" required minlength="4">
                 </label>
                 <label class="mdc-text-field mdc-text-field--outlined" id="emailRegisterH" style="margin: 8px 16px;">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="emailRegisterLabel">Email</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="emailRegisterLabel">Email</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="text" id="emailRegister" class="mdc-text-field__input" required pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
+                    <input type="text" id="emailRegister" class="mdc-text-field__input" style="margin-top: 6px;"  required pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
                 </label>
                 <label class="mdc-text-field mdc-text-field--outlined" id="passwordRegister1H" style="margin: 8px 16px;">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="passwordRegister1Label">Пароль</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="passwordRegister1Label">Пароль</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="password" id="passwordRegister1" class="mdc-text-field__input" required minlength="8">
+                    <input type="password" id="passwordRegister1" class="mdc-text-field__input" style="margin-top: 6px;"  required minlength="8">
                 </label>
                 <label class="mdc-text-field mdc-text-field--outlined" id="passwordRegister2H" style="margin: 8px 16px;">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="passwordRegister2Label">Повторити пароль</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="passwordRegister2Label">Повторити пароль</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="password" id="passwordRegister2" class="mdc-text-field__input" required minlength="8">
+                    <input type="password" id="passwordRegister2" class="mdc-text-field__input" style="margin-top: 6px;"  required minlength="8">
                 </label>
                 <div class="mdc-form-field" style="margin-left: 8px;">
                     <div class="mdc-checkbox">
@@ -402,6 +402,14 @@
             }
         }
 
+        function interactionInterface(message){
+            if(android != undefined){
+                android.onMessageRecieved(message);
+            }
+            else{
+                alert(message);
+            }
+        }
     </script>
 </body>
 
