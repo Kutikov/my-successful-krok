@@ -31,9 +31,9 @@
 </head>
 
 <body style="background-image: url('white_image.png'); background-size: cover;">
-    <div style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
-        <div style="display: flex; flex-direction: row; align-items: center; flex-grow: 0; flex-shrink: 0; flex-wrap: wrap; background-color: #fff; z-index: 100; box-shadow: 0px 0px 8px 4px #0006; width: 100%;">
-            <div style="margin: 12px 8px 8px 12px; height: 32px; width: 32px; background-image: url('ic_launcher.png'); background-size: contain; flex-grow: 0; flex-shrink: 0;"></div> 
+    <div id="main" style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
+        <div id="panel-top" style="display: flex; flex-direction: row; align-items: center; flex-grow: 0; flex-shrink: 0; flex-wrap: wrap; background-color: #fff; z-index: 100; width: 100%;">
+            <div id="icon" style="margin: 12px 8px 8px 12px; height: 32px; width: 32px; background-image: url('ic_launcher.png'); background-size: contain; flex-grow: 0; flex-shrink: 0;"></div> 
             <p class="card__text" id="pageTitle" style="font-size: 22px; font-weight: 500; flex-grow: 1; margin-left: 16px;"></p>
             <div style="display: flex; flex-direction: row; margin-right: 8px; margin-left: 8px; flex-grow: 0; flex-shrink: 0; flex-wrap: nowrap;">
                 <button class="mdc-button mdc-button--outlined" style="margin: 8px" onclick="localize(0)">
@@ -270,7 +270,39 @@
         const firebaseApi = new FireBaseAPI();
 
         document.addEventListener('DOMContentLoaded', () => {
-            localize(0);
+            let langI = 0;
+            switch(new URLSearchParams(window.location.search).get('author')){
+                case 'ru':
+                    langI = 1;
+                    break;
+                case 'en':
+                    langI = 2;
+                    break;
+                case 'ua':
+                    langI = 0;
+                    break;
+            }
+            localize(langI);
+            if(new URLSearchParams(window.location.search).get('theme') == 'dark'){
+                document.body.classList.add('body__dark');
+                document.getElementById('main').classList.add('main_fragment__dark');
+                document.getElementById('icon').classList.add('icon__dark');
+                document.getElementById('panel-top').style.boxShadow = 'box-shadow: 0px 0px 8px 4px #fff6;';
+                let elems = document.querySelectorAll('.mdc-card');
+                for(let i = 0; i < elems.length; i++) {
+                    elems[i].style.boxShadow = '0px 2px 1px -1px rgb(255 255 255 / 20%), 0px 1px 1px 0px rgb(255 255 255 / 14%), 0px 1px 3px 0px rgb(255 255 255 / 12%) !important';
+                };
+            }
+            else{
+                document.body.classList.add('body__light');
+                document.getElementById('main').classList.add('main_fragment__light');
+                document.getElementById('icon').classList.add('icon__light');
+                document.getElementById('panel-top').style.boxShadow = 'box-shadow: 0px 0px 8px 4px #0006;';
+                let elems = document.querySelectorAll('.mdc-card');
+                for(let i = 0; i < elems.length; i++) {
+                    elems[i].style.boxShadow = '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%) !important';
+                };
+            }
             changeCard('register');
         });
 
@@ -400,14 +432,15 @@
                     successCard.style.display = 'flex';
                     break;
             }
+            interactionInterface('loaded');
         }
 
         function interactionInterface(message){
-            if(android != undefined){
+            if(typeof android !== 'undefined'){
                 android.onMessageRecieved(message);
             }
             else{
-                alert(message);
+                console.log(message);
             }
         }
     </script>

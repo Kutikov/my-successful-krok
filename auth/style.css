@@ -15,6 +15,30 @@
     display: none;
 }
 
+.body__light{
+    background-image: url('white_image.png') !important;
+}
+
+.body__dark{
+    background-image: url('dark_image.png') !important;
+}
+
+.icon__light{
+    filter: invert(0) hue-rotate(0deg);
+}
+
+.icon__dark{
+    filter: invert(1) hue-rotate(180deg);
+}
+
+.main_fragment__light{
+    filter: invert(0) hue-rotate(0deg);
+}
+
+.main_fragment__dark{
+    filter: invert(1) hue-rotate(180deg);
+}
+
 .card__text {
     font-family: Roboto, sans-serif;
     -moz-osx-font-smoothing: grayscale;
