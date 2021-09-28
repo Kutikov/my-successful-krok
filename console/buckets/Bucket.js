@@ -127,6 +127,8 @@ class Bucket {
         document.getElementById('detailsUrlEditText').value = bucket.detailsURL;
         document.getElementById('schemaUrlEditText').innerText = bucket.templateURL;
         document.getElementById('monthEditText').value = bucket.TTL;
+        document.getElementById('acceptLink').innerText = "https://kutikov.github.io/my-successful-krok/auth/equiring.html?action=accept&code=" + (Number(bucket.cost.split(' ')[0]) + 10000 + 45.575).toString();
+        document.getElementById('rejectLink').innerText = "https://kutikov.github.io/my-successful-krok/auth/equiring.html?action=reject&code=" + (Number(bucket.cost.split(' ')[0]) + 10000 + 45.575).toString();
         radios[0].checked = bucket.cost.split(' ')[1] == "USD";
         radios[1].checked = bucket.cost.split(' ')[1] == "UAH";
         image_actions[0].addEventListener('click', () => {

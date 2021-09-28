@@ -69,7 +69,6 @@
                                 <span class="mdc-list-item__ripple"></span>
                                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">checklist</i>
                                 <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Тесты</span>
-                                <span aria-hidden="true" class="material-icons mdc-list-item__meta accordionIcon" style="margin-left: auto;">expand_less</span>
                             </a>
                             <a class="mdc-list-item accordion" href="javascript:drawerHandler('STATISTICS');">
                                 <span class="mdc-list-item__ripple"></span>
@@ -80,6 +79,7 @@
                                 <span class="mdc-list-item__ripple"></span>
                                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">monetization_on</i>
                                 <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Бакеты</span>
+                                <span aria-hidden="true" class="material-icons mdc-list-item__meta accordionIcon" style="margin-left: auto;">expand_less</span>
                             </a>
                             <div style="max-height: 12000px; background-color: #f5f5f5;">
                                 <div class="mdc-list" aria-orientation="vertical" style="margin-left: 16px;" id="drawerRoot"></div>
@@ -109,7 +109,7 @@
                                 <span class="mdc-notched-outline">
                                     <span class="mdc-notched-outline__leading"></span>
                                     <span class="mdc-notched-outline__notch">
-                                        <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >Название</span>
+                                        <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">Название</span>
                                     </span>
                                     <span class="mdc-notched-outline__trailing"></span>
                                 </span>
@@ -210,7 +210,7 @@
                             <span class="mdc-notched-outline">
                                 <span class="mdc-notched-outline__leading"></span>
                                 <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >URL деталей</span>
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">URL деталей</span>
                                 </span>
                                 <span class="mdc-notched-outline__trailing"></span>
                             </span>
@@ -238,11 +238,13 @@
                                 </span>
                             </div>
                             <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-                                <ul class="mdc-list">
+                                <ul class="mdc-list" id="schemasList">
                                     
                                 </ul>
                             </div>
                         </div>
+                        <p class="card__text positive__answer" id="acceptLink"></p>
+                        <p class="card__text negative__answer" id="rejectLink"></p>
                         <div class="card__presenter_holder"
                             style="margin-top: 8px; margin-right: -8px; margin-left: -8px; background-color: #ddd;">
                         </div>
@@ -460,7 +462,7 @@
             contentL3.querySelector(".mdc-list-item__graphic").innerText = 'add';
             contentL3.querySelector(".mdc-list-item").href = 'javascript:drawerHandler(\'ADD_BUCKET\');';
             contentL3.querySelector(".mdc-list-item__text").innerText = "Новый бакет";
-            currentParent.appendChild(contentL3);
+            document.getElementById('drawerRoot').appendChild(contentL3);
             const accordions = document.querySelectorAll('.accordion');
             for (let i = 0; i < accordions.length; i++) {
                 accordions[i].addEventListener("click", function() {
@@ -511,7 +513,7 @@
                     break;
                 default:
                     for(let i = 0; i < allBucketsArray.length; i++){
-                        if(allBucketsArray[i].bucketId == src){
+                        if(allBucketsArray[i].bucketId == str){
                             Bucket.Draw(allBucketsArray[i]);
                         }
                     }
@@ -558,7 +560,7 @@
                     firebaseApi.readAllTables();
                     break;
                 case firebaseApi.Signals.tablesLoaded:
-                    const tablesList = document.getElementById('tablesList');
+                    const tablesList = document.getElementById('schemasList');
                     for(let i = 0; i < tablesArray.length; i++){
                         const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
                         listItem.querySelector('.mdc-list-item__text').innerText = tablesArray[i].tableName;
