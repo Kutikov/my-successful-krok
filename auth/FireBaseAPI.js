@@ -58,11 +58,82 @@ class FireBaseAPI{
                 return;
             }
             else{
+                console.log('ok');
                 changeCard('login');
             }
         }
     }
 
+    //#region Equiring
+    authSecondServer(){
+        this.regFirebase.auth().signInWithEmailAndPassword('damirkut@gmail.com', 'PaSsWoRd2021')
+            .then((userCredential) => {
+                console.log(userCredential);
+            })
+            .catch((error) => {
+                console.log('error entering kharkiv2: ' + error);
+            });
+    }
+
+    getBucketData(neededBucketId){
+        let ref = this.realdatabase.ref('buckets');
+        ref.get().then((snapshot) => {
+            if(snapshot.exists()){
+                for(const bucketId in snapshot.val()){
+                    if(bucketId == neededBucketId){
+                        const targetBucket = Bucket.Decode(bucketId, snapshot.val()[bucketId]);
+                        renderBucket(targetBucket);
+                        break;
+                    }
+                }
+            }
+            else {
+                console.log('no buckets');
+            }
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
+    updateBucketQuery(userEmail, serverId, bucketId, success){
+        let targerFireStore = null;
+        switch(serverId){
+            case FireBaseAPI.Servers.kharkiv1:
+                targerFireStore = firebase.firestore();
+                break;
+            case FireBaseAPI.Servers.kharkiv2:
+                targerFireStore = this.regFirebase.firestore();
+                break;
+        }
+        const userRecord = targerFireStore.collection("users").doc(userEmail);
+        userRecord.get()
+            .then((doc) => {
+                if(doc.exists){
+                    userRecord
+                        .update({
+                            purchaseRequest: {
+                                status: success ? "PURCHASED" : "CANCELED",
+                                bucketId: bucketId
+                            } 
+                        })
+                        .then(() => {
+                            console.log("updated!");
+                        })
+                        .catch((error) => {
+                            console.error("Error updating document: ", error);
+                        });
+                }
+                else{
+                    console.log("No such document!");
+                }
+            })
+            .catch((error) => {
+                console.log("Error getting document:", error);
+            });
+    }
+    //#endregion Equiring
+
+    //#region Auth
     register(email, password, name){
         this.regFirebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
@@ -213,6 +284,7 @@ class FireBaseAPI{
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 
+    
     verifyOnLoadActions() {
         const mode = this.getParameterByName('mode');
         const actionCode = this.getParameterByName('oobCode');
@@ -282,4 +354,5 @@ class FireBaseAPI{
         }
         return true;
     };
+    //#endregion Auth
 }

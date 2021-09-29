@@ -199,6 +199,12 @@
                     <p class="card__text" id="consoleSuccess" style="color: #333; width: 100%; text-align: justify;"></p>
                 </div>
             </div>
+            <div class='mdc-card' id="cardLoading" style="margin: 16px; background-color: #fff;">
+                <div style="display: flex; flex-direction: column; margin: 16px; align-items: center;">
+                    <div style="height: 256px; width: 256px; background-image: url('wait.jpg'); background-size: contain;"></div>
+                    <p class="card__text" id="loadingTitle" style="color: #000; width: 100%; text-align: center; font-size: 22px; font-weight: 600;"></p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -220,6 +226,7 @@
             registerButton: ['Зареєструватися', 'Зарегистрироваться', 'Register'],
             pageTitle: ['Мій успішний КРОК', 'Мой успешный КРОК', 'My successful KROK'],
             successfulTitle: ['Успішно!', 'Успешно!', 'Successfully!'],
+            loadingTitle: ['Будь ласка, зачекайте, йде ініціалізація...', 'Пожалуйста, подождите, идет инициализация...', 'Please wait, initialization...']
         };
 
         const messages = {
@@ -263,15 +270,18 @@
         const loginCard = document.getElementById('cardLogin');
         const registerCard = document.getElementById('cardRegister');
         const successCard = document.getElementById('cardSuccess');
+        const loadingCard = document.getElementById('cardLoading');
         const loginConsole = document.getElementById('consoleLogin');
         const registerConsole = document.getElementById('consoleRegister');
         const successConsole = document.getElementById('consoleSuccess');
+        const loadingConsole = document.getElementById('loadingSuccess');
 
+        changeCard('loading');
         const firebaseApi = new FireBaseAPI();
 
         document.addEventListener('DOMContentLoaded', () => {
             let langI = 0;
-            switch(new URLSearchParams(window.location.search).get('author')){
+            switch(new URLSearchParams(window.location.search).get('language')){
                 case 'ru':
                     langI = 1;
                     break;
@@ -303,7 +313,6 @@
                     elems[i].style.boxShadow = '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%) !important';
                 };
             }
-            changeCard('register');
         });
 
         function localize(langInt){
@@ -416,12 +425,16 @@
             loginCard.style.display = 'none';
             successCard.style.display = 'none';
             registerCard.style.display = 'none';
+            loadingCard.style.display = 'none';
             loginConsole.style.display = 'none';
             successConsole.style.display = 'none';
             registerConsole.style.display = 'none';
             document.getElementById('loginProgress').style.display = 'none';
             document.getElementById('registerProgress').style.display = 'none';
             switch(type){
+                case 'loading':
+                    loadingCard.style.display = 'flex';
+                    break;
                 case 'register':
                     registerCard.style.display = 'flex';
                     break;

@@ -51,152 +51,73 @@
             </div>
         </div>
         <div id="listMainPage" class="listMainPage">
-            <div class='mdc-card' id="cardLogin" style="margin: 16px; background-color: #fff;">
+            <div class='mdc-card' id="cardQuery" style="margin: 16px; background-color: #fff;">
+                <div style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: flex-start;">
+                    <p class="card__text" id="bucketTitle" style="color: #000; width: 10px; text-align: center; font-size: 22px; font-weight: 600; flex-grow: 1; flex-shrink: 1;"></p>
+                    <p class="card__text" id="bucketCost" style="color: #000; width: 10px; text-align: center; font-size: 22px; font-weight: 600; flex-grow: 0; flex-shrink: 0; color: #006d59"></p>
+                </div>
+                <p class="card__text" id="bucketDescription" style="color: #333; width: 100%; text-align: justify;"></p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start;">
+                    <div style="display: flex; width: 10px; flex-basis: 49%; flex-direction: row; flex-wrap: nowrap; align-items: center;">
+                        <svg style="width:28px; height:28px; flex-grow: 0; flex-shrink:0;" viewBox="0 0 24 24">
+                            <path fill="#006d59" d="M12 3C14.21 3 16 4.79 16 7S14.21 11 12 11 8 9.21 8 7 9.79 3 12 3M16 13.54C16 14.6 15.72 17.07 13.81 19.83L13 15L13.94 13.12C13.32 13.05 12.67 13 12 13S10.68 13.05 10.06 13.12L11 15L10.19 19.83C8.28 17.07 8 14.6 8 13.54C5.61 14.24 4 15.5 4 17V21H20V17C20 15.5 18.4 14.24 16 13.54Z" />
+                        </svg>
+                        <div style="width: 10px; flex-grow: 1; flex-shrink: 1;">
+                            <p class="card__text" id="beneficiarTitle" style="color: #006d59; width: 10px; font-size: 12px; font-weight: 600;"></p>
+                            <p class="card__text" id="beneficiarContent" style="color: #000; width: 10px; font-size: 12px; font-weight: 600;"></p>
+                        </div>
+                    </div>
+                    <div style="display: flex; width: 10px; flex-basis: 49%; flex-direction: row; flex-wrap: nowrap; align-items: center;">
+                        <svg style="width:28px; height:28px; flex-grow: 0; flex-shrink:0;" viewBox="0 0 24 24">
+                            <path fill="#006d59" d="M10.59,13.41C11,13.8 11,14.44 10.59,14.83C10.2,15.22 9.56,15.22 9.17,14.83C7.22,12.88 7.22,9.71 9.17,7.76V7.76L12.71,4.22C14.66,2.27 17.83,2.27 19.78,4.22C21.73,6.17 21.73,9.34 19.78,11.29L18.29,12.78C18.3,11.96 18.17,11.14 17.89,10.36L18.36,9.88C19.54,8.71 19.54,6.81 18.36,5.64C17.19,4.46 15.29,4.46 14.12,5.64L10.59,9.17C9.41,10.34 9.41,12.24 10.59,13.41M13.41,9.17C13.8,8.78 14.44,8.78 14.83,9.17C16.78,11.12 16.78,14.29 14.83,16.24V16.24L11.29,19.78C9.34,21.73 6.17,21.73 4.22,19.78C2.27,17.83 2.27,14.66 4.22,12.71L5.71,11.22C5.7,12.04 5.83,12.86 6.11,13.65L5.64,14.12C4.46,15.29 4.46,17.19 5.64,18.36C6.81,19.54 8.71,19.54 9.88,18.36L13.41,14.83C14.59,13.66 14.59,11.76 13.41,10.59C13,10.2 13,9.56 13.41,9.17Z" />
+                        </svg>
+                        <div style="width: 10px; flex-grow: 1; flex-shrink: 1;">
+                            <p class="card__text" id="urlTitle" style="color: #006d59; width: 10px; font-size: 12px; font-weight: 600;"></p>
+                            <p class="card__text" id="urlContent" style="color: #000; width: 10px; font-size: 12px; font-weight: 600;"></p>
+                        </div>
+                    </div>
+                    <div style="display: flex; width: 10px; flex-basis: 49%; flex-direction: row; flex-wrap: nowrap; align-items: center;">
+                        <svg style="width:28px; height:28px; flex-grow: 0; flex-shrink:0;" viewBox="0 0 24 24">
+                            <path fill="#006d59" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
+                        </svg>
+                        <div style="width: 10px; flex-grow: 1; flex-shrink: 1;">
+                            <p class="card__text" id="ttlTitle" style="color: #006d59; width: 10px; font-size: 12px; font-weight: 600;"></p>
+                            <p class="card__text" id="ttlContent" style="color: #000; width: 10px; font-size: 12px; font-weight: 600;"></p>
+                        </div>
+                    </div>
+                    <div style="display: flex; width: 10px; flex-basis: 49%; flex-direction: row; flex-wrap: nowrap; align-items: center;">
+                        <svg style="width:28px; height:28px; flex-grow: 0; flex-shrink:0;" viewBox="0 0 24 24">
+                            <path fill="#006d59" d="M15,13H16.5V15.82L18.94,17.23L18.19,18.53L15,16.69V13M19,8H5V19H9.67C9.24,18.09 9,17.07 9,16A7,7 0 0,1 16,9C17.07,9 18.09,9.24 19,9.67V8M5,21C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3H6V1H8V3H16V1H18V3H19A2,2 0 0,1 21,5V11.1C22.24,12.36 23,14.09 23,16A7,7 0 0,1 16,23C14.09,23 12.36,22.24 11.1,21H5M16,11.15A4.85,4.85 0 0,0 11.15,16C11.15,18.68 13.32,20.85 16,20.85A4.85,4.85 0 0,0 20.85,16C20.85,13.32 18.68,11.15 16,11.15Z" />
+                        </svg>
+                        <div style="width: 10px; flex-grow: 1; flex-shrink: 1;">
+                            <p class="card__text" id="upToTitle" style="color: #006d59; width: 10px; font-size: 12px; font-weight: 600;"></p>
+                            <p class="card__text" id="upToContent" style="color: #000; width: 10px; font-size: 12px; font-weight: 600;"></p>
+                        </div>
+                    </div>
+                </div>
+                <p class="card__text" id="bucketRestirction" style="color: #333; width: 100%; text-align: justify;"></p>
                 <div style="display:flex; flex-direction: row; flex-wrap: nowrap; margin-bottom: 8px; justify-content: space-between; align-items: center;">
-                    <p class="card__text" style="font-size: 22px; color: #000;" id="loginingTitle">ВХІД</p>
-                    <button class="mdc-button mdc-button--outlined" style="margin: 8px 16px;" onclick="changeCard('register')" id="registartionButtonB">
+                    <button class="mdc-button mdc-button--outlined" style="margin: 8px 16px;" id="cancelButton">
                         <span class="mdc-button__ripple"></span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">how_to_reg</i>
                         <span class="mdc-button__label" id="registartionButton">Реєстрація</span>
                     </button>
-                </div>
-                <label class="mdc-text-field mdc-text-field--outlined" id="emailLoginH" style="margin: 8px 16px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="emailLoginLabel">Email</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
-                    </span>
-                    <input type="text" id="emailLogin" class="mdc-text-field__input" style="margin-top: 6px;" required pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
-                </label>
-                <label class="mdc-text-field mdc-text-field--outlined" id="passwordLoginH" style="margin: 8px 16px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label"  style="transform: translateY(-23px) scale(0.75);"  id="passwordLoginLabel">Пароль</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
-                    </span>
-                    <input type="password" id="passwordLogin" style="margin-top: 6px;"  class="mdc-text-field__input" required minlength="8">
-                </label>
-                <div role="progressbar" id="loginProgress" style="width: 100%; display: none;" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
-                    <div class="mdc-linear-progress__buffer">
-                        <div class="mdc-linear-progress__buffer-bar"></div>
-                        <div class="mdc-linear-progress__buffer-dots"></div>
-                    </div>
-                    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
-                        <span class="mdc-linear-progress__bar-inner"></spa>
-                    </div>
-                    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
-                        <span class="mdc-linear-progress__bar-inner"></span>
-                    </div>
-                </div>
-                <p class="card__text" id="consoleLogin" style="color: #b00020; display: none;"></p>
-                <div class="mdc-card__actions">
-                    <div class="mdc-card__action-buttons" onclick="loginIn()">
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" id="loginButtonB">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label" id='loginButton'>Увійти</span>
-                        </button>
-                    </div>
-                    <div class="mdc-card__action-buttons" onclick="resetPass()">
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" id="resetButtonB">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label" id='resetButton'>Скинути пароль</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class='mdc-card' id="cardRegister" style="margin: 16px; background-color: #fff;">
-                <div style="display:flex; flex-direction: row; flex-wrap: nowrap; margin-bottom: 8px; justify-content: space-between; align-items: center;">
-                    <p class="card__text" style="font-size: 22px; color: #000;" id="registartionTitle">РЕЄСТРАЦІЯ</p>
-                    <button class="mdc-button mdc-button--outlined" onclick="changeCard('login')"  style="margin: 8px 16px;" id="loginingButtonB">
+                    <button class="mdc-button mdc-button--raised" style="margin: 8px 16px;" id="processButton">
                         <span class="mdc-button__ripple"></span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">vpn_key</i>
-                        <span class="mdc-button__label" id="loginingButton">Вхід</span>
+                        <span class="mdc-button__label" id="registartionButton">Реєстрація</span>
                     </button>
-                </div>
-                <label class="mdc-text-field mdc-text-field--outlined" id="nameRegisterH" style="margin: 8px 16px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="nameRegisterLabel">Логін у додатку</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
-                    </span>
-                    <input type="text" id="nameRegister" style="margin-top: 6px;"  class="mdc-text-field__input" required minlength="4">
-                </label>
-                <label class="mdc-text-field mdc-text-field--outlined" id="emailRegisterH" style="margin: 8px 16px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="emailRegisterLabel">Email</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
-                    </span>
-                    <input type="text" id="emailRegister" class="mdc-text-field__input" style="margin-top: 6px;"  required pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
-                </label>
-                <label class="mdc-text-field mdc-text-field--outlined" id="passwordRegister1H" style="margin: 8px 16px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="passwordRegister1Label">Пароль</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
-                    </span>
-                    <input type="password" id="passwordRegister1" class="mdc-text-field__input" style="margin-top: 6px;"  required minlength="8">
-                </label>
-                <label class="mdc-text-field mdc-text-field--outlined" id="passwordRegister2H" style="margin: 8px 16px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="passwordRegister2Label">Повторити пароль</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
-                    </span>
-                    <input type="password" id="passwordRegister2" class="mdc-text-field__input" style="margin-top: 6px;"  required minlength="8">
-                </label>
-                <div class="mdc-form-field" style="margin-left: 8px;">
-                    <div class="mdc-checkbox">
-                        <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxConsent"/>
-                        <div class="mdc-checkbox__background">
-                            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-                                <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
-                            </svg>
-                        <div class="mdc-checkbox__mixedmark"></div>
-                        </div>
-                        <div class="mdc-checkbox__ripple"></div>
-                    </div>
-                    <label for="checkboxConsent" id="checkboxConsentLabel">Я погоджуюся з <a target="_blank" href="https://google.com.ua">правилами користування</a> цього додатку</label>
-                </div>
-                <div role="progressbar" id="registerProgress" style="width: 100%; display: none;" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
-                    <div class="mdc-linear-progress__buffer">
-                        <div class="mdc-linear-progress__buffer-bar"></div>
-                        <div class="mdc-linear-progress__buffer-dots"></div>
-                    </div>
-                    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
-                        <span class="mdc-linear-progress__bar-inner"></spa>
-                    </div>
-                    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
-                        <span class="mdc-linear-progress__bar-inner"></span>
-                    </div>
-                </div>
-                <p class="card__text" id="consoleRegister" style="color: #b00020; display: none;"></p>
-                <div class="mdc-card__actions">
-                    <div class="mdc-card__action-buttons" onclick="register()">
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" id="registerButtonB">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label" id='registerButton'>Зареєструватися</span>
-                        </button>
-                    </div>
                 </div>
             </div>
             <div class='mdc-card' id="cardSuccess" style="margin: 16px; background-color: #fff;">
                 <div style="display: flex; flex-direction: column; margin: 16px; align-items: center;">
-                    <div style="height: 256px; width: 256px; background-image: url('success.jpg'); background-size: contain;"></div>
+                    <div id="iconStatus" style="height: 256px; width: 256px; background-image: url('success.jpg'); background-size: contain;"></div>
                     <p class="card__text" id="successfulTitle" style="color: #000; width: 100%; text-align: center; font-size: 22px; font-weight: 600;"></p>
                     <p class="card__text" id="consoleSuccess" style="color: #333; width: 100%; text-align: justify;"></p>
+                </div>
+            </div>
+            <div class='mdc-card' id="cardLoading" style="margin: 16px; background-color: #fff;">
+                <div style="display: flex; flex-direction: column; margin: 16px; align-items: center;">
+                    <div style="height: 256px; width: 256px; background-image: url('wait.jpg'); background-size: contain;"></div>
+                    <p class="card__text" id="loadingTitle" style="color: #000; width: 100%; text-align: center; font-size: 22px; font-weight: 600;"></p>
                 </div>
             </div>
         </div>
@@ -222,6 +143,14 @@
             successfulTitle: ['Успішно!', 'Успешно!', 'Successfully!'],
         };
 
+        
+        const messages = {
+            acceptTitle: ['Поздоровляємо!', 'Поздравляем!', 'Congratulations!'],
+            acceptMessage: ['Всі операції були успішно закінчені. Для отримання контенту просто відкрийте додаток "Мій КРОК наставник" та перейдіть до курсів. Все інше ми зробимо за Вас.', 'Все операции были успешно окончены. Для получения контента просто откройте приложение "Мой КРОК наставник" и перейдите к курсам. Все остальное мы сделаем за Вас.', 'All operations were successfully completed. To get the content, just open the "My KROK Tutor" application and go to the courses. Everything else we will do for you.'],/*+*/
+            rejectTitle: ['Упс! Щось пішло не так...', 'Упс! Что-то пошло не так...', 'Oops! Something went wrong ...'],
+            rejectMessage: ['Нажаль операція була неуспішною. Зверніться до адміністратора, написавши електронного листа з описом всього, що Ви робили, за адресою damirkut@gmail.com.', 'К сожалению, операция была неуспешной. Обратитесь к администратору, написав электронное письмо с описанием всего, что Вы делали, по адресу damirkut@gmail.com.', 'Unfortunately, the operation was unsuccessful. Contact the administrator by writing an email describing everything you did at damirkut@gmail.com.'],/*+*/
+        };
+
         let lang = 0;
         const selector = '.mdc-button, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
         const ripples = [].map.call(document.querySelectorAll(selector), function (el) {
@@ -240,13 +169,17 @@
         let userEmail;
         let code;
 
-        const queryCard = document.getElementById('cardLogin');
+        const queryCard = document.getElementById('cardQuery');
         const successCard = document.getElementById('cardSuccess');
-        //const firebaseApi = new FireBaseAPI();
+        const loadingCard = document.getElementById('cardLoading');
+
+        changeCard('loading');
+        const firebaseApi = new FireBaseAPI();
 
         document.addEventListener('DOMContentLoaded', () => {
+            firebaseApi.authSecondServer();
             let langI = 0;
-            switch(new URLSearchParams(window.location.search).get('author')){
+            switch(getLanguage()){
                 case 'ru':
                     langI = 1;
                     break;
@@ -305,6 +238,20 @@
             return url;
         }
 
+        function getLanguage(){
+            const url = new URLSearchParams(window.location.search).get('language');
+            if(url == null){
+                const cookie = getCookie("language");
+                if(cookie == null){
+                    document.cookie = 'language=ua';
+                    return 'ua';
+                }
+                return cookie;
+            }
+            document.cookie = 'language=' + url;
+            return url;
+        }
+
         function getCookie(name) {
             const value = `; ${document.cookie}`;
             const parts = value.split(`; ${name}=`);
@@ -318,23 +265,44 @@
             type = localType
             queryCard.style.display = 'none';
             successCard.style.display = 'none';
+            loadingCard.style.display = 'none';
             switch(type){
+                case 'loading':
+                    loadingCard.style.display = 'flex';
+                    break;
                 case 'accept':
                 case 'reject':
                     code = new URLSearchParams(window.location.search).get('code');
+                    userEmail = getCookie('userEmail');
+                    bucketId = getCookie('bucketId');
+                    serverId = getCookie('serverId');
                     successCard.style.display = 'flex';
+                    let success = false;
                     if(type === 'reject' || getCookie('code') !== code){
-                        //TODO draw reject
+                        success = false;
+                        document.getElementById('iconStatus').style.backgroundImage = 'url("reject.jpg");'
+                        document.getElementById('iconStatus').style.filter = 'hue(180deg)';
+                        document.getElementById('successfulTitle').innerText = messages.rejectTitle[lang];
+                        document.getElementById('consoleSuccess').innerText = messages.rejectMessage[lang];
                     }
                     else{
-                        //TODO draw success
+                        success = true;
+                        document.getElementById('iconStatus').style.backgroundImage = 'url("success.jpg");'
+                        document.getElementById('iconStatus').style.filter = 'none';
+                        document.getElementById('successfulTitle').innerText = messages.acceptTitle[lang];
+                        document.getElementById('consoleSuccess').innerText = messages.acceptMessage[lang];
                     }
+                    firebaseApi.updateBucketQuery(userEmail, serverId, bucketId, success);
                     break;
                 case 'query':
+                    code = '';
                     userEmail = new URLSearchParams(window.location.search).get('userEmail');
                     bucketId = new URLSearchParams(window.location.search).get('bucketId');
                     serverId = new URLSearchParams(window.location.search).get('serverId');
-                    queryCard.style.display = 'flex';
+                    document.cookie = "userEmail:" + userEmail;
+                    document.cookie = "bucketId:" + bucketId;
+                    document.cookie = "serverId:" + serverId;
+                    firebaseApi.getBucketData(bucketId);
                     break;
             }
         }
