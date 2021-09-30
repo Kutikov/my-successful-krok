@@ -40,30 +40,33 @@ class FireBaseAPI{
         firebase.auth().signInWithEmailAndPassword('damirkut@gmail.com', 'PaSsWoRd2021')
             .then((userCredential) => {
                 console.log(userCredential);
+                if(window.location.toString().includes('index.html')){
+                    if(this.verifyOnLoadActions()){
+                        const cookie = document.cookie.replace(/(?:(?:^|.*;\s*)cr\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+                        if(cookie != ''){
+                            console.log(cookie);
+                            firebase.auth().signOut ()
+                                .then(() => {
+                                })
+                                .catch((error) => {
+                                    console.log(error);
+                                 });
+                            this.login(JSON.parse(cookie).lg, JSON.parse(cookie).ps);
+                            return;
+                        }
+                        else{
+                            console.log('ok');
+                            changeCard('login');
+                        }
+                    }
+                }
+                else{
+                    changeCard(new URLSearchParams(window.location.search).get('action'));
+                }
             })
             .catch((error) => {
                 console.log(error);
             });
-        if(window.location.toString().includes('index.html')){
-            if(this.verifyOnLoadActions()){
-                const cookie = document.cookie.replace(/(?:(?:^|.*;\s*)cr\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-                if(cookie != ''){
-                    console.log(cookie);
-                    firebase.auth().signOut ()
-                        .then(() => {
-                        })
-                        .catch((error) => {
-                            console.log(error);
-                         });
-                    this.login(JSON.parse(cookie).lg, JSON.parse(cookie).ps);
-                    return;
-                }
-                else{
-                    console.log('ok');
-                    changeCard('login');
-                }
-            }
-        }
     }
 
     //#region Equiring
@@ -78,7 +81,7 @@ class FireBaseAPI{
     }
 
     getBucketData(neededBucketId){
-        let ref = this.realdatabase.ref('buckets');
+        let ref = firebase.database().ref('buckets');
         ref.get().then((snapshot) => {
             if(snapshot.exists()){
                 for(const bucketId in snapshot.val()){

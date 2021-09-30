@@ -120,6 +120,7 @@
     </div>
 
     <script type="text/javascript">
+        //?language=ua&theme=dark&bucketId=1630266739404&userEmail=iv.ser.volov@gmail.com&serverId=kharkiv2
         const localization = {
             beneficiarTitle: ['Автор', 'Автор', 'Author'],
             urlTitle: ['Сайт автора', 'Сайт автора', 'Author`s site'],
@@ -131,6 +132,7 @@
 
             pageTitle: ['Мій успішний КРОК', 'Мой успешный КРОК', 'My successful KROK'],
             successfulTitle: ['Успішно!', 'Успешно!', 'Successfully!'],
+            loadingTitle: ['Будь ласка, зачекайте, йде ініціалізація...', 'Пожалуйста, подождите, идет инициализация...', 'Please wait, initialization...']
         };
 
         
@@ -203,7 +205,6 @@
                     elems[i].style.boxShadow = '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%) !important';
                 };
             }
-            changeCard(new URLSearchParams(window.location.search).get('action'));
         });
 
         function localize(langInt){
@@ -256,7 +257,7 @@
             document.getElementById('bucketCost').innerText = bucket.cost;
             document.getElementById('bucketDescription').innerText = bucket.description;
             document.getElementById('beneficiarContent').innerText = bucket.beneficiary;
-            document.getElementById('urlContent').innerText = bucket.siteURL;
+            document.getElementById('urlContent').innerText = bucket.detailsURL;
             document.getElementById('ttlContent').innerText = bucket.TTL.toString() + messages.ttl[lang];
             document.getElementById('upToContent').innerText = Date.today().addMonths(bucket.TTL).toString("dd.MM.yyyy");
             document.cookie = "code=" + (Number(bucket.cost.split(' ')[0]) + 10000 + 45.575).toString();
@@ -314,19 +315,20 @@
                     document.cookie = "userEmail=" + userEmail;
                     document.cookie = "bucketId=" + bucketId;
                     document.cookie = "serverId=" + serverId;
-                    if(bucketId != null){
-                        firebaseApi.getBucketData(bucketId);
-                    }
-                    else{
+                    if(bucketId == null){
                         const bucket = new Bucket();
                         bucket.name = "Bucket name";
                         bucket.cost = "200 UAH";
                         bucket.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet, erat eu eleifend sagittis, tellus ligula posuere nisl, vitae ullamcorper eros mauris rutrum mi. In a nisi quam. Sed at mattis metus, vitae dapibus purus. In hac habitasse platea dictumst. Integer nec egestas mi. Proin ornare orci purus, id pharetra risus rhoncus auctor. Quisque dui erat, vulputate egestas ornare eu, imperdiet non libero. Sed suscipit augue eu neque dictum, vitae venenatis nunc vehicula. Mauris imperdiet ex sem, non malesuada purus elementum eget. In molestie ante in ante rhoncus rutrum. In viverra aliquam eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla vel sagittis nisl, eget laoreet sem.';
                         bucket.beneficiary = 'Alexandr Kozlov';
                         bucket.TTL = 3;
-                        bucket.siteURL = 'https://google.com';
+                        bucket.detailsURL = 'https://google.com';
                         bucket.shopURL = 'https://google.com';
                         drawBucket(bucket);
+                    }
+                    else{
+                        loadingCard.style.display = 'flex';
+                        firebaseApi.getBucketData(bucketId);
                     }
                     break;
             }

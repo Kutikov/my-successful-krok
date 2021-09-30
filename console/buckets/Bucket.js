@@ -119,6 +119,7 @@ class Bucket {
         const holder = contentL.querySelector('.card__presenter_holder');
         const radios = contentL.querySelectorAll('.mdc-radio__native-control');
         testListMainPage.appendChild(contentL);
+        new mdc.select.MDCSelect(document.getElementById('tableSelector'));
         document.getElementById('nameEditText').value = bucket.name;
         document.getElementById('descriptionEditText').value = bucket.description;
         document.getElementById('beneficiarEditText').value = bucket.beneficiary;
@@ -161,6 +162,7 @@ class Bucket {
                 bucket.description = document.getElementById('descriptionEditText').value;
                 bucket.beneficiary = document.getElementById('beneficiarEditText').value;
                 bucket.cost = document.getElementById('costEditText').value + (radios[0].checked ? " USD" : " UAH");
+                bucket.TTL = Number(document.getElementById('monthEditText').value);
                 bucket.shopURL = document.getElementById('shopUrlEditText').value;
                 bucket.detailsURL = document.getElementById('detailsUrlEditText').value;
                 bucket.templateURL = document.getElementById('schemaUrlEditText').innerText;
