@@ -44,22 +44,24 @@ class FireBaseAPI{
             .catch((error) => {
                 console.log(error);
             });
-        if(this.verifyOnLoadActions()){
-            const cookie = document.cookie.replace(/(?:(?:^|.*;\s*)cr\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-            if(cookie != ''){
-                console.log(cookie);
-                firebase.auth().signOut ()
-                    .then(() => {
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                     });
-                this.login(JSON.parse(cookie).lg, JSON.parse(cookie).ps);
-                return;
-            }
-            else{
-                console.log('ok');
-                changeCard('login');
+        if(window.location.toString().includes('index.html')){
+            if(this.verifyOnLoadActions()){
+                const cookie = document.cookie.replace(/(?:(?:^|.*;\s*)cr\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+                if(cookie != ''){
+                    console.log(cookie);
+                    firebase.auth().signOut ()
+                        .then(() => {
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                         });
+                    this.login(JSON.parse(cookie).lg, JSON.parse(cookie).ps);
+                    return;
+                }
+                else{
+                    console.log('ok');
+                    changeCard('login');
+                }
             }
         }
     }
