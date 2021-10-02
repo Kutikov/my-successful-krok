@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 <p class="card__text" id="bucketRestirction" style="color: #333; text-align: justify; margin-top: 0;"></p>
-                <button class="mdc-button mdc-button--raised" style="margin: 0 16px 16px 16px;" id="processButton" onclick="process()">
+                <button class="mdc-button mdc-button--raised" style="margin: 0 16px 16px 16px;" id="processButton" onclick="process2()">
                     <span class="mdc-button__ripple"></span>
                     <span class="mdc-button__label" id="processButtonT">Реєстрація</span>
                 </button>
@@ -260,9 +260,10 @@
             document.getElementById('upToContent').innerText = Date.today().addMonths(bucket.TTL).toString("dd.MM.yyyy");
             document.cookie = "code=" + (Number(bucket.cost.split(' ')[0]) + 10000 + 45.575).toString();
             queryCard.style.display = 'flex';
+            loadingCard.style.display = 'none';
         }
 
-        function process(){
+        function process2(){
             if(bucket != null){
                 window.location.replace(bucket.shopURL);
             }

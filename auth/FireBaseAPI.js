@@ -84,13 +84,12 @@ class FireBaseAPI{
 
     getBucketData(neededBucketId){
         let ref = this.realdatabase.ref('buckets');
-        console.log('ok 86')
         ref.get().then((snapshot) => {
             if(snapshot.exists()){
                 for(const bucketId in snapshot.val()){
                     if(bucketId == neededBucketId){
                         const targetBucket = Bucket.Decode(bucketId, snapshot.val()[bucketId]);
-                        renderBucket(targetBucket);
+                        drawBucket(targetBucket);
                         break;
                     }
                 }
