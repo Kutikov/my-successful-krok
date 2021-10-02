@@ -16,15 +16,6 @@ class FireBaseAPI{
     }
 
     constructor(){
-        this.firebaseConfigDamirkut = {
-            apiKey: "AIzaSyBKqO5q1O0TB--X0mt-e1bep0jeppC8PYw",
-            authDomain: "test-414ca.firebaseapp.com",
-            databaseURL: "https://test-414ca.firebaseio.com",
-            projectId: "test-414ca",
-            storageBucket: "test-414ca.appspot.com",
-            messagingSenderId: "282306699058",
-            appId: "1:282306699058:web:7a1fded73750a55b8d012b"
-        };
         this.firebaseConfigMyKROKTutor = {
             apiKey: "AIzaSyD4FNLmDuvVACkRgOBQ19EZ2tzblhQ1oZc",
             authDomain: "mysuccessfulkrok.firebaseapp.com",
@@ -35,7 +26,17 @@ class FireBaseAPI{
             appId: "1:824994683052:web:889e746f4862b1ac336709",
             measurementId: "G-NT595NEQ1Q"
         };
+        this.firebaseConfigDamirkut = {
+            apiKey: "AIzaSyBKqO5q1O0TB--X0mt-e1bep0jeppC8PYw",
+            authDomain: "test-414ca.firebaseapp.com",
+            databaseURL: "https://test-414ca.firebaseio.com",
+            projectId: "test-414ca",
+            storageBucket: "test-414ca.appspot.com",
+            messagingSenderId: "282306699058",
+            appId: "1:282306699058:web:7a1fded73750a55b8d012b"
+        };
         firebase.initializeApp(this.firebaseConfigDamirkut);
+        this.realdatabase = firebase.database();
         this.regFirebase = firebase.initializeApp(this.firebaseConfigMyKROKTutor, FireBaseAPI.Servers.kharkiv2);
         firebase.auth().signInWithEmailAndPassword('damirkut@gmail.com', 'PaSsWoRd2021')
             .then((userCredential) => {
@@ -74,7 +75,6 @@ class FireBaseAPI{
         this.regFirebase.auth().signInWithEmailAndPassword('damirkut@gmail.com', 'PaSsWoRd2021')
             .then((userCredential) => {
                 console.log(userCredential);
-                this.realdatabase = firebase.database();
                 changeCard(new URLSearchParams(window.location.search).get('action'));
             })
             .catch((error) => {
