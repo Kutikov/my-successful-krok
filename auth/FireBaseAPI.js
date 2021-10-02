@@ -61,7 +61,7 @@ class FireBaseAPI{
                     }
                 }
                 else{
-                    changeCard(new URLSearchParams(window.location.search).get('action'));
+                    this.authSecondServer();
                 }
             })
             .catch((error) => {
@@ -74,6 +74,8 @@ class FireBaseAPI{
         this.regFirebase.auth().signInWithEmailAndPassword('damirkut@gmail.com', 'PaSsWoRd2021')
             .then((userCredential) => {
                 console.log(userCredential);
+                this.realdatabase = firebase.database();
+                changeCard(new URLSearchParams(window.location.search).get('action'));
             })
             .catch((error) => {
                 console.log('error entering kharkiv2: ' + error);
@@ -81,7 +83,8 @@ class FireBaseAPI{
     }
 
     getBucketData(neededBucketId){
-        let ref = firebase.database().ref('buckets');
+        let ref = this.realdatabase.ref('buckets');
+        console.log('ok 86')
         ref.get().then((snapshot) => {
             if(snapshot.exists()){
                 for(const bucketId in snapshot.val()){

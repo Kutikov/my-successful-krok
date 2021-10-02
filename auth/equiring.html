@@ -15,11 +15,10 @@
     <meta name="author" content="Damir A. Kutikov">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database-compat.js"></script>
     <link href="material.css" rel="stylesheet">
     <script src="material.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -120,7 +119,7 @@
     </div>
 
     <script type="text/javascript">
-        //?language=ua&theme=dark&bucketId=1630266739404&userEmail=iv.ser.volov@gmail.com&serverId=kharkiv2
+        //?language=ua&theme=dark&bucketId=1630266739404&userEmail=iv.ser.volov@gmail.com&serverId=kharkiv2&action=query
         const localization = {
             beneficiarTitle: ['Автор', 'Автор', 'Author'],
             urlTitle: ['Сайт автора', 'Сайт автора', 'Author`s site'],
@@ -171,7 +170,6 @@
         const firebaseApi = new FireBaseAPI();
 
         document.addEventListener('DOMContentLoaded', () => {
-            firebaseApi.authSecondServer();
             let langI = 0;
             switch(getLanguage()){
                 case 'ru':
@@ -328,6 +326,7 @@
                     }
                     else{
                         loadingCard.style.display = 'flex';
+                        console.log('ok 330')
                         firebaseApi.getBucketData(bucketId);
                     }
                     break;
