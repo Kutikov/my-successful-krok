@@ -260,7 +260,7 @@
             document.getElementById('upToContent').innerText = Date.today().addMonths(bucket.TTL).toString("dd.MM.yyyy");
             document.cookie = "code=" + (Number(bucket.cost.split(' ')[0]) + 10000 + 45.575).toString();
             queryCard.style.display = 'flex';
-            loadingCard.style.display = 'none';
+            loadingCard.style.display = 'none'
         }
 
         function process2(){
@@ -292,8 +292,8 @@
                     let success = false;
                     if(type === 'reject' || getCookie('code') !== code){
                         success = false;
-                        document.getElementById('iconStatus').style.backgroundImage = 'url("reject.jpg");'
-                        document.getElementById('iconStatus').style.filter = 'hue(180deg)';
+                        document.getElementById('iconStatus').style.backgroundImage = 'url("reject.jpg")'
+                        document.getElementById('iconStatus').style.filter = 'hue-rotate(180deg)';
                         document.getElementById('successfulTitle').innerText = messages.rejectTitle[lang];
                         document.getElementById('consoleSuccess').innerText = messages.rejectMessage[lang];
                     }
