@@ -4,7 +4,7 @@
     overflow-x: hidden;
     max-width: 600px; 
     width: 100%;
-    justify-content: center;
+    justify-content: stretch;
     flex-grow: 1;
     flex-direction: column;
     display: grid;
