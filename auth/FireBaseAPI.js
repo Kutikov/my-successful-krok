@@ -212,16 +212,32 @@ class FireBaseAPI{
                 const user = userCredential.user;
                 const loginPass = { lg: user.email, ps: password, ver: user.emailVerified };
                 document.cookie = "cr=" + JSON.stringify(loginPass);
-                changeCard('success');
-                if(user.emailVerified){
-                    showMessage('logedIn');
-                    loginPass['action'] = 'login';
+                switch(user.email){
+                    case 'site@karazin.ua':
+                        document.cookie = 'author=Site';
+                        window.location.href = 'https://kutikov.github.io/my-successful-krok/console/tests.html'; 
+                        break;
+                    case 'kozlov@karazin.ua':
+                        document.cookie = 'author=Kozlov';
+                        window.location.href = 'https://kutikov.github.io/my-successful-krok/console/tests.html'; 
+                        break;
+                    case 'kutikov@karazin.ua':
+                        document.cookie = 'author=Kutikov';
+                        window.location.href = 'https://kutikov.github.io/my-successful-krok/console/tests.html'; 
+                        break;
+                    default:    
+                        changeCard('success');
+                        if(user.emailVerified){
+                            showMessage('logedIn');
+                            loginPass['action'] = 'login';
+                        }
+                        else{
+                            showMessage('needVerification');
+                            loginPass['action'] = 'not_verified';
+                        }
+                        interactionInterface(JSON.stringify(loginPass));
+                        break;
                 }
-                else{
-                    showMessage('needVerification');
-                    loginPass['action'] = 'not_verified';
-                }
-                interactionInterface(JSON.stringify(loginPass));
             })
             .catch((error) => {
                 const errorCode = error.code;

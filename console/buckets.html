@@ -977,7 +977,7 @@
         let listItemRipples;
 
         const firebaseApi = new FireBaseAPI();
-        const author = new URLSearchParams(window.location.search).get('author');
+        const author = getCookie('author');
 
         let allForksArray = [];
         let allUnitsArray = [];
@@ -1009,6 +1009,15 @@
             initListeners();
             resize();
         });
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2){
+                return parts.pop().split(';').shift();
+            } 
+            return null;
+        }
 
         function resize(){
             const modalDrawer = document.getElementById('modalDrawer');
@@ -1237,6 +1246,7 @@
 
         function coreSignalHandler(signal, mode = '') {
             console.log(signal + ' ' + mode);
+            progressToUi('Loading conents...');
             switch (signal) {
                 case firebaseApi.Signals.loggedIn:
                     firebaseApi.readAllForks();
@@ -1282,6 +1292,7 @@
                         saveButton.disabled = false;
                         deleteButton.disabled = false;
                     }
+                    progressToUi('All loaded!', false);
                     break;
                 case firebaseApi.Signals.bucketsFailed:
                     firebaseApi.readAllBuckets();
