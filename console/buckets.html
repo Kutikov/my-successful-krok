@@ -47,7 +47,20 @@
         <div style="display: flex; flex-direction: row; align-items: center;flex-grow: 0; flex-shrink: 0; flex-wrap: wrap; background-color: #fff; box-shadow: 0px 2px 8px #00000075;">
             <div style="display: flex; margin-left:16px; flex-grow: 1; flex-shrink: 0;">
                 <button id="burger" class="mdc-icon-button material-icons" style="margin-left: -16px;">menu</button>
-                <h3 id="pageTitleL" class="card__text console__title">Выберите лекцию</h3>
+                <h3 id="pageTitleL" class="card__text console__title">Выберите бакет</h3>
+            </div>
+            
+            <div style="display: flex; margin-left:16px; flex-shrink: 0;">
+                <button class="mdc-button mdc-button--raised" id="deleteButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" disabled>
+                    <span class="mdc-button__ripple"></span>
+                    <i class="material-icons mdc-button__icon button_top_panel_icon" aria-hidden="true">delete</i>
+                    <span class="mdc-button__label button_top_panel_text">Удалить</span>
+                </button>
+                <button class="mdc-button mdc-button--raised" id="saveButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" disabled>
+                    <span class="mdc-button__ripple"></span>
+                    <i class="material-icons mdc-button__icon button_top_panel_icon" aria-hidden="true">save</i>
+                    <span class="mdc-button__label button_top_panel_text">Сохранить</span>
+                </button>
             </div>
         </div>
         
@@ -103,119 +116,136 @@
                 <div class='mdc-card' id="bucketCard"
                     style="margin-top: 6px; margin-bottom: 8px; background-color: #fff; margin-left: 16px; margin-right: 16px;">
                     <div style="margin: 8px; margin-bottom: 0px;">
-                        <div style="display: flex; flex-wrap: wrap; flex-direction: row;">
-                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
-                                style="margin-top: 8px; min-width: 200px; flex-shrink: 1; flex-grow: 1;">
-                                <span class="mdc-notched-outline">
-                                    <span class="mdc-notched-outline__leading"></span>
-                                    <span class="mdc-notched-outline__notch">
-                                        <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">Название</span>
-                                    </span>
-                                    <span class="mdc-notched-outline__trailing"></span>
-                                </span>
-                                <span class="mdc-text-field__resizer">
-                                    <textarea class="mdc-text-field__input" id="nameEditText" rows="1" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
-                                </span>
-                            </label>
-                            <div style="width: 16px;"></div>
-                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
-                                style="margin-top: 8px; min-width: 200px; flex-shrink: 1; flex-grow: 1;">
-                                <span class="mdc-notched-outline">
-                                    <span class="mdc-notched-outline__leading"></span>
-                                    <span class="mdc-notched-outline__notch">
-                                        <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >Бенефициар</span>
-                                    </span>
-                                    <span class="mdc-notched-outline__trailing"></span>
-                                </span>
-                                <span class="mdc-text-field__resizer">
-                                    <textarea class="mdc-text-field__input" id="beneficiarEditText" rows="1" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
-                                </span>
-                            </label>
-                        </div>
                         <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
                             <span class="mdc-notched-outline">
                                 <span class="mdc-notched-outline__leading"></span>
                                 <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >Описание</span>
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">Название</span>
                                 </span>
                                 <span class="mdc-notched-outline__trailing"></span>
                             </span>
                             <span class="mdc-text-field__resizer">
-                                <textarea class="mdc-text-field__input" id="descriptionEditText" rows="3" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
-                            </span>
-                        </label>
-                        <div style="display: flex; flex-direction: row; flex-wrap: wrap; width: 100%;">
-                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
-                                style="margin-top: 8px; min-width: 100px; flex-grow: 1;">
-                                <span class="mdc-notched-outline">
-                                    <span class="mdc-notched-outline__leading"></span>
-                                    <span class="mdc-notched-outline__notch">
-                                        <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >Месяцев</span>
-                                    </span>
-                                    <span class="mdc-notched-outline__trailing"></span>
-                                </span>
-                                <span class="mdc-text-field__resizer">
-                                    <textarea class="mdc-text-field__input" id="monthEditText" rows="1" cols="10" style="margin-top: 23px;" aria-label="Label" required pattern="[0-9]+"></textarea>
-                                </span>
-                            </label>
-                            <div style="width: 8px;"></div>
-                            <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px; min-width: 100px; flex-grow: 1;">
-                                <span class="mdc-notched-outline">
-                                    <span class="mdc-notched-outline__leading"></span>
-                                    <span class="mdc-notched-outline__notch">
-                                        <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >Цена</span>
-                                    </span>
-                                    <span class="mdc-notched-outline__trailing"></span>
-                                </span>
-                                <span class="mdc-text-field__resizer">
-                                    <textarea class="mdc-text-field__input" id="costEditText" rows="1" cols="10" style="margin-top: 23px;" aria-label="Label" required pattern="[0-9]+\.[0-9]{2}"></textarea>
-                                </span>
-                            </label>
-                            <div class="mdc-form-field" style="margin-right: 16px; margin-top: 8px;">
-                                <div class="mdc-radio">
-                                    <input class="mdc-radio__native-control" type="radio" id="usdRadio" name="radios">
-                                    <div class="mdc-radio__background">
-                                        <div class="mdc-radio__outer-circle"></div>
-                                        <div class="mdc-radio__inner-circle"></div>
-                                    </div>
-                                    <div class="mdc-radio__ripple"></div>
-                                </div>
-                                <label for="radioFree">Доллар</label>
-                            </div>
-                            <div class="mdc-form-field" style="margin-right: 16px; margin-top: 8px;">
-                                <div class="mdc-radio">
-                                    <input class="mdc-radio__native-control" type="radio" id="uahRadio" name="radios">
-                                    <div class="mdc-radio__background">
-                                        <div class="mdc-radio__outer-circle"></div>
-                                        <div class="mdc-radio__inner-circle"></div>
-                                    </div>
-                                    <div class="mdc-radio__ripple"></div>
-                                </div>
-                                <label for="radioTraining">Гривня</label>
-                            </div>
-                        </div>
-                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
-                            <span class="mdc-notched-outline">
-                                <span class="mdc-notched-outline__leading"></span>
-                                <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);" >URL покупки</span>
-                                </span>
-                                <span class="mdc-notched-outline__trailing"></span>
-                            </span>
-                            <span class="mdc-text-field__resizer">
-                                <textarea class="mdc-text-field__input" id="shopUrlEditText" rows="1" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
+                                <textarea class="mdc-text-field__input" id="nameEditText" rows="1" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
                             </span>
                         </label>
                         <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
                             <span class="mdc-notched-outline">
                                 <span class="mdc-notched-outline__leading"></span>
                                 <span class="mdc-notched-outline__notch">
-                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">URL деталей</span>
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">Автор</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="beneficiarEditText" rows="1" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
+                            </span>
+                        </label>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">URL сайта</span>
                                 </span>
                                 <span class="mdc-notched-outline__trailing"></span>
                             </span>
                             <span class="mdc-text-field__resizer">
                                 <textarea class="mdc-text-field__input" id="detailsUrlEditText" rows="1" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
+                            </span>
+                        </label>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">Описание краткое</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="descriptionEditText" rows="2" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
+                            </span>
+                        </label>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">Описание полное</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="descriptionFullEditText" rows="5" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
+                            </span>
+                        </label>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">Подписка в месяцах</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="monthEditText" rows="1" cols="100" style="margin-top: 23px;" aria-label="Label" required pattern="[0-9]+"></textarea>
+                            </span>
+                        </label>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">Цена</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="costEditText" rows="1" cols="100" style="margin-top: 23px;" aria-label="Label" required pattern="[0-9]+\.[0-9]{2}"></textarea>
+                            </span>
+                        </label>
+                        <div class="mdc-select mdc-select--outlined" id="currencySelector" style="margin-top: 8px; margin-bottom: 4px; width: 100%;">
+                            <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                <span class="mdc-notched-outline">
+                                    <span class="mdc-notched-outline__leading"></span>
+                                    <span class="mdc-notched-outline__notch">
+                                        <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Выберите валюту</span>
+                                    </span>
+                                    <span class="mdc-notched-outline__trailing"></span>
+                                </span>
+                                <span class="mdc-select__selected-text-container">
+                                    <span style="margin-top: 6px;" id="currencyEditText" class="mdc-select__selected-text"></span>
+                                </span>
+                                <span class="mdc-select__dropdown-icon">
+                                    <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                        <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                        <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                <ul class="mdc-list">
+                                    <li class="mdc-list-item">
+                                        <span class="mdc-list-item__ripple"></span>
+                                        <span class="mdc-list-item__text">USD</span>
+                                    </li>
+                                    <li class="mdc-list-item">
+                                        <span class="mdc-list-item__ripple"></span>
+                                        <span class="mdc-list-item__text">UAH</span>
+                                    </li>
+                                    <li class="mdc-list-item">
+                                        <span class="mdc-list-item__ripple"></span>
+                                        <span class="mdc-list-item__text">EUR</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea" style="margin-top: 8px;">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label" style="transform: translateY(-13px) scale(0.75);">URL эквайринга</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-text-field__resizer">
+                                <textarea class="mdc-text-field__input" id="shopUrlEditText" rows="1" cols="100" style="margin-top: 23px;" aria-label="Label" required minlength="3"></textarea>
                             </span>
                         </label>
                         <div class="mdc-select mdc-select--outlined" id="tableSelector" style="margin-top: 8px; margin-bottom: 4px; width: 100%;">
@@ -243,36 +273,585 @@
                                 </ul>
                             </div>
                         </div>
+                        <p class="card__text">Ссылки на одобрение и отклонение платежа</p>
                         <p class="card__text positive__answer" id="acceptLink"></p>
                         <p class="card__text negative__answer" id="rejectLink"></p>
-                        <div class="card__presenter_holder"
-                            style="margin-top: 8px; margin-right: -8px; margin-left: -8px; background-color: #ddd;">
-                        </div>
-                    </div>
-                    <div class="mdc-card__actions">
-                        <div class="mdc-card__action-buttons">
-                            <button class="mdc-button mdc-card__action mdc-card__action--button" id="editButton">
-                                <div class="mdc-button__ripple"></div>
-                                <span class="mdc-button__label material-icons">edit</span>
-                            </button>
-                        </div>
-                        <div class="mdc-card__action-buttons">
-                            <button class="mdc-button mdc-card__action mdc-card__action--button" id="addButton">
-                                <div class="mdc-button__ripple"></div>
-                                <span class="mdc-button__label material-icons">add_circle_outline</span>
-                            </button>
-                        </div>
-                        <div class="mdc-card__action-buttons">
-                            <button class="mdc-button mdc-card__action mdc-card__action--button" id="saveButton">
-                                <div class="mdc-button__ripple"></div>
-                                <span class="mdc-button__label material-icons">save</span>
-                            </button>
-                        </div>
-                        <div class="mdc-card__action-buttons">
-                            <button class="mdc-button mdc-card__action mdc-card__action--button" id="deleteButton">
-                                <div class="mdc-button__ripple"></div>
-                                <span class="mdc-button__label material-icons">delete</span>
-                            </button>
+                        <div class="card__presenter_holder" style="margin-top: 8px; margin-right: -8px; margin-left: -8px; padding-left: 8px; padding-bottom: 8px; padding-right: 8px; background-color: #ddd;">
+
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Модуль слота 1</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot1Mtext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot1Mlist"></ul>
+                                </div>
+                            </div>
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция слота 1</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot1Utext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot1Ulist"></ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 8px; background-color: #ccc; height: 1px; width: 100%;"></div>
+
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Модуль слота 2</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot2Mtext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot2Mlist"></ul>
+                                </div>
+                            </div>
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция слота 2</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot2Utext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot2Ulist"></ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 8px; background-color: #ccc; height: 1px; width: 100%;"></div>
+
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Модуль слота 3</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot3Mtext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot3Mlist"></ul>
+                                </div>
+                            </div>
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция слота 3</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot3Utext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot3Ulist"></ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 8px; background-color: #ccc; height: 1px; width: 100%;"></div>
+
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Модуль слота 4</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot4Mtext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot4Mlist"></ul>
+                                </div>
+                            </div>
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция слота 4</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot4Utext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot4Ulist"></ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 8px; background-color: #ccc; height: 1px; width: 100%;"></div>
+
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Модуль слота 5</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot5Mtext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot5Mlist"></ul>
+                                </div>
+                            </div>
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция слота 5</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot5Utext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot5Ulist"></ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 8px; background-color: #ccc; height: 1px; width: 100%;"></div>
+
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Модуль слота 6</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot6Mtext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot6Mlist"></ul>
+                                </div>
+                            </div>
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция слота 6</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot6Utext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot6Ulist"></ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 8px; background-color: #ccc; height: 1px; width: 100%;"></div>
+
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Модуль слота 7</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot7Mtext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot7Mlist"></ul>
+                                </div>
+                            </div>
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция слота 7</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot7Utext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot7Ulist"></ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 8px; background-color: #ccc; height: 1px; width: 100%;"></div>
+
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Модуль слота 8</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot8Mtext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot8Mlist"></ul>
+                                </div>
+                            </div>
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция слота 8</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot8Utext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot8Ulist"></ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 8px; background-color: #ccc; height: 1px; width: 100%;"></div>
+
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Модуль слота 9</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot9Mtext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot9Mlist"></ul>
+                                </div>
+                            </div>
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция слота 9</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot9Utext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot9Ulist"></ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 8px; background-color: #ccc; height: 1px; width: 100%;"></div>
+
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Модуль слота 10</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot10Mtext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot10Mlist"></ul>
+                                </div>
+                            </div>
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция слота 10</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot10Utext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot10Ulist"></ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 8px; background-color: #ccc; height: 1px; width: 100%;"></div>
+
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Модуль слота 11</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot11Mtext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot11Mlist"></ul>
+                                </div>
+                            </div>
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция слота 11</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot11Utext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot11Ulist"></ul>
+                                </div>
+                            </div>
+                            <div style="margin-top: 8px; background-color: #ccc; height: 1px; width: 100%;"></div>
+
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Модуль слота 12</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot12Mtext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot12Mlist"></ul>
+                                </div>
+                            </div>
+                            <div class="mdc-select mdc-select--outlined" style="margin-top: 12px; width: 100%;">
+                                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                                    <span class="mdc-notched-outline">
+                                        <span class="mdc-notched-outline__leading"></span>
+                                        <span class="mdc-notched-outline__notch">
+                                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);" >Лекция слота 12</span>
+                                        </span>
+                                        <span class="mdc-notched-outline__trailing"></span>
+                                    </span>
+                                    <span class="mdc-select__selected-text-container">
+                                        <span class="mdc-select__selected-text" id="slot12Utext" style="margin-top: 6px;"></span>
+                                    </span>
+                                    <span class="mdc-select__dropdown-icon">
+                                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                            <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                            <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                                    <ul class="mdc-list" id="slot12Ulist"></ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -390,6 +969,8 @@
         const loadingTemplate = document.getElementById('loadingTemplate');
         const loadingText = document.getElementById('loadingText');
         const drawer2 = mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer--modal'));
+        const deleteButton = document.getElementById('deleteButton');
+        const saveButton = document.getElementById('saveButton');
         let ripples;
         let texts;
         let list;
@@ -402,6 +983,7 @@
         let allUnitsArray = [];
         let allBucketsArray = [];
         let tablesArray = [];
+        let currentBucket = null;
 
         document.addEventListener('DOMContentLoaded', () => {
             switch(author){
@@ -424,45 +1006,56 @@
             window.addEventListener('resize', function(event) {
                 resize();
             }, true);
+            initListeners();
             resize();
-            firebaseApi.readAllForks();
-            
         });
 
         function resize(){
+            const modalDrawer = document.getElementById('modalDrawer');
+            const fixedDrawer = document.getElementById('fixedDrawer');
             if(window.innerWidth < 256 + 32 + 800){
                 document.getElementById('drawerHolder').style.display = 'none';
                 document.getElementById('burger').style.display = 'block';
-                document.getElementById('modalDrawer').appendChild(document.getElementById('fixedDrawer').children[0]);
+                modalDrawer.append(fixedDrawer.children[0]);
+                while(fixedDrawer.firstChild){
+                    fixedDrawer.removeChild(fixedDrawer.firstChild)
+                }
             }
             else{
                 drawer2.open = false;
                 document.getElementById('drawerHolder').style.display = 'block';
                 document.getElementById('burger').style.display = 'none';
-                document.getElementById('fixedDrawer').appendChild(document.getElementById('modalDrawer').children[0]);
+                fixedDrawer.append(modalDrawer.children[0]);
+                while(modalDrawer.firstChild){
+                    modalDrawer.removeChild(modalDrawer.firstChild)
+                }
             }
         }
 
         function drawUnitsAndForks(){
+            const drawerRoot = document.getElementById('drawerRoot');
+            while(drawerRoot.firstChild){
+                drawerRoot.removeChild(drawerRoot.firstChild);
+            }
             Bucket.DrawAll();
             const items = [];
             for(let i = 0; i < allBucketsArray.length; i++){
                 items.push({
                     text: allBucketsArray[i].name,
                     link: allBucketsArray[i].bucketId
-                })
+                });
             }
             for(let i = 0; i < items.length; i++){
                 const contentL2 = document.getElementById('drawerListItemSub').content.cloneNode(true);
                 contentL2.querySelector(".mdc-list-item").href = 'javascript:drawerHandler(' + items[i].link + ');';
                 contentL2.querySelector(".mdc-list-item__text").innerText = items[i].text;
-                document.getElementById('drawerRoot').appendChild(contentL2);
+                drawerRoot.appendChild(contentL2);
             }
             const contentL3 = document.getElementById('drawerListItemSub').content.cloneNode(true);
             contentL3.querySelector(".mdc-list-item__graphic").innerText = 'add';
             contentL3.querySelector(".mdc-list-item").href = 'javascript:drawerHandler(\'ADD_BUCKET\');';
             contentL3.querySelector(".mdc-list-item__text").innerText = "Новый бакет";
-            document.getElementById('drawerRoot').appendChild(contentL3);
+            drawerRoot.appendChild(contentL3);
             const accordions = document.querySelectorAll('.accordion');
             for (let i = 0; i < accordions.length; i++) {
                 accordions[i].addEventListener("click", function() {
@@ -509,16 +1102,108 @@
                 case 'ADD_BUCKET':
                     const newBucket = new Bucket();
                     allBucketsArray.push(newBucket);
-                    Bucket.Draw(newBucket);
+                    drawUnitsAndForks();
                     break;
                 default:
                     for(let i = 0; i < allBucketsArray.length; i++){
                         if(allBucketsArray[i].bucketId == str){
+                            currentBucket = allBucketsArray[i];
                             Bucket.Draw(allBucketsArray[i]);
                         }
                     }
                     break;
             }
+        }
+
+        function initListeners(){
+            for(let i = 0; i < 12; i++){
+                const moduleText = document.getElementById('slot' + (i + 1).toString() + 'Mtext');
+                const unitText = document.getElementById('slot' + (i + 1).toString() + 'Utext');
+                const unitList = document.getElementById('slot' + (i + 1).toString() + 'Ulist');
+                moduleText.innerText = '-';
+                unitText.innerText = '-';
+                moduleText.addEventListener('DOMSubtreeModified', (k) => {
+                    while (unitList.firstChild) {
+                        unitList.removeChild(unitList.lastChild);
+                    }
+                    if(moduleText.innerText === '-'){
+                        unitText.innerText = '-';
+                    }
+                    else{
+                        const unitsOfFork = Bucket.GetAllUnitsOfFrok(moduleText.innerText);
+                        for (let j = 0; j < unitsOfFork.length; j++) {
+                            const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
+                            listItem.querySelector('.mdc-list-item__text').innerText = unitsOfFork[j];
+                            listItem.querySelector('.mdc-list-item').dataset.value = unitsOfFork[j];
+                            unitList.appendChild(listItem);
+                        }
+                        unitText.innerText = '*';
+                    }
+                });
+            }
+            const costText = document.getElementById('costEditText');
+            costText.addEventListener('input', () => {
+                if(currentBucket != null){
+                    const cost = Number(costText.value);
+                    Bucket.GenerateCodes(cost);
+                }
+            });
+            saveButton.addEventListener('click', () => {
+                if(currentBucket != null){
+                    saveButton.disabled = true;
+                    deleteButton.disabled = true;
+                    const contentL = document.getElementById('bucketCard');
+                    const texts = contentL.querySelectorAll('.mdc-text-field__input');
+                    let allValid = true;
+                    for (let textI = 0; textI < texts.length; textI++) {
+                        if (!texts[textI].checkValidity()) {
+                            allValid = false;
+                        }
+                    }
+                    const includes = [];
+                    for (let i = 0; i < 12; i++) {
+                        const itemAddress = Bucket.StringifyIncludesId(
+                            document.getElementById('slot' + (i + 1).toString() + 'Mtext').innerText,
+                            document.getElementById('slot' + (i + 1).toString() + 'Utext').innerText
+                        );
+                        if(itemAddress != null){
+                            includes.push(itemAddress);
+                        }
+                    }
+                    if (allValid && includes.length > 0) {
+                        currentBucket.addresses = includes;
+                        currentBucket.name = document.getElementById('nameEditText').value;
+                        currentBucket.description = document.getElementById('descriptionEditText').value;
+                        currentBucket.descriptionFull = document.getElementById('descriptionFullEditText').value;
+                        currentBucket.beneficiary = document.getElementById('beneficiarEditText').value;
+                        currentBucket.cost = document.getElementById('costEditText').value + ' ' + document.getElementById('currencyEditText').innerText;
+                        currentBucket.TTL = Number(document.getElementById('monthEditText').value);
+                        currentBucket.shopURL = document.getElementById('shopUrlEditText').value;
+                        currentBucket.detailsURL = document.getElementById('detailsUrlEditText').value;
+                        currentBucket.templateURL = document.getElementById('schemaUrlEditText').innerText;
+                        firebaseApi.writeBucket(currentBucket);
+                    }
+                    else{
+                        saveButton.disabled = false;
+                        deleteButton.disabled = false;
+                    }
+                }
+            });
+            deleteButton.addEventListener('click', () => {
+                if(currentBucket != null){
+                    for (let i = 0; i < allBucketsArray.length; i++) {
+                        if (allBucketsArray[i].bucketId === currentBucket.bucketId) {
+                            allBucketsArray.splice(i, 1);
+                            break;
+                        }
+                    }
+                    if (allBucketsArray.length == 0) {
+                        allBucketsArray.push(new Bucket());
+                    }
+                    firebaseApi.deleteBucket(bucket);
+                    drawUnitsAndForks();
+                }
+            });
         }
 
         function updateDesign() {
@@ -528,9 +1213,11 @@
             texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function (el) {
                 return new mdc.textField.MDCTextField(el);
             });
-            list = new mdc.list.MDCList(document.querySelector('.mdc-list'));
-            listItemRipples = [].map.call(document.querySelectorAll(selector), function(el) {
-                return new mdc.ripple.MDCRipple(el);
+            lists = [].map.call(document.querySelectorAll('.mdc-list'), function(el) {
+                return new mdc.list.MDCList(el);
+            });
+            selectors = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
+                return new mdc.select.MDCSelect(el);
             });
         }
 
@@ -551,6 +1238,9 @@
         function coreSignalHandler(signal, mode = '') {
             console.log(signal + ' ' + mode);
             switch (signal) {
+                case firebaseApi.Signals.loggedIn:
+                    firebaseApi.readAllForks();
+                    break;
                 case firebaseApi.Signals.forksLoaded:
                 case firebaseApi.Signals.forksEmpty:
                     firebaseApi.readAllUnits();
@@ -560,20 +1250,37 @@
                     firebaseApi.readAllTables();
                     break;
                 case firebaseApi.Signals.tablesLoaded:
-                    const tablesList = document.getElementById('schemasList');
-                    for(let i = 0; i < tablesArray.length; i++){
-                        const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
-                        listItem.querySelector('.mdc-list-item__text').innerText = tablesArray[i].tableName;
-                        listItem.querySelector('.mdc-list-item').dataset.value = tablesArray[i].tableName;
-                        tablesList.appendChild(listItem);
-                    }
                     firebaseApi.readAllBuckets();
                     break;
                 case firebaseApi.Signals.bucketsEmpty:
                     break;
                 case firebaseApi.Signals.bucketsLoaded:
                     if (mode == firebaseApi.Mode.read) {
+                        const tablesList = document.getElementById('schemasList');
                         drawUnitsAndForks();
+                        for(let i = 0; i < tablesArray.length; i++){
+                            const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
+                            listItem.querySelector('.mdc-list-item__text').innerText = tablesArray[i].tableName;
+                            listItem.querySelector('.mdc-list-item').dataset.value = tablesArray[i].tableName;
+                            tablesList.appendChild(listItem);
+                        }  
+                        for(let i = 0; i < 12; i++){
+                            const slotModuleList = document.getElementById('slot' + (i + 1).toString() + 'Mlist');
+                            const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
+                            listItem.querySelector('.mdc-list-item__text').innerText = '-';
+                            listItem.querySelector('.mdc-list-item').dataset.value = '-';
+                            slotModuleList.appendChild(listItem);
+                            for(let j = 0; j < allForksArray.length; j++){
+                                const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
+                                listItem.querySelector('.mdc-list-item__text').innerText = allForksArray[j];
+                                listItem.querySelector('.mdc-list-item').dataset.value = allForksArray[j];
+                                slotModuleList.appendChild(listItem);
+                            }
+                        }
+                    }
+                    else{
+                        saveButton.disabled = false;
+                        deleteButton.disabled = false;
                     }
                     break;
                 case firebaseApi.Signals.bucketsFailed:

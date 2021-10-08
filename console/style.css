@@ -440,8 +440,24 @@
     flex-shrink: 0;
 }
 
+.button_top_panel_icon{
+    margin-right: 8px;
+}
+
+.button_top_panel_text{
+    display: block;
+}
+
 @media (max-width: 460px){
     .button_panel{
         width: 100%;
+    }
+
+    .button_top_panel_icon{
+        margin-right: -4px !important; 
+    }
+    
+    .button_top_panel_text{
+        display: none;
     }
 }

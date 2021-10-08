@@ -52,6 +52,9 @@ class Bucket {
     }
 
     static StringifyIncludesId(fork, unit) {
+        if(fork == '-' || fork == ''){
+            return null;
+        }
         return unit.replace(/ /g, 'ø') + '@' + fork.replace(/ /g, 'ø')
     }
 
@@ -73,32 +76,15 @@ class Bucket {
         return ret;
     }
 
-    static MakeNode(i, parsed) {
-        const moduleText = document.getElementById('slot' + (i + 1).toString() + 'Mtext');
-        const unitText = document.getElementById('slot' + (i + 1).toString() + 'Utext');
-        const unitList = document.getElementById('slot' + (i + 1).toString() + 'Ulist');
-        moduleText.addEventListener('DOMSubtreeModified', (k) => {
-            while (unitList.firstChild) {
-                unitList.removeChild(unitList.lastChild);
-            }
-            const unitsOfFork = Bucket.GetAllUnitsOfFrok(moduleText.innerText);
-            for (let j = 0; j < unitsOfFork.length; j++) {
-                const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
-                listItem.querySelector('.mdc-list-item__text').innerText = unitsOfFork[j];
-                listItem.querySelector('.mdc-list-item').dataset.value = unitsOfFork[j];
-                unitList.appendChild(listItem);
-            }
-        });
-        moduleText.innerText = parsed.fork;
-        unitText.innerText = parsed.unit;
+    static GenerateCodes(cost){
+        document.getElementById('acceptLink').innerText = "https://kutikov.github.io/my-successful-krok/auth/equiring.html?action=accept&code=" + (cost + 10000 + 45.575).toString();
+        document.getElementById('rejectLink').innerText = "https://kutikov.github.io/my-successful-krok/auth/equiring.html?action=reject&code=" + (cost + 10000 + 45.575).toString();
     }
 
     static Draw(bucket) {
-        const contentL = document.getElementById('bucketCard');
-        const texts = contentL.querySelectorAll('.mdc-text-field__input');
         document.getElementById('nameEditText').value = bucket.name;
         document.getElementById('descriptionEditText').value = bucket.description;
-        document.getElementById('descriptionEditFullText').value = bucket.descriptionFull;
+        document.getElementById('descriptionFullEditText').value = bucket.descriptionFull;
         document.getElementById('beneficiarEditText').value = bucket.beneficiary;
         document.getElementById('costEditText').value = bucket.cost.split(' ')[0];
         document.getElementById('shopUrlEditText').value = bucket.shopURL;
@@ -106,62 +92,18 @@ class Bucket {
         document.getElementById('schemaUrlEditText').innerText = bucket.templateURL;
         document.getElementById('currencyEditText').innerText = bucket.cost.split(' ')[1];
         document.getElementById('monthEditText').value = bucket.TTL;
-        document.getElementById('acceptLink').innerText = "https://kutikov.github.io/my-successful-krok/auth/equiring.html?action=accept&code=" + (Number(bucket.cost.split(' ')[0]) + 10000 + 45.575).toString();
-        document.getElementById('rejectLink').innerText = "https://kutikov.github.io/my-successful-krok/auth/equiring.html?action=reject&code=" + (Number(bucket.cost.split(' ')[0]) + 10000 + 45.575).toString();
-        saveButton.onclick = null;
-        saveButton.addEventListener('click', () => {
-            let allValid = true;
-            for (let textI = 0; textI < texts.length; textI++) {
-                if (!texts[textI].checkValidity()) {
-                    allValid = false;
-                }
-            }
-            if (allValid && holder.childElementCount > 0) {
-                document.getElementById('editButton').disabled = false;
-                document.getElementById('addButton').disabled = true;
-                document.getElementById('saveButton').disabled = true;
-                document.getElementById('deleteButton').disabled = false;
-                const includes = [];
-                for (let i = 0; i < 12; i++) {
-                    includes.push(Bucket.StringifyIncludesId(
-                        document.getElementById('slot' + (i + 1).toString() + 'Mtext').innerText,
-                        document.getElementById('slot' + (i + 1).toString() + 'Utext').innerText,
-                    ));
-                }
-                bucket.addresses = includes;
-                bucket.name = document.getElementById('nameEditText').value;
-                bucket.description = document.getElementById('descriptionEditText').value;
-                bucket.beneficiary = document.getElementById('beneficiarEditText').value;
-                bucket.cost = document.getElementById('costEditText').value + ' ' + document.getElementById('currencyEditText').innerText;
-                bucket.TTL = Number(document.getElementById('monthEditText').value);
-                bucket.shopURL = document.getElementById('shopUrlEditText').value;
-                bucket.detailsURL = document.getElementById('detailsUrlEditText').value;
-                bucket.templateURL = document.getElementById('schemaUrlEditText').innerText;
-                firebaseApi.writeBucket(bucket);
-            }
-        });
-        deleteButton.onclick = null;
-        deleteButton.addEventListener('click', () => {
-            for (let i = 0; i < allBucketsArray.length; i++) {
-                if (allBucketsArray[i].bucketId === bucket.bucketId) {
-                    allBucketsArray[i].splice(i, 1);
-                    break;
-                }
-            }
-            if (allBucketsArray.length == 0) {
-                allBucketsArray.push(new Bucket());
-            }
-            Bucket.Draw(allBucketsArray[0]);
-            firebaseApi.deleteBucket(bucket);
-        });
+        const cost = Number(bucket.cost.split(' ')[0]);
+        Bucket.GenerateCodes(cost);
         if (bucket.addresses == null) {
             bucket.addresses = [];
         }
         for (let i = 0; i < bucket.addresses.length; i++) {
             const parsed = Bucket.ParseIncludedId(bucket.addresses[i]);
-            Bucket.MakeNode(i, parsed);
+            document.getElementById('slot' + (i + 1).toString() + 'Mtext').innerText = parsed.fork;
+            document.getElementById('slot' + (i + 1).toString() + 'Utext').innerText = parsed.unit;
         }
         saveButton.disabled = false;
         deleteButton.disabled = false;
+        currentBucket = bucket;
     }
 }

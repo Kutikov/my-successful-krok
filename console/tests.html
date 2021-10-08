@@ -98,13 +98,13 @@
             <div style="display: flex; margin-left:16px; flex-shrink: 0;">
                 <button class="mdc-button mdc-button--raised" id="importButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" onclick="import_file();" disabled>
                     <span class="mdc-button__ripple"></span>
-                    <i class="material-icons mdc-button__icon" aria-hidden="true">upload</i>
-                    <span class="mdc-button__label">Импорт</span>
+                    <i class="material-icons mdc-button__icon button_top_panel_icon" aria-hidden="true">upload</i>
+                    <span class="mdc-button__label button_top_panel_text">Импорт</span>
                 </button>
                 <button class="mdc-button mdc-button--raised" id="saveButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" onclick="save_file();" disabled>
                     <span class="mdc-button__ripple"></span>
-                    <i class="material-icons mdc-button__icon" aria-hidden="true">save</i>
-                    <span class="mdc-button__label">Сохранить</span>
+                    <i class="material-icons mdc-button__icon button_top_panel_icon" aria-hidden="true">save</i>
+                    <span class="mdc-button__label button_top_panel_text">Сохранить</span>
                 </button>
                 <input type="file" id="upload_file" style="width: 0px;" accept=".qst">
             </div>
@@ -463,16 +463,24 @@
         }
 
         function resize(){
+            const modalDrawer = document.getElementById('modalDrawer');
+            const fixedDrawer = document.getElementById('fixedDrawer');
             if(window.innerWidth < 256 + 32 + 800){
                 document.getElementById('drawerHolder').style.display = 'none';
                 document.getElementById('burger').style.display = 'block';
-                document.getElementById('modalDrawer').appendChild(document.getElementById('fixedDrawer').children[0]);
+                modalDrawer.append(fixedDrawer.children[0]);
+                while(fixedDrawer.firstChild){
+                    fixedDrawer.removeChild(fixedDrawer.firstChild)
+                }
             }
             else{
                 drawer2.open = false;
                 document.getElementById('drawerHolder').style.display = 'block';
                 document.getElementById('burger').style.display = 'none';
-                document.getElementById('fixedDrawer').appendChild(document.getElementById('modalDrawer').children[0]);
+                fixedDrawer.append(modalDrawer.children[0]);
+                while(modalDrawer.firstChild){
+                    modalDrawer.removeChild(modalDrawer.firstChild)
+                }
             }
         }
 

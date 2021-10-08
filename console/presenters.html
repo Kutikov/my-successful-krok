@@ -1220,16 +1220,24 @@
         }
 
         function resize(){
+            const modalDrawer = document.getElementById('modalDrawer');
+            const fixedDrawer = document.getElementById('fixedDrawer');
             if(window.innerWidth < 256 + 32 + 800){
                 document.getElementById('drawerHolder').style.display = 'none';
                 document.getElementById('burger').style.display = 'block';
-                document.getElementById('modalDrawer').appendChild(document.getElementById('fixedDrawer').children[0]);
+                modalDrawer.append(fixedDrawer.children[0]);
+                while(fixedDrawer.firstChild){
+                    fixedDrawer.removeChild(fixedDrawer.firstChild)
+                }
             }
             else{
                 drawer2.open = false;
                 document.getElementById('drawerHolder').style.display = 'block';
                 document.getElementById('burger').style.display = 'none';
-                document.getElementById('fixedDrawer').appendChild(document.getElementById('modalDrawer').children[0]);
+                fixedDrawer.append(modalDrawer.children[0]);
+                while(modalDrawer.firstChild){
+                    modalDrawer.removeChild(modalDrawer.firstChild)
+                }
             }
         }
 
