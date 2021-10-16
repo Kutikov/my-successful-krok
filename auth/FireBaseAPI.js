@@ -201,6 +201,10 @@ class FireBaseAPI{
                         showMessage('emptyEmail');
                         break;
                 }
+                interactionInterface(JSON.stringify({
+                    action: 'abort',
+                    error: errorCode
+                }));
                 document.getElementById('loginingButtonB').disabled = false;
                 document.getElementById('registerButtonB').disabled = false;
             });
