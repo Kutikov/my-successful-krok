@@ -1,0 +1,64 @@
+.table_testings{
+    width: 100%;
+    display: table;
+    border-collapse: collapse;
+}
+
+.table_testings_body:nth-child(even){
+    background-color: #eee;
+}
+
+
+.unitTextLections
+.unitTextTesting {
+    width: 40%;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    font-weight: 400;
+    text-align: justify;
+    text-decoration: inherit;
+    text-transform: inherit;
+    word-break: normal;
+}
+
+.startedTextLections
+.finishedTextLections
+.durationTextLections
+.dateTextTesting
+.durationTextTesting{
+    width: 20%;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    font-weight: 400;
+    text-align: justify;
+    text-decoration: inherit;
+    text-transform: inherit;
+    word-break: normal;
+}
+
+.percentTextTesting
+.testsTextTesting{
+    text-align: center;
+    vertical-align: middle;
+    width: 10%;
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    font-weight: 400;
+    text-align: justify;
+    text-decoration: inherit;
+    text-transform: inherit;
+    word-break: normal;
+}
