@@ -4,11 +4,11 @@ class PassedLection{
     }
 
     static Decode(record){
-        const item = new PassedLection();
-        item.finishedOn = record.finishedOn;
-        item.startedOn = record.startedOn;
-        item.unitId = record.fork_unitId.split("@")[0];
-        item.forkId = record.fork_unitId.split("@")[1];
-        return item;
+        const thisItem = new PassedLection();
+        thisItem.finishedOn = record.finishedOn;
+        thisItem.startedOn = record.startedOn;
+        thisItem.unitId = record.fork_unitId.split("@")[0];
+        thisItem.forkId = record.fork_unitId.split("@")[1];
+        return thisItem;
     }
 }

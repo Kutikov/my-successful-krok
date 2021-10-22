@@ -217,15 +217,15 @@ class FireBaseAPI{
                 const loginPass = { lg: user.email, ps: password, ver: user.emailVerified };
                 document.cookie = "cr=" + JSON.stringify(loginPass);
                 switch(user.email){
-                    case 'site@karazin.ua':
+                    case 'site@karazin.com':
                         document.cookie = 'author=Site';
                         window.location.href = 'https://kutikov.github.io/my-successful-krok/console/tests.html'; 
                         break;
-                    case 'kozlov@karazin.ua':
+                    case 'kozlov@karazin.com':
                         document.cookie = 'author=Kozlov';
                         window.location.href = 'https://kutikov.github.io/my-successful-krok/console/tests.html'; 
                         break;
-                    case 'kutikov@karazin.ua':
+                    case 'kutikov@karazin.com':
                         document.cookie = 'author=Kutikov';
                         window.location.href = 'https://kutikov.github.io/my-successful-krok/console/tests.html'; 
                         break;
