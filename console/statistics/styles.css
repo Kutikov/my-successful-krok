@@ -8,57 +8,134 @@
     background-color: #eee;
 }
 
-
-.unitTextLections
+.nameTextBuckets,
+.unitTextLections,
 .unitTextTesting {
-    width: 40%;
-    text-align: center;
+    width: 35%;
+    padding-top: 4px; 
+    padding-bottom: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
     vertical-align: middle;
     font-family: Roboto, sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-size: 0.8rem;
-    line-height: 1.2rem;
+    font-size: 12px;
+    line-height: 18px;
     font-weight: 400;
-    text-align: justify;
     text-decoration: inherit;
     text-transform: inherit;
-    word-break: normal;
+    word-break: break-all;
 }
 
-.startedTextLections
-.finishedTextLections
-.durationTextLections
-.dateTextTesting
+.deviceTextLections,
+.deviceTextTestings{
+    width: 5%;
+    padding-top: 4px; 
+    padding-bottom: 4px;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+}
+
+.authorTextBuckets,
+.upToBucket,
+.startedTextLections,
+.finishedTextLections,
+.durationTextLections,
+.dateTextTesting,
 .durationTextTesting{
     width: 20%;
-    text-align: center;
+    padding-top: 4px; 
+    padding-bottom: 4px;
+    text-align: center !important;
     vertical-align: middle;
     font-family: Roboto, sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-size: 0.8rem;
-    line-height: 1.2rem;
+    font-size: 12px;
+    line-height: 18px;
     font-weight: 400;
-    text-align: justify;
     text-decoration: inherit;
     text-transform: inherit;
-    word-break: normal;
+    word-break: break-all;
 }
 
-.percentTextTesting
+.actionButtonBucket{
+    cursor: pointer;
+    width: 25%;
+    padding-top: 4px; 
+    padding-bottom: 4px;
+    text-align: center !important;
+    vertical-align: middle;
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 600;
+    text-decoration: inherit;
+    text-transform: inherit;
+    word-break: break-all;
+}
+
+.percentTextTesting,
 .testsTextTesting{
-    text-align: center;
+    padding-top: 4px; 
+    padding-bottom: 4px;
+    text-align: center !important;
     vertical-align: middle;
     width: 10%;
     font-family: Roboto, sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-size: 0.8rem;
-    line-height: 1.2rem;
+    font-size: 12px;
+    line-height: 14px;
     font-weight: 400;
-    text-align: justify;
     text-decoration: inherit;
     text-transform: inherit;
-    word-break: normal;
+    word-break: break-all;
+}
+
+.statistics_card{
+    width: 10px;
+    flex-basis: 49%;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    height: 360px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+
+.statistics_card::-webkit-scrollbar {
+    display: none;
+}
+
+.card_title{
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 12px;
+}
+
+.card_item_text{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+@media (max-width: 720px) {
+    .statistics_card{
+        flex-basis: 100%;
+    }
 }

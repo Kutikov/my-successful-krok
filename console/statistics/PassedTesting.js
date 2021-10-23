@@ -3,7 +3,7 @@ class PassedTesting{
 
     }
 
-    static Decode(record){
+    static Decode(record, device){
         const thisItem = new PassedTesting();
         thisItem.correctTests = record.correctTests;
         thisItem.allTests = record.allTests;
@@ -12,6 +12,7 @@ class PassedTesting{
         thisItem.forkId = record.fork_unitId.split("@")[1];
         thisItem.unitId = record.fork_unitId.split("@")[0];
         thisItem.startedOn = record.startedOn;
+        thisItem.device = device;
         return thisItem;
     }
 
@@ -28,6 +29,10 @@ class PassedTesting{
                 const unitText = document.createElement('td');
                 unitText.classList.add('.unitTextTesting');
                 unitText.innerText = passed.unitId.replace(/ø/g, ' ');
+                const devicesText = document.createElement('p');
+                devicesText.className = 'deviceTextLections';
+                devicesText.innerText = 'devices';
+                devicesText.style.color = passed.device.contains('1') ? '#2e7d32' : '#1565c0'
                 const dateText = document.createElement('td');
                 dateText.classList.add('.dateTextTesting');
                 dateText.innerHTML = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.startedOn).toString("d.MM.yy,<br/>HH:mm:ss");
@@ -41,6 +46,7 @@ class PassedTesting{
                 testsText.classList.add('.testsTextTesting');
                 testsText.innerHTML = passed.percent.toString();
                 item.append(unitText);
+                item.append(devicesText);
                 item.append(dateText);
                 item.append(durationText);
                 item.append(percentText);

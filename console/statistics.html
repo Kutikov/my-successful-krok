@@ -1,0 +1,670 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>My successful KROK blog</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="">
+    <meta name="author" content="Damir A. Kutikov">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="material.css">
+    <script src="material.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="style.css" rel="stylesheet">
+    <link href="statistics/styles.css" rel="stylesheet">
+    <script src="Unit.js"></script>
+    <script src="Fork.js"></script>
+    <script src="FireBaseAPI.js"></script>
+    <script src="statistics/Account.js"></script>
+    <script src="statistics/date.js"></script>
+    <script src="statistics/Fail.js"></script>
+    <script src="statistics/PassedLection.js"></script>
+    <script src="statistics/PassedTesting.js"></script>
+    <script src="statistics/chart.js"></script>
+</head>
+
+<body style="background-color: #f0f0f0; margin: 0;">
+    <aside class="mdc-drawer mdc-drawer--modal">
+        <div class="mdc-drawer__content">
+            <div style="display: flex;">
+                <button id="backBurger" onclick="drawer2.open = false" class="mdc-icon-button material-icons">arrow_back</button>
+                <h3 class="card__text console__title">Закрыть</h3>
+            </div>
+            <div id="modalDrawer">
+            </div>
+        </div>
+    </aside>
+    <div class="mdc-drawer-scrim"></div>
+    <div style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: stretch;">
+        <div style="display: flex; flex-direction: row; align-items: center;flex-grow: 0; flex-shrink: 0; flex-wrap: wrap; background-color: #fff; box-shadow: 0px 2px 8px #00000075;">
+            <div class="mdc-select mdc-select--outlined" style="display:none; margin-top: 16px; margin-left: 16px; margin-right: 16px; margin-bottom: 8px;  flex-grow: 1;  flex-shrink: 1;">
+                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span id="outlined-select-label" class="mdc-floating-label">Модуль</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-select__selected-text-container">
+                        <span id="forks-selected-text" class="mdc-select__selected-text"></span>
+                    </span>
+                    <span class="mdc-select__dropdown-icon">
+                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                        <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                        <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                    </svg>
+                  </span>
+                </div>
+                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                    <ul id="forksList" class="mdc-list"></ul>
+                </div>
+            </div>
+            <div class="mdc-select mdc-select--outlined" style="display:none;margin-top: 16px; margin-left: 16px; margin-right: 16px; margin-bottom: 8px; flex-grow: 1; flex-shrink: 1;">
+                <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span id="outlined-select-label" class="mdc-floating-label">Лекция</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <span class="mdc-select__selected-text-container">
+                        <span id="units-selected-text" class="mdc-select__selected-text"></span>
+                    </span>
+                    <span class="mdc-select__dropdown-icon">
+                        <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                        <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                        <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                    </svg>
+                  </span>
+                </div>
+                <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                    <ul id="unitsList" class="mdc-list"></ul>
+                </div>
+            </div>
+            <div style="display: flex; margin-left:16px; flex-grow: 1; flex-shrink: 0;">
+                <button id="burger" class="mdc-icon-button material-icons" style="margin-left: -16px;">menu</button>
+                <h3 id="pageTitleL" class="card__text console__title">Выберите таблицу или модуль</h3>
+            </div>
+            <div style="display: flex; margin-left:16px; flex-shrink: 0;">
+                <button class="mdc-button mdc-button--raised" id="saveButton" style="margin-right:16px; margin-top: 8px; margin-bottom: 8px;" onclick="save_file();" disabled>
+                    <span class="mdc-button__ripple"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">save</i>
+                    <span class="mdc-button__label">Сохранить</span>
+                </button>
+            </div>
+            
+        </div>
+        <div style="display: flex; flex-direction: row; flex-wrap: nowrap; height: auto; flex-grow: 1; height: 1px;">
+            <div style="width: 256px; flex-grow: 0; flex-shrink: 0;" id="drawerHolder">
+                <aside id="fixedDrawer" class="mdc-drawer mdc-drawer--fixed">
+                    <div class="mdc-drawer__content">
+                        <div class="mdc-drawer__header">
+                          <h3 class="mdc-drawer__title">Alexander KOZLOV</h3>
+                          <h6 class="mdc-drawer__subtitle">kozlov@karazin.ua</h6>
+                        </div>
+                        <div class="mdc-list" aria-orientation="vertical" id="drawerRootFixed">
+                            <a class="mdc-list-item accordion" href="javascript:drawerHandler('PRESENTERS');">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">widgets</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Презентеры</span>
+                            </a>
+                            <a class="mdc-list-item accordion" href="javascript:drawerHandler('TESTS');">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">checklist</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Тесты</span>
+                            </a>
+                            <a class="mdc-list-item mdc-list-item--activated accordion" href="javascript:drawerHandler('STATISTICS');">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">insert_chart_outlined</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Статистика</span>
+                                <span aria-hidden="true" class="material-icons mdc-list-item__meta accordionIcon" style="margin-left: auto;">expand_less</span>
+                            </a>
+                            <div style="max-height: 12000px; background-color: #f5f5f5;">
+                                <div class="mdc-list" aria-orientation="vertical" style="margin-left: 16px;">
+                                    <a class="mdc-list-item" href="#" aria-current="page" href="javascript:drawerHandler('FAILS');">
+                                        <span class="mdc-list-item__ripple"></span>
+                                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">report</i>
+                                        <span class="mdc-list-item__text">Ошибки</span>
+                                    </a>
+                                    <a class="mdc-list-item" href="#" aria-current="page" href="javascript:drawerHandler('ACCOUNTS');">
+                                        <span class="mdc-list-item__ripple"></span>
+                                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">people</i>
+                                        <span class="mdc-list-item__text">Пользователи</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <a class="mdc-list-item accordion" href="javascript:drawerHandler('BUCKETS');">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">monetization_on</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Бакеты</span>
+                            </a>
+                            <a class="mdc-list-item accordion" href="javascript:drawerHandler('SCHEMAS');">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">schema</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Схемы</span>
+                            </a>
+                            <a class="mdc-list-item accordion" href="javascript:drawerHandler('MANUALS');">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Мануал</span>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div id="testListMainPage" class="testListMainPage">
+
+                <div id="accountsPanel" style="display: flex; flex-direction: row; flex-wrap: wrap; margin-right: 8px; margin-left: 8px;justify-content: space-between;">
+                    <div class="mdc-select mdc-select--outlined" style="width: 100px; flex-grow: 1; flex-basis: 100%; margin-top: 8px; margin-bottom: 4px;">
+                        <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Выберите аккаунт</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-select__selected-text-container">
+                                <span style="margin-top: 6px;" class="mdc-select__selected-text" id="selectedAccount"></span>
+                            </span>
+                            <span class="mdc-select__dropdown-icon">
+                                <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                    <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                    <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                            <ul class="mdc-list" id="accountsList">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mdc-card statistics_card">
+                        <p class="card__text card_title">График тестирования</p>
+                        <canvas id="chartCanvas" width="360" height="200" style="padding-left: 4px; padding-right: 4px;"></canvas>
+                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap; margin-right: 12px; margin-left: 12px; margin-top: 8px;">
+                            <i class="material-icons" style="color: #2b2b2b; cursor: pointer;" onclick="prev();">chevron_left</i>
+                            <p class="card__text" style="margin-top: 0; margin-bottom: 0; font-weight: 600; flex-grow: 1; justify-content: center; text-align: center;" id="currentDate">Устройство №2</p> 
+                            <i class="material-icons" style="color: #2b2b2b; cursor: pointer;" onclick="next()">chevron_right</i>
+                        </div>
+                        <table style="margin-right: 12px; margin-left: 12px; margin-top: 8px;">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 33%; text-align: center; vertical-align: middle; font-size: 1.5rem; font-weight: 800; color: #000;" class="card__text">98%</td>
+                                    <td style="width: 33%; text-align: center; vertical-align: middle; font-size: 1.5rem; font-weight: 800; color: #2e7d32;" class="card__text">98%</td>
+                                    <td style="width: 33%; text-align: center; vertical-align: middle; font-size: 1.5rem; font-weight: 800; color: #00695c;" class="card__text">98%</td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 33%; text-align: center; vertical-align:top; font-size: 0.75rem; color: #000;" class="card__text">пройдено тестов</td>
+                                    <td style="width: 33%; text-align: center; vertical-align:top; font-size: 0.75rem; color: #2e7d32;" class="card__text">отвечено верно</td>
+                                    <td style="width: 33%; text-align: center; vertical-align:top; font-size: 0.75rem; color: #00695c;" class="card__text">верных тестов</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mdc-card statistics_card">
+                        <p class="card__text card_title">Устройства</p>
+                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap; margin-right: 12px; margin-left: 12px;">
+                            <i class="material-icons" style="color: #2e7d32;">devices</i>
+                            <p class="card__text" style="margin-top: 0; margin-bottom: 0; color: #2e7d32; font-weight: 600;">Устройство №1</p> 
+                        </div>
+                        <p class="card__text card_item_text" id="devMod1">Модель: </p>
+                        <p class="card__text card_item_text" id="devOs1">Версия Android: </p>
+                        <p class="card__text card_item_text" id="devAct1">Активировано: </p>
+                        <p class="card__text card_item_text" id="devSync1">Последняя синхронизация: </p>
+                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap; margin-right: 12px; margin-left: 12px; margin-top: 8px;">
+                            <i class="material-icons" style="color: #1565c0;">devices</i>
+                            <p class="card__text" style="margin-top: 0; margin-bottom: 0; color: #1565c0; font-weight: 600;">Устройство №2</p> 
+                        </div>
+                        <p class="card__text card_item_text" id="devMod2">Модель: </p>
+                        <p class="card__text card_item_text" id="devOs2">Версия Android: </p>
+                        <p class="card__text card_item_text" id="devAct2">Активировано: </p>
+                        <p class="card__text card_item_text" id="devSync2">Последняя синхронизация: </p>
+                    </div>
+                    <div class="mdc-card statistics_card">
+                        <p class="card__text card_title">Купленные бакеты</p>
+                        <table style="margin-left: 4px; margin-right: 4px;" cellpadding="0" cellspacing="0" >
+                            <tr>
+                                <th class="nameTextBuckets" style="font-weight: 600;">Название</th>
+                                <td class="authorTextBuckets" style="font-weight: 600;">Автор</td>
+                                <th class="upToBucket" style="font-weight: 600;">Актуален до</th>
+                                <th class="actionButtonBucket" style="font-weight: 600;">Действия</th>
+                            </tr>
+                            <tbody id='passedBucketsHolder'>
+                                <tr style="background-color: #eee; padding-top: 4px; padding-bottom: 4px;">
+                                    <td class="nameTextBuckets">Название dgtrhyt htdgts cdvgfbtf degtr</td>
+                                    <td class="authorTextBuckets">Александр Козлов</td>
+                                    <td class="upToBucket">20.01.21<br/>18:44:12</td>
+                                    <td class="actionButtonBucket" style="color: #c62828;">УДАЛИТЬ</td>
+                                </tr>
+                                <tr style="padding-top: 4px; padding-bottom: 4px;">
+                                    <td class="nameTextBuckets">Название dgtrhyt htdgts cdvgfbtf degtr</td>
+                                    <td class="authorTextBuckets">Александр Козлов</td>
+                                    <td class="upToBucket">20.01.21<br/>18:44:12</td>
+                                    <td class="actionButtonBucket" style="color: #2e7d32;">ПОДТВЕРДИТЬ</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mdc-select mdc-select--outlined" style="width: 100px; flex-grow: 1; flex-basis: 100%; margin-top: 8px; margin-bottom: 4px;">
+                        <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
+                            <span class="mdc-notched-outline">
+                                <span class="mdc-notched-outline__leading"></span>
+                                <span class="mdc-notched-outline__notch">
+                                    <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);">Выберите раздел</span>
+                                </span>
+                                <span class="mdc-notched-outline__trailing"></span>
+                            </span>
+                            <span class="mdc-select__selected-text-container">
+                                <span style="margin-top: 6px;" class="mdc-select__selected-text" id="selectedFork"></span>
+                            </span>
+                            <span class="mdc-select__dropdown-icon">
+                                <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5" focusable="false">
+                                    <polygon class="mdc-select__dropdown-icon-inactive" stroke="none" fill-rule="evenodd" points="7 10 12 15 17 10"></polygon>
+                                    <polygon class="mdc-select__dropdown-icon-active" stroke="none" fill-rule="evenodd" points="7 15 12 10 17 15"></polygon>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+                            <ul class="mdc-list" id="forksList">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mdc-card statistics_card">
+                        <p class="card__text card_title">Пройденные тестирования</p>
+                        <table style="margin-left: 4px; margin-right: 4px;" cellpadding="0" cellspacing="0" >
+                            <tr>
+                                <th class="unitTextTesting" style="font-weight: 600;">Название</th>
+                                <td class="deviceTextTestings">devices</td>
+                                <th class="dateTextTesting" style="font-weight: 600;">Начат</th>
+                                <th class="durationTextTesting" style="font-weight: 600;">В работе</th>
+                                <th class="testsTextTesting" style="font-weight: 600;">%</th>
+                                <th class="percentTextTesting" style="font-weight: 600;">Всего</th>
+                            </tr>
+                            <tbody id='passedTestingsHolder'>
+                                <tr style="background-color: #eee; padding-top: 4px; padding-bottom: 4px;">
+                                    <td class="unitTextTesting">Название dgtrhyt htdgts cdvgfbtf degtr</td>
+                                    <td class="deviceTextTestings">devices</td>
+                                    <td class="dateTextTesting">20.01.21<br/>18:44:12</td>
+                                    <td class="durationTextTesting">00:16:43</td>
+                                    <td class="testsTextTesting">100</td>
+                                    <td class="percentTextTesting">25</td>
+                                </tr>
+                                <tr style="padding-top: 4px; padding-bottom: 4px;">
+                                    <td class="unitTextTesting">Название dgtrhyt htdgts cdvgfbtf degtr</td>
+                                    <td class="deviceTextTestings">devices</td>
+                                    <td class="dateTextTesting">20.01.21<br/>18:44:12</td>
+                                    <td class="durationTextTesting">00:16:43</td>
+                                    <td class="testsTextTesting">100</td>
+                                    <td class="percentTextTesting">25</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mdc-card statistics_card">
+                        <p class="card__text card_title">Пройденные лекции</p>
+                        <table style="margin-left: 4px; margin-right: 4px;" cellpadding="0" cellspacing="0" >
+                            <tr>
+                                <th class="unitTextLections" style="font-weight: 600;">Название</th>
+                                <td class="deviceTextLections">devices</td>
+                                <th class="startedTextLections" style="font-weight: 600;">Начато</th>
+                                <th class="finishedTextLections" style="font-weight: 600;">Окончено</th>
+                                <th class="durationTextLections" style="font-weight: 600;">В работе</th>
+                            </tr>
+                            <tbody id='passedLectionsHolder'>
+                                <tr style="background-color: #eee; padding-top: 4px; padding-bottom: 4px;">
+                                    <td class="unitTextLections">Название dgtrhyt htdgts cdvgfbtf degtr</td>
+                                    <td class="deviceTextLections">devices</td>
+                                    <td class="startedTextLections">20.01.21<br/>18:44:12</td>
+                                    <td class="finishedTextLections">20.01.21<br/>18:44:12</td>
+                                    <td class="durationTextLections">00:16:43</td>
+                                </tr>
+                                <tr style="padding-top: 4px; padding-bottom: 4px;">
+                                    <td class="unitTextLections">Название dgtrhyt htdgts cdvgfbtf degtr</td>
+                                    <td class="deviceTextLections">devices</td>
+                                    <td class="startedTextLections">20.01.21<br/>18:44:12</td>
+                                    <td class="finishedTextLections">20.01.21<br/>18:44:12</td>
+                                    <td class="durationTextLections">00:16:43</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="main-dialog" class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="mdc-dialog-with-list-label" aria-describedby="mdc-dialog-with-list-description" bis_skin_checked="1">
+        <div class="mdc-dialog__scrim" bis_skin_checked="1"></div>
+        <div class="mdc-dialog__container" bis_skin_checked="1">
+            <div class="mdc-dialog__surface" bis_skin_checked="1">
+                <h2 id="main-dialog-title" class="mdc-dialog__title">Измени</h2>
+                <section id="main-dialog-content" class="mdc-dialog__content">
+                    
+                </section>
+                <footer class="mdc-dialog__actions">
+                    <button type="button" class="mdc-button mdc-dialog__button mdc-ripple-upgraded" onclick="cancel()">Отмена</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <div id="loadingTemplate" style="bottom: 0; top: 0; right: 0; left: 0; position: absolute;background-color: #fff; display: none; align-items: center; flex-direction: row; z-index: 10000;">
+        <div style="display: flex; width: 100%; align-items: center; flex-direction: column;">
+            <p class="card__text" id="loadingText">Loading...</p>
+            <div style="width: 100%; height: 20px;"></div>
+            <div role="progressbar" style="width: 80%;" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+                <div class="mdc-linear-progress__buffer">
+                  <div class="mdc-linear-progress__buffer-bar"></div>
+                  <div class="mdc-linear-progress__buffer-dots"></div>
+                </div>
+                <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                  <span class="mdc-linear-progress__bar-inner"></span>
+                </div>
+                <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                  <span class="mdc-linear-progress__bar-inner"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <template id="listItemTemplate">
+        <li class="mdc-list-item">
+            <span class="mdc-list-item__ripple"></span>
+            <span class="mdc-list-item__text"></span>
+        </li>
+    </template>
+    <template id="textinputTemplate">
+        <label class="mdc-text-field mdc-text-field--outlined" style="flex-grow: 1; margin: 10px 0 4px 0; width: 100%;">
+            <span class="mdc-notched-outline">
+                <span class="mdc-notched-outline__leading"></span>
+                <span class="mdc-notched-outline__trailing"></span>
+            </span>
+            <input type="text" class="mdc-text-field__input" aria-label="answerTextLabel">
+        </label>
+        <p class="card__text negative__answer"></p>
+    </template>
+
+    <script type="text/javascript">
+        const dialog = new mdc.dialog.MDCDialog(document.getElementById('main-dialog'));
+        const dialogTitle = document.getElementById('main-dialog-title');
+        const dialogContent = document.getElementById('main-dialog-content');
+        const selector = '.mdc-button, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button, .mdc-list-item';
+        const testListMainPage = document.getElementById('testListMainPage');
+        const importButton = document.getElementById('importButton');
+        const saveButton = document.getElementById('saveButton');
+        const linearProgress = document.querySelector('.mdc-linear-progress');
+        const linearProgress1 = new mdc.linearProgress.MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
+        const loadingTemplate = document.getElementById('loadingTemplate');
+        const loadingText = document.getElementById('loadingText');
+        const drawer2 = mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer--modal'));
+        menues = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
+            return new mdc.select.MDCSelect(el);
+        });
+        let ripples;
+        let texts;
+
+    //const firebaseApi = new FireBaseAPI();
+
+
+    const ctx = document.getElementById('chartCanvas');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['30.01', '', '', '15.02', '', '', '01.03'],
+        datasets: [{
+            label: 'Верно',
+            borderWidth: 2,
+            data: [12, 19, 3, 5, 2, 3, 12],
+            fill: false,
+            pointBorderWidth: 0,
+            borderColor: '#2e7d32',
+            tension: 0.25,
+        }, 
+        {
+            label: 'Всего',
+            borderWidth: 2,
+            data: [14, 20, 3, 5, 14, 2, 16],
+            fill: false,
+            pointBorderWidth: 0,
+            borderColor: '#222',
+            tension: 0.25
+        }, 
+        {
+            label: 'Неверно',
+            borderWidth: 2,
+            data: [2, 1, 1, 1, 2, 1, 4],
+            fill: false,
+            pointBorderWidth: 0,
+            borderColor: '#c62828',
+            tension: 0.25
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+        const author = getCookie('author');
+
+        let allUnitsArray = [];
+        let tablesArray = [];
+        let forksArray = [];
+        let modulesArray = [];
+        let forkUnitHolder = {};
+
+        let currentModule = null;
+        let currentTable = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            switch(author){
+                case 'Kutikov':
+                    document.querySelector('.mdc-drawer__title').innerText = 'Дамир КУТИКОВ';
+                    document.querySelector('.mdc-drawer__subtitle').innerText = 'damirkut@gmail.com';
+                    break;
+                case 'Kozlov':
+                    document.querySelector('.mdc-drawer__title').innerText = 'Александр КОЗЛОВ';
+                    document.querySelector('.mdc-drawer__subtitle').innerText = 'kozlov@karazin.ua';
+                    break;
+                case 'Site':
+                    document.querySelector('.mdc-drawer__title').innerText = 'ИЗИ КРОК';
+                    document.querySelector('.mdc-drawer__subtitle').innerText = 'easykrok@karazin.ua';
+                    break;
+            }
+            document.getElementById('burger').addEventListener('click', function(){
+                drawer2.open = !drawer2.open;
+            });
+            window.addEventListener('resize', function(event) {
+                resize();
+            }, true);
+            resize();
+        });
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2){
+                return parts.pop().split(';').shift();
+            } 
+            return null;
+        }
+
+        function accept(){
+        }
+
+        function progressToUi(action = '', show = true){
+            if(show){
+                linearProgress.style.display = 'block';
+                loadingTemplate.style.display = 'flex';
+            }
+            else{
+                linearProgress.style.display = 'none';
+                setTimeout(() => {
+                    loadingTemplate.style.display = 'none';
+                }, 2000);
+            }
+            loadingText.innerText = action;
+        }
+
+        function cancel(){
+            while (dialogContent.firstChild) {
+                dialogContent.removeChild(dialogContent.lastChild);
+            }
+            dialog.close();
+        }
+        
+        function save_file(){
+        }
+
+        function resize(){
+            const modalDrawer = document.getElementById('modalDrawer');
+            const fixedDrawer = document.getElementById('fixedDrawer');
+            if(window.innerWidth < 256 + 32 + 800){
+                document.getElementById('drawerHolder').style.display = 'none';
+                document.getElementById('burger').style.display = 'block';
+                modalDrawer.append(fixedDrawer.children[0]);
+                while(fixedDrawer.firstChild){
+                    fixedDrawer.removeChild(fixedDrawer.firstChild)
+                }
+            }
+            else{
+                drawer2.open = false;
+                document.getElementById('drawerHolder').style.display = 'block';
+                document.getElementById('burger').style.display = 'none';
+                fixedDrawer.append(modalDrawer.children[0]);
+                while(modalDrawer.firstChild){
+                    modalDrawer.removeChild(modalDrawer.firstChild)
+                }
+            }
+        }
+
+        function updateDesign() {
+            ripples = [].map.call(document.querySelectorAll(selector), function (el) {
+                return new mdc.ripple.MDCRipple(el);
+            });
+            list = [].map.call(document.querySelectorAll('.mdc-list'), function(el){
+                return new mdc.list.MDCList(el);
+            });
+            listItemRipples = [].map.call(document.querySelectorAll(selector), function(el) {
+                return new mdc.ripple.MDCRipple(el);
+            });
+            menues = [].map.call(document.querySelectorAll('.mdc-select'), function(el) {
+                return new mdc.select.MDCSelect(el);
+            });
+        }
+
+        function drawUnitsAndForks(){
+            const accordions = document.querySelectorAll('.accordion');
+            for (let i = 0; i < accordions.length; i++) {
+                accordions[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    const panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                        this.querySelector('.accordionIcon').innerText = 'expand_more';
+                    } 
+                    else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                        this.querySelector('.accordionIcon').innerText = 'expand_less';
+                    } 
+                });
+            }
+            updateDesign();
+        }
+
+        function drawerHandler(str){
+            const thisPage = "schemas";
+            drawer2.open = false;
+            switch(str){
+                case 'BUCKETS':
+                    window.open(window.location.toString().replaceAll(thisPage, "buckets"), "_self");
+                    break;
+                case 'PRESENTERS':
+                    window.open(window.location.toString().replaceAll(thisPage, "presenters"), "_self");
+                    break;
+                case 'STATISTICS':
+                    window.open(window.location.toString().replaceAll(thisPage, "statistics"), "_parent");
+                    break;
+                case 'MANUALS':
+                    window.open(window.location.toString().replaceAll(thisPage, "manuals"), "_self");
+                    break;
+                case 'TESTS':
+                    window.open(window.location.toString().replaceAll(thisPage, "tests"), "_self");
+                    break;
+                case 'SCHEMAS':
+                    window.open(window.location.toString().replaceAll(thisPage, "schemas"), "_self");
+                    break;
+            }
+        }
+
+        function coreSignalHandler(signal, mode = ''){
+            console.log(signal + ' ' + mode);
+            progressToUi('Loading conents...');
+            switch(signal){
+                case firebaseApi.Signals.loggedIn:
+                    //firebaseApi.readForks(author);
+                    drawUnitsAndForks();
+                    progressToUi('All loaded!', false);
+                    break;
+                case firebaseApi.Signals.forksLoaded:
+                case firebaseApi.Signals.forksEmpty:
+                    firebaseApi.readUnitsA();
+                    break;
+                case firebaseApi.Signals.unitLoaded:
+                case firebaseApi.Signals.unitEmpty:
+                    for(let i = 0; i < forksArray.length; i++){
+                        const forkName = forksArray[i].name;
+                        forkUnitHolder[forkName] = [];
+                        for(let j = 0; j < allUnitsArray.length; j++){
+                            if(allUnitsArray[j].forkId == forkName.replace(/ /g, 'ø')){
+                                forkUnitHolder[forkName].push(allUnitsArray[j]);
+                            }
+                        }
+                    }
+                    firebaseApi.readAllModules();
+                    break;
+                case firebaseApi.Signals.modulesLoaded:
+                    if(mode == firebaseApi.Mode.read){
+                        firebaseApi.readAllTables();
+                    }
+                    else{
+                        saveButton.disabled = true;
+                    }
+                    break;
+                case firebaseApi.Signals.tablesLoaded:
+                    if(mode == firebaseApi.Mode.read){
+                        drawUnitsAndForks();
+                    }
+                    else{
+                        saveButton.disabled = true;
+                    }
+                    progressToUi('All loaded!', false);
+                    break;
+                case firebaseApi.Signals.forksFailed:
+                    firebaseApi.readForks(author);
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

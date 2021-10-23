@@ -3,13 +3,14 @@ class PassedLection{
 
     }
 
-    static Decode(record){
+    static Decode(record, device){
         const thisItem = new PassedLection();
         thisItem.finishedOn = record.finishedOn;
         thisItem.startedOn = record.startedOn;
         thisItem.duration = record.duration; 
         thisItem.unitId = record.fork_unitId.split("@")[0];
         thisItem.forkId = record.fork_unitId.split("@")[1];
+        thisItem.device = device;
         return thisItem;
     }
     static Draw(allPassedLections, forkId){
@@ -29,6 +30,10 @@ class PassedLection{
                     unitText.classList.add('darkRow');
                 }
                 unitText.innerText = passed.unitId.replace(/ø/g, ' ');
+                const devicesText = document.createElement('p');
+                devicesText.className = 'deviceTextLections';
+                devicesText.innerText = 'devices';
+                devicesText.style.color = passed.device.contains('1') ? '#2e7d32' : '#1565c0'
                 const startedText = document.createElement('p');
                 startedText.className = 'startedTextLections';
                 startedText.innerText = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.startedOn).toString("d.MM.yy, HH:mm:ss");
@@ -39,6 +44,7 @@ class PassedLection{
                 durationText.className = 'durationTextLections';
                 durationText.innerText = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.duration).toString("HH:mm:ss");
                 item.append(unitText);
+                item.append(devicesText);
                 item.append(startedText);
                 item.append(finishText);
                 item.append(durationText);
