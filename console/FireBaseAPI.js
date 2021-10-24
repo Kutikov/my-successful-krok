@@ -1,5 +1,9 @@
 class FireBaseAPI{
 
+    static Servers = {
+        kharkiv1: 'kharkiv1',
+        kharkiv2: 'kharkiv2'
+    }
     Signals = {
         loggedIn: 'loggedIn',
 
@@ -32,6 +36,10 @@ class FireBaseAPI{
         unitLoaded: 'unitLoaded',
         unitFailed: 'unitFailed',
         unitEmpty: 'unitEmpty',
+
+        firestoreAuth: 'firestoreAuth',
+        firestoreRead: 'firestoreRead',
+        firestoreFail: 'firestoreFail'
     }
 
     Mode = {
@@ -608,6 +616,103 @@ class FireBaseAPI{
     }
     //#endregion Presenters
 
+    //#region Statistics
+    authSecondServer(){
+        this.firebaseConfigMyKROKTutor = {
+            apiKey: "AIzaSyD4FNLmDuvVACkRgOBQ19EZ2tzblhQ1oZc",
+            authDomain: "mysuccessfulkrok.firebaseapp.com",
+            databaseURL: "https://mysuccessfulkrok-default-rtdb.firebaseio.com",
+            projectId: "mysuccessfulkrok",
+            storageBucket: "mysuccessfulkrok.appspot.com",
+            messagingSenderId: "824994683052",
+            appId: "1:824994683052:web:889e746f4862b1ac336709",
+            measurementId: "G-NT595NEQ1Q"
+        };
+        this.regFirebase = firebase.initializeApp(this.firebaseConfigMyKROKTutor, FireBaseAPI.Servers.kharkiv2);
+        this.regFirebase.auth().signInWithEmailAndPassword('damirkut@gmail.com', 'PaSsWoRd2021')
+            .then((userCredential) => {
+                console.log(userCredential);
+                coreSignalHandler(this.Signals.firestoreAuth, this.Mode.read);
+            })
+            .catch((error) => {
+                console.log('error entering kharkiv2: ' + error);
+                coreSignalHandler(this.Signals.firestoreFail, this.Mode.read);
+            });
+    }
+    readAccount(email, server){
+        let accRef = null;
+        switch(server){
+            case FireBaseAPI.Servers.kharkiv1:
+                accRef = this.firestore.collection('users').doc(email);
+                break;
+            case FireBaseAPI.Servers.kharkiv2:
+                accRef = this.regFirebase.firestore().collection('users').doc(email);
+                break;
+        }
+        accRef.get()
+            .then((doc) => {
+                if (doc.exists) {
+                    const acc = Account.Decode(doc.data());
+                    acc.Draw();
+                    allLecionsArr = [];
+                    allLecionsArr = [];
+                    allTestingsArr = [];
+                    this.readCollections(email, server, 'fails', 'dev1');
+                } 
+                else {
+                    console.log("No such document!");
+                }
+            })
+            .catch((error) => {
+                console.log("Error getting document:", error);
+            });
+    }
+
+    readCollections(email, server, col, order){
+        let colRef = null;
+        switch(server){
+            case FireBaseAPI.Servers.kharkiv1:
+                colRef = this.firestore.collection('users').doc(email).collection(col + '_' + order);
+                break;
+            case FireBaseAPI.Servers.kharkiv2:
+                colRef = this.regFirebase.firestore().collection('users').doc(email).collection(col + '_' + order);
+                break;
+        }
+        colRef.get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    switch(col){
+                        case 'fails':
+                            allFailsArr.push(Fail.Decode(doc.data(), order));
+                            break;
+                        case 'lectionsPassed':
+                            allLecionsArr.push(PassedLection.Decode(doc.data(), order));
+                            break;
+                        case 'testingsPassed':
+                            allTestingsArr.push(PassedTesting.Decode(doc.data(), order));
+                            break;
+                    }
+                });
+                if(order == 'dev1'){
+                    this.readCollections(email, server, col, 'dev2');
+                }
+                else{
+                    switch(col){
+                        case 'fails':
+                            this.readCollections(email, server, 'lectionsPassed', 'dev1');
+                            break;
+                        case 'lectionsPassed':
+                            this.readCollections(email, server, 'testingsPassed', 'dev1');
+                            break;
+                        case 'testingsPassed':
+                            console.log('f');
+                            coreSignalHandler(this.Signals.firestoreRead, this.Mode.read);
+                            break;
+                    }
+                }
+            });
+    }
+    //#endregion Statistics
     performDbAction(refs, objects, action, callback, i = 0){
         switch (action){
             case this.Action.writeDb:

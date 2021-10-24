@@ -11,7 +11,7 @@ class Fail {
         item.testN = parts[0];
         item.unitId = parts[1].replace(/ø/g, ' ');
         item.forkId = parts[2].replace(/ø/g, ' ');
-        this.device = device;
+        item.device = device;
         return item;
     }
 
@@ -21,7 +21,7 @@ class Fail {
             failsHolder.removeChild(failsHolder.lastChild);
         }
         for (let i = 0; i < allFailes.length; i++) {
-            if (allForksNames.contains(allFailes[i].forkId)) {
+            if (allForksNames.includes(allFailes[i].forkId)) {
                 const passed = allFailes[i];
                 const item = document.createElement('tr');
                 const forkText = document.createElement('td');
@@ -33,7 +33,7 @@ class Fail {
                 const devicesText = document.createElement('td');
                 devicesText.className = 'deviceTextFails';
                 devicesText.innerText = 'devices';
-                devicesText.style.color = passed.device.contains('1') ? '#2e7d32' : '#1565c0';
+                devicesText.style.color = passed.device.indexOf('1') != -1 ? '#2e7d32' : '#1565c0';
                 const createdText = document.createElement('td');
                 createdText.className = 'createdTextFails';
                 createdText.innerHTML = MStoDate(passed.created).toString("d.MM.yy<br/>HH:mm:ss");

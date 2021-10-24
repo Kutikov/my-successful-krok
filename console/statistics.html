@@ -225,9 +225,9 @@
                     </div>
                     <div class="mdc-card statistics_card">
                         <p class="card__text card_title">График тестирования</p>
-                        <div style="width: 100%; height: 220px;" id="graphicHolder">
+                        <div style="width: 100%; height: 244px; margin-top: -12px; padding-right: 4px; padding-left: 4px;" id="graphicHolder">
                         </div>
-                        <table style="margin-right: 12px; margin-left: 12px; margin-top: 8px;">
+                        <table style="margin-right: 12px; margin-left: 12px;">
                             <tbody>
                                 <tr>
                                     <td colspan="3">
@@ -243,15 +243,15 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr style="padding-top: 0px; padding-bottom: 0px;">
                                     <td style="width: 33%; text-align: center; vertical-align: middle; font-size: 1.5rem; font-weight: 800; color: #000;"
                                         class="card__text" id="allTestsDay">0</td>
                                     <td style="width: 33%; text-align: center; vertical-align: middle; font-size: 1.5rem; font-weight: 800; color: #2e7d32;"
                                         class="card__text" id="correctTestsDay">0</td>
-                                    <td style="width: 33%; text-align: center; vertical-align: middle; font-size: 1.5rem; font-weight: 800; color: #00695c;"
+                                    <td style="width: 33%; text-align: center; vertical-align: middle; font-size: 1.5rem; font-weight: 800; color: #00695c; padding-top: 0px;"
                                         class="card__text" id="percentDay">0%</td>
                                 </tr>
-                                <tr>
+                                <tr style="padding-top: 0px; padding-bottom: 0px;">
                                     <td style="width: 33%; text-align: center; vertical-align:top; font-size: 0.75rem; color: #000;"
                                         class="card__text">пройдено тестов</td>
                                     <td style="width: 33%; text-align: center; vertical-align:top; font-size: 0.75rem; color: #2e7d32;"
@@ -264,28 +264,70 @@
                     </div>
                     <div class="mdc-card statistics_card">
                         <p class="card__text card_title">Устройства</p>
-                        <div
-                            style="display: flex; flex-direction: row; flex-wrap: nowrap; margin-right: 12px; margin-left: 12px;">
-                            <i class="material-icons" style="color: #2e7d32;">devices</i>
-                            <p class="card__text"
-                                style="margin-top: 0; margin-bottom: 0; color: #2e7d32; font-weight: 600;">Устройство №1
-                            </p>
-                        </div>
-                        <p class="card__text card_item_text" id="devMod1">Модель: </p>
-                        <p class="card__text card_item_text" id="devOs1">Версия Android: </p>
-                        <p class="card__text card_item_text" id="devAct1">Активировано: </p>
-                        <p class="card__text card_item_text" id="devSync1">Последняя синхронизация: </p>
-                        <div
-                            style="display: flex; flex-direction: row; flex-wrap: nowrap; margin-right: 12px; margin-left: 12px; margin-top: 8px;">
-                            <i class="material-icons" style="color: #1565c0;">devices</i>
-                            <p class="card__text"
-                                style="margin-top: 0; margin-bottom: 0; color: #1565c0; font-weight: 600;">Устройство №2
-                            </p>
-                        </div>
-                        <p class="card__text card_item_text" id="devMod2">Модель: </p>
-                        <p class="card__text card_item_text" id="devOs2">Версия Android: </p>
-                        <p class="card__text card_item_text" id="devAct2">Активировано: </p>
-                        <p class="card__text card_item_text" id="devSync2">Последняя синхронизация: </p>
+                        <table style="margin-left: 4px; margin-right: 4px; margin-top: -6px;">
+                            <tr>
+                                <th colspan="2">
+                                    <div style="display: flex; flex-direction: row; flex-wrap: nowrap; margin-right:4px; margin-left: 4px;">
+                                        <i class="material-icons" style="color: #2e7d32;">devices</i>
+                                        <p class="card__text" style="margin-top: 0; margin-bottom: 0; color: #2e7d32; font-weight: 600;">Устройство №1
+                                        </p>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td class="card__text card_item_text" >Модель</td>
+                                    <td class="card__text card_item_text" id="devMod1">-</td>
+                                </tr>
+                                <tr>
+                                    <td class="card__text card_item_text" >Версия Android</td>
+                                    <td class="card__text card_item_text" id="devOs1">-</td>
+                                </tr>
+                                <tr>
+                                    <td class="card__text card_item_text" >ID устройства</td>
+                                    <td class="card__text card_item_text" id="devId1">-</td>
+                                </tr>
+                                <tr>
+                                    <td class="card__text card_item_text" >Активировано</td>
+                                    <td class="card__text card_item_text" id="devAct1">-</td>
+                                </tr>
+                                <tr>
+                                    <td class="card__text card_item_text" >Последняя синхронизация</td>
+                                    <td class="card__text card_item_text" id="devSync1">-</td>
+                                </tr>
+                            </tbody>
+                            <tr>
+                                <th colspan="2">
+                                    <div style="display: flex; flex-direction: row; flex-wrap: nowrap; margin-right:4px; margin-left: 4px;">
+                                        <i class="material-icons" style="color: #1565c0;">devices</i>
+                                        <p class="card__text" style="margin-top: 0; margin-bottom: 0; color: #1565c0; font-weight: 600;">Устройство №2
+                                        </p>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td class="card__text card_item_text" >Модель</td>
+                                    <td class="card__text card_item_text" id="devMod2">-</td>
+                                </tr>
+                                <tr>
+                                    <td class="card__text card_item_text" >Версия Android</td>
+                                    <td class="card__text card_item_text" id="devOs2">-</td>
+                                </tr>
+                                <tr>
+                                    <td class="card__text card_item_text" >ID устройства</td>
+                                    <td class="card__text card_item_text" id="devId2">-</td>
+                                </tr>
+                                <tr>
+                                    <td class="card__text card_item_text" >Активировано</td>
+                                    <td class="card__text card_item_text" id="devAct2">-</td>
+                                </tr>
+                                <tr>
+                                    <td class="card__text card_item_text" >Последняя синхронизация</td>
+                                    <td class="card__text card_item_text" id="devSync2">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="mdc-card statistics_card">
                         <p class="card__text card_title">Купленные бакеты</p>
@@ -322,7 +364,7 @@
                                 <th class="createdTextFails" style="font-weight: 600;">Время</th>
                                 <th class="viewTextFails">visibility</th>
                             </tr>
-                            <tbody id='passedTestingsHolder' class="table_testings">
+                            <tbody id='failsHolder' class="table_testings">
                                 <tr>
                                     <td class="forkTextFails">Название dgtrhyt htdgts cdvgfbtf degtr</td>
                                     <td class="unitTextFails">Название dgtrhyt htdgts cdvgfbtf degtr</td>
@@ -523,42 +565,11 @@
         let ripples;
         let texts;
 
-        //const firebaseApi = new FireBaseAPI();
+        const firebaseApi = new FireBaseAPI();
 
 
         const graphicHolder = document.getElementById('graphicHolder');
         let chart;
-        let data1 = {
-            labels: ['30.01', '', '', '15.02', '', '', '01.03'],
-            datasets: [{
-                label: 'Верно',
-                borderWidth: 2,
-                data: [12, 19, 3, 5, 2, 3, 12],
-                fill: false,
-                pointBorderWidth: 0,
-                borderColor: '#2e7d32',
-                tension: 0.25,
-            },
-            {
-                label: 'Всего',
-                borderWidth: 2,
-                data: [14, 20, 3, 5, 14, 2, 16],
-                fill: false,
-                pointBorderWidth: 0,
-                borderColor: '#222',
-                tension: 0.25
-            },
-            {
-                label: 'Неверно',
-                borderWidth: 2,
-                data: [2, 1, 1, 1, 2, 1, 4],
-                fill: false,
-                pointBorderWidth: 0,
-                borderColor: '#c62828',
-                tension: 0.25
-            }]
-        };
-
         const author = getCookie('author');
 
         let allUnitsArray = [];
@@ -567,10 +578,12 @@
         let modulesArray = [];
         let forkUnitHolder = {};
 
-        let currentModule = null;
-        let currentTable = null;
+        let allFailsArr = [];
+        let allTestingsArr = [];
+        let allLecionsArr = [];
 
         let renderDate = Date.today();
+        let data1 = null;
         const daysObj = {};
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -596,20 +609,17 @@
             }, true);
             resize();
             changeDate(0);
+            Day.GetChart();
         });
 
         function changeDate(int) {
             renderDate = renderDate.addDays(int);
-            document.getElementById('currentDate').innerText = renderDate.toString("dddd, d MMMM yyyy");
+            document.getElementById('currentDate').innerText = renderDate.toString("ddd, d MMMM yyyy");
             Day.ResultsOnDay(renderDate.toString("dd.MM.yy"));
         }
 
         function MStoDate(ms) {
-            return new Date(ms).addMinutes(-new Date(ms).getTimezoneOffset());
-        }
-
-        function STRtoDate(str) {
-            return Date.parse(str).addMinutes(-Date.parse(str).getTimezoneOffset());
+            return new Date(ms).addMinutes(new Date(ms).getTimezoneOffset());
         }
 
         function getCookie(name) {
@@ -668,7 +678,6 @@
                     modalDrawer.removeChild(modalDrawer.firstChild)
                 }
             }
-
             if (data1 != null) {
                 while (graphicHolder.lastChild) {
                     graphicHolder.removeChild(graphicHolder.firstChild);
@@ -755,43 +764,21 @@
             progressToUi('Loading conents...');
             switch (signal) {
                 case firebaseApi.Signals.loggedIn:
-                    //firebaseApi.readForks(author);
-                    drawUnitsAndForks();
+                    firebaseApi.readForks(author);
+                    break;
+                case firebaseApi.Signals.firestoreAuth:
+                    firebaseApi.readAccount('iv.ser.volov@gmail.com', 'kharkiv2');
+                    break;
+                case firebaseApi.Signals.firestoreRead:
+                    Day.GetChart();
+                    PassedLection.Draw(allLecionsArr, 'New module');
+                    Fail.Draw(allFailsArr, ['New module']);
+                    PassedTesting.Draw(allTestingsArr, 'New module');
                     progressToUi('All loaded!', false);
                     break;
                 case firebaseApi.Signals.forksLoaded:
                 case firebaseApi.Signals.forksEmpty:
-                    firebaseApi.readUnitsA();
-                    break;
-                case firebaseApi.Signals.unitLoaded:
-                case firebaseApi.Signals.unitEmpty:
-                    for (let i = 0; i < forksArray.length; i++) {
-                        const forkName = forksArray[i].name;
-                        forkUnitHolder[forkName] = [];
-                        for (let j = 0; j < allUnitsArray.length; j++) {
-                            if (allUnitsArray[j].forkId == forkName.replace(/ /g, 'ø')) {
-                                forkUnitHolder[forkName].push(allUnitsArray[j]);
-                            }
-                        }
-                    }
-                    firebaseApi.readAllModules();
-                    break;
-                case firebaseApi.Signals.modulesLoaded:
-                    if (mode == firebaseApi.Mode.read) {
-                        firebaseApi.readAllTables();
-                    }
-                    else {
-                        saveButton.disabled = true;
-                    }
-                    break;
-                case firebaseApi.Signals.tablesLoaded:
-                    if (mode == firebaseApi.Mode.read) {
-                        drawUnitsAndForks();
-                    }
-                    else {
-                        saveButton.disabled = true;
-                    }
-                    progressToUi('All loaded!', false);
+                    firebaseApi.authSecondServer();
                     break;
                 case firebaseApi.Signals.forksFailed:
                     firebaseApi.readForks(author);

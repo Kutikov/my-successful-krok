@@ -18,7 +18,7 @@ class PassedTesting {
     }
 
     static Draw(allPassedTestings, forkId) {
-        const passedTestingsHolder = document.getElementById('passedTestingsHolder'); //TODO tbody
+        const passedTestingsHolder = document.getElementById('passedTestingsHolder'); 
         while (passedTestingsHolder.firstChild) {
             passedTestingsHolder.removeChild(passedTestingsHolder.lastChild);
         }
@@ -27,24 +27,24 @@ class PassedTesting {
                 const passed = allPassedTestings[i];
                 const item = document.createElement('tr');
                 const unitText = document.createElement('td');
-                unitText.classList.add('.unitTextTesting');
+                unitText.className = 'unitTextTesting';
                 unitText.innerText = passed.unitId;
                 const devicesText = document.createElement('p');
                 devicesText.className = 'deviceTextLections';
                 devicesText.innerText = 'devices';
-                devicesText.style.color = passed.device.contains('1') ? '#2e7d32' : '#1565c0'
+                devicesText.style.color = passed.device.indexOf('1') != -1 ? '#2e7d32' : '#1565c0'
                 const dateText = document.createElement('td');
-                dateText.classList.add('.dateTextTesting');
+                dateText.className = 'dateTextTesting';
                 dateText.innerHTML = MStoDate(passed.startedOn).toString("d.MM.yy,<br/>HH:mm:ss");
                 const durationText = document.createElement('td');
-                durationText.classList.add('.durationTextTesting');
+                durationText.className = 'durationTextTesting';
                 durationText.innerText = MStoDate(passed.duration).toString("HH:mm:ss");
                 const percentText = document.createElement('td');
-                percentText.classList.add('.percentTextTesting');
+                percentText.className = 'percentTextTesting';
                 percentText.innerHTML = passed.percent.toString() + "%";
                 const testsText = document.createElement('td');
-                testsText.classList.add('.testsTextTesting');
-                testsText.innerHTML = passed.percent.toString();
+                testsText.className = 'testsTextTesting';
+                testsText.innerHTML = passed.allTests.toString();
                 item.append(unitText);
                 item.append(devicesText);
                 item.append(dateText);

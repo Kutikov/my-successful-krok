@@ -29,7 +29,7 @@ class PassedLection {
                 const devicesText = document.createElement('td');
                 devicesText.className = 'deviceTextLections';
                 devicesText.innerText = 'devices';
-                devicesText.style.color = passed.device.contains('1') ? '#2e7d32' : '#1565c0'
+                devicesText.style.color = passed.device.indexOf('1') != -1 ? '#2e7d32' : '#1565c0'
                 const startedText = document.createElement('td');
                 startedText.className = 'startedTextLections';
                 startedText.innerHTML = MStoDate(passed.startedOn).toString("d.MM.yy<br/>HH:mm:ss");
