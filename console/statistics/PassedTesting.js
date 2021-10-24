@@ -1,34 +1,33 @@
-class PassedTesting{
-    constructor(){
+class PassedTesting {
+    constructor() {
 
     }
 
-    static Decode(record, device){
+    static Decode(record, device) {
         const thisItem = new PassedTesting();
         thisItem.correctTests = record.correctTests;
         thisItem.allTests = record.allTests;
         thisItem.percent = Math.floor(record.correctTests / record.allTests * 100);
         thisItem.duration = record.duration;
-        thisItem.forkId = record.fork_unitId.split("@")[1];
-        thisItem.unitId = record.fork_unitId.split("@")[0];
+        thisItem.forkId = record.fork_unitId.split("@")[1].replace(/ø/g, ' ');
+        thisItem.unitId = record.fork_unitId.split("@")[0].replace(/ø/g, ' ');
         thisItem.startedOn = record.startedOn;
         thisItem.device = device;
         return thisItem;
     }
 
-    static Draw(allPassedTestings, forkId){
+    static Draw(allPassedTestings, forkId) {
         const passedTestingsHolder = document.getElementById('passedTestingsHolder'); //TODO tbody
-        while(passedTestingsHolder.firstChild){
-            passedTestingsHolder.remove(passedTestingsHolder.lastChild);
+        while (passedTestingsHolder.firstChild) {
+            passedTestingsHolder.removeChild(passedTestingsHolder.lastChild);
         }
-        for(let i = 0 ; i < allPassedTestings.length; i++){
-            if(allPassedTestings[i].forkId == forkId){
+        for (let i = 0; i < allPassedTestings.length; i++) {
+            if (allPassedTestings[i].forkId == forkId) {
                 const passed = allPassedTestings[i];
                 const item = document.createElement('tr');
-                item.classList.add('.testingsRow');
                 const unitText = document.createElement('td');
                 unitText.classList.add('.unitTextTesting');
-                unitText.innerText = passed.unitId.replace(/ø/g, ' ');
+                unitText.innerText = passed.unitId;
                 const devicesText = document.createElement('p');
                 devicesText.className = 'deviceTextLections';
                 devicesText.innerText = 'devices';

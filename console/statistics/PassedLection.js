@@ -1,46 +1,42 @@
-class PassedLection{
-    constructor(){
+class PassedLection {
+    constructor() {
 
     }
 
-    static Decode(record, device){
+    static Decode(record, device) {
         const thisItem = new PassedLection();
         thisItem.finishedOn = record.finishedOn;
         thisItem.startedOn = record.startedOn;
-        thisItem.duration = record.duration; 
-        thisItem.unitId = record.fork_unitId.split("@")[0];
-        thisItem.forkId = record.fork_unitId.split("@")[1];
+        thisItem.duration = record.duration;
+        thisItem.unitId = record.fork_unitId.split("@")[0].replace(/ø/g, ' ');
+        thisItem.forkId = record.fork_unitId.split("@")[1].replace(/ø/g, ' ');
         thisItem.device = device;
         return thisItem;
     }
-    static Draw(allPassedLections, forkId){
+
+    static Draw(allPassedLections, forkId) {
         const passedLectionsHolder = document.getElementById('passedLectionsHolder');
-        while(passedLectionsHolder.firstChild){
-            passedLectionsHolder.remove(passedLectionsHolder.lastChild);
+        while (passedLectionsHolder.firstChild) {
+            passedLectionsHolder.removeChild(passedLectionsHolder.lastChild);
         }
-        let r = 0;
-        for(let i = 0 ; i < allPassedLections.length; i++){
-            if(allPassedLections[i].forkId == forkId){
+        for (let i = 0; i < allPassedLections.length; i++) {
+            if (allPassedLections[i].forkId == forkId) {
                 const passed = allPassedLections[i];
-                const item = document.createElement('div');
-                item.classList.add('lectionsRow');
-                const unitText = document.createElement('p');
+                const item = document.createElement('tr');
+                const unitText = document.createElement('td');
                 unitText.classList.add('unitTextLections');
-                if(r % 2){
-                    unitText.classList.add('darkRow');
-                }
-                unitText.innerText = passed.unitId.replace(/ø/g, ' ');
-                const devicesText = document.createElement('p');
+                unitText.innerText = passed.unitId;
+                const devicesText = document.createElement('td');
                 devicesText.className = 'deviceTextLections';
                 devicesText.innerText = 'devices';
                 devicesText.style.color = passed.device.contains('1') ? '#2e7d32' : '#1565c0'
-                const startedText = document.createElement('p');
+                const startedText = document.createElement('td');
                 startedText.className = 'startedTextLections';
-                startedText.innerText = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.startedOn).toString("d.MM.yy, HH:mm:ss");
-                const finishText = document.createElement('p');
+                startedText.innerHTML = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.startedOn).toString("d.MM.yy<br/>HH:mm:ss");
+                const finishText = document.createElement('td');
                 finishText.className = 'finishedTextLections';
-                finishText.innerText = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.finishedOn).toString("d.MM.yy, HH:mm:ss");
-                const durationText = document.createElement('p');
+                finishText.innerHTML = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.finishedOn).toString("d.MM.yy<br/>HH:mm:ss");
+                const durationText = document.createElement('td');
                 durationText.className = 'durationTextLections';
                 durationText.innerText = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.duration).toString("HH:mm:ss");
                 item.append(unitText);
@@ -49,7 +45,6 @@ class PassedLection{
                 item.append(finishText);
                 item.append(durationText);
                 passedLectionsHolder.append(item);
-                r++;
             }
         }
     }

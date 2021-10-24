@@ -1,13 +1,18 @@
 .table_testings{
-    width: 100%;
-    display: table;
     border-collapse: collapse;
 }
 
-.table_testings_body:nth-child(even){
+tr{
+    padding-top: 4px; 
+    padding-bottom: 4px;
+}
+
+tbody:nth-child(even) tr:nth-child(odd){
     background-color: #eee;
 }
 
+.unitTextFails,
+.forkTextFails,
 .nameTextBuckets,
 .unitTextLections,
 .unitTextTesting {
@@ -28,8 +33,11 @@
     word-break: break-all;
 }
 
+.viewTextFails,
+.deviceTextFails,
 .deviceTextLections,
 .deviceTextTestings{
+    cursor: pointer;
     width: 5%;
     padding-top: 4px; 
     padding-bottom: 4px;
@@ -46,6 +54,7 @@
     -webkit-font-smoothing: antialiased;
 }
 
+.createdTextFails,
 .authorTextBuckets,
 .upToBucket,
 .startedTextLections,
