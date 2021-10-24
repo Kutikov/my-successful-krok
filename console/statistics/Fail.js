@@ -36,7 +36,7 @@ class Fail {
                 devicesText.style.color = passed.device.contains('1') ? '#2e7d32' : '#1565c0';
                 const createdText = document.createElement('td');
                 createdText.className = 'createdTextFails';
-                createdText.innerHTML = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.created).toString("d.MM.yy<br/>HH:mm:ss");
+                createdText.innerHTML = MStoDate(passed.created).toString("d.MM.yy<br/>HH:mm:ss");
                 const viewText = document.createElement('td');
                 viewText.className = 'viewTextFails';
                 viewText.innerText = 'visibility';

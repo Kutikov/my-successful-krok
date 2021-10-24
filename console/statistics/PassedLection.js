@@ -32,13 +32,13 @@ class PassedLection {
                 devicesText.style.color = passed.device.contains('1') ? '#2e7d32' : '#1565c0'
                 const startedText = document.createElement('td');
                 startedText.className = 'startedTextLections';
-                startedText.innerHTML = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.startedOn).toString("d.MM.yy<br/>HH:mm:ss");
+                startedText.innerHTML = MStoDate(passed.startedOn).toString("d.MM.yy<br/>HH:mm:ss");
                 const finishText = document.createElement('td');
                 finishText.className = 'finishedTextLections';
-                finishText.innerHTML = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.finishedOn).toString("d.MM.yy<br/>HH:mm:ss");
+                finishText.innerHTML = MStoDate(passed.finishedOn).toString("d.MM.yy<br/>HH:mm:ss");
                 const durationText = document.createElement('td');
                 durationText.className = 'durationTextLections';
-                durationText.innerText = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.duration).toString("HH:mm:ss");
+                durationText.innerText = MStoDate(passed.duration).toString("HH:mm:ss");
                 item.append(unitText);
                 item.append(devicesText);
                 item.append(startedText);

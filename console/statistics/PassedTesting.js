@@ -13,6 +13,7 @@ class PassedTesting {
         thisItem.unitId = record.fork_unitId.split("@")[0].replace(/ø/g, ' ');
         thisItem.startedOn = record.startedOn;
         thisItem.device = device;
+        Day.AddResult(thisItem);
         return thisItem;
     }
 
@@ -34,10 +35,10 @@ class PassedTesting {
                 devicesText.style.color = passed.device.contains('1') ? '#2e7d32' : '#1565c0'
                 const dateText = document.createElement('td');
                 dateText.classList.add('.dateTextTesting');
-                dateText.innerHTML = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.startedOn).toString("d.MM.yy,<br/>HH:mm:ss");
+                dateText.innerHTML = MStoDate(passed.startedOn).toString("d.MM.yy,<br/>HH:mm:ss");
                 const durationText = document.createElement('td');
                 durationText.classList.add('.durationTextTesting');
-                durationText.innerText = Date.today().addMilliseconds(-new Date().getTime()).addMilliseconds(passed.duration).toString("HH:mm:ss");
+                durationText.innerText = MStoDate(passed.duration).toString("HH:mm:ss");
                 const percentText = document.createElement('td');
                 percentText.classList.add('.percentTextTesting');
                 percentText.innerHTML = passed.percent.toString() + "%";
