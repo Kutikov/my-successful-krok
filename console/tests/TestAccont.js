@@ -56,36 +56,27 @@ class TestAccount{
         return testAccount;
     }
 
+    GetTestDialog(){
+        const contentL = document.getElementById('main-dialog-content');
+        this.DrawTestContents(contentL, -1);
+    }
+
+    GetTestFailCounter(fails, fork, unit){
+
+    }
 
     GetTestCard(order){
         this.answerTextArray = [];
         const id = 'answerCardM' + order;
         const contentL = document.getElementById('testCardTemplate').content.cloneNode(true);
-        const answersList = contentL.querySelector('.card__answers_list');
         const image_actions = contentL.querySelectorAll('.mdc-card__action--icon')
         contentL.querySelector('.mdc-card').id = id;
-        contentL.querySelector('.card__task').innerText = (order + 1).toString() + ". " + this.task;
-        if(this.comment != ''){
-            contentL.querySelector('.card__comment').innerText = this.comment;
-        }
-        else{
-            contentL.querySelector('.card__comment').style.display = 'none';
-        }
+        this.DrawTestContents(contentL, order);
         contentL.querySelector('.mdc-card__action--button').addEventListener('click', () => {
             currentTestAccount = this;
             dialog.open();
             this.GetTestEdit();
         });
-        for(let i = 0; i < this.answersTrue.length; i++){
-            const answerP = document.getElementById('answerCardPositiveTemplate').content.cloneNode(true);
-            answerP.querySelector('.card__answer').innerText = this.answersTrue[i].substring(1, this.answersTrue[i].length);
-            answersList.appendChild(answerP);
-        }
-        for(let i = 0; i < this.answersFalse.length; i++){
-            const answerP = document.getElementById('answerCardNegativeTemplate').content.cloneNode(true);
-            answerP.querySelector('.card__answer').innerText = this.answersFalse[i].substring(1, this.answersFalse[i].length);
-            answersList.appendChild(answerP);
-        }
         image_actions[0].addEventListener('click', () => {
             const parent = document.getElementById(id).parentNode;
             let index = 0;
@@ -133,6 +124,30 @@ class TestAccount{
         ripples = [].map.call(document.querySelectorAll(selector), function(el) {
             return new mdc.ripple.MDCRipple(el);
         });
+    }
+
+    DrawTestContents(contentL, order){
+        contentL.querySelector('.card__task').innerText = order == -1 ? this.task : (order + 1).toString() + ". " + this.task;
+        if(this.comment != ''){
+            contentL.querySelector('.card__comment').innerText = this.comment;
+        }
+        else{
+            contentL.querySelector('.card__comment').style.display = 'none';
+        }
+        const answersList = contentL.querySelector('.card__answers_list');
+        while(answersList.firstChild){
+            answersList.removeChild(answersList.lastChild);
+        }
+        for(let i = 0; i < this.answersTrue.length; i++){
+            const answerP = document.getElementById('answerCardPositiveTemplate').content.cloneNode(true);
+            answerP.querySelector('.card__answer').innerText = this.answersTrue[i].substring(1, this.answersTrue[i].length);
+            answersList.appendChild(answerP);
+        }
+        for(let i = 0; i < this.answersFalse.length; i++){
+            const answerP = document.getElementById('answerCardNegativeTemplate').content.cloneNode(true);
+            answerP.querySelector('.card__answer').innerText = this.answersFalse[i].substring(1, this.answersFalse[i].length);
+            answersList.appendChild(answerP);
+        }
     }
 
     static arraymove(arr, fromIndex, toIndex) {

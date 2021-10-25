@@ -29,7 +29,7 @@ class PassedTesting {
                 const unitText = document.createElement('td');
                 unitText.className = 'unitTextTesting';
                 unitText.innerText = passed.unitId;
-                const devicesText = document.createElement('p');
+                const devicesText = document.createElement('td');
                 devicesText.className = 'deviceTextLections';
                 devicesText.innerText = 'devices';
                 devicesText.style.color = passed.device.indexOf('1') != -1 ? '#2e7d32' : '#1565c0'

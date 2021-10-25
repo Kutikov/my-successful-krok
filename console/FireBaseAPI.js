@@ -712,6 +712,35 @@ class FireBaseAPI{
                 }
             });
     }
+
+    getTestById(testId, action){
+        let ref = this.realdatabase.ref('tests/' + testId);
+        ref.get().then((snapshot) => {
+            if(snapshot.exists()){
+                const test = TestAccount.Decode(testId, snapshot.val());
+                switch(action){
+                    case 'dialog':
+                        test.GetTestDialog();
+                        dialog.open();
+                        break;
+                }
+            }
+            else {
+                switch(action){
+                    case 'dialog':
+                        alert('no test');
+                        break;
+                }
+            }
+        }).catch((error) => {
+            console.log(error);
+            switch(action){
+                case 'dialog':
+                    alert('no test');
+                    break;
+            }
+        })
+    }
     //#endregion Statistics
     performDbAction(refs, objects, action, callback, i = 0){
         switch (action){

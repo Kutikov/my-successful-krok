@@ -39,6 +39,10 @@ class Fail {
                 createdText.innerHTML = MStoDate(passed.created).toString("d.MM.yy<br/>HH:mm:ss");
                 const viewText = document.createElement('td');
                 viewText.className = 'viewTextFails';
+                viewText.style.paddingRight = '4px';
+                viewText.onclick = function(){
+                    firebaseApi.getTestById(passed.testId, 'dialog');
+                }
                 viewText.innerText = 'visibility';
                 item.append(forkText);
                 item.append(unitText);

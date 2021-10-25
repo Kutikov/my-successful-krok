@@ -28,6 +28,8 @@
     <script src="Unit.js"></script>
     <script src="Fork.js"></script>
     <script src="FireBaseAPI.js"></script>
+    <script src="buckets/Bucket.js"></script>
+    <script src="tests/TestAccont.js"></script>
     <script src="statistics/Account.js"></script>
     <script src="statistics/date.js"></script>
     <script src="statistics/Fail.js"></script>
@@ -338,20 +340,7 @@
                                 <th class="upToBucket" style="font-weight: 600;">Актуален до</th>
                                 <th class="actionButtonBucket" style="font-weight: 600;">Действия</th>
                             </tr>
-                            <tbody id='passedBucketsHolder' class="table_testings">
-                                <tr>
-                                    <td class="nameTextBuckets">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="authorTextBuckets">Александр Козлов</td>
-                                    <td class="upToBucket">20.01.21<br />18:44:12</td>
-                                    <td class="actionButtonBucket" style="color: #c62828;">УДАЛИТЬ</td>
-                                </tr>
-                                <tr>
-                                    <td class="nameTextBuckets">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="authorTextBuckets">Александр Козлов</td>
-                                    <td class="upToBucket">20.01.21<br />18:44:12</td>
-                                    <td class="actionButtonBucket" style="color: #2e7d32;">ПОДТВЕРДИТЬ</td>
-                                </tr>
-                            </tbody>
+                            <tbody id='passedBucketsHolder' class="table_testings"></tbody>
                         </table>
                     </div>
                     <div class="mdc-card statistics_card">
@@ -364,29 +353,7 @@
                                 <th class="createdTextFails" style="font-weight: 600;">Время</th>
                                 <th class="viewTextFails">visibility</th>
                             </tr>
-                            <tbody id='failsHolder' class="table_testings">
-                                <tr>
-                                    <td class="forkTextFails">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="unitTextFails">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="deviceTextFails">devices</td>
-                                    <td class="createdTextFails">20.01.21<br />18:44:12</td>
-                                    <td class="viewTextFails">visibility</td>
-                                </tr>
-                                <tr>
-                                    <td class="forkTextFails">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="unitTextFails">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="deviceTextFails">devices</td>
-                                    <td class="createdTextFails">20.01.21<br />18:44:12</td>
-                                    <td class="viewTextFails">visibility</td>
-                                </tr>
-                                <tr>
-                                    <td class="forkTextFails">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="unitTextFails">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="deviceTextFails">devices</td>
-                                    <td class="createdTextFails">20.01.21<br />18:44:12</td>
-                                    <td class="viewTextFails">visibility</td>
-                                </tr>
-                            </tbody>
+                            <tbody id='failsHolder' class="table_testings"></tbody>
                         </table>
                     </div>
                     <div class="mdc-select mdc-select--outlined"
@@ -430,32 +397,7 @@
                                 <th class="testsTextTesting" style="font-weight: 600;">%</th>
                                 <th class="percentTextTesting" style="font-weight: 600;">Всего</th>
                             </tr>
-                            <tbody id='passedTestingsHolder' class="table_testings">
-                                <tr>
-                                    <td class="unitTextTesting">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="deviceTextTestings">devices</td>
-                                    <td class="dateTextTesting">20.01.21<br />18:44:12</td>
-                                    <td class="durationTextTesting">00:16:43</td>
-                                    <td class="testsTextTesting">100</td>
-                                    <td class="percentTextTesting">25</td>
-                                </tr>
-                                <tr>
-                                    <td class="unitTextTesting">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="deviceTextTestings">devices</td>
-                                    <td class="dateTextTesting">20.01.21<br />18:44:12</td>
-                                    <td class="durationTextTesting">00:16:43</td>
-                                    <td class="testsTextTesting">100</td>
-                                    <td class="percentTextTesting">25</td>
-                                </tr>
-                                <tr>
-                                    <td class="unitTextTesting">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="deviceTextTestings">devices</td>
-                                    <td class="dateTextTesting">20.01.21<br />18:44:12</td>
-                                    <td class="durationTextTesting">00:16:43</td>
-                                    <td class="testsTextTesting">100</td>
-                                    <td class="percentTextTesting">25</td>
-                                </tr>
-                            </tbody>
+                            <tbody id='passedTestingsHolder' class="table_testings"></tbody>
                         </table>
                     </div>
                     <div class="mdc-card statistics_card">
@@ -468,22 +410,7 @@
                                 <th class="finishedTextLections" style="font-weight: 600;">Окончено</th>
                                 <th class="durationTextLections" style="font-weight: 600;">В работе</th>
                             </tr>
-                            <tbody id='passedLectionsHolder' class="table_testings">
-                                <tr>
-                                    <td class="unitTextLections">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="deviceTextLections">devices</td>
-                                    <td class="startedTextLections">20.01.21<br />18:44:12</td>
-                                    <td class="finishedTextLections">20.01.21<br />18:44:12</td>
-                                    <td class="durationTextLections">00:16:43</td>
-                                </tr>
-                                <tr>
-                                    <td class="unitTextLections">Название dgtrhyt htdgts cdvgfbtf degtr</td>
-                                    <td class="deviceTextLections">devices</td>
-                                    <td class="startedTextLections">20.01.21<br />18:44:12</td>
-                                    <td class="finishedTextLections">20.01.21<br />18:44:12</td>
-                                    <td class="durationTextLections">00:16:43</td>
-                                </tr>
-                            </tbody>
+                            <tbody id='passedLectionsHolder' class="table_testings"></tbody>
                         </table>
                     </div>
                 </div>
@@ -497,9 +424,11 @@
         <div class="mdc-dialog__scrim" bis_skin_checked="1"></div>
         <div class="mdc-dialog__container" bis_skin_checked="1">
             <div class="mdc-dialog__surface" bis_skin_checked="1">
-                <h2 id="main-dialog-title" class="mdc-dialog__title">Измени</h2>
+                <h2 id="main-dialog-title" class="mdc-dialog__title">Ошибка в тесте</h2>
                 <section id="main-dialog-content" class="mdc-dialog__content">
-
+                    <p class="card__text card__task"></p>
+                    <div class="card__answers_list"></div>
+                    <p class="card__text card__comment"></p>
                 </section>
                 <footer class="mdc-dialog__actions">
                     <button type="button" class="mdc-button mdc-dialog__button mdc-ripple-upgraded"
@@ -528,7 +457,19 @@
             </div>
         </div>
     </div>
-
+    
+    <template id="answerCardPositiveTemplate">
+        <div style="display: flex; flex-direction: row; align-items: center;">
+            <span class="material-icons-answer positive__answer">done</span>
+            <p class="card__text card__answer positive__answer"></p>
+        </div>
+    </template>
+    <template id="answerCardNegativeTemplate">
+        <div style="display: flex; flex-direction: row; align-items: center;">
+            <span class="material-icons-answer negative__answer">clear</span>
+            <p class="card__text card__answer negative__answer"></p>
+        </div>
+    </template>
     <template id="listItemTemplate">
         <li class="mdc-list-item">
             <span class="mdc-list-item__ripple"></span>
@@ -572,11 +513,8 @@
         let chart;
         const author = getCookie('author');
 
-        let allUnitsArray = [];
-        let tablesArray = [];
         let forksArray = [];
-        let modulesArray = [];
-        let forkUnitHolder = {};
+        let allBucketsArray = [];
 
         let allFailsArr = [];
         let allTestingsArr = [];
@@ -649,9 +587,6 @@
         }
 
         function cancel() {
-            while (dialogContent.firstChild) {
-                dialogContent.removeChild(dialogContent.lastChild);
-            }
             dialog.close();
         }
 
@@ -778,6 +713,9 @@
                     break;
                 case firebaseApi.Signals.forksLoaded:
                 case firebaseApi.Signals.forksEmpty:
+                    firebaseApi.readAllBuckets();
+                    break;
+                case firebaseApi.Signals.bucketsLoaded:
                     firebaseApi.authSecondServer();
                     break;
                 case firebaseApi.Signals.forksFailed:
