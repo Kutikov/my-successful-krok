@@ -510,11 +510,17 @@
 
 
         const graphicHolder = document.getElementById('graphicHolder');
+        const forksSelector = document.getElementById('selectedFork');
+        const forksList = document.getElementById('forksList');
+        const accountsSelector = document.getElementById('selectedAccount');
+        const accountsList = document.getElementById('accountsList');
         let chart;
         const author = getCookie('author');
 
         let forksArray = [];
         let allBucketsArray = [];
+        const allUsersArray = [];
+        const forksNamesArray = [];
 
         let allFailsArr = [];
         let allTestingsArr = [];
@@ -696,26 +702,61 @@
 
         function coreSignalHandler(signal, mode = '') {
             console.log(signal + ' ' + mode);
-            progressToUi('Loading conents...');
+            progressToUi('Loading contents...');
             switch (signal) {
                 case firebaseApi.Signals.loggedIn:
                     firebaseApi.readForks(author);
                     break;
                 case firebaseApi.Signals.firestoreAuth:
-                    firebaseApi.readAccount('iv.ser.volov@gmail.com', 'kharkiv2');
+                    for(let i = 0; i < allUsersArray.length; i++){
+                        const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
+                        listItem.querySelector('.mdc-list-item__text').innerText = allUsersArray[i].email;
+                        listItem.querySelector('.mdc-list-item').dataset.value = allUsersArray[i].email;
+                        accountsList.appendChild(listItem);
+                    }
+                    accountsSelector.addEventListener("DOMSubtreeModified", (i) => {
+                        if(accountsSelector.innerText != ''){
+                            for(let j = 0; j < allUsersArray.length; j++){
+                                if(allUsersArray[j].email == accountsSelector.innerText){
+                                    progressToUi('Loading contents...');
+                                    firebaseApi.readAccount(allUsersArray[j].email, allUsersArray[j].server);
+                                }
+                            }
+                        }
+                    });
+                    progressToUi('All loaded!', false);
                     break;
                 case firebaseApi.Signals.firestoreRead:
                     Day.GetChart();
-                    PassedLection.Draw(allLecionsArr, 'New module');
-                    Fail.Draw(allFailsArr, ['New module']);
-                    PassedTesting.Draw(allTestingsArr, 'New module');
+                    Fail.Draw(allFailsArr, forksNamesArray);
+                    forksSelector.innerText = '';
                     progressToUi('All loaded!', false);
                     break;
                 case firebaseApi.Signals.forksLoaded:
                 case firebaseApi.Signals.forksEmpty:
                     firebaseApi.readAllBuckets();
+                    for(let i = 0; i < forksArray.length; i++){
+                        forksNamesArray.push(forksArray[i].name);
+                        const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
+                        listItem.querySelector('.mdc-list-item__text').innerText = forksArray[i].name;
+                        listItem.querySelector('.mdc-list-item').dataset.value = forksArray[i].name;
+                        forksList.appendChild(listItem);
+                    }
+                    forksSelector.addEventListener("DOMSubtreeModified", (i) => {
+                        if(forksSelector.innerText != ''){
+                            PassedTesting.Draw(allTestingsArr, forksSelector.innerText);
+                            PassedLection.Draw(allLecionsArr, forksSelector.innerText);
+                        }
+                        else{
+                            PassedTesting.Wipe();
+                            PassedLection.Wipe();
+                        }
+                    });
                     break;
                 case firebaseApi.Signals.bucketsLoaded:
+                    firebaseApi.loadAllUsers();
+                    break;
+                case firebaseApi.Signals.usersListLoaded:
                     firebaseApi.authSecondServer();
                     break;
                 case firebaseApi.Signals.forksFailed:

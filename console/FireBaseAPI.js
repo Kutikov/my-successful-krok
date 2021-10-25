@@ -37,6 +37,10 @@ class FireBaseAPI{
         unitFailed: 'unitFailed',
         unitEmpty: 'unitEmpty',
 
+        usersListLoaded: 'usersListLoaded',
+        usersListFailed: 'usersListFailed',
+        usersListEmpty: 'usersListEmpty',
+
         firestoreAuth: 'firestoreAuth',
         firestoreRead: 'firestoreRead',
         firestoreFail: 'firestoreFail'
@@ -653,7 +657,7 @@ class FireBaseAPI{
             .then((doc) => {
                 if (doc.exists) {
                     const acc = Account.Decode(doc.data());
-                    acc.Draw();
+                    acc.Draw(email, server);
                     allLecionsArr = [];
                     allLecionsArr = [];
                     allTestingsArr = [];
@@ -713,6 +717,38 @@ class FireBaseAPI{
             });
     }
 
+    updateBucketQuery(email, serverId, updateObj){
+        let targerFireStore = null;
+        switch(serverId){
+            case FireBaseAPI.Servers.kharkiv1:
+                targerFireStore = this.firestore;
+                break;
+            case FireBaseAPI.Servers.kharkiv2:
+                targerFireStore = this.regFirebase.firestore();
+                break;
+        }
+        const userRecord = targerFireStore.collection("users").doc(email);
+        userRecord.get()
+            .then((doc) => {
+                if(doc.exists){
+                    userRecord
+                        .update(updateObj)
+                        .then(() => {
+                            console.log("updated!");
+                        })
+                        .catch((error) => {
+                            console.error("Error updating document: ", error);
+                        });
+                }
+                else{
+                    console.log("No such document!");
+                }
+            })
+            .catch((error) => {
+                console.log("Error getting document:", error);
+            });
+    }
+
     getTestById(testId, action){
         let ref = this.realdatabase.ref('tests/' + testId);
         ref.get().then((snapshot) => {
@@ -739,6 +775,28 @@ class FireBaseAPI{
                     alert('no test');
                     break;
             }
+        })
+    }
+
+    loadAllUsers(){
+        let ref = this.realdatabase.ref('users');
+        ref.get().then((snapshot) => {
+            if(snapshot.exists()){
+                for(const emailP in snapshot.val()){
+                    allUsersArray.push({
+                        email: emailP.replace(/ø/g, '.') + '@gmail.com',
+                        server: snapshot.val()[emailP]
+                    });
+                }
+                coreSignalHandler(this.Signals.usersListLoaded, this.Mode.read);
+            }
+            else {
+                allUnitsArray = [];
+                coreSignalHandler(this.Signals.usersListEmpty, this.Mode.read);
+            }
+        }).catch((error) => {
+            console.log(error);
+            coreSignalHandler(this.Signals.usersListFailed, this.Mode.read);
         })
     }
     //#endregion Statistics

@@ -55,4 +55,11 @@ class PassedTesting {
             }
         }
     }
+
+    static Wipe(){
+        const passedTestingsHolder = document.getElementById('passedTestingsHolder'); 
+        while (passedTestingsHolder.firstChild) {
+            passedTestingsHolder.removeChild(passedTestingsHolder.lastChild);
+        }
+    }
 }

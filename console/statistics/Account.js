@@ -18,11 +18,16 @@ class Account{
             account.dev2 = null;
         }
         account.purchaseRequest = record.purchaseRequest;
-        account.purchasedBuckets = JSON.parse(record.purchasedBuckets);
+        if(record.purchasedBuckets != null){
+            account.purchasedBuckets = JSON.parse(record.purchasedBuckets);
+        }
+        else{
+            account.purchasedBuckets = null;
+        }
         return account;
     }
 
-    Draw(){
+    Draw(email, server){
         document.getElementById('devMod1').innerText = this.dev1 != null ? this.dev1.model : '-';
         document.getElementById('devOs1').innerText = this.dev1 != null ? this.dev1.realise : '-';
         document.getElementById('devId1').innerText = this.dev1 != null ? this.dev1.id : '-';
@@ -39,60 +44,89 @@ class Account{
         while (bucketsHolder.firstChild) {
             bucketsHolder.removeChild(bucketsHolder.lastChild);
         }
-        for(const bucketId in this.purchasedBuckets){
-            for(let i = 0; i < allBucketsArray.length; i++){
-                if(allBucketsArray[i].bucketId.toString() == bucketId){
-                    const passed = allBucketsArray[i];
-                    this.DrawItem(
-                        passed.name, 
-                        passed.beneficiary, 
-                        MStoDate(this.purchasedBuckets[bucketId]).addMonths(passed.TTL).toString("d.MM.yy,<br/>HH:mm:ss"),
-                        'remove');
-                    break;
+        if(this.purchasedBuckets != null){
+            for(const bucketId in this.purchasedBuckets){
+                for(let i = 0; i < allBucketsArray.length; i++){
+                    if(allBucketsArray[i].bucketId.toString() == bucketId){
+                        const passed = allBucketsArray[i];
+                        this.DrawItem({
+                            bucketId: bucketId,
+                            name: passed.name, 
+                            author: passed.beneficiary, 
+                            date: MStoDate(this.purchasedBuckets[bucketId]).addMonths(passed.TTL).toString("d.MM.yy,<br/>HH:mm:ss"),
+                            action: 'remove',
+                            email: email,
+                            server: server
+                        });
+                        break;
+                    }
                 }
             }
         }
-        if(this.purchaseRequest.status == 'PENDING'){
-            for(let i = 0; i < allBucketsArray.length; i++){
-                if(allBucketsArray[i].bucketId.toString() == this.purchaseRequest.bucketId){
-                    const passed = allBucketsArray[i];
-                    this.DrawItem(
-                        passed.name, 
-                        passed.beneficiary, 
-                        '-',
-                        'confirm');
-                    break;
+        if(this.purchaseRequest != null){
+            if(this.purchaseRequest.status == 'PENDING'){
+                for(let i = 0; i < allBucketsArray.length; i++){
+                    if(allBucketsArray[i].bucketId.toString() == this.purchaseRequest.bucketId){
+                        const passed = allBucketsArray[i];
+                        this.DrawItem({
+                            bucketId: this.purchaseRequest.bucketId,
+                            name: passed.name, 
+                            author: passed.beneficiary, 
+                            date: '-',
+                            action: 'confirm',
+                            email: email,
+                            server: server
+                        });
+                        break;
+                    }
                 }
             }
         }
     }
 
-    DrawItem(name, author, date, action){
+    DrawItem(param){
+        const holder = document.getElementById('passedBucketsHolder');
         const item = document.createElement('tr');
         const nameText = document.createElement('td');
         nameText.className = 'nameTextBuckets';
-        nameText.innerText = name;
+        nameText.innerText = param.name;
         const authorText = document.createElement('td');
         authorText.className = 'authorTextBuckets';
-        authorText.innerHTML = author;
+        authorText.innerHTML = param.author;
         const dateText = document.createElement('td');
         dateText.className = 'upToBucket';
-        dateText.innerHTML = date;
+        dateText.innerHTML = param.date;
         const button = document.createElement('td');
         button.className = 'actionButtonBucket';
-        switch(action){
+        switch(param.action){
             case 'remove':
+                //{"1633690537058":1634497163079,"1630266739404":1634497162436}
+                const purchasedBuckets = this.purchasedBuckets;
                 button.style.color = '#c62828';
                 button.innerText = 'УДАЛИТЬ'
                 button.onclick = function(){
-                    alert('remove');
+                    if(confirm('Вы уверены, что хотите заблокировать доступ к этому бакету?')){
+                        delete purchasedBuckets[param.bucketId];
+                        firebaseApi.updateBucketQuery(param.email, param.server, {
+                            purchasedBuckets: JSON.stringify(purchasedBuckets)
+                        });
+                        item.remove();
+                    }
                 }
                 break;
             case 'confirm':
                 button.style.color = '#2e7d32';
                 button.innerText = 'ПРИНЯТЬ'
                 button.onclick = function(){
-                    alert('confirm');
+                    if(confirm('Вы уверены, что хотите одобрить доступ к этому бакету?')){
+                        firebaseApi.updateBucketQuery(param.email, param.server, {
+                            purchaseRequest: {
+                                status: "PURCHASED",
+                                bucketId: param.bucketId
+                            }
+                        });
+                        item.remove();
+                    }
                 }
                 break;
         }
@@ -100,6 +134,6 @@ class Account{
         item.append(authorText);
         item.append(dateText);
         item.append(button);
-        document.getElementById('passedBucketsHolder').append(item);
+        holder.append(item);
     }
 }

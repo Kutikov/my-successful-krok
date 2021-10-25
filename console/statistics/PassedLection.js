@@ -48,4 +48,11 @@ class PassedLection {
             }
         }
     }
+
+    static Wipe(){
+        const passedLectionsHolder = document.getElementById('passedLectionsHolder');
+        while (passedLectionsHolder.firstChild) {
+            passedLectionsHolder.removeChild(passedLectionsHolder.lastChild);
+        }
+    }
 }
