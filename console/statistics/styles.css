@@ -11,6 +11,46 @@ tbody:nth-child(even) tr:nth-child(odd){
     background-color: #eee;
 }
 
+.ratingTableUnit,
+.ratingTableFork,
+.ratingTableCount{
+    width: 65%;
+    padding-top: 4px; 
+    padding-bottom: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    vertical-align: middle;
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    text-decoration: inherit;
+    text-transform: inherit;
+    word-break: break-all;
+}
+
+.ratingTableUnitT,
+.ratingTableForkT,
+.ratingTableCountT{
+    width: 35%;
+    padding-top: 4px; 
+    padding-bottom: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    vertical-align: middle;
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    text-decoration: inherit;
+    text-transform: inherit;
+    word-break: break-all;
+}
+
 .unitTextFails,
 .forkTextFails,
 .nameTextBuckets,

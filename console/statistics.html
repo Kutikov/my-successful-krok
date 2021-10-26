@@ -193,6 +193,8 @@
             </div>
             <div id="testListMainPage" class="testListMainPage">
 
+                <div id="ratingPanel"></div>
+
                 <div id="accountsPanel"
                     style="display: flex; flex-direction: row; flex-wrap: wrap; margin-right: 8px; margin-left: 8px;justify-content: space-between;">
                     <div class="mdc-select mdc-select--outlined"
@@ -227,7 +229,8 @@
                     </div>
                     <div class="mdc-card statistics_card">
                         <p class="card__text card_title">График тестирования</p>
-                        <div style="width: 100%; height: 244px; margin-top: -12px; padding-right: 4px; padding-left: 4px;" id="graphicHolder">
+                        <div style="width: 100%; height: 244px; margin-top: -12px; padding-right: 4px; padding-left: 4px;"
+                            id="graphicHolder">
                         </div>
                         <table style="margin-right: 12px; margin-left: 12px;">
                             <tbody>
@@ -269,63 +272,69 @@
                         <table style="margin-left: 4px; margin-right: 4px; margin-top: -6px;">
                             <tr>
                                 <th colspan="2">
-                                    <div style="display: flex; flex-direction: row; flex-wrap: nowrap; margin-right:4px; margin-left: 4px;">
+                                    <div
+                                        style="display: flex; flex-direction: row; flex-wrap: nowrap; margin-right:4px; margin-left: 4px;">
                                         <i class="material-icons" style="color: #2e7d32;">devices</i>
-                                        <p class="card__text" style="margin-top: 0; margin-bottom: 0; color: #2e7d32; font-weight: 600;">Устройство №1
+                                        <p class="card__text"
+                                            style="margin-top: 0; margin-bottom: 0; color: #2e7d32; font-weight: 600;">
+                                            Устройство №1
                                         </p>
                                     </div>
                                 </th>
                             </tr>
                             <tbody>
                                 <tr>
-                                    <td class="card__text card_item_text" >Модель</td>
+                                    <td class="card__text card_item_text">Модель</td>
                                     <td class="card__text card_item_text" id="devMod1">-</td>
                                 </tr>
                                 <tr>
-                                    <td class="card__text card_item_text" >Версия Android</td>
+                                    <td class="card__text card_item_text">Версия Android</td>
                                     <td class="card__text card_item_text" id="devOs1">-</td>
                                 </tr>
                                 <tr>
-                                    <td class="card__text card_item_text" >ID устройства</td>
+                                    <td class="card__text card_item_text">ID устройства</td>
                                     <td class="card__text card_item_text" id="devId1">-</td>
                                 </tr>
                                 <tr>
-                                    <td class="card__text card_item_text" >Активировано</td>
+                                    <td class="card__text card_item_text">Активировано</td>
                                     <td class="card__text card_item_text" id="devAct1">-</td>
                                 </tr>
                                 <tr>
-                                    <td class="card__text card_item_text" >Последняя синхронизация</td>
+                                    <td class="card__text card_item_text">Последняя синхронизация</td>
                                     <td class="card__text card_item_text" id="devSync1">-</td>
                                 </tr>
                             </tbody>
                             <tr>
                                 <th colspan="2">
-                                    <div style="display: flex; flex-direction: row; flex-wrap: nowrap; margin-right:4px; margin-left: 4px;">
+                                    <div
+                                        style="display: flex; flex-direction: row; flex-wrap: nowrap; margin-right:4px; margin-left: 4px;">
                                         <i class="material-icons" style="color: #1565c0;">devices</i>
-                                        <p class="card__text" style="margin-top: 0; margin-bottom: 0; color: #1565c0; font-weight: 600;">Устройство №2
+                                        <p class="card__text"
+                                            style="margin-top: 0; margin-bottom: 0; color: #1565c0; font-weight: 600;">
+                                            Устройство №2
                                         </p>
                                     </div>
                                 </th>
                             </tr>
                             <tbody>
                                 <tr>
-                                    <td class="card__text card_item_text" >Модель</td>
+                                    <td class="card__text card_item_text">Модель</td>
                                     <td class="card__text card_item_text" id="devMod2">-</td>
                                 </tr>
                                 <tr>
-                                    <td class="card__text card_item_text" >Версия Android</td>
+                                    <td class="card__text card_item_text">Версия Android</td>
                                     <td class="card__text card_item_text" id="devOs2">-</td>
                                 </tr>
                                 <tr>
-                                    <td class="card__text card_item_text" >ID устройства</td>
+                                    <td class="card__text card_item_text">ID устройства</td>
                                     <td class="card__text card_item_text" id="devId2">-</td>
                                 </tr>
                                 <tr>
-                                    <td class="card__text card_item_text" >Активировано</td>
+                                    <td class="card__text card_item_text">Активировано</td>
                                     <td class="card__text card_item_text" id="devAct2">-</td>
                                 </tr>
                                 <tr>
-                                    <td class="card__text card_item_text" >Последняя синхронизация</td>
+                                    <td class="card__text card_item_text">Последняя синхронизация</td>
                                     <td class="card__text card_item_text" id="devSync2">-</td>
                                 </tr>
                             </tbody>
@@ -437,6 +446,31 @@
             </div>
         </div>
     </div>
+
+    <template id="ratingCardTemplate">
+        <div class='mdc-card'
+            style="margin-top: 6px; margin-bottom: 8px; background-color: #fff; margin-left: 16px; margin-right: 16px;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="ratingTableForkT">Раздел</td>
+                        <td class="ratingTableFork">-</td>
+                    </tr>
+                    <tr>
+                        <td class="ratingTableUnitT">Лекция</td>
+                        <td class="ratingTableUnit">-</td>
+                    </tr>
+                    <tr>
+                        <td class="ratingTableCountT">Ошибок</td>
+                        <td class="ratingTableCount">-</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="card__text card__task"></p>
+            <div class="card__answers_list"></div>
+            <p class="card__text card__comment"></p>
+        </div>
+    </template>
     <div id="loadingTemplate"
         style="bottom: 0; top: 0; right: 0; left: 0; position: absolute;background-color: #fff; display: none; align-items: center; flex-direction: row; z-index: 10000;">
         <div style="display: flex; width: 100%; align-items: center; flex-direction: column;">
@@ -457,7 +491,7 @@
             </div>
         </div>
     </div>
-    
+
     <template id="answerCardPositiveTemplate">
         <div style="display: flex; flex-direction: row; align-items: center;">
             <span class="material-icons-answer positive__answer">done</span>
@@ -675,6 +709,18 @@
             updateDesign();
         }
 
+        function ratingRenderer(order) {
+            const nextI = order + 1;
+            if (allRating.length > nextI) {
+                if (forksArray.includes(allRating[nextI].fork)) {
+                    firebaseApi.getTestById(allRating[nextI].testId, nextI.toString());
+                }
+                else {
+                    ratingRenderer(nextI);
+                }
+            }
+        }
+
         function drawerHandler(str) {
             const thisPage = "statistics";
             drawer2.open = false;
@@ -708,16 +754,16 @@
                     firebaseApi.readForks(author);
                     break;
                 case firebaseApi.Signals.firestoreAuth:
-                    for(let i = 0; i < allUsersArray.length; i++){
+                    for (let i = 0; i < allUsersArray.length; i++) {
                         const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
                         listItem.querySelector('.mdc-list-item__text').innerText = allUsersArray[i].email;
                         listItem.querySelector('.mdc-list-item').dataset.value = allUsersArray[i].email;
                         accountsList.appendChild(listItem);
                     }
                     accountsSelector.addEventListener("DOMSubtreeModified", (i) => {
-                        if(accountsSelector.innerText != ''){
-                            for(let j = 0; j < allUsersArray.length; j++){
-                                if(allUsersArray[j].email == accountsSelector.innerText){
+                        if (accountsSelector.innerText != '') {
+                            for (let j = 0; j < allUsersArray.length; j++) {
+                                if (allUsersArray[j].email == accountsSelector.innerText) {
                                     progressToUi('Loading contents...');
                                     firebaseApi.readAccount(allUsersArray[j].email, allUsersArray[j].server);
                                 }
@@ -735,19 +781,23 @@
                 case firebaseApi.Signals.forksLoaded:
                 case firebaseApi.Signals.forksEmpty:
                     firebaseApi.readAllBuckets();
-                    for(let i = 0; i < forksArray.length; i++){
+                    for (let i = 0; i < forksArray.length; i++) {
                         forksNamesArray.push(forksArray[i].name);
                         const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
                         listItem.querySelector('.mdc-list-item__text').innerText = forksArray[i].name;
                         listItem.querySelector('.mdc-list-item').dataset.value = forksArray[i].name;
                         forksList.appendChild(listItem);
                     }
+                    const listItem = document.getElementById('listItemTemplate').content.cloneNode(true);
+                    listItem.querySelector('.mdc-list-item__text').innerText = 'Работа над ошибками';
+                    listItem.querySelector('.mdc-list-item').dataset.value = 'Работа над ошибками';
+                    forksList.appendChild(listItem);
                     forksSelector.addEventListener("DOMSubtreeModified", (i) => {
-                        if(forksSelector.innerText != ''){
+                        if (forksSelector.innerText != '') {
                             PassedTesting.Draw(allTestingsArr, forksSelector.innerText);
                             PassedLection.Draw(allLecionsArr, forksSelector.innerText);
                         }
-                        else{
+                        else {
                             PassedTesting.Wipe();
                             PassedLection.Wipe();
                         }

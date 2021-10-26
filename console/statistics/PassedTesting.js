@@ -9,8 +9,14 @@ class PassedTesting {
         thisItem.allTests = record.allTests;
         thisItem.percent = Math.floor(record.correctTests / record.allTests * 100);
         thisItem.duration = record.duration;
-        thisItem.forkId = record.fork_unitId.split("@")[1].replace(/ø/g, ' ');
-        thisItem.unitId = record.fork_unitId.split("@")[0].replace(/ø/g, ' ');
+        if (record.fork_unitId) {
+            thisItem.forkId = record.fork_unitId.split("@")[1].replace(/ø/g, ' ');
+            thisItem.unitId = record.fork_unitId.split("@")[0].replace(/ø/g, ' ');
+        }
+        else {
+            thisItem.forkId = 'Работа над ошибками';
+            thisItem.unitId = 'Работа над ошибками';
+        }
         thisItem.startedOn = record.startedOn;
         thisItem.device = device;
         Day.AddResult(thisItem);
@@ -18,7 +24,7 @@ class PassedTesting {
     }
 
     static Draw(allPassedTestings, forkId) {
-        const passedTestingsHolder = document.getElementById('passedTestingsHolder'); 
+        const passedTestingsHolder = document.getElementById('passedTestingsHolder');
         while (passedTestingsHolder.firstChild) {
             passedTestingsHolder.removeChild(passedTestingsHolder.lastChild);
         }
@@ -56,8 +62,8 @@ class PassedTesting {
         }
     }
 
-    static Wipe(){
-        const passedTestingsHolder = document.getElementById('passedTestingsHolder'); 
+    static Wipe() {
+        const passedTestingsHolder = document.getElementById('passedTestingsHolder');
         while (passedTestingsHolder.firstChild) {
             passedTestingsHolder.removeChild(passedTestingsHolder.lastChild);
         }
