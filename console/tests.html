@@ -477,7 +477,7 @@
             if(window.innerWidth < 256 + 32 + 800){
                 document.getElementById('drawerHolder').style.display = 'none';
                 document.getElementById('burger').style.display = 'block';
-                modalDrawer.append(fixedDrawer.children[0]);
+                modalDrawer.append(fixedDrawer.children[0] || '');
                 while(fixedDrawer.firstChild){
                     fixedDrawer.removeChild(fixedDrawer.firstChild)
                 }
@@ -486,7 +486,7 @@
                 drawer2.open = false;
                 document.getElementById('drawerHolder').style.display = 'block';
                 document.getElementById('burger').style.display = 'none';
-                fixedDrawer.append(modalDrawer.children[0]);
+                fixedDrawer.append(modalDrawer.children[0] || '');
                 while(modalDrawer.firstChild){
                     modalDrawer.removeChild(modalDrawer.firstChild)
                 }

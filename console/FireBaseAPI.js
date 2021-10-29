@@ -700,6 +700,7 @@ class FireBaseAPI {
                                         found = true;
                                         allRating[i].count = allRating[i].count + doc.data()[testId];
                                     }
+                                    i++;
                                 }
                                 if (!found) {
                                     allRating.push({
@@ -710,7 +711,7 @@ class FireBaseAPI {
                                 }
                             }
                         });
-                        allRating.sort((a, b) => (a.count > b.count) ? 1 : ((b.count > a.count) ? -1 : 0));
+                        allRating.sort((b, a) => (a.count > b.count) ? 1 : ((b.count > a.count) ? -1 : 0));
                         coreSignalHandler(this.Signals.firestoreRatingRead, this.Mode.read);
                     });
             });
