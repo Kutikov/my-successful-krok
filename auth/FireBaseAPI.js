@@ -45,8 +45,12 @@ class FireBaseAPI{
                     if(this.verifyOnLoadActions()){
                         const cookie = document.cookie.replace(/(?:(?:^|.*;\s*)cr\s*\=\s*([^;]*).*$)|^.*$/, "$1");
                         if(cookie != ''){
-                            console.log(cookie);
-                            firebase.auth().signOut ()
+                            if(window.location.split('?') == 'logout'){
+                                document.cookie = 'author=; path=/';
+                                document.cookie = 'cr=; path=/';
+                                changeCard('login');
+                            }
+                            firebase.auth().signOut()
                                 .then(() => {
                                 })
                                 .catch((error) => {
