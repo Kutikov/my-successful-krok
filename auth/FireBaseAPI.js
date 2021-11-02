@@ -45,7 +45,7 @@ class FireBaseAPI{
                     if(this.verifyOnLoadActions()){
                         const cookie = document.cookie.replace(/(?:(?:^|.*;\s*)cr\s*\=\s*([^;]*).*$)|^.*$/, "$1");
                         if(cookie != ''){
-                            if(window.location.toString().split('?') == 'logout'){
+                            if(window.location.toString().endsWith('logout')){
                                 document.cookie = 'author=; path=/';
                                 document.cookie = 'cr=; path=/';
                                 changeCard('login');
