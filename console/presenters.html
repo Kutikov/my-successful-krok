@@ -129,9 +129,12 @@
             <div style="width: 256px; flex-grow: 0; flex-shrink: 0;" id="drawerHolder">
                 <aside id="fixedDrawer" class="mdc-drawer mdc-drawer--fixed">
                     <div class="mdc-drawer__content">
-                        <div class="mdc-drawer__header">
-                          <h3 class="mdc-drawer__title">Alexander KOZLOV</h3>
-                          <h6 class="mdc-drawer__subtitle">kozlov@karazin.ua</h6>
+                        <div style="display: flex; flex-direction: row; align-items: center;">
+                            <div class="mdc-drawer__header">
+                              <h3 class="mdc-drawer__title">Unknown author</h3>
+                              <h6 class="mdc-drawer__subtitle">-</h6>
+                            </div>
+                            <a class="material-icons" style="cursor: pointer;" onclick="logout()">logout</a>
                         </div>
                         <div class="mdc-list" aria-orientation="vertical" id="drawerRootFixed">
                             <a class="mdc-list-item mdc-list-item--activated accordion" href="javascript:drawerHandler('PRESENTERS');">
@@ -1095,6 +1098,12 @@
             return null;
         }
 
+        function logout(){
+            document.cookie = 'author=; path=/';
+            document.cookie = "cr=; path=/"
+            window.open("https://kutikov.github.io/my-successful-krok/auth/index.html", "_self");
+        }
+        
         function updateClone(){
             let el = document.getElementById('edit_dialog-dialog-content');
             let elClone = el.cloneNode(true);

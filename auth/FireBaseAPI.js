@@ -215,7 +215,7 @@ class FireBaseAPI{
             .then((userCredential) => {
                 const user = userCredential.user;
                 const loginPass = { lg: user.email, ps: password, ver: user.emailVerified };
-                document.cookie = "cr=" + JSON.stringify(loginPass);
+                document.cookie = "cr=" + JSON.stringify(loginPass) + '; path=/';
                 switch(user.email){
                     case 'site@karazin.com':
                         document.cookie = 'author=Site; path=/';
