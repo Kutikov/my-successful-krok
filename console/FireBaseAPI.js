@@ -260,7 +260,7 @@ class FireBaseAPI {
                     Kozlov: ['КРОК 1 з поясненнями', 'Курси до КРОК 1']
                 }
                 for (const tableId in snapshot.val()) {
-                    if(author = 'Kutikov'){
+                    if(author == 'Kutikov'){
                         tablesArrayLocal.push(Table.Decode(tableId, snapshot.val()[tableId]));
                     }
                     else{
