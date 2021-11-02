@@ -739,7 +739,12 @@
             drawer2.open = false;
             switch (str) {
                 case 'BUCKETS':
-                    window.open(window.location.toString().replaceAll(thisPage, "buckets"), "_self");
+                    if(author == 'Kutikov'){
+                        window.open(window.location.toString().replaceAll(thisPage, "buckets"), "_parent");
+                    }
+                    else{
+                        alert('Вы не имеете доступа к этому разделу!')
+                    }
                     break;
                 case 'PRESENTERS':
                     window.open(window.location.toString().replaceAll(thisPage, "presenters"), "_self");

@@ -1364,7 +1364,12 @@
                     Fork.CreateFork();
                     break;
                 case 'BUCKETS':
-                    window.open(window.location.toString().replaceAll(thisPage, "buckets"), "_parent");
+                    if(author == 'Kutikov'){
+                        window.open(window.location.toString().replaceAll(thisPage, "buckets"), "_parent");
+                    }
+                    else{
+                        alert('Вы не имеете доступа к этому разделу!')
+                    }
                     break;
                 case 'PRESENTERS':
                     window.open(window.location.toString().replaceAll(thisPage, "presenters"), "_self");
