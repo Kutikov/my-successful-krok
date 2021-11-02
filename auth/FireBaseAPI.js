@@ -49,6 +49,7 @@ class FireBaseAPI{
                                 document.cookie = 'author=; path=/';
                                 document.cookie = 'cr=; path=/';
                                 changeCard('login');
+                                return;
                             }
                             firebase.auth().signOut()
                                 .then(() => {
