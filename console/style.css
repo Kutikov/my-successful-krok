@@ -461,3 +461,44 @@
         display: none;
     }
 }
+
+menu {
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 4px !important;
+    position:absolute;
+    text-align: center;
+    display:block;
+    left:0px;
+    top:0px;
+    height:20px;
+    width:20px;
+    padding:0;
+    margin:0;
+    background-color:#eee;
+    font-weight:normal;
+    white-space:nowrap;
+}
+menu:hover{
+    background-color:#ccc;
+}
+menu:hover > menu{
+    display:block;
+}
+menu > menu{
+    padding: 4px 8px !important;
+    display:none;
+    position:relative;
+    top:-20px;
+    left:100%;
+    width:112px;
+}
+menu[title]:before{
+    content:attr(title);
+}
+
+
+menu:not([title]):before{
+    content:"\2630";
+}

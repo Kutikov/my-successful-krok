@@ -56,9 +56,16 @@ class Paragraph{
         this.textList = Paragraph.TextList.nl;
     }
 
-    static PrepareEdit(props, contentL){
+    static FormatString(inputArea, tag){
+        let start = inputArea.value.toString().substring(0, inputArea.selectionStart);
+        let selection = inputArea.value.toString().substring(inputArea.selectionStart, inputArea.selectionEnd);
+        let end = inputArea.value.toString().substring(inputArea.selectionEnd, inputArea.value.toString().length);
+        return start + '<' + tag + '>' + selection + '</' + tag + '>' + end;
+    }
 
-        document.getElementById('paragraphEditTextArea').value = '';
+    static PrepareEdit(props, contentL){
+        const inputArea = document.getElementById('paragraphEditTextArea');
+        inputArea.value = '';
         const buttons = [ 'b_paragraph', 'i_paragraph', 'u_paragraph' ];
         for(let it in Paragraph.TextSize){
             buttons.push(Paragraph.TextSize[it] + '_paragraph');
@@ -74,7 +81,43 @@ class Paragraph{
         }
 
         document.getElementById('paragraphEditorHolder').style.display = 'block';
-        document.getElementById('paragraphEditTextArea').value = props.text;
+        inputArea.value = props.text;
+        inputArea.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            const menu = document.createElement('menu');
+            const boldMenu = document.createElement('menu');
+            boldMenu.title = 'жирный';
+            boldMenu.style.fontWeight = 600;
+            boldMenu.addEventListener('click', () => {
+                menu.remove();
+                inputArea.value = Paragraph.FormatString(inputArea, 'b');
+                currentPresenter.OnEditAction(null, null);
+            });
+            const italicMenu = document.createElement('menu');
+            italicMenu.title = 'курсив';
+            italicMenu.style.fontStyle = 'italic';
+            italicMenu.addEventListener('click', () => {
+                menu.remove();
+                inputArea.value = Paragraph.FormatString(inputArea, 'i');
+                currentPresenter.OnEditAction(null, null);
+            });
+            const underlineMenu = document.createElement('menu');
+            underlineMenu.title = 'подчеркнутый';
+            underlineMenu.style.textDecoration = 'underline';
+            underlineMenu.addEventListener('click', () => {
+                menu.remove();
+                inputArea.value = Paragraph.FormatString(inputArea, 'u');
+                currentPresenter.OnEditAction(null, null);
+            });
+            menu.append(boldMenu);
+            menu.append(italicMenu);
+            menu.append(underlineMenu);
+            window.document.body.appendChild(menu);
+            menu.style.zIndex = 1000;
+            menu.style.left = (e.pageX - 10)+"px";
+            menu.style.top = (e.pageY - 10)+"px";
+            return false;
+        });
         document.getElementById('paragraphEditTextArea').addEventListener('input', function() {
             currentPresenter.OnEditAction(null, null);
         });
