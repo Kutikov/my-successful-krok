@@ -31,13 +31,27 @@ class Account{
         document.getElementById('devMod1').innerText = this.dev1 != null ? this.dev1.model : '-';
         document.getElementById('devOs1').innerText = this.dev1 != null ? this.dev1.realise : '-';
         document.getElementById('devId1').innerText = this.dev1 != null ? this.dev1.id : '-';
-        //document.getElementById('devAct1').innerText = this.dev1 != null ? MStoDate(this.dev1.activationDate.getTime()).toString('dd.MM.yy HH:mm') : '-';
-        //document.getElementById('devSync1').innerText = this.dev1 != null ?MStoDate(this.dev1.write1.getTime()).toString('dd.MM.yy HH:mm') : '-';
+        document.getElementById('devAct1').innerText = this.dev1 != null ? this.dev1.activationDate : '-';
+        if(this.dev1 != null){
+            if(this.dev1.write2 != 'Jan 1, 1970 03:00:00'){
+                document.getElementById('devSync1').innerText = this.dev1.write2;
+            }
+            else{
+                document.getElementById('devSync1').innerText = this.dev1.write1;
+            }
+        }
         document.getElementById('devMod2').innerText = this.dev2 != null ? this.dev2.model : '-';
         document.getElementById('devOs2').innerText = this.dev2 != null ? this.dev2.realise : '-';
         document.getElementById('devId2').innerText = this.dev2 != null ? this.dev2.id : '-';
-        //document.getElementById('devAct2').innerText = this.dev1 != null ? MStoDate(this.dev2.activationDate.getTime()).toString('dd.MM.yy HH:mm') : '-';
-        //document.getElementById('devSync2').innerText = this.dev1 != null ?MStoDate(this.dev2.write1.getTime()).toString('dd.MM.yy HH:mm') : '-';
+        document.getElementById('devAct2').innerText = this.dev2 != null ? this.dev2.activationDate : '-';
+        if(this.dev2 != null){
+            if(this.dev2.write2 != 'Jan 1, 1970 03:00:00'){
+                document.getElementById('devSync2').innerText = this.dev2.write2;
+            }
+            else{
+                document.getElementById('devSync2').innerText = this.dev2.write1;
+            }
+        }
 
 
         const bucketsHolder = document.getElementById('passedBucketsHolder'); 
@@ -105,12 +119,17 @@ class Account{
                 button.style.color = '#c62828';
                 button.innerText = 'УДАЛИТЬ'
                 button.onclick = function(){
-                    if(confirm('Вы уверены, что хотите заблокировать доступ к этому бакету?')){
-                        delete purchasedBuckets[param.bucketId];
-                        firebaseApi.updateBucketQuery(param.email, param.server, {
-                            purchasedBuckets: JSON.stringify(purchasedBuckets)
-                        });
-                        item.remove();
+                    if(author == 'Kutikov'){
+                        if(confirm('Вы уверены, что хотите заблокировать доступ к этому бакету?')){
+                            delete purchasedBuckets[param.bucketId];
+                            firebaseApi.updateBucketQuery(param.email, param.server, {
+                                purchasedBuckets: JSON.stringify(purchasedBuckets)
+                            });
+                            item.remove();
+                        }
+                    }
+                    else{
+                        alert("Вы не имеете доступа к этому действию!")
                     }
                 }
                 break;
@@ -118,14 +137,19 @@ class Account{
                 button.style.color = '#2e7d32';
                 button.innerText = 'ПРИНЯТЬ'
                 button.onclick = function(){
-                    if(confirm('Вы уверены, что хотите одобрить доступ к этому бакету?')){
-                        firebaseApi.updateBucketQuery(param.email, param.server, {
-                            purchaseRequest: {
-                                status: "PURCHASED",
-                                bucketId: param.bucketId
-                            }
-                        });
-                        item.remove();
+                    if(author == 'Kutikov'){
+                        if(confirm('Вы уверены, что хотите одобрить доступ к этому бакету?')){
+                            firebaseApi.updateBucketQuery(param.email, param.server, {
+                                purchaseRequest: {
+                                    status: "PURCHASED",
+                                    bucketId: param.bucketId
+                                }
+                            });
+                            item.remove();
+                        }
+                    }
+                    else{
+                        alert("Вы не имеете доступа к этому действию!")
                     }
                 }
                 break;
