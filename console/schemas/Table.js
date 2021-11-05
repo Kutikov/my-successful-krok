@@ -8,8 +8,9 @@ class Table{
     static LinkInitial = '*';
 
 
-    constructor(tableName){
+    constructor(tableName, author){
         this.tableName = tableName;
+        this.author = author;
         this.tableId = tableName.replace(/ /g, 'ø');
         this.links = [
             {text: '', url: ''},
@@ -29,6 +30,7 @@ class Table{
     GetFirebaseObject(){
         this.ObjectsToYaml(modulesArray);
         return {
+            author: this.author,
             tableName: this.tableName,
             yaml: this.yaml
         };
@@ -36,7 +38,8 @@ class Table{
 
     static Decode(tableId, record){
         const tableName = tableId.replace(/ø/g, ' ');
-        const table = new Table(tableName);
+        const table = new Table(tableName, '');
+        table.author = record.author;
         table.yaml = record.yaml;
         table.tableId = tableId;
         Table.YamlToObjects(record.yaml, table);
@@ -161,7 +164,7 @@ class Table{
                 return false;
             }
             else{
-                const table = new Table(tempName);
+                const table = new Table(tempName, author);
                 tablesArray.push(table);
                 firebaseApi.writeTable(table);
                 drawUnitsAndForks();

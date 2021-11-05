@@ -151,11 +151,6 @@
                                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">checklist</i>
                                 <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Тесты</span>
                             </a>
-                            <a class="mdc-list-item accordion" href="javascript:drawerHandler('STATISTICS');">
-                                <span class="mdc-list-item__ripple"></span>
-                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">insert_chart_outlined</i>
-                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Статистика</span>
-                            </a>
                             <a class="mdc-list-item accordion" href="javascript:drawerHandler('BUCKETS');">
                                 <span class="mdc-list-item__ripple"></span>
                                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">monetization_on</i>
@@ -165,6 +160,11 @@
                                 <span class="mdc-list-item__ripple"></span>
                                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">schema</i>
                                 <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Схемы</span>
+                            </a>
+                            <a class="mdc-list-item accordion" href="javascript:drawerHandler('STATISTICS');">
+                                <span class="mdc-list-item__ripple"></span>
+                                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">insert_chart_outlined</i>
+                                <span class="mdc-list-item__text" style="text-transform: uppercase; font-weight: 600;">Статистика</span>
                             </a>
                             <a class="mdc-list-item mdc-list-item--activated accordion" href="javascript:drawerHandler('MANUALS');">
                                 <span class="mdc-list-item__ripple"></span>
@@ -176,6 +176,7 @@
                 </aside>
             </div>
             <div id="testListMainPage" class="testListMainPage">
+                <p class="card__text">Mануал разделен на 6 разделов, 5 из которых соответcтвует разделам My KROK Tutor Console, а первый - объясняет некоторые особенности инфраструктуры проекта. Нажимайте на разделы, чтобы ознакомиться с контентом.</p>
                 <div class='mdc-card' style="margin-top: 6px; margin-bottom: 8px; background-color: #fff; margin-left: 16px; margin-right: 16px;">
                     <a class="mdc-list-item accordion" href="javascript:collapse('forkUnitTable')">
                         <span class="mdc-list-item__ripple"></span>
@@ -476,6 +477,36 @@
                                 <tr>
                                     <td colspan="2" class="card__text">
                                         <p>Альтернативный вариант быстрого создания большого числа тестов - <b>Импорт из файла</b>. Для этого необходимо после открытия лекции нажать на кнопку ИМПОРТ вверху страницы и выбрать файл формата .qst . Поддерживаются кодировка Win1251, UTF8. Разметочные варианты - GIFT и Ассистент. <u>После импорта все нынешние тесты будут удалены из лекции и перезаписаны тестами из файла</u></p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class='mdc-card' style="margin-top: 6px; margin-bottom: 8px; background-color: #fff; margin-left: 16px; margin-right: 16px;">
+                    <a class="mdc-list-item accordion" href="javascript:collapse('bucketsTable')">
+                        <span class="mdc-list-item__ripple"></span>
+                        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">monetization_on</i>
+                        <span class="mdc-list-item__text card__text" style="text-transform: uppercase; font-weight: 600; margin: 0px">Бакеты</span>
+                        <span aria-hidden="true" class="material-icons mdc-list-item__meta accordionIcon" style="margin-left: auto;">expand_less</span>
+                    </a>
+                    <div style="max-height: 12000px;">
+                        <div aria-orientation="vertical" style="margin: 8px; display: none;" id="bucketsTable">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td style="width: 33%;"><img onclick="showMax('manuals/buckets.jpg')" style="width: 100%;" src="manuals/buckets.jpg"></td>
+                                    <td class="card__text">
+                                        <p style="font-weight: 600;text-align: center;">Общие сведения о бакетах</p>
+                                        <p>Бакет - универсальный инструмент продажи контента по курсов, сложный  настройек и управлении. Он позволет эффективно управлять доступом к разным частям контента, ограничивать время его использования.</p>
+                                        <p>Варианты продажи контента</p>
+                                        <ul>
+                                            <li>Цельный курс - продается целиком все модули 1 курса со всеми лекциями</li>
+                                            <li>Модуль курса - продается 1 модуль из курса со всеми лекциями внутри</li>
+                                            <li>Набор лекций - продается от 2 до 12 лекций одного или нескоьких модулей сразу</li>
+                                            <li>Лекция - продается одна единственная лекция курса</li>
+                                        </ul>
+                                        <p style="text-decoration: underline;">По причине сложности и запутанности настроек и действий по подвязке платежных систем и интерфейсов принято решение о закрытии данного раздела от всех авторов,кроме администратора ресурса. По всем вопросам о размещении и продаже контента писать на damirkut@gmail.com</p>
+                                        <p style="font-style: italic;">На изображении интерфейс покупки бакета</p>
                                     </td>
                                 </tr>
                             </table>

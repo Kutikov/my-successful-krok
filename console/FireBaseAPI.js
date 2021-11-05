@@ -255,17 +255,14 @@ class FireBaseAPI {
         ref.get().then((snapshot) => {
             if (snapshot.exists()) {
                 const tablesArrayLocal = [];
-                const allowedTables = {
-                    Site: ['Site'],
-                    Kozlov: ['КРОК 1 з поясненнями', 'Курси до КРОК 1']
-                }
                 for (const tableId in snapshot.val()) {
                     if(author == 'Kutikov'){
                         tablesArrayLocal.push(Table.Decode(tableId, snapshot.val()[tableId]));
                     }
                     else{
-                        if(allowedTables[author].includes(tableId)){
-                            tablesArrayLocal.push(Table.Decode(tableId, snapshot.val()[tableId]));
+                        const table = Table.Decode(tableId, snapshot.val()[tableId]);
+                        if(table.author == author){
+                            tablesArrayLocal.push(table);
                         }
                     }
                 }

@@ -224,15 +224,15 @@ class FireBaseAPI{
                 switch(user.email){
                     case 'site@karazin.com':
                         document.cookie = 'author=Site; path=/';
-                        window.location.href = 'https://kutikov.github.io/my-successful-krok/console/tests.html'; 
+                        window.location.href = 'https://kutikov.github.io/my-successful-krok/console/manuals.html'; 
                         break;
                     case 'kozlov@karazin.com':
                         document.cookie = 'author=Kozlov; path=/';
-                        window.location.href = 'https://kutikov.github.io/my-successful-krok/console/tests.html'; 
+                        window.location.href = 'https://kutikov.github.io/my-successful-krok/console/manuals.html'; 
                         break;
                     case 'kutikov@karazin.com':
                         document.cookie = 'author=Kutikov; path=/';
-                        window.location.href = 'https://kutikov.github.io/my-successful-krok/console/tests.html'; 
+                        window.location.href = 'https://kutikov.github.io/my-successful-krok/console/manuals.html'; 
                         break;
                     default:    
                         changeCard('success');
