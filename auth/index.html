@@ -19,21 +19,21 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database-compat.js"></script>
-    <link href="material.css" rel="stylesheet">
-    <script src="material.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="User.js?id=123"></script>
     <script src="FireBaseAPI.js?id=123"></script>
+    <script src="Background.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 </head>
 
-<body style="background-image: url('white_image.png'); background-size: cover;">
+<body>
     <div id="main"
         style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
-        <div id="panel-top"
-            style="display: flex; flex-direction: row; align-items: center; flex-grow: 0; flex-shrink: 0; flex-wrap: wrap; background-color: #fff; z-index: 100; width: 100%;">
+        
+        <canvas id='backgroundCanvas' class="canvasBackground"></canvas>
+        <div id="panel-top" class="panel-top">
             <div id="icon"
                 style="margin: 12px 8px 8px 12px; height: 32px; width: 32px; background-image: url('ic_launcher.png'); background-size: contain; flex-grow: 0; flex-shrink: 0;">
             </div>
@@ -47,10 +47,10 @@
             </div>
         </div>
         <div id="listMainPage" class="listMainPage">
-            <div class='mdc-card' id="cardLogin" style="margin: 16px; background-color: #fff;">
+            <div class='card' id="cardLogin">
                 <div
-                    style="display:flex; flex-direction: row; flex-wrap: nowrap; margin-bottom: 8px; justify-content: space-between; align-items: center;">
-                    <p class="card__text" style="font-size: 22px; color: #000;" id="loginingTitle">ВХІД</p>
+                    style="display:flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: center;">
+                    <p class="card__text" style="font-size: 22px;" id="loginingTitle">ВХІД</p>
                     <button class="button_local" style="margin: 8px 16px;" onclick="changeCard('register')"
                         id="registartionButtonB">
                         <i class="material-icons1 button__icon" aria-hidden="true">how_to_reg</i>
@@ -58,173 +58,98 @@
                     </button>
                 </div>
                 <label class="text_field__label" id="emailLoginH" style="margin: 8px 16px;">
-                    <span class="notched-outline">
-                        <span class="floating-label" style="transform: translateY(-23px) scale(0.75);"
-                            id="emailLoginLabel">Email</span>
+                    <span class="notched-outline" id='emailLoginNotch'>
+                        <span class="floating-label" id="emailLoginLabel">Email</span>
                     </span>
-                    <input type="text" id="emailLogin" class="text-field__input" style="margin-top: 6px;" required
+                    <input type="text" id="emailLogin" class="text-field__input" onblur="onBlur('emailLogin')" required
                         pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
                 </label>
-                <label class="mdc-text-field mdc-text-field--outlined" id="passwordLoginH" style="margin: 8px 16px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"
-                                id="passwordLoginLabel">Пароль</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
+                <label class="text_field__label" id="passwordLoginH" style="margin: 8px 16px;">
+                    <span class="notched-outline" id='passwordLoginNotch'>
+                        <span class="floating-label" id="passwordLoginLabel">Пароль</span>
                     </span>
-                    <input type="password" id="passwordLogin" style="margin-top: 6px;" class="mdc-text-field__input"
-                        required minlength="8">
+                    <input type="password" id="passwordLogin" class="text-field__input" onblur="onBlur('passwordLogin')" required minlength="8">
                 </label>
-                <div role="progressbar" id="loginProgress" style="width: 100%; display: none;"
-                    class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar"
-                    aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
-                    <div class="mdc-linear-progress__buffer">
-                        <div class="mdc-linear-progress__buffer-bar"></div>
-                        <div class="mdc-linear-progress__buffer-dots"></div>
-                    </div>
-                    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
-                        <span class="mdc-linear-progress__bar-inner"></spa>
-                    </div>
-                    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
-                        <span class="mdc-linear-progress__bar-inner"></span>
-                    </div>
+                <div role="progressbar" id="loginProgress" class="progress-bar">
+                    <div class="progress-bar-value"></div>
                 </div>
-                <p class="card__text" id="consoleLogin" style="color: #b00020; display: none;"></p>
-                <div class="mdc-card__actions">
-                    <div class="mdc-card__action-buttons" onclick="loginIn()">
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" id="loginButtonB">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label" id='loginButton'>Увійти</span>
-                        </button>
-                    </div>
-                    <div class="mdc-card__action-buttons" onclick="resetPass()">
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" id="resetButtonB">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label" id='resetButton'>Скинути пароль</span>
-                        </button>
-                    </div>
+                <p class="card__text invalidC" id="consoleLogin" style="display: none;"></p>
+                <div class="card__actions">
+                    <button class="button_local__raised button_local " id="loginButtonB" onclick="loginIn()">
+                        <span id='loginButton'>Увійти</span>
+                    </button>
+                    <button class="button_local" id="resetButtonB" onclick="resetPass()">
+                        <span id='resetButton'>Скинути пароль</span>
+                    </button>
                 </div>
             </div>
-            <div class='mdc-card' id="cardRegister" style="margin: 16px; background-color: #fff;">
+            <div class='card' id="cardRegister">
                 <div
-                    style="display:flex; flex-direction: row; flex-wrap: nowrap; margin-bottom: 8px; justify-content: space-between; align-items: center;">
-                    <p class="card__text" style="font-size: 22px; color: #000;" id="registartionTitle">РЕЄСТРАЦІЯ</p>
+                    style="display:flex; flex-direction: row; flex-wrap: nowrap; justify-content: space-between; align-items: center;">
+                    <p class="card__text" style="font-size: 22px;" id="registartionTitle">РЕЄСТРАЦІЯ</p>
                     <button class="button_local" onclick="changeCard('login')" style="margin: 8px 16px;"
                         id="loginingButtonB">
                         <i class="material-icons1 button__icon" aria-hidden="true">vpn_key</i>
                         <span id="loginingButton">Вхід</span>
                     </button>
                 </div>
-                <label class="mdc-text-field mdc-text-field--outlined" id="nameRegisterH" style="margin: 8px 16px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"
-                                id="nameRegisterLabel">Логін у додатку</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
+                <label class="text_field__label" id="nameRegisterH" style="margin: 8px 16px;">
+                    <span class="notched-outline" id='nameRegisterNotch'>
+                        <span class="floating-label" id="nameRegisterLabel">nnn</span>
                     </span>
-                    <input type="text" id="nameRegister" style="margin-top: 6px;" class="mdc-text-field__input" required
-                        minlength="4">
+                    <input type="text" id="nameRegister" class="text-field__input" onblur="onBlur('nameRegister')" required  minlength="4">
                 </label>
-                <label class="mdc-text-field mdc-text-field--outlined" id="emailRegisterH" style="margin: 8px 16px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"
-                                id="emailRegisterLabel">Email</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
+                <label class="text_field__label" id="emailRegisterH" style="margin: 8px 16px;">
+                    <span class="notched-outline" id='emailRegisterNotch'>
+                        <span class="floating-label" id="emailRegisterLabel">Email</span>
                     </span>
-                    <input type="text" id="emailRegister" class="mdc-text-field__input" style="margin-top: 6px;"
-                        required
+                    <input type="text" id="emailRegister" class="text-field__input" onblur="onBlur('emailRegister')" required
                         pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
                 </label>
-                <label class="mdc-text-field mdc-text-field--outlined" id="passwordRegister1H"
-                    style="margin: 8px 16px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"
-                                id="passwordRegister1Label">Пароль</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
+                <label class="text_field__label" id="passwordRegister1H" style="margin: 8px 16px;">
+                    <span class="notched-outline" id='passwordRegister1Notch'>
+                        <span class="floating-label" id="passwordRegister1Label">Пароль</span>
                     </span>
-                    <input type="password" id="passwordRegister1" class="mdc-text-field__input" style="margin-top: 6px;"
-                        required minlength="8">
+                    <input type="password" id="passwordRegister1" class="text-field__input" onblur="onBlur('passwordRegister1')" required minlength="8">
                 </label>
-                <label class="mdc-text-field mdc-text-field--outlined" id="passwordRegister2H"
-                    style="margin: 8px 16px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"
-                                id="passwordRegister2Label">Повторити пароль</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
+                <label class="text_field__label" id="passwordRegister2H" style="margin: 8px 16px;">
+                    <span class="notched-outline" id='passwordRegister2Notch'>
+                        <span class="floating-label" id="passwordRegister2Label">Повторити пароль</span>
                     </span>
-                    <input type="password" id="passwordRegister2" class="mdc-text-field__input" style="margin-top: 6px;"
-                        required minlength="8">
+                    <input type="password" id="passwordRegister2" class="text-field__input" onblur="onBlur('passwordRegister2')" required minlength="8">
                 </label>
-                <div class="mdc-form-field" style="margin-left: 8px;">
-                    <div class="mdc-checkbox">
-                        <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxConsent" />
-                        <div class="mdc-checkbox__background">
-                            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-                                <path class="mdc-checkbox__checkmark-path" fill="none"
-                                    d="M1.73,12.91 8.1,19.28 22.79,4.59" />
-                            </svg>
-                            <div class="mdc-checkbox__mixedmark"></div>
-                        </div>
-                        <div class="mdc-checkbox__ripple"></div>
-                    </div>
-                    <label for="checkboxConsent" id="checkboxConsentLabel">Я погоджуюся з <a target="_blank"
-                            href="https://google.com.ua">правилами користування</a> цього додатку</label>
+                <label class="pure-material-checkbox" style="margin: 0 16px;">
+                    <input type="checkbox" id="checkboxConsent" />
+                    <span id="checkboxConsentLabel">Я погоджуюся з <a target="_blank" href="https://google.com.ua">правилами користування</a> цього додатку</span>
+                </label>
+                <div role="progressbar" id="registerProgress" class="progress-bar">
+                    <div class="progress-bar-value"></div>
                 </div>
-                <div role="progressbar" id="registerProgress" style="width: 100%; display: none;"
-                    class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar"
-                    aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
-                    <div class="mdc-linear-progress__buffer">
-                        <div class="mdc-linear-progress__buffer-bar"></div>
-                        <div class="mdc-linear-progress__buffer-dots"></div>
-                    </div>
-                    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
-                        <span class="mdc-linear-progress__bar-inner"></spa>
-                    </div>
-                    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
-                        <span class="mdc-linear-progress__bar-inner"></span>
-                    </div>
-                </div>
-                <p class="card__text" id="consoleRegister" style="color: #b00020; display: none;"></p>
-                <div class="mdc-card__actions">
-                    <div class="mdc-card__action-buttons" onclick="register()">
-                        <button class="mdc-button mdc-card__action mdc-card__action--button" id="registerButtonB">
-                            <div class="mdc-button__ripple"></div>
-                            <span class="mdc-button__label" id='registerButton'>Зареєструватися</span>
-                        </button>
-                    </div>
+                <p class="card__text invalidC" id="consoleRegister" style="display: none;"></p>
+                <div class="card__actions">
+                    <button class="button_local__raised button_local " id="registerButtonB" onclick="register()">
+                        <span id='registerButton'>Зареєструватися</span>
+                    </button>
                 </div>
             </div>
-            <div class='mdc-card' id="cardSuccess" style="margin: 16px; background-color: #fff;">
+            <div class='card' id="cardSuccess">
                 <div style="display: flex; flex-direction: column; margin: 16px; align-items: center;">
-                    <div
+                    <div class="image_invert"
                         style="height: 256px; width: 256px; background-image: url('success.jpg'); background-size: contain;">
                     </div>
-                    <p class="card__text" id="successfulTitle"
-                        style="color: #000; width: 100%; text-align: center; font-size: 22px; font-weight: 600;"></p>
-                    <p class="card__text" id="consoleSuccess" style="color: #333; width: 100%; text-align: justify;">
+                    <p class="card__text message__text" id="successfulTitle"
+                        style="width: 100%; text-align: center; font-size: 22px; font-weight: 600;"></p>
+                    <p class="card__text messageText" id="consoleSuccess" style="width: 100%; text-align: justify;">
                     </p>
                 </div>
             </div>
-            <div class='mdc-card' id="cardLoading" style="margin: 16px; background-color: #fff;">
+            <div class='card' id="cardLoading">
                 <div style="display: flex; flex-direction: column; margin: 16px; align-items: center;">
-                    <div
+                    <div class="image_invert"
                         style="height: 256px; width: 256px; background-image: url('wait.jpg'); background-size: contain;">
                     </div>
-                    <p class="card__text" id="loadingTitle"
-                        style="color: #000; width: 100%; text-align: center; font-size: 22px; font-weight: 600;"></p>
+                    <p class="card__text message__text" id="loadingTitle"
+                        style="width: 100%; text-align: center; font-size: 22px; font-weight: 600;"></p>
                 </div>
             </div>
         </div>
@@ -277,17 +202,11 @@
         const ripples = [].map.call(document.querySelectorAll(selector), function (el) {
             return new mdc.ripple.MDCRipple(el);
         });
-        const texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function (el) {
-            return new mdc.textField.MDCTextField(el);
-        });
         const fields = [].map.call(document.querySelectorAll('.mdc-form-field'), function (el) {
             return new mdc.formField.MDCFormField(el);
         });
         const checks = [].map.call(document.querySelectorAll('.mdc-checkbox'), function (el) {
             return new mdc.checkbox.MDCCheckbox(el);
-        });
-        const progresses = [].map.call(document.querySelectorAll('.mdc-linear-progress'), function (el) {
-            return new mdc.linearProgress.MDCLinearProgress(el);
         });
         const loginCard = document.getElementById('cardLogin');
         const registerCard = document.getElementById('cardRegister');
@@ -297,9 +216,15 @@
         const registerConsole = document.getElementById('consoleRegister');
         const successConsole = document.getElementById('consoleSuccess');
         const loadingConsole = document.getElementById('loadingSuccess');
+        const background = new Background();
 
         changeCard('loading');
         const firebaseApi = new FireBaseAPI();
+
+        
+        window.addEventListener('resize', (e) => {
+            background.drawBackground();
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
             let langI = 0;
@@ -316,26 +241,27 @@
             }
             localize(langI);
             if (new URLSearchParams(window.location.search).get('theme') == 'dark') {
-                document.body.classList.add('body__dark');
-                document.getElementById('main').classList.add('main_fragment__dark');
-                document.getElementById('icon').classList.add('icon__dark');
-                document.getElementById('panel-top').style.boxShadow = 'box-shadow: 0px 0px 8px 4px #fff6;';
-                let elems = document.querySelectorAll('.mdc-card');
-                for (let i = 0; i < elems.length; i++) {
-                    elems[i].style.boxShadow = '0px 2px 1px -1px rgb(255 255 255 / 20%), 0px 1px 1px 0px rgb(255 255 255 / 14%), 0px 1px 3px 0px rgb(255 255 255 / 12%) !important';
-                };
-            }
-            else {
-                document.body.classList.add('body__light');
-                document.getElementById('main').classList.add('main_fragment__light');
-                document.getElementById('icon').classList.add('icon__light');
-                document.getElementById('panel-top').style.boxShadow = 'box-shadow: 0px 0px 8px 4px #0006;';
-                let elems = document.querySelectorAll('.mdc-card');
-                for (let i = 0; i < elems.length; i++) {
-                    elems[i].style.boxShadow = '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%) !important';
-                };
+                const link = document.createElement('link');
+                link.setAttribute('rel', 'stylesheet');
+                link.setAttribute('href', 'style-dark.css');
+                document.head.append(link);
+                background.setDark();
+            } 
+            else{
+                background.setLight();
             }
         });
+
+        function onBlur(id){
+            if(!document.querySelector('#' + id).checkValidity()){
+                document.querySelector('#' + id + 'Notch').classList.add('invalidC');
+                document.querySelector('#' + id + 'Label').classList.add('invalidC');
+            }
+            else{
+                document.querySelector('#' + id + 'Notch').classList.remove('invalidC');
+                document.querySelector('#' + id + 'Label').classList.remove('invalidC');
+            }
+        }
 
         function localize(langInt) {
             lang = langInt;
