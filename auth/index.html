@@ -30,56 +30,56 @@
 </head>
 
 <body style="background-image: url('white_image.png'); background-size: cover;">
-    <div id="main" style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
-        <div id="panel-top" style="display: flex; flex-direction: row; align-items: center; flex-grow: 0; flex-shrink: 0; flex-wrap: wrap; background-color: #fff; z-index: 100; width: 100%;">
-            <div id="icon" style="margin: 12px 8px 8px 12px; height: 32px; width: 32px; background-image: url('ic_launcher.png'); background-size: contain; flex-grow: 0; flex-shrink: 0;"></div> 
-            <p class="card__text" id="pageTitle" style="font-size: 22px; font-weight: 500; flex-grow: 1; margin-left: 16px;"></p>
-            <div style="display: flex; flex-direction: row; margin-right: 8px; margin-left: 8px; flex-grow: 0; flex-shrink: 0; flex-wrap: nowrap;">
-                <button class="mdc-button mdc-button--outlined" style="margin: 8px" onclick="localize(0)">
-                    <span class="mdc-button__ripple"></span>
-                    <span class="mdc-button__label">ua</span>
-                </button>
-                <button class="mdc-button mdc-button--outlined" style="margin: 8px" onclick="localize(2)">
-                    <span class="mdc-button__ripple"></span>
-                    <span class="mdc-button__label">en</span>
-                </button>
-                <button class="mdc-button mdc-button--outlined" style="margin: 8px" onclick="localize(1)">
-                    <span class="mdc-button__ripple"></span>
-                    <span class="mdc-button__label">ru</span>
-                </button>
+    <div id="main"
+        style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
+        <div id="panel-top"
+            style="display: flex; flex-direction: row; align-items: center; flex-grow: 0; flex-shrink: 0; flex-wrap: wrap; background-color: #fff; z-index: 100; width: 100%;">
+            <div id="icon"
+                style="margin: 12px 8px 8px 12px; height: 32px; width: 32px; background-image: url('ic_launcher.png'); background-size: contain; flex-grow: 0; flex-shrink: 0;">
+            </div>
+            <p class="card__text" id="pageTitle"
+                style="font-size: 22px; font-weight: 500; flex-grow: 1; margin-left: 16px;"></p>
+            <div
+                style="display: flex; flex-direction: row; margin-right: 8px; margin-left: 8px; flex-grow: 0; flex-shrink: 0; flex-wrap: nowrap;">
+                <button class="button_local" style="margin: 8px" onclick="localize(0)">ua</button>
+                <button class="button_local" style="margin: 8px" onclick="localize(2)">en</button>
+                <button class="button_local" style="margin: 8px" onclick="localize(1)">ru</button>
             </div>
         </div>
         <div id="listMainPage" class="listMainPage">
             <div class='mdc-card' id="cardLogin" style="margin: 16px; background-color: #fff;">
-                <div style="display:flex; flex-direction: row; flex-wrap: nowrap; margin-bottom: 8px; justify-content: space-between; align-items: center;">
+                <div
+                    style="display:flex; flex-direction: row; flex-wrap: nowrap; margin-bottom: 8px; justify-content: space-between; align-items: center;">
                     <p class="card__text" style="font-size: 22px; color: #000;" id="loginingTitle">ВХІД</p>
-                    <button class="mdc-button mdc-button--outlined" style="margin: 8px 16px;" onclick="changeCard('register')" id="registartionButtonB">
-                        <span class="mdc-button__ripple"></span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">how_to_reg</i>
-                        <span class="mdc-button__label" id="registartionButton">Реєстрація</span>
+                    <button class="button_local" style="margin: 8px 16px;" onclick="changeCard('register')"
+                        id="registartionButtonB">
+                        <i class="material-icons1 button__icon" aria-hidden="true">how_to_reg</i>
+                        <span id="registartionButton">Реєстрація</span>
                     </button>
                 </div>
-                <label class="mdc-text-field mdc-text-field--outlined" id="emailLoginH" style="margin: 8px 16px;">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="emailLoginLabel">Email</span>
-                        </span>
-                        <span class="mdc-notched-outline__trailing"></span>
+                <label class="text_field__label" id="emailLoginH" style="margin: 8px 16px;">
+                    <span class="notched-outline">
+                        <span class="floating-label" style="transform: translateY(-23px) scale(0.75);"
+                            id="emailLoginLabel">Email</span>
                     </span>
-                    <input type="text" id="emailLogin" class="mdc-text-field__input" style="margin-top: 6px;" required pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
+                    <input type="text" id="emailLogin" class="text-field__input" style="margin-top: 6px;" required
+                        pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
                 </label>
                 <label class="mdc-text-field mdc-text-field--outlined" id="passwordLoginH" style="margin: 8px 16px;">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label"  style="transform: translateY(-23px) scale(0.75);"  id="passwordLoginLabel">Пароль</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"
+                                id="passwordLoginLabel">Пароль</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="password" id="passwordLogin" style="margin-top: 6px;"  class="mdc-text-field__input" required minlength="8">
+                    <input type="password" id="passwordLogin" style="margin-top: 6px;" class="mdc-text-field__input"
+                        required minlength="8">
                 </label>
-                <div role="progressbar" id="loginProgress" style="width: 100%; display: none;" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+                <div role="progressbar" id="loginProgress" style="width: 100%; display: none;"
+                    class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar"
+                    aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
                     <div class="mdc-linear-progress__buffer">
                         <div class="mdc-linear-progress__buffer-bar"></div>
                         <div class="mdc-linear-progress__buffer-dots"></div>
@@ -108,68 +108,84 @@
                 </div>
             </div>
             <div class='mdc-card' id="cardRegister" style="margin: 16px; background-color: #fff;">
-                <div style="display:flex; flex-direction: row; flex-wrap: nowrap; margin-bottom: 8px; justify-content: space-between; align-items: center;">
+                <div
+                    style="display:flex; flex-direction: row; flex-wrap: nowrap; margin-bottom: 8px; justify-content: space-between; align-items: center;">
                     <p class="card__text" style="font-size: 22px; color: #000;" id="registartionTitle">РЕЄСТРАЦІЯ</p>
-                    <button class="mdc-button mdc-button--outlined" onclick="changeCard('login')"  style="margin: 8px 16px;" id="loginingButtonB">
-                        <span class="mdc-button__ripple"></span>
-                        <i class="material-icons mdc-button__icon" aria-hidden="true">vpn_key</i>
-                        <span class="mdc-button__label" id="loginingButton">Вхід</span>
+                    <button class="button_local" onclick="changeCard('login')" style="margin: 8px 16px;"
+                        id="loginingButtonB">
+                        <i class="material-icons1 button__icon" aria-hidden="true">vpn_key</i>
+                        <span id="loginingButton">Вхід</span>
                     </button>
                 </div>
                 <label class="mdc-text-field mdc-text-field--outlined" id="nameRegisterH" style="margin: 8px 16px;">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="nameRegisterLabel">Логін у додатку</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"
+                                id="nameRegisterLabel">Логін у додатку</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="text" id="nameRegister" style="margin-top: 6px;"  class="mdc-text-field__input" required minlength="4">
+                    <input type="text" id="nameRegister" style="margin-top: 6px;" class="mdc-text-field__input" required
+                        minlength="4">
                 </label>
                 <label class="mdc-text-field mdc-text-field--outlined" id="emailRegisterH" style="margin: 8px 16px;">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="emailRegisterLabel">Email</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"
+                                id="emailRegisterLabel">Email</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="text" id="emailRegister" class="mdc-text-field__input" style="margin-top: 6px;"  required pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
+                    <input type="text" id="emailRegister" class="mdc-text-field__input" style="margin-top: 6px;"
+                        required
+                        pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
                 </label>
-                <label class="mdc-text-field mdc-text-field--outlined" id="passwordRegister1H" style="margin: 8px 16px;">
+                <label class="mdc-text-field mdc-text-field--outlined" id="passwordRegister1H"
+                    style="margin: 8px 16px;">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="passwordRegister1Label">Пароль</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"
+                                id="passwordRegister1Label">Пароль</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="password" id="passwordRegister1" class="mdc-text-field__input" style="margin-top: 6px;"  required minlength="8">
+                    <input type="password" id="passwordRegister1" class="mdc-text-field__input" style="margin-top: 6px;"
+                        required minlength="8">
                 </label>
-                <label class="mdc-text-field mdc-text-field--outlined" id="passwordRegister2H" style="margin: 8px 16px;">
+                <label class="mdc-text-field mdc-text-field--outlined" id="passwordRegister2H"
+                    style="margin: 8px 16px;">
                     <span class="mdc-notched-outline">
                         <span class="mdc-notched-outline__leading"></span>
                         <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"  id="passwordRegister2Label">Повторити пароль</span>
+                            <span class="mdc-floating-label" style="transform: translateY(-23px) scale(0.75);"
+                                id="passwordRegister2Label">Повторити пароль</span>
                         </span>
                         <span class="mdc-notched-outline__trailing"></span>
                     </span>
-                    <input type="password" id="passwordRegister2" class="mdc-text-field__input" style="margin-top: 6px;"  required minlength="8">
+                    <input type="password" id="passwordRegister2" class="mdc-text-field__input" style="margin-top: 6px;"
+                        required minlength="8">
                 </label>
                 <div class="mdc-form-field" style="margin-left: 8px;">
                     <div class="mdc-checkbox">
-                        <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxConsent"/>
+                        <input type="checkbox" class="mdc-checkbox__native-control" id="checkboxConsent" />
                         <div class="mdc-checkbox__background">
                             <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-                                <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                                <path class="mdc-checkbox__checkmark-path" fill="none"
+                                    d="M1.73,12.91 8.1,19.28 22.79,4.59" />
                             </svg>
-                        <div class="mdc-checkbox__mixedmark"></div>
+                            <div class="mdc-checkbox__mixedmark"></div>
                         </div>
                         <div class="mdc-checkbox__ripple"></div>
                     </div>
-                    <label for="checkboxConsent" id="checkboxConsentLabel">Я погоджуюся з <a target="_blank" href="https://google.com.ua">правилами користування</a> цього додатку</label>
+                    <label for="checkboxConsent" id="checkboxConsentLabel">Я погоджуюся з <a target="_blank"
+                            href="https://google.com.ua">правилами користування</a> цього додатку</label>
                 </div>
-                <div role="progressbar" id="registerProgress" style="width: 100%; display: none;" class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+                <div role="progressbar" id="registerProgress" style="width: 100%; display: none;"
+                    class="mdc-linear-progress mdc-linear-progress--indeterminate" aria-label="Example Progress Bar"
+                    aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
                     <div class="mdc-linear-progress__buffer">
                         <div class="mdc-linear-progress__buffer-bar"></div>
                         <div class="mdc-linear-progress__buffer-dots"></div>
@@ -193,15 +209,22 @@
             </div>
             <div class='mdc-card' id="cardSuccess" style="margin: 16px; background-color: #fff;">
                 <div style="display: flex; flex-direction: column; margin: 16px; align-items: center;">
-                    <div style="height: 256px; width: 256px; background-image: url('success.jpg'); background-size: contain;"></div>
-                    <p class="card__text" id="successfulTitle" style="color: #000; width: 100%; text-align: center; font-size: 22px; font-weight: 600;"></p>
-                    <p class="card__text" id="consoleSuccess" style="color: #333; width: 100%; text-align: justify;"></p>
+                    <div
+                        style="height: 256px; width: 256px; background-image: url('success.jpg'); background-size: contain;">
+                    </div>
+                    <p class="card__text" id="successfulTitle"
+                        style="color: #000; width: 100%; text-align: center; font-size: 22px; font-weight: 600;"></p>
+                    <p class="card__text" id="consoleSuccess" style="color: #333; width: 100%; text-align: justify;">
+                    </p>
                 </div>
             </div>
             <div class='mdc-card' id="cardLoading" style="margin: 16px; background-color: #fff;">
                 <div style="display: flex; flex-direction: column; margin: 16px; align-items: center;">
-                    <div style="height: 256px; width: 256px; background-image: url('wait.jpg'); background-size: contain;"></div>
-                    <p class="card__text" id="loadingTitle" style="color: #000; width: 100%; text-align: center; font-size: 22px; font-weight: 600;"></p>
+                    <div
+                        style="height: 256px; width: 256px; background-image: url('wait.jpg'); background-size: contain;">
+                    </div>
+                    <p class="card__text" id="loadingTitle"
+                        style="color: #000; width: 100%; text-align: center; font-size: 22px; font-weight: 600;"></p>
                 </div>
             </div>
         </div>
@@ -254,16 +277,16 @@
         const ripples = [].map.call(document.querySelectorAll(selector), function (el) {
             return new mdc.ripple.MDCRipple(el);
         });
-        const texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function(el) {
+        const texts = [].map.call(document.querySelectorAll('.mdc-text-field'), function (el) {
             return new mdc.textField.MDCTextField(el);
         });
-        const fields = [].map.call(document.querySelectorAll('.mdc-form-field'), function(el) {
+        const fields = [].map.call(document.querySelectorAll('.mdc-form-field'), function (el) {
             return new mdc.formField.MDCFormField(el);
         });
-        const checks = [].map.call(document.querySelectorAll('.mdc-checkbox'), function(el) {
+        const checks = [].map.call(document.querySelectorAll('.mdc-checkbox'), function (el) {
             return new mdc.checkbox.MDCCheckbox(el);
         });
-        const progresses = [].map.call(document.querySelectorAll('.mdc-linear-progress'), function(el) {
+        const progresses = [].map.call(document.querySelectorAll('.mdc-linear-progress'), function (el) {
             return new mdc.linearProgress.MDCLinearProgress(el);
         });
         const loginCard = document.getElementById('cardLogin');
@@ -280,7 +303,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             let langI = 0;
-            switch(new URLSearchParams(window.location.search).get('language')){
+            switch (new URLSearchParams(window.location.search).get('language')) {
                 case 'ru':
                     langI = 1;
                     break;
@@ -292,53 +315,53 @@
                     break;
             }
             localize(langI);
-            if(new URLSearchParams(window.location.search).get('theme') == 'dark'){
+            if (new URLSearchParams(window.location.search).get('theme') == 'dark') {
                 document.body.classList.add('body__dark');
                 document.getElementById('main').classList.add('main_fragment__dark');
                 document.getElementById('icon').classList.add('icon__dark');
                 document.getElementById('panel-top').style.boxShadow = 'box-shadow: 0px 0px 8px 4px #fff6;';
                 let elems = document.querySelectorAll('.mdc-card');
-                for(let i = 0; i < elems.length; i++) {
+                for (let i = 0; i < elems.length; i++) {
                     elems[i].style.boxShadow = '0px 2px 1px -1px rgb(255 255 255 / 20%), 0px 1px 1px 0px rgb(255 255 255 / 14%), 0px 1px 3px 0px rgb(255 255 255 / 12%) !important';
                 };
             }
-            else{
+            else {
                 document.body.classList.add('body__light');
                 document.getElementById('main').classList.add('main_fragment__light');
                 document.getElementById('icon').classList.add('icon__light');
                 document.getElementById('panel-top').style.boxShadow = 'box-shadow: 0px 0px 8px 4px #0006;';
                 let elems = document.querySelectorAll('.mdc-card');
-                for(let i = 0; i < elems.length; i++) {
+                for (let i = 0; i < elems.length; i++) {
                     elems[i].style.boxShadow = '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%) !important';
                 };
             }
         });
 
-        function localize(langInt){
+        function localize(langInt) {
             lang = langInt;
-            for(let str in localization){
+            for (let str in localization) {
                 document.getElementById(str).innerHTML = localization[str][lang];
             }
-            if(message !== ''){
+            if (message !== '') {
                 showMessage(message);
             }
         }
 
-        function verifyField(id){
-            if(!document.getElementById(id).classList.contains('mdc-text-field--invalid')){
+        function verifyField(id) {
+            if (!document.getElementById(id).classList.contains('mdc-text-field--invalid')) {
                 return document.getElementById(id.substring(0, id.length - 1)).value;
             }
             return false;
         }
 
-        function loginIn(){
+        function loginIn() {
             const email = verifyField('emailLoginH');
             const password = verifyField('passwordLoginH');
-            if(!email){
+            if (!email) {
                 showMessage('emptyEmail');
                 return;
             }
-            if(!password){
+            if (!password) {
                 showMessage('emptyPassword');
                 return;
             }
@@ -349,14 +372,14 @@
             document.getElementById('loginProgress').style.display = 'block';
         }
 
-        function resetPass(){
+        function resetPass() {
             const email = verifyField('emailLoginH');
             const password = verifyField('passwordLoginH');
-            if(!email){
+            if (!email) {
                 showMessage('emptyEmail');
                 return;
             }
-            if(!password && updatePassword){
+            if (!password && updatePassword) {
                 showMessage('emptyPassword');
                 return;
             }
@@ -367,32 +390,32 @@
             document.getElementById('loginProgress').style.display = 'block';
         }
 
-        function register(){
+        function register() {
             const name = verifyField('nameRegisterH');
             const email = verifyField('emailRegisterH');
             const password1 = verifyField('passwordRegister1H');
             const password2 = verifyField('passwordRegister2H');
-            if(!name){
+            if (!name) {
                 showMessage('emptyName');
                 return;
             }
-            if(!email){
+            if (!email) {
                 showMessage('emptyEmail');
                 return;
             }
-            if(!password1){
+            if (!password1) {
                 showMessage('emptyPassword');
                 return;
             }
-            if(!password2){
+            if (!password2) {
                 showMessage('emptyPassword');
                 return;
             }
-            if(password1 !== password2){
+            if (password1 !== password2) {
                 showMessage('passwordMismatch');
                 return;
             }
-            if(!document.getElementById('checkboxConsent').checked){
+            if (!document.getElementById('checkboxConsent').checked) {
                 showMessage('agreeConsent');
                 return;
             }
@@ -402,7 +425,7 @@
             document.getElementById('registerProgress').style.display = 'block';
         }
 
-        function showMessage(message1, prevent = false){
+        function showMessage(message1, prevent = false) {
             message = message1;
             loginConsole.style.display = 'block';
             successConsole.style.display = 'block';
@@ -412,14 +435,14 @@
             loginConsole.innerHTML = messages[message][lang];
             successConsole.innerHTML = messages[message][lang];
             registerConsole.innerHTML = messages[message][lang];
-            if(!prevent){
+            if (!prevent) {
                 document.getElementById('registartionButtonB').disabled = false;
                 document.getElementById('loginButtonB').disabled = false;
                 document.getElementById('resetButtonB').disabled = false;
             }
         }
 
-        function changeCard(type){
+        function changeCard(type) {
             message = '';
             loginCard.style.display = 'none';
             successCard.style.display = 'none';
@@ -430,7 +453,7 @@
             registerConsole.style.display = 'none';
             document.getElementById('loginProgress').style.display = 'none';
             document.getElementById('registerProgress').style.display = 'none';
-            switch(type){
+            switch (type) {
                 case 'loading':
                     loadingCard.style.display = 'flex';
                     break;
@@ -447,11 +470,11 @@
             interactionInterface('loaded');
         }
 
-        function interactionInterface(message){
-            if(typeof android !== 'undefined'){
+        function interactionInterface(message) {
+            if (typeof android !== 'undefined') {
                 android.onMessageRecieved(message);
             }
-            else{
+            else {
                 console.log(message);
             }
         }
