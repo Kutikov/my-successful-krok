@@ -15,12 +15,12 @@
 }
 
 .icon__color{
-    color: #80cbc4;
-    fill: #80cbc4;
+    color: #64ffda;
+    fill: #64ffda;
 }
 
 .info_item__label{
-    color: #80cbc4;
+    color: #64ffda;
 }
 
 .info_item__content{
@@ -33,29 +33,41 @@
 
 .button_local{
     border: 1px solid #666;
-    color: #80cbc4;
+    color: #64ffda;
 }
 .button_local:hover{
-    background-color: #80cbc415;
+    background-color: #64ffda15;
 }
 .button_local:active{
-    background-color: #80cbc422;
+    background-color: #64ffda22;
 }
 .button_local:disabled{
     color: #666;
 }
 .button_local__raised{
-    border: 1px solid #80cbc4;
+    border: 1px solid #64ffda;
     color: #000;
-    background-color: #80cbc4;
+    background-color: #64ffda;
 }
 .button_local__raised:hover{
-    border: 1px solid #82e9de;
-    background-color: #82e9de;
+    border: 1px solid #1de9b6;
+    background-color: #1de9b6;
 }
 .button_local__raised:active{
-    border: 1px solid #4db6ac;
-    background-color: #4db6ac;
+    border: 1px solid #00b686;
+    background-color: #00b686;
+}
+.button_local__raised:disabled{
+    border: 1px solid #616161;
+    background-color: #616161;
+    color: #ccc;
+    box-shadow: 0px 1px 4px 1px #00000044;
+}
+.pure-material-checkbox a{
+    color: #64ffda;
+}
+.pure-material-checkbox a:visited{
+    color: #1de9b6;
 }
 
 .text-field__input{
@@ -69,10 +81,10 @@
     border-color: #ff8a80 !important;
 }
 .text_field__label:focus-within .notched-outline{
-    border: 2px solid #80cbc4;
+    border: 2px solid #64ffda;
 }
 .text_field__label:focus-within .floating-label{
-    color: #80cbc4;
+    color: #64ffda;
 }
 .floating-label{
     color: rgba(255, 255, 255, 0.6);
@@ -82,7 +94,7 @@
 }
   
 .progress-bar-value {
-    background-color: #80cbc4;
+    background-color: #64ffda;
 }
 
 
@@ -112,13 +124,13 @@
 /* Checked, Indeterminate */
 .pure-material-checkbox > input:checked,
 .pure-material-checkbox > input:indeterminate {
-    background-color: rgb(33, 150, 243);
+    background-color: #008e76;
 }
 
 .pure-material-checkbox > input:checked + span::before,
 .pure-material-checkbox > input:indeterminate + span::before {
-    border-color: rgb(33, 150, 243);
-    background-color: rgb(33, 150, 243);
+    border-color: #008e76;
+    background-color: #008e76;
 }
 
 .pure-material-checkbox > input:checked + span::after,
@@ -127,7 +139,7 @@
 }
 
 .pure-material-checkbox > input:active + span::before {
-    border-color: rgb(33, 150, 243);
+    border-color: #008e76;
 }
 
 .pure-material-checkbox > input:checked:active + span::before {

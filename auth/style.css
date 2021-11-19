@@ -1,3 +1,6 @@
+:root{
+    color-scheme: dark;
+}
 .listMainPage{
     padding-top: 0px;
     overflow-y: scroll; 
@@ -16,6 +19,22 @@
     height: 100%;
     width: 100%;
     position: fixed;
+}
+.dialogHolder{
+    z-index: 500;
+    background-color: #0006;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.dialog{
+    box-shadow: 0px 2px 4px 3px rgb(0 0 0 / 20%), 0px 1px 12px 6px rgb(0 0 0 / 14%), 0px 1px 12px 0px rgb(0 0 0 / 12%) !important;
+    max-width: 600px;
+    max-height: 80%;
+    display: table !important;
 }
 
 .listMainPage::-webkit-scrollbar {
@@ -143,18 +162,31 @@
 .button_local__raised{
     border: 1px solid #00695d;
     color: #fff;
+    font-weight: 600;
     background-color: #00695d;
     box-shadow: 0px 1px 4px 1px #00000033;
 }
 .button_local__raised:hover{
-    border: 1px solid #028172;
-    background-color: #028172;
+    border: 1px solid #00796b;
+    background-color: #00796b;
     box-shadow: 0px 1px 4px 1px #00000044;
 }
 .button_local__raised:active{
-    border: 1px solid #028d7d;
-    background-color: #028d7d;
+    border: 1px solid #00897b;
+    background-color: #00897b;
     box-shadow: 0px 1px 4px 1px #00000044;
+}
+.button_local__raised:disabled{
+    border: 1px solid #616161;
+    background-color: #616161;
+    color: #ccc;
+    box-shadow: 0px 1px 4px 1px #00000044;
+}
+.pure-material-checkbox a{
+    color: #00695c;
+}
+.pure-material-checkbox a:visited{
+    color: #004d40;
 }
 
 
@@ -386,13 +418,13 @@
 /* Checked, Indeterminate */
 .pure-material-checkbox > input:checked,
 .pure-material-checkbox > input:indeterminate {
-    background-color: rgb(33, 150, 243);
+    background-color: #009688;
 }
 
 .pure-material-checkbox > input:checked + span::before,
 .pure-material-checkbox > input:indeterminate + span::before {
-    border-color: rgb(33, 150, 243);
-    background-color: rgb(33, 150, 243);
+    border-color: #009688;
+    background-color: #009688;
 }
 
 .pure-material-checkbox > input:checked + span::after,
@@ -426,7 +458,7 @@
 }
 
 .pure-material-checkbox > input:active + span::before {
-    border-color: rgb(33, 150, 243);
+    border-color: #009688;
 }
 
 .pure-material-checkbox > input:checked:active + span::before {

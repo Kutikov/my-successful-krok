@@ -159,10 +159,34 @@
                 </div>
             </div>
         </div>
+        <div class="canvasBackground dialogHolder" style="display: none;" id="dialogHolder">
+            <div class="dialog card">
+                <table>
+                    <tr>
+                        <td style="width: 90%; vertical-align: middle;">
+                            <p class="card__text" id="consentTitle" style="font-size: 22px; font-weight: 600;"></p>
+                        </td>
+                        <td style="vertical-align: top; text-align: end;">
+                            <i class="material-icons1" aria-hidden="true"
+                                style="font-size: 36px; margin: 8px;cursor: pointer;" onclick="dialogC(false)">close</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div style="overflow-x: hidden; overflow-y: visible; max-height: 500px;">
+                                <p class="card__text" id="consentText"></p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript">
         const localization = {
+            consentTitle: ['Згода користувача', "Пользовательское соглашение", 'User`s consent'],
+            consentText: ['Згода користувача', "Пользовательское соглашение", 'User`s consent'],
             loginingTitle: ['ВХІД', 'ВХОД', 'SIGNING IN'],
             registartionButton: ['Реєстрація', 'Регистрация', 'Registration'],
             emailLoginLabel: ['Email', 'Email', 'Email'],
@@ -175,7 +199,7 @@
             emailRegisterLabel: ['Email', 'Email', 'Email'],
             passwordRegister1Label: ['Пароль (8 знаків)', 'Пароль (8 знаков)', 'Password (8 symbols)'],
             passwordRegister2Label: ['Повторити пароль', 'Повторить пароль', 'Repeat password'],
-            checkboxConsentLabel: ['Я погоджуюся з <a target="_blank" href="https://google.com.ua">правилами користування</a> цього додатку', 'Я соглашаюсь с <a target="_blank" href="https://google.com.ua">правилами пользования</a> этого приложения', 'I agree to the <a target="_blank" href="https://google.com.ua">terms of use</a> for this application'],
+            checkboxConsentLabel: ['Я погоджуюся з <a href="javascript:dialogC(true)">правилами користування</a> цього додатку', 'Я соглашаюсь с <a href="javascript:dialogC(true)">правилами пользования</a> этого приложения', 'I agree to the <a href="javascript:dialogC(true)">terms of use</a> for this application'],
             registerButton: ['Зареєструватися', 'Зарегистрироваться', 'Register'],
             pageTitle: ['Мій успішний КРОК', 'Мой успешный КРОК', 'My successful KROK'],
             successfulTitle: ['Успішно!', 'Успешно!', 'Successfully!'],
@@ -274,6 +298,10 @@
                 return document.getElementById(id.substring(0, id.length - 1)).value;
             }
             return false;
+        }
+
+        function dialogC(open) {
+            document.getElementById('dialogHolder').style.display = open ? 'flex' : 'none';
         }
 
         function loginIn() {
