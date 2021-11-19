@@ -31,7 +31,7 @@
 <body>
     <div id="main"
         style="display: flex; bottom: 0; top: 0; right: 0; left: 0; position: absolute; flex-direction: column; align-items: center;">
-        
+
         <canvas id='backgroundCanvas' class="canvasBackground"></canvas>
         <div id="panel-top" class="panel-top">
             <div id="icon"
@@ -68,7 +68,8 @@
                     <span class="notched-outline" id='passwordLoginNotch'>
                         <span class="floating-label" id="passwordLoginLabel">Пароль</span>
                     </span>
-                    <input type="password" id="passwordLogin" class="text-field__input" onblur="onBlur('passwordLogin')" required minlength="8">
+                    <input type="password" id="passwordLogin" class="text-field__input" onblur="onBlur('passwordLogin')"
+                        required minlength="8">
                 </label>
                 <div role="progressbar" id="loginProgress" class="progress-bar">
                     <div class="progress-bar-value"></div>
@@ -97,30 +98,35 @@
                     <span class="notched-outline" id='nameRegisterNotch'>
                         <span class="floating-label" id="nameRegisterLabel">nnn</span>
                     </span>
-                    <input type="text" id="nameRegister" class="text-field__input" onblur="onBlur('nameRegister')" required  minlength="4">
+                    <input type="text" id="nameRegister" class="text-field__input" onblur="onBlur('nameRegister')"
+                        required minlength="4">
                 </label>
                 <label class="text_field__label" id="emailRegisterH" style="margin: 8px 16px;">
                     <span class="notched-outline" id='emailRegisterNotch'>
                         <span class="floating-label" id="emailRegisterLabel">Email</span>
                     </span>
-                    <input type="text" id="emailRegister" class="text-field__input" onblur="onBlur('emailRegister')" required
+                    <input type="text" id="emailRegister" class="text-field__input" onblur="onBlur('emailRegister')"
+                        required
                         pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?">
                 </label>
                 <label class="text_field__label" id="passwordRegister1H" style="margin: 8px 16px;">
                     <span class="notched-outline" id='passwordRegister1Notch'>
                         <span class="floating-label" id="passwordRegister1Label">Пароль</span>
                     </span>
-                    <input type="password" id="passwordRegister1" class="text-field__input" onblur="onBlur('passwordRegister1')" required minlength="8">
+                    <input type="password" id="passwordRegister1" class="text-field__input"
+                        onblur="onBlur('passwordRegister1')" required minlength="8">
                 </label>
                 <label class="text_field__label" id="passwordRegister2H" style="margin: 8px 16px;">
                     <span class="notched-outline" id='passwordRegister2Notch'>
                         <span class="floating-label" id="passwordRegister2Label">Повторити пароль</span>
                     </span>
-                    <input type="password" id="passwordRegister2" class="text-field__input" onblur="onBlur('passwordRegister2')" required minlength="8">
+                    <input type="password" id="passwordRegister2" class="text-field__input"
+                        onblur="onBlur('passwordRegister2')" required minlength="8">
                 </label>
                 <label class="pure-material-checkbox" style="margin: 0 16px;">
                     <input type="checkbox" id="checkboxConsent" />
-                    <span id="checkboxConsentLabel">Я погоджуюся з <a target="_blank" href="https://google.com.ua">правилами користування</a> цього додатку</span>
+                    <span id="checkboxConsentLabel">Я погоджуюся з <a target="_blank"
+                            href="https://google.com.ua">правилами користування</a> цього додатку</span>
                 </label>
                 <div role="progressbar" id="registerProgress" class="progress-bar">
                     <div class="progress-bar-value"></div>
@@ -198,16 +204,6 @@
         let message = ''
         let lang = 0;
         let updatePassword = false;
-        const selector = '.mdc-button, .mdc-fab, .mdc-icon-button, .mdc-card__primary-action, .mdc-icon-button';
-        const ripples = [].map.call(document.querySelectorAll(selector), function (el) {
-            return new mdc.ripple.MDCRipple(el);
-        });
-        const fields = [].map.call(document.querySelectorAll('.mdc-form-field'), function (el) {
-            return new mdc.formField.MDCFormField(el);
-        });
-        const checks = [].map.call(document.querySelectorAll('.mdc-checkbox'), function (el) {
-            return new mdc.checkbox.MDCCheckbox(el);
-        });
         const loginCard = document.getElementById('cardLogin');
         const registerCard = document.getElementById('cardRegister');
         const successCard = document.getElementById('cardSuccess');
@@ -221,7 +217,7 @@
         changeCard('loading');
         const firebaseApi = new FireBaseAPI();
 
-        
+
         window.addEventListener('resize', (e) => {
             background.drawBackground();
         });
@@ -246,18 +242,18 @@
                 link.setAttribute('href', 'style-dark.css');
                 document.head.append(link);
                 background.setDark();
-            } 
-            else{
+            }
+            else {
                 background.setLight();
             }
         });
 
-        function onBlur(id){
-            if(!document.querySelector('#' + id).checkValidity()){
+        function onBlur(id) {
+            if (!document.querySelector('#' + id).checkValidity()) {
                 document.querySelector('#' + id + 'Notch').classList.add('invalidC');
                 document.querySelector('#' + id + 'Label').classList.add('invalidC');
             }
-            else{
+            else {
                 document.querySelector('#' + id + 'Notch').classList.remove('invalidC');
                 document.querySelector('#' + id + 'Label').classList.remove('invalidC');
             }

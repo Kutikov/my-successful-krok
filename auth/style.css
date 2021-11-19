@@ -173,6 +173,11 @@
     -webkit-font-smoothing: antialiased;
 }
 
+.icon__color{
+    color: #00695d;
+    fill: #00695d;
+}
+
 
 .button__icon {
     font-size: 1.5rem;

@@ -14,12 +14,17 @@
     color: #ccc;
 }
 
+.icon__color{
+    color: #80cbc4;
+    fill: #80cbc4;
+}
+
 .info_item__label{
-    color: #006d59;
+    color: #80cbc4;
 }
 
 .info_item__content{
-    color: #000;
+    color: #fff;
 }
 
 .card{
