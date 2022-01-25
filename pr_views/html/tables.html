@@ -18,10 +18,10 @@
 
 </head>
 
-<body>
-  <div id="mainDiv" class="main_div">
+<body style="position: inherit;">
+  <div id="mainDiv" class="main_div" style="position: inherit">
     <div id="cardsRoot" class="posters_holder">
-      <div style="width:100%; display: flex; padding-left: 12px">
+      <div style="width:100%; display: flex; padding-left: 8px">
         <div style="width:0%; align-items: center; margin-bottom: 16px; display: none;">
           <p class="poster_title" id="LangTitle">Language</p>
           <div class="radio">
@@ -144,10 +144,6 @@
       }
 
       function onResizeEvent() {
-        let height = document.body.clientWidth * 0.36;
-        document.getElementById('imageDiv').style.height = height + 'px';
-        document.getElementById('mainDiv').style.paddingTop = height + 'px';
-        document.getElementById('mainDiv').style.paddingBottom = (8 + document.getElementById('copyRight').offsetHeight) + 'px';
       }
 
       function helper() {
