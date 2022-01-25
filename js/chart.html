@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>My successful KROK blog</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="">
+    <meta name="author" content="Damir A. Kutikov">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body style="background-color: #f0f0f0; margin: 0;">
+    <input type="file" id="upload_file" style="width: 100px;" accept=".json">
+    <p style="width: 100%;" id="textP"></p>
+    <script>
+        const utf8Decoder = new TextDecoder('utf-8');
+
+        document.getElementById('upload_file').addEventListener('change', function () {
+            const fr = new FileReader();
+            fr.onload = function () {
+                let filecontent = fr.result;
+                const source = utf8Decoder.decode(filecontent);
+                const Obj = JSON.parse(source);
+                let str = '';
+                for (let i = 1; i < Obj.tasks.length; i++) {
+                    const test = Obj.tasks[i];
+                    str = str + i.toString() + ". ";
+                    str = str + test.task + "\n";
+                    str = str + test.answersTrue[0] + "\n";
+                    for (let j = 0; j < test.answersFalse.length; j++) {
+                        str = str + test.answersFalse[j] + "\n";
+                    }
+                    str = str + "\n";
+                }
+                document.getElementById('textP').innerText = str;
+            }
+            fr.readAsArrayBuffer(this.files[0]);
+        });
+    </script>
+</body>
+
+</html>
