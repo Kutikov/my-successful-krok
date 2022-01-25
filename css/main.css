@@ -283,9 +283,9 @@ body{
     padding-left: 8px; 
     border-radius: 8px;
   }
-@media (min-width: 600px){
+@media (min-width: 748px){
   .posters_holder{
-    width: 600px;
+    width: 748px;
   }
   .table_cell_icon{
     width: 24px;

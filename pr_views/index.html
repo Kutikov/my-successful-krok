@@ -1,0 +1,99 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>My successful KROK</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="description" content="My successful KROK">
+    <meta name="author" content="Damir A. Kutikov, Julia V. Kizurina">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:url" content="https://kutikov.github.io/my-successful-krok/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="My successful KROK - Homepage" />
+    <meta property="og:description" content="My successful KROK - Homepage" />
+    <meta property="og:image" content="http://medicine.karazin.ua/images/logo.jpg" />
+
+    <link href="styles/main.css?id=124" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="mainHolder" style="display: flex; height: 100%;">
+        <div id="mainBackground" class="mainBackground"></div>
+        <div id="scrollSource" class="scrollSource">
+            <div id="mainCard" class="mainCard">
+                <div class="mobileHeader"></div>
+                <div id="contentSection">
+                    <p id="title" class="title">Заголовок</p>
+                    <p id="date" class="date">12 april 2021</p>
+                </div>
+                <div id="bottomPanel" class="bottomPanel">
+                    <div class="bottomPanelLeft">
+
+                    </div>
+                    <div id="icon" class="bottomPanelIcon2"></div>
+                    <div class="bottomPanelRight">
+                        <p id="appname" class="bottomPanelRightTitle">Мой успешный КРОК</p>
+                        <p class="bottomPanleRightCopyRight">Damir A. Kutikov © 2018–2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const urlParams = new URLSearchParams(window.location.search);
+        const language = urlParams.get('lang');
+        let jsDate = new Date();
+        try {
+            let dateParts = urlParams.get('date').split("-");
+            jsDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2].substr(0, 2));
+        }
+        catch {
+        }
+        const localized = [
+            { id: "title", ru: "Блог разработчиков", ua: "Блог розробників", en: "Developers` blog" },
+            { id: "date", ru: "Выберите интересующий пост", ua: "Оберіть пост, що Вас цікавить", en: "Select post, that is interesting for you" },
+            { id: "p3", ru: "<br/>Если Вам интересно обсудить КРОК и все аспекты, с ним связанные, с Вашими коллегами, присоединяйтесь к нашей <a href=\"https://t.me/my_successful_krok_2021\">беседе в Telegram</a>.<br/><br/>Не забывайте подписываться на нас в <a href=\"https://www.instagram.com/my_successful_krok_2021\">Instagram</a>, там много полезного и интересного.", ua: "Якщо Вам цікаво обговорити КРОК і всі аспекти, з ним пов'язані, з Вашими колегами, приєднуйтесь до нашої <a href=\"https://t.me/my_successful_krok_2021\">бесіди в Telegram</a>.<br/><br/>Не забувайте підписуватися на нас у <a href=\"https://www.instagram.com/my_successful_krok_2021\">Instagram</a>, там багато корисного та цікавого.", en: "" },
+        ];
+        const tg = document.createElement('p');
+        tg.className = "paragraph";
+        tg.id = "p3";
+        document.getElementById("contentSection").appendChild(tg);
+
+        for (let i = 0; i < localized.length; i++) {
+            let html = localized[i].en;
+            switch (language) {
+                case "ru":
+                    html = localized[i].ru;
+                    break;
+                case "ua":
+                    html = localized[i].ua;
+                    break;
+            }
+            if (localized[i].id == "title") {
+                document.title = html;
+            }
+            document.getElementById(localized[i].id).innerHTML = html;
+        }
+        console.log(jsDate.toDateString());
+
+        function copyToClipboard() {
+            const inputc = document.body.appendChild(document.createElement("input"));
+            inputc.value = window.location.href;
+            inputc.focus();
+            inputc.select();
+            document.execCommand('copy');
+            inputc.parentNode.removeChild(inputc);
+        }   
+    </script>
+</body>
+
+</html>

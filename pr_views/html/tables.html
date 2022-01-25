@@ -1,0 +1,172 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Секції</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="author" content="Damir A. Kutikov, Julia V. Kizurina">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="../styles/main.css?id=124" rel="stylesheet">
+
+</head>
+
+<body>
+  <div id="mainDiv" class="main_div">
+    <div id="cardsRoot" class="posters_holder">
+      <div style="width:100%; display: flex; padding-left: 12px">
+        <div style="width:0%; align-items: center; margin-bottom: 16px; display: none;">
+          <p class="poster_title" id="LangTitle">Language</p>
+          <div class="radio">
+            <input type="radio" name="radio" id="radioUaLang" class="radio__input" checked onchange="radioClicked()">
+            <label for="radioUaLang" id="radioUaLangS" class="radio__label">Українська</label>
+          </div>
+          <br>
+          <div class="radio">
+            <input type="radio" name="radio" id="radioEnLang" class="radio__input" onchange="radioClicked()">
+            <label for="radioEnLang" id="radioEnLangS" class="radio__label">English</label>
+          </div>
+          <br>
+          <div class="radio">
+            <input type="radio" name="radio" id="radioRuLang" class="radio__input" onchange="radioClicked()">
+            <label for="radioRuLang" id="radioRuLangS" class="radio__label">Русский</label>
+          </div>
+        </div>
+        <div style="width:99%; align-items: center; margin-bottom: 16px; padding-left: 0px">
+          <p class="poster_title" id="AnsistryTitle">Ansistry</p>
+          <div class="radio">
+            <input type="radio" name="radio2" id="radioUkrB" class="radio__input" checked onchange="radioClicked()">
+            <label for="radioUkrB" id="radioUkrBS" class="radio__label">Radio 1</label>
+          </div>
+          <br>
+          <div class="radio">
+            <input type="radio" name="radio2" id="radioEngB" class="radio__input" onchange="radioClicked()">
+            <label for="radioEngB" id="radioEngBS" class="radio__label">Radio 2</label>
+          </div>
+          <br>
+          <div class="radio">
+            <input type="radio" name="radio2" id="radioRusB" class="radio__input" onchange="radioClicked()">
+            <label for="radioRusB" id="radioRusBS" class="radio__label">Radio 3</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      let lang = "ua";
+      let ansistry = "ukrainian";
+
+      var script = document.createElement("script");  // create a script DOM node
+      script.type = "text/javascript";
+      script.onreadystatechange = function () {
+        if (this.readyState == 'complete') {
+          helper();
+        };
+      }
+      script.onload = helper;
+      switch (document.location.search) {
+        case "?lang=en":
+          lang = "en";
+          ansistry = "english";
+          break;
+        case "?lang=ru":
+          lang = "ru";
+          ansistry = "ukrainian";
+          break;
+      }
+      script.src = "../js/table_source.js?id=123";
+      switch (lang) {
+        case "ua":
+          document.getElementById('radioUaLang').checked = true;
+          document.getElementById('radioUkrB').checked = true;
+          break;
+        case "en":
+          document.getElementById('radioEnLang').checked = true;
+          document.getElementById('radioEngB').checked = true;
+          break;
+        case "ru":
+          document.getElementById('radioRuLang').checked = true;
+          document.getElementById('radioRusB').checked = true;
+          break;
+      }
+      localizePage();
+      document.head.appendChild(script);
+
+      function localizePage() {
+        let strings = {
+          "ua": {
+            "radios": ["Громадяни України", "Іноземці (англомовна форма навчання)", "Іноземці (російськомовна форма навчання)"],
+            "titles": ["", "Мова", "Правовий статус"]
+          },
+          "ru": {
+            "radios": ["Граждане Украины", "Иностранцы (англоязычная форма обучения)", "Иностранцы (русскоязычная форма обучения)"],
+            "titles": ["", "Язык", "Правовой статус"]
+          },
+          "en": {
+            "radios": ["Ukrainian sitizens", "Foreigners (english language)", "Foreigners (russian language)"],
+            "titles": ["", "Language", "Legal status"]
+          }
+        };
+        document.getElementById('LangTitle').innerText = strings[lang]["titles"][1];
+        document.getElementById('AnsistryTitle').innerText = strings[lang]["titles"][2];
+        document.getElementById('radioUkrBS').innerText = strings[lang]["radios"][0];
+        document.getElementById('radioEngBS').innerText = strings[lang]["radios"][1];
+        document.getElementById('radioRusBS').innerText = strings[lang]["radios"][2];
+      }
+
+      function radioClicked() {
+        if (document.getElementById('radioUaLang').checked) {
+          lang = "ua";
+        }
+        else if (document.getElementById('radioRuLang').checked) {
+          lang = "ru";
+        }
+        else if (document.getElementById('radioEnLang').checked) {
+          lang = "en";
+        }
+        if (document.getElementById('radioEngB').checked) {
+          ansistry = "english";
+        }
+        else if (document.getElementById('radioRusB').checked) {
+          ansistry = "russian";
+        }
+        else if (document.getElementById('radioUkrB').checked) {
+          ansistry = "ukrainian";
+        }
+        helper();
+        localizePage();
+      }
+
+      function onResizeEvent() {
+        let height = document.body.clientWidth * 0.36;
+        document.getElementById('imageDiv').style.height = height + 'px';
+        document.getElementById('mainDiv').style.paddingTop = height + 'px';
+        document.getElementById('mainDiv').style.paddingBottom = (8 + document.getElementById('copyRight').offsetHeight) + 'px';
+      }
+
+      function helper() {
+        if (document.getElementById('bases') != null) {
+          document.getElementById('legend').remove();
+          document.getElementById('bases').remove();
+          document.getElementById('bookletes').remove();
+        }
+        document.getElementById('cardsRoot').appendChild(legend_build(lang));
+        document.getElementById('cardsRoot').appendChild(table_build(lang, ansistry, true));
+        document.getElementById('cardsRoot').appendChild(table_build(lang, ansistry, false));
+      }
+
+      window.onresize = function (event) {
+        onResizeEvent();
+      }
+
+      onResizeEvent();
+    </script>
+</body>
+
+</html>
