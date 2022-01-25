@@ -262,6 +262,10 @@ class FireBaseAPI{
                         showMessage('emptyEmail');
                         break;
                 }
+                interactionInterface(JSON.stringify({
+                    action: 'abort',
+                    error: errorCode
+                }));
                 document.getElementById('registartionButtonB').disabled = true;
                 document.getElementById('loginButtonB').disabled = false;
             });      
@@ -301,6 +305,10 @@ class FireBaseAPI{
                         case 'auth/invalid-email':
                         case 'auth/user-not-found':
                             showMessage('expiredTermReresetPass');
+                            interactionInterface(JSON.stringify({
+                                error: errorCode,
+                                action: 'abort'
+                            }));
                             break;
                     }
                 });
