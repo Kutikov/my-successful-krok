@@ -427,6 +427,7 @@ a{
 }
 .question_icon{
   width:32px;
+  flex-shrink: 0;
   height:32px;
   color:#004d44;
 }
@@ -471,9 +472,10 @@ a{
         box-shadow: 0px 2px 8px 1px #00000000; 
         margin-top: 0px; 
         margin-bottom: 0px;
-        margin-left: 0; 
-        margin-right: 0; 
-        width: auto; 
+        margin-left: auto; 
+        margin-right: auto; 
+        width: 100%;
+        max-width: 748px; 
         padding: 16px;
     }
     
