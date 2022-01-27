@@ -187,7 +187,7 @@ function table_build(lang, ansistry, bookletesBool) {
 				case "russian":
 					headers = enHeaders;
 					cellsSource = bookletesBool ? rusBooklets : rusBases;
-					specs = ukrSpecs;
+					specs = enSpecs;
 					break;
 				case "english":
 					headers = enHeaders;
