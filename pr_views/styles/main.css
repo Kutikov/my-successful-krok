@@ -1,12 +1,12 @@
-.description_icon{
+.description_icon {
   margin-right: 16px;
   margin-left: 16px;
   width: 32px;
   height: 32px;
 }
-body{
-  height: 100%; 
-  overflow: hidden; 
+body {
+  height: 100%;
+  overflow: hidden;
   position: fixed;
   left: 0;
   top: 0;
@@ -14,114 +14,18 @@ body{
   margin: 0;
 }
 
-a{
-    text-decoration: none;
-    background-color: #b2dfdb;
-    color: #004d40;
-    font-weight: 600;
-    padding: 2px 6px;
-    border-radius: 8px;
+a {
+  text-decoration: none;
+  background-color: #b2dfdb;
+  color: #004d40;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+.mainBackground {
+  display: none;
 }
 
-.table_cell_icon{
-  width: 16px;
-  height: 16px;
-  margin: auto;
-  display: block !important;
-}
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-.radio {
-  word-break: break-word;
-  margin-bottom: 0px;
-  flex-wrap: wrap;
-  line-height: 20px;
-  width: 90%;
-  font-family: sans-serif;
-  margin-top: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  font-weight: 300;
-  padding-right: 16px;
-  display: inline-block;
-  position: relative;
-  margin: 0 0 10px;
-  font-size: 16px;
-  line-height: 24px;
-}
-.radio__input {
-  position: absolute;
-  top: 4px;
-  left: 0;
-  width: 36px;
-  height: 20px;
-  opacity: 0;
-  z-index: 0;
-}
-.radio__label {
-  display: block;
-  padding: 0 0 0 24px;
-  cursor: pointer;
-}
-.radio__label:before {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 0;
-  width: 16px;
-  height: 16px;
-  background-color: transparent;
-  border: 2px solid rgba(0, 0, 0, 0.54);
-  border-radius: 14px;
-  z-index: 1;
-  transition: border-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.radio__label:after {
-  content: '';
-  position: absolute;
-  top: 8px;
-  left: 4px;
-  width: 8px;
-  height: 8px;
-  background-color: #00695c;
-  border-radius: 50%;
-  z-index: 2;
-  transform: scale(0, 0);
-  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.radio__input:checked + .radio__label:before {
-  border-color: #00695c;
-}
-.radio__input:checked + .radio__label:after {
-  transform: scale(1, 1);
-}
-
-
-
-.topPanel{
-    display: flex; 
-    width: 100%; 
-    flex-direction: row; 
-    margin-bottom: 16px;
-}
-
-.topPanelIcon{
-    width:32px; 
-    height:32px; 
-    flex-grow:0; 
-    flex-shrink:0
-}
-
-.topPanelText{
-    font-family: sans-serif; 
-    margin: 6px 12px 6px 12px; 
-    font-size: 20px; 
-    text-transform: uppercase; 
-    flex-grow: 1; 
-    flex-shrink: 0;
-    font-weight: 400 !important;
-}
 .scrollSource{
     z-index: 5; 
     position: absolute; 
@@ -130,290 +34,155 @@ a{
     top: 0; 
     bottom: 0; 
     left: 0; 
-    right: -17px;
+    right: 0;
 }
 
-.description_text{
-  word-break: break-word;
-  margin-bottom: 0px;
-  flex-wrap: wrap;
-  line-height: 20px;
-  width: 90%;
-  font-family: sans-serif;
+.mainCard {
+  background-color: white;
+  border-radius: 0px;
+  box-shadow: 0px 2px 8px 1px #00000000;
   margin-top: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  font-size: 14px;
-  font-weight: 300;
-  padding-right: 16px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 748px;
+  padding: 16px;
 }
-.poster_button{
-  font-family: sans-serif;
-    margin-top: 8px;
-    margin-left: auto;
-    text-align: justify;
-    color: #0059cc;
-    text-decoration: none;
-    margin-bottom: 8px;
-    padding-bottom: 8px;
-    padding-top: 8px;
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-right: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 4px;
-    background-color: #0059cc00;
-    cursor: pointer;
-    user-select: none;
-}
-.main_div{
-  width: 100%;
-  display: flex;
-  align-content: center;
-  overflow: auto; 
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  top: 0; 
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-.main_div::-webkit-scrollbar {
-    display: none;
-}
-.poster_button:hover{
-    background-color: #0059cc22;
-}
-.poster_button:focus{
-    background-color: #0059cc33;
-}
-.poster_card{
-  background-color: #f5f5f5;
-  margin: 8px;
-  border-radius: 8px;
-  box-shadow: 0px 3px 6px 2px #0000004f;
-}
-.poster_title{
-  text-transform: uppercase;
-  font-family: sans-serif;
-  margin-bottom: 8px;
-  color: #00695c;
-  font-size: 14px;
-  font-weight: 600;
-}
-.page_title{
-  font-family: sans-serif;
-  margin-top: 16px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  padding-bottom: 24px;
-  font-size: 16px;
+
+.title {
   text-align: center;
-  font-weight: 600;
-}
-.info_text{
-  word-break: break-word;
-  margin-bottom: 0px;
-  color: #00695c;
-  flex-wrap: wrap;
-  line-height: 20px;
   font-family: sans-serif;
-  margin-top: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  font-size: 14px;
+  margin: 0px;
+  margin: 24px 0px 0px 0px;
+  text-transform: uppercase;
   font-weight: 600;
-  padding-right: 16px;
-}
-.posters_holder{
-    width: 100%;
-    margin: auto;
-    background-color: #fff; 
-    border-radius: 8px;
-  }
-
-
-
-
-.mainCard{
-    position: relative;
-    background-color: white; 
-    border-radius: 16px; 
-    box-shadow: 0px 2px 8px 1px #000000cc; 
-    margin-top: 240px; 
-    margin-bottom: 120px;  
-    margin-left: auto; 
-    margin-right: auto; 
-    width: 600px; 
-    padding: 16px;
-}
-.mobileHeader{
-    display: none;
+  font-size: 20px;
 }
 
-.title{
-    text-align: center; 
-    font-family: sans-serif; 
-    text-transform: uppercase; 
-    font-weight: 600; 
-    font-size: 20px;
+.mobileHeader {
+  display: block;
+  width: 100%;
+  background-image: url(header.jpg);
+  padding-bottom: 56.25%;
+  background-size: contain;
+  margin-bottom: 16px;
 }
 
-.date{
-    text-align: center; 
-    font-family: sans-serif; 
-    color: #666; 
-    margin-top: 8px; 
-    font-style: italic;
+.title {
+  text-align: center;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 20px;
 }
 
-.paragraph{
-    font-family: sans-serif; 
-    line-height: 24px;
-    margin-top: 8px; 
-    margin-bottom: 4px; 
-    font-size: 18px; 
-    text-align: justify;
+.date {
+  text-align: center;
+  font-family: sans-serif;
+  color: #666;
+  margin-top: 8px;
+  font-style: italic;
 }
 
-.post_chevron{
-    width:32px;
-    height:32px; 
-    margin-right:8px; 
-    flex-grow:0; 
-    flex-shrink:0
+.paragraph {
+  font-family: sans-serif;
+  line-height: 24px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-size: 18px;
+  text-align: justify;
 }
 
-.file_link{
-    background-color: #fff !important; 
-    padding: 0px !important;  
-    margin: 0 !important; 
-    color: #000 !important
+.post_chevron {
+  width: 32px;
+  height: 32px;
+  margin-right: 8px;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
-.file_card{
-    display: flex; 
-    align-items: center; 
-    flex-direction: row; 
-    border-radius: 8px; 
-    background-color: #eee; 
-    margin-left: auto; 
-    margin-right: auto; 
-    width: 300px; 
-    padding: 0px; 
-    box-shadow: 0px 1px 2px 0px #00000066;
+.bottomPanel {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin-top: 16px;
 }
 
-.file_icon{
-    width: 48px;
-    height: 48px; 
-    margin: 8px; 
-    flex-grow: 0; 
-    flex-shrink: 0
+.bottomPanelIcon2 {
+  background-size: contain;
+  height: 48px;
+  width: 48px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-right: 8px;
+  background-image: url(ic_launcher.png);
 }
 
-.file_name{
-    margin-top: 8px; 
-    margin-bottom: 8px; 
-    margin-right: 16px; 
-    font-family: sans-serif; 
-    font-weight: 600; 
-    font-size: 20px; 
-    font-style: bold;
+.bottomPanelText2 {
+  margin: 0px;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-style: italic;
 }
 
-.mainBackground{
-    background-size: cover; 
-    position: absolute; 
-    background-image: url('header.jpg'); 
-    height: 100%; 
-    width: 100%;
+.bottomPanelLeft {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  height: 48px;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.bottomPanel{
-    display: flex; 
-    width: 100%; 
-    flex-direction: row; 
-    margin-top: 16px;
+.bottomPanelRight {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 48px;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.bottomPanelIcon2{
-    background-size: contain;
-    height: 48px; 
-    width: 48px; 
-    flex-shrink: 0; 
-    flex-grow: 0; 
-    margin-right: 8px; 
-    background-image: url(ic_launcher.png);
+.bottomPanelRightTitle {
+  margin: 0px;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 600;
 }
 
-.bottomPanelText2{
-    margin:0px; 
-    font-family: sans-serif; 
-    font-size: 14px; 
-    font-style: italic;
+.bottomPanleRightCopyRight {
+  margin: 0px;
+  font-family: sans-serif;
+  font-size: 15px;
+  color: #666;
 }
 
-.bottomPanelLeft{
-    display: flex; 
-    flex-grow: 1; 
-    flex-shrink: 0; 
-    height: 48px; 
-    flex-direction: column; 
-    justify-content: space-between;
-}
-
-.bottomPanelRight{
-    display: flex; 
-    flex-grow: 0; 
-    flex-shrink: 0; 
-    height: 48px; 
-    flex-direction: column; 
-    justify-content: space-between;
-}
-
-.bottomPanelRightTitle{
-    margin:0px; 
-    font-family: sans-serif; 
-    font-size: 20px; 
-    font-weight: 600;
-}
-
-.bottomPanleRightCopyRight{
-    margin:0px; 
-    font-family: sans-serif; 
-    font-size: 15px; 
-    color: #666;
-}
-
-
-.stat_holder{
+.stat_holder {
   margin-top: 8px;
   margin-bottom: 8px;
   padding: 8px;
-  display: flex; 
-  flex-direction: row; 
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   width: 220px;
 }
-.stat_top{
+.stat_top {
   padding-bottom: 8px;
   font-size: 48px;
-  font-weight: 600; 
-  color: #004d40; 
-  text-align: center; 
+  font-weight: 600;
+  color: #004d40;
+  text-align: center;
   flex-basis: 100%;
 }
-.stat_bottom{
-  font-size: 24px; 
+.stat_bottom {
+  font-size: 24px;
   line-height: 28px;
-  font-weight: 600; 
-  color: #000; 
-  text-align: center; 
+  font-weight: 600;
+  color: #000;
+  text-align: center;
   flex-basis: 100%;
 }
-.question_holder{
+.question_holder {
   background-color: #fff !important;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -425,226 +194,101 @@ a{
   padding-left: 0px;
   padding-right: 0px;
 }
-.question_icon{
-  width:32px;
+.question_icon {
+  width: 32px;
   flex-shrink: 0;
-  height:32px;
-  color:#004d44;
+  height: 32px;
+  color: #004d44;
 }
-.question_text{
+.question_text {
   flex-grow: 1;
-  margin-left:16px;
+  margin-left: 16px;
   margin-right: 16px;
   font-size: 20px;
   margin-top: 4px;
 }
-.question_sideline{
+.question_sideline {
   margin-right: 16px;
   margin-left: 16px;
   width: 2px;
   background-color: #ccc;
 }
 
-
-
-@media (min-width: 148px){
-  .posters_holder{
-    width: 748px;
-  }
-  .table_cell_icon{
-    width: 24px;
-    height: 24px;
-  }
-  .mainBackground{
-        display: none;
-    }
-    
-    .scrollSource{
-        z-index: 5; 
-        margin: 0; 
-        overflow-y: scroll;
-        right: 0;
-    }
-    
-    .mainCard{
-        background-color: white; 
-        border-radius: 0px; 
-        box-shadow: 0px 2px 8px 1px #00000000; 
-        margin-top: 0px; 
-        margin-bottom: 0px;
-        margin-left: auto; 
-        margin-right: auto; 
-        width: 100%;
-        max-width: 748px; 
-        padding: 16px;
-    }
-    
-    .topPanel{
-        display: flex; 
-        width: 100%; 
-        flex-direction: row; 
-        margin-bottom: 8px;
-    }
-    
-    .topPanelIcon{
-        width:28px; 
-        height:28px; 
-        flex-grow:0; 
-        flex-shrink:0
-    }
-    
-    .topPanelText{
-        font-family: sans-serif; 
-        margin: 6px 12px 6px 12px; 
-        font-size: 16px; 
-        text-transform: uppercase; 
-        flex-grow: 1; 
-        flex-shrink: 0;
-        font-weight: 400 !important;
-    }
-
-    .mobileHeader{
-        display: block;
-        width: 100%; 
-        background-image: url(header.jpg); 
-        padding-bottom: 56.25%; 
-        background-size: contain; 
-        margin-bottom: 16px;
-    }
-    
-    .title{
-        text-align: center; 
-        font-family: sans-serif; 
-        margin: 0px;
-        margin: 24px 0px 0px 0px;
-        text-transform: uppercase; 
-        font-weight: 600; 
-        font-size: 20px;
-    }
-    
-    .file_link{
-        background-color: #fff !important; 
-        padding: 0px !important;  
-        margin: 0 !important; 
-        color: #000 !important
-    }
-    
-    .file_card{
-        display: flex; 
-        align-items: center; 
-        flex-direction: row; 
-        border-radius: 8px; 
-        background-color: #eee; 
-        margin-left: auto; 
-        width: auto;
-        margin-right: auto;  
-        padding: 0px; 
-        box-shadow: 0px 1px 2px 0px #00000066;
-    }
-    
-    .file_icon{
-        width: 36px;
-        height: 36px; 
-        margin: 8px; 
-        flex-grow: 0; 
-        flex-shrink: 0
-    }
-    
-    .file_name{
-        margin-top: 8px; 
-        margin-bottom: 8px; 
-        margin-right: 16px; 
-        font-family: sans-serif; 
-        font-weight: 600; 
-        font-size: 16px; 
-        font-style: bold;
-    }
-    
-    .bottomPanel{
-        align-items: center;
-        display: flex; 
-        width: 100%; 
-        flex-direction: row; 
-        margin-top: 16px;
-    }
-    
-    .bottomPanelIcon2{
-        background-size: contain;
-        height: 36px; 
-        width: 36px; 
-        flex-shrink: 0; 
-        flex-grow: 0; 
-        margin-right: 8px; 
-        background-image: url(ic_launcher.png);
-    }
-    
-    .bottomPanelText2{
-        margin:0px; 
-        font-family: sans-serif; 
-        font-size: 12px; 
-        font-style: italic;
-    }
-    
-    .bottomPanelLeft{
-        display: flex; 
-        flex-grow: 1; 
-        flex-shrink: 1; 
-        height: 48px; 
-        flex-direction: column; 
-        justify-content: space-between;
-    }
-    
-    .bottomPanelRight{
-        display: flex; 
-        flex-grow: 0; 
-        flex-shrink: 0; 
-        height: 36px; 
-        flex-direction: column; 
-        justify-content: space-between;
-    }
-    
-    .bottomPanelRightTitle{
-        margin:0px; 
-        margin-top: 2px;
-        font-family: sans-serif; 
-        font-size: 15px; 
-        font-weight: 600;
-    }
-    
-    .bottomPanleRightCopyRight{
-        margin:0px; 
-        margin-bottom: 2px;
-        font-family: sans-serif; 
-        font-size: 11px; 
-        color: #666;
-    }
-
-    .post_chevron{
-        width: 28px;
-        height: 28px; 
-        margin-right:8px; 
-        flex-grow:0; 
-        flex-shrink:0
-    }
-}
-@media (min-width: 426px){
-  .poster_button{
+@media (max-width: 148px) {
+  .title {
+    text-align: center;
+    font-family: sans-serif;
+    margin: 0px;
+    margin: 24px 0px 0px 0px;
+    text-transform: uppercase;
+    font-weight: 600;
     font-size: 20px;
+  }
+
+  .bottomPanel {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 16px;
+  }
+
+  .bottomPanelIcon2 {
+    background-size: contain;
+    height: 36px;
+    width: 36px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-right: 8px;
+    background-image: url(ic_launcher.png);
+  }
+
+  .bottomPanelText2 {
+    margin: 0px;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  .bottomPanelLeft {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: 48px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .bottomPanelRight {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 36px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .bottomPanelRightTitle {
+    margin: 0px;
+    margin-top: 2px;
+    font-family: sans-serif;
+    font-size: 15px;
     font-weight: 600;
   }
-  .description_text{
-    font-size: 16px;
-    font-weight: 400;
+
+  .bottomPanleRightCopyRight {
+    margin: 0px;
+    margin-bottom: 2px;
+    font-family: sans-serif;
+    font-size: 11px;
+    color: #666;
   }
-  .poster_title{
-    font-size: 20px;
-    text-align: justify;
-  }
-  .page_title{
-    font-size: 24px;
-    text-align: center;
-  }
-  .info_text{
-    font-size: 16px;
+
+  .post_chevron {
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    flex-grow: 0;
+    flex-shrink: 0;
   }
 }

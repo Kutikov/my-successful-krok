@@ -1,0 +1,26 @@
+.page {
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.item_holder {
+  margin-top: 16px;
+  flex-grow: 0;
+  width: 300px;
+}
+.item_title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.item_title_text {
+  text-transform: none;
+  text-align: start;
+  margin-left: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
