@@ -36,22 +36,21 @@
                     <p id="p1" class="paragraph">Подготовка к лицензионным экзаменам КРОК никогда не была тривиальной задачей и всегда требовала от студента или интерна большой осведомленности в абсолютно различных фундаментальных и клинических дисциплинах. Именно по этой причине любое подспорье в этой подготовке всегда ценно. Мы предлагаем Вам эффективный способ:</p>
                     <div
                         style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; align-items: center;">
-                        <div style="width: 192px; height: 192px; background-size: contain; background-image: url(/pr_views/styles/logo.jpg);">
+                        <div class="pres_icon">
                         </div>
-                        <div style="padding-left: 32px;">
+                        <div class="pres_block" id="presBlock">
                             <p id="apptitle2" class="title" style="margin: 0px; font-size: 32px; text-transform: none; text-align: left;">My successful KROK <br> 1, 2, 3, B and M</p>
-                            <p id="subTitle2" class="date" style="margin-bottom: 12px;text-align: left; font-size: 24px;">Application for Android</p>
-                            <p id="subTitle3" class="paragraph" style="font-size: 24px;">Damir A. Kutikov © 2018–2022</p>
+                            <p id="subTitle2" class="date" style="margin-bottom: 12px;text-align: left; font-size: 24px;">created by  Damir A. Kutikov<br/>designed by Julia V. Kiziurina<br/>© 2018-2022</p>
                         </div>
                     </div>
                     <p id="p2" class="paragraph">Действительно ультимативное решение для подготовки к КРОК 1, 2, 3, M and Б. Это не просто красивые слова, это 4 года кропотливой работы небольшой команды. Взгляните на показатели:</p>
                     <div style="width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-start;">
                         <div class="stat_holder">
-                            <p class="stat_top paragraph">23 000+</p>
+                            <p class="stat_top paragraph">24 000+</p>
                             <p id="stat1t" class="paragraph stat_bottom">downloads</p>
                         </div>
                         <div class="stat_holder">
-                            <p class="paragraph stat_top">90</p>
+                            <p class="paragraph stat_top">86</p>
                             <p id="stat2t" class="paragraph stat_bottom">contries</p>
                         </div>
                         <div class="stat_holder">
@@ -63,11 +62,11 @@
                             <p id="stat4t" class="paragraph stat_bottom">years of test collecting</p>
                         </div>
                         <div class="stat_holder">
-                            <p class="paragraph stat_top">243 383</p>
+                            <p class="paragraph stat_top" id="repSt">243 383</p>
                             <p id="stat5t" class="paragraph stat_bottom">tests in repository</p>
                         </div>
                         <div class="stat_holder">
-                            <p class="paragraph stat_top">149</p>
+                            <p class="paragraph stat_top" id="packs">149</p>
                             <p id="stat6t" class="paragraph stat_bottom">packages and updates</p>
                         </div>
                     </div>
@@ -160,7 +159,9 @@
                 </div>
                 <div id="bottomPanel" class="bottomPanel">
                     <div class="bottomPanelLeft">
-
+                        <p id="devs1" class="bottomPanelText2">Разработчики приложения</p>
+                        <p id="devs2" class="bottomPanelText2">Дамир А. Кутиков</p>
+                        <p id="devs3" class="bottomPanelText2">Юлия В. Кизюрина</p>
                     </div>
                     <div id="icon" class="bottomPanelIcon2"></div>
                     <div class="bottomPanelRight">
@@ -171,11 +172,12 @@
             </div>
         </div>
     </div>
+    <script src="./js/test_counter.js"></script>
     <script type="text/javascript">
         const urlParams = new URLSearchParams(window.location.search);
         const language = urlParams.get('lang');
         const localized = [
-            { id: "title", ru: "Блог разработчиков", ua: "Блог розробників", en: "Developers` blog" },
+            { id: "title", ru: "Сделай свой КРОК успешным", ua: "Зроби свій КРОК успішним", en: "Make your KROK successful" },
             { id: "stat1t", ru: "установок по всему миру", ua: "встановлень по всьому світу", en: "installs worldwide" },
             { id: "stat2t", ru: "стран", ua: "країн", en: "contries" },
             { id: "stat3t", ru: "средняя оценка", ua: "середня оцінка", en: "mean rating" },
@@ -197,6 +199,10 @@
             { id: "title3", ru: "Будьте внимательны!", ua: "Будьте уважні!", en: "Be attentive!" },
             { id: "p4", ru: "Отмеченные в качестве правильных ответы в программе <b><u><i>соответствуют официальной позиции Центра тестирования</i></u></b>, однако могут быть ошибочными, что требует от студентов детального анализа каждого вопроса в процессе подготовки к экзамену.", ua: "Відмічені у якості вірних відповіді у програмі <b><u><i>відповідні офіційній позиції Центру тестування</i></u></b>, однак можуть бути помилковими, що вимагає від студентів детального аналізу кожного тесту в процесі підготовки до екзамену.", en: "The answers marked as correct in program are <b><u><i>consistent with the official view of Testing Center</i></u></b>, however some of them may be false, so it demands students to analyze in details every question while preparing to exam." },
             { id: "appname", ru: "Мой успешный КРОК", ua: "Мій успішний КРОК", en: "My successful KROK" },
+            { id: "devs1", ru: "Разработчики приложения", ua: "Розробники додатку", en: "Application developers"},
+            { id: "devs2", ru: "Дамир А. Кутиков", ua: "Дамір О. Кутіков", en: "Damir A. Kutikov"},
+            { id: "devs3", ru: "Юлия В. Кизюрина", ua: "Юлія В. Кізюріна", en: "Julia V. Kiziurina"},
+            { id: "presBlock", ru: "<p class=\"title pres_title\">Мой успешный КРОК<br>1, 2, 3, Б и М</p><p class=\"date pres_sub\">автор Дамир А. Кутиков<br/>дизайнер Юлия В. Кизюрина<br/>© 2018-2022</p>", ua: "<p class=\"title pres_title\">Мій успішний КРОК<br>1, 2, 3, Б та М</p><p class=\"date pres_sub\">автор Дамір О. Кутіков<br/>дизайнер Юлія В. Кізюріна<br/>© 2018-2022</p>", en: "<p class=\"title pres_title\">My successful KROK <br> 1, 2, 3, B and M</p><p class=\"date pres_sub\">created by Damir A. Kutikov<br/>designed by Julia V. Kiziurina<br/>© 2018-2022</p>"}
         ];
 
         for (let i = 0; i < localized.length; i++) {
@@ -225,6 +231,7 @@
             document.getElementById(iframesContent[i].holder).style.display = 'flex';
             document.getElementById(iframesContent[i].frame).src = iframesContent[i].link + "?lang=" + language;
         }
+        readTests();
 
         function copyToClipboard() {
             const inputc = document.body.appendChild(document.createElement("input"));

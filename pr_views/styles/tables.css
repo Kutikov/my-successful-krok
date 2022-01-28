@@ -24,10 +24,14 @@ a{
 }
 
 .table_cell_icon{
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   margin: auto;
   display: block !important;
+}
+.top_2_cell{
+  text-align: center;
+  border-right: 2px solid #eceff1;
 }
 *, *:before, *:after {
   box-sizing: border-box;
@@ -199,20 +203,17 @@ a{
     border-radius: 8px;
 }
 
-
-@media (min-width: 148px){
-  .posters_holder{
-    width: 748px;
-  }
-  .table_cell_icon{
-    width: 24px;
-    height: 24px;
-  }
-}
-@media (min-width: 426px){
+@media (max-width: 426px){
   .poster_button{
     font-size: 20px;
     font-weight: 600;
+  }
+  .top_2_cell{
+    writing-mode: vertical-rl;
+  }
+  .table_cell_icon{
+    width: 20px;
+    height: 20px;
   }
   .description_text{
     font-size: 16px;
