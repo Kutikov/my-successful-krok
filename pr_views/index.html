@@ -232,6 +232,12 @@
             document.getElementById(iframesContent[i].frame).src = iframesContent[i].link + "?lang=" + language;
         }
         readTests();
+        const scrollSource = document.getElementById('scrollSource');
+        let lastPosition = 0;
+        scrollSource.onscroll = function(){
+            parent.window.postMessage(lastPosition - scrollSource.scrollTop, '*');
+            lastPosition = scrollSource.scrollTop;
+        }
 
         function copyToClipboard() {
             const inputc = document.body.appendChild(document.createElement("input"));
