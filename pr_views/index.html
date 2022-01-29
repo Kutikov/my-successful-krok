@@ -201,18 +201,18 @@
             { id: "appname", ru: "Мой успешный КРОК", ua: "Мій успішний КРОК", en: "My successful KROK" },
             { id: "devs1", ru: "Разработчики приложения", ua: "Розробники додатку", en: "Application developers"},
             { id: "devs2", ru: "Дамир А. Кутиков", ua: "Дамір О. Кутіков", en: "Damir A. Kutikov"},
-            { id: "devs3", ru: "Юлия В. Кизюрина", ua: "Юлія В. Кізюріна", en: "Julia V. Kiziurina"},
-            { id: "presBlock", ru: "<p class=\"title pres_title\">Мой успешный КРОК<br>1, 2, 3, Б и М</p><p class=\"date pres_sub\">автор Дамир А. Кутиков<br/>дизайнер Юлия В. Кизюрина<br/>© 2018-2022</p>", ua: "<p class=\"title pres_title\">Мій успішний КРОК<br>1, 2, 3, Б та М</p><p class=\"date pres_sub\">автор Дамір О. Кутіков<br/>дизайнер Юлія В. Кізюріна<br/>© 2018-2022</p>", en: "<p class=\"title pres_title\">My successful KROK <br> 1, 2, 3, B and M</p><p class=\"date pres_sub\">created by Damir A. Kutikov<br/>designed by Julia V. Kiziurina<br/>© 2018-2022</p>"}
+            { id: "devs3", ru: "Юлия В. Кизюрина", ua: "Юлія В. Кізюріна", en: "Yulia V. Kiziurina"},
+            { id: "presBlock", ru: "<p class=\"title pres_title\">Мой успешный КРОК<br>1, 2, 3, Б и М</p><p class=\"date pres_sub\">автор Дамир А. Кутиков<br/>дизайнер Юлия В. Кизюрина<br/>© 2018-2022</p>", ua: "<p class=\"title pres_title\">Мій успішний КРОК<br>1, 2, 3, Б та М</p><p class=\"date pres_sub\">автор Дамір О. Кутіков<br/>дизайнер Юлія В. Кізюріна<br/>© 2018-2022</p>", en: "<p class=\"title pres_title\">My successful KROK <br> 1, 2, 3, B and M</p><p class=\"date pres_sub\">created by Damir A. Kutikov<br/>designed by Yulia V. Kiziurina<br/>© 2018-2022</p>"}
         ];
 
         for (let i = 0; i < localized.length; i++) {
-            let html = localized[i].en;
+            let html = localized[i].ua;
             switch (language) {
                 case "ru":
                     html = localized[i].ru;
                     break;
-                case "ua":
-                    html = localized[i].ua;
+                case "en":
+                    html = localized[i].en;
                     break;
             }
             if (localized[i].id == "title") {
