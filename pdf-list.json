@@ -1,0 +1,17 @@
+[
+    {
+        "sha256": "82DF7D1BE937B52B7BFE9ABA19D60FC3BE8693A58A12EE1042EB51973B58B8F8",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "Сэрвицкая_грамматика",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська\nРусский",
+        "author": "Damir A. Kutikov",
+        "markersJson": ""
+      }
+]
