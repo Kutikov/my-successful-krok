@@ -44,5 +44,65 @@
         "language": "Українська\nEnglish",
         "author": "https://medical-club.net/",
         "markersJson": ""
+      },
+      {
+        "sha256": "239D59F752A5588BF545FB2C008B17D7F771E97BB8D396AE5A711840E00FD0BA",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_UA_21_I_web_відповіді",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "961A2728094D55172B60DEBAD82E640D7A9E92F60B25FC7EF044AF8A500F4A76",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_UA_21_II_web_відповіді",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "4A4F57C8894CC7AC793FFE6D2FAD93FF20D684BA3FD6687690FC194DBC79FB65",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_EN_21_I_img_відповіді",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська\nEnglish",
+        "author": "Ihor Nychai",
+        "markersJson": ""
+      },
+      {
+        "sha256": "A1116E61CE68F00214B991590AFA34ED0042F2E9D031FC49EAA5572BD067F2F7",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_UA_21_I_img",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @skrypkalyudmila",
+        "markersJson": ""
       }
 ]
