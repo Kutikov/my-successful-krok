@@ -9,9 +9,40 @@
           "LECH"
         ],
         "name": "Сэрвицкая_грамматика",
+        "removeMe": true,
         "targetGroup": "КРОК 3 для Лікувальна справа",
         "language": "Українська\nРусский",
         "author": "Damir A. Kutikov",
+        "markersJson": ""
+      },
+      {
+        "sha256": "9374A976F60F4CD7487C0C496488F2EE67A6BF872BE2340128D4CF968B2C1CFD",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_EN_21_I_web_відповіді",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська\nEnglish",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "A0DDE013B7A981DFC2A4F9988BB10E6A41CD04BF82ED88372FC4B62283C86C87",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_EN_21_II_web_відповіді",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська\nEnglish",
+        "author": "https://medical-club.net/",
         "markersJson": ""
       }
 ]
