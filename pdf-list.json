@@ -104,5 +104,485 @@
         "language": "Українська",
         "author": "TG @skrypkalyudmila",
         "markersJson": ""
+      },
+      {
+        "sha256": "046E3AB1863DBCCFA702F4EB30A1D7248F0398F9CEDB37366AFD5FD0647609DC",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_UA_21_II_img_відповіді",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "Анонім",
+        "markersJson": ""
+      },
+      {
+        "sha256": "5FF861A1A6E7DEEC5B2E8C020C555636BA494A5B083DA0A576AF5E6C4E48B223",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_21_I_web_відповіді",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "4865379B360E8CA26FE499B386844BC39E37D4053500DAF05D2F3CD64BCB5D7B",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_21_II_web_відповіді",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "5B8B798CCA48A5F439F784A99669EAB2923913CC89240FAE7DDBDA173D952520",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К2_Стомат_20_web_відповіді",
+        "targetGroup": "КРОК 2 для Стоматологія",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "436618786A60363405D5B464B6B6E9C44A07242512D75CF860A59366D416D337",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_20_I_img_відповіді",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @krok_2_internatura_v_ua",
+        "markersJson": ""
+      },
+      {
+        "sha256": "2449355D160FA47D408840D65E8167FA206F9FE786B740B7E7ABA899E215FD37",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_20_II_img_відповіді",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @Omar_alshakhatreh",
+        "markersJson": ""
+      },
+      {
+        "sha256": "FCD586950F0828CE35127DF94FD6343CA118C2180B62D0CB7AFB733E926AE712",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_21_I_img",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @internatura_v_ua",
+        "markersJson": ""
+      },
+      {
+        "sha256": "B20BD43E73FFB00383E2AE9DBDCCF5B6D2A30450039EC80A44655793D4818BF3",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_21_II_img",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @den_okhremenko",
+        "markersJson": ""
+      },
+      {
+        "sha256": "47FF6DDF0E2F8ACE74550DA87D776198614A608963AF40BC00A85788C870117A",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ЛікСправа_21_весна_I_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "CCA7E8F0852094206B86D1381EC3F56ACC231FA4220825452EC3C1B566458D57",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ЛікСправа_21_весна_II_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "087DE162ED4B0DF7A45561AE7BACC1D9179D706E482E1BCCDBDB89D9A5345F7E",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К3_Стомат_20_літо_web_відповіді",
+        "targetGroup": "КРОК 3 для Стоматологія",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "8EC913F99AEFEEDFCD5BAF8019E22FB383D8B1A319B8E6D27D2E1AA693A37925",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К3_Стомат_20_осінь_web_відповіді",
+        "targetGroup": "КРОК 3 для Стоматологія",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "1E9E6A4E1E8A7E268A14F36CD61A4F0D3D48AF0CE2AFD33D71A219505A54823D",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ЛікСправа_20_осінь_I_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @internatura2020",
+        "markersJson": ""
+      },
+      {
+        "sha256": "EAFFAD8B55A20833CA8E376F6681FDFBE3C34DCAC30F184C3D8556296A26BF67",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ЛікСправа_20_осінь_II_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @internatura2020",
+        "markersJson": ""
+      },
+      {
+        "sha256": "F2732D37D6B9FEFDD029F4B77FE65BB106AB5DA120E4435D7CD0960A80C26A8D",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ЛікСправа_21_весна_I_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG Прищепа Галина",
+        "markersJson": ""
+      },
+      {
+        "sha256": "1CA312E7D3CC3B093F83ECADEE835281317B660E6AEFB31CA51358DE2EF975A8",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ЛікСправа_21_весна_II_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @Phenomenal1996",
+        "markersJson": ""
+      },
+      {
+        "sha256": "EFC7B95AAF2FC045B3FF99A904378D773484370820C80B7B28D777C04FA97CAF",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KB"
+        ],
+        "reviewSpec": [
+          "LABD"
+        ],
+        "name": "КБ_ЛабДіаг_19_web_відповіді",
+        "targetGroup": "КРОК Б для Лабораторна діагностика",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "5B04250E5A01353A3896547F20612D3614D5C8914A7CEB13C8942E1121E9765A",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KB"
+        ],
+        "reviewSpec": [
+          "NURS"
+        ],
+        "name": "КБ_СестрСправа_19_web_відповіді",
+        "targetGroup": "КРОК Б для Сестринська справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "50137C692C01B86DF2E688745A854628D5FCD6868BB84F8D6D557940139DA49C",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KB"
+        ],
+        "reviewSpec": [
+          "NURS"
+        ],
+        "name": "КБ_СестрСправа_20_web_відповіді",
+        "targetGroup": "КРОК Б для Сестринська справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "4E0CC555755C88DD8E8F5FADC7C9C316F9C2A5D542B2D77E24D4E5D5292E7D49",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KB"
+        ],
+        "reviewSpec": [
+          "NURS"
+        ],
+        "name": "КБ_СестрСправа_21_web_відповіді",
+        "targetGroup": "КРОК Б для Сестринська справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "8147F2FDF7F5D138DDF9A55A803A0899655F5146FB87FF2D50610787C7FD8826",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KM"
+        ],
+        "reviewSpec": [
+          "OBST"
+        ],
+        "name": "КМ_Акушер_20_web_відповіді",
+        "targetGroup": "КРОК M для Акушерська справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "CAC11C318389E773B4FB4202611F01D08A56508C3AA11653E05D373FCBAA8AC9",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KM"
+        ],
+        "reviewSpec": [
+          "LABD"
+        ],
+        "name": "КМ_ЛабДіаг_19_web_відповіді",
+        "targetGroup": "КРОК M для Лабораторна діагностика",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "A197EABF14A8242F3BF4E31CD34F3AF99F39D63E8EEFED486DC1B3C10FF3D183",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KM"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "КМ_ЛікСправа_20_web_відповіді",
+        "targetGroup": "КРОК M для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "D695AA8B10453B6CD365A521D076AC61D09A2BA3E3D2C4478D5BFFEC008EC4E9",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KM"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "КМ_ЛікСправа_21_I_web_відповіді",
+        "targetGroup": "КРОК M для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "BA2E8B1AB363D70A1FABEEBE2A4B6D1F9268A447B3B0D15B12FCA6DD51E539B5",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KM"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "КМ_ЛікСправа_21_II_web_відповіді",
+        "targetGroup": "КРОК M для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "1E648BFBCADBF667ED0AE5ADA930590E07DED3F2792276249BF7B6668515538A",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KM"
+        ],
+        "reviewSpec": [
+          "NURS"
+        ],
+        "name": "КМ_СестрСправа_20_web_відповіді",
+        "targetGroup": "КРОК M для Сестринська справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "DA30A5F87CB359054DD6F0D7E55A3A93477F647704B32E233DD59A35AA1653B7",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KM"
+        ],
+        "reviewSpec": [
+          "NURS"
+        ],
+        "name": "КМ_СестрСправа_21_I_web_відповіді",
+        "targetGroup": "КРОК M для Сестринська справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "A6F6BCB4D0203C29891377FBCEB841D079A7C15536A856F82AFF6EE011A409F5",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KM"
+        ],
+        "reviewSpec": [
+          "NURS"
+        ],
+        "name": "КМ_СестрСправа_21_II_web_відповіді",
+        "targetGroup": "КРОК M для Сестринська справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "CBC0CB0F4CDC4A1212C6D84FC426B4E382A5B79C9406A39B0C4F80B39F3D30CF",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стом_EN_22_img_відповіді",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська\nEnglish",
+        "author": "TG @kvikki_k",
+        "markersJson": ""
+      },
+      {
+        "sha256": "37AD058149232FE557520422B9356DE62D1675F12A6D00D21062623F9FF2E8D3",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стом_UA_22_img_відповіді",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська",
+        "author": "TG @ksukulotova",
+        "markersJson": ""
+      },
+      {
+        "sha256": "1B3BEBED048A94ED9C650FB884D54968B5AFD2C30C9D1724F360B7E8BC606308",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "FARM"
+        ],
+        "name": "К1_Фарм_EN_22_img_відповіді",
+        "targetGroup": "КРОК 1 для Фармація",
+        "language": "Українська\nEnglish",
+        "author": "TG @medschools",
+        "markersJson": ""
+      },
+      {
+        "sha256": "4198BB311B572449A3668C649FC00097EE4FD629C1B10DD78A93F4C343BB5D06",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "FARM"
+        ],
+        "name": "К1_Фарм_UA_22_img_відповіді",
+        "targetGroup": "КРОК 1 для Фармація",
+        "language": "Українська",
+        "author": "TG @altos_2027",
+        "markersJson": ""
       }
 ]
