@@ -1,0 +1,2252 @@
+[{
+    "sha256": "D97F78166EC8820E8AFB6FAFD1629D3CB4F1AAD44BA0EB886F6390495FC51ECE",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_1._Анатомія_ЗЛП",
+    "targetGroup": "КРОК 1 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Шаповал О.В., каф. загальної та клінічної патології ХНУ Каразіна#&2452"
+  },
+  {
+    "sha256": "4FFF385B80E93AFF6E54B10513CCC755A0F76A6300BF62BA6720AF8057C1B94C",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_1._Біологія_ЗЛП",
+    "targetGroup": "КРОК 1 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Шаповал О.В., каф. загальної та клінічної патології ХНУ Каразіна#&1297"
+  },
+  {
+    "sha256": "1A5363367CF8B3D106B6F683A3D9C47E5050D6A2A67A1374B9127BCEC163E518",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_1._Біохімія_ЗЛП",
+    "targetGroup": "КРОК 1 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Шаповал О.В., каф. загальної та клінічної патології ХНУ Каразіна#&2270"
+  },
+  {
+    "sha256": "02A03D3478F3299FB0CE76D90BC462A9191DB4A1AE2E9D56A229C21DDCFF5F0E",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_1._Гістологія_ЗЛП",
+    "targetGroup": "КРОК 1 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Шаповал О.В., каф. загальної та клінічної патології ХНУ Каразіна#&1841"
+  },
+  {
+    "sha256": "A302DF531627763E6C205A12A9BFC371EE2851FE7CCEB533634BFEFC14CA2289",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_1._Мікробіологія_ЗЛП",
+    "targetGroup": "КРОК 1 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Шаповал О.В., каф. загальної та клінічної патології ХНУ Каразіна#&1384"
+  },
+  {
+    "sha256": "9CFDC848C381174D08E0DADF9A01408592E52805E9482BD95AA77927DB9EDBF0",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_1._Патанатомія_ЗЛП",
+    "targetGroup": "КРОК 1 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Шаповал О.В., каф. загальної та клінічної патології ХНУ Каразіна#&2174"
+  },
+  {
+    "sha256": "972AAF41572FDD35ED29FA3DF3C0B39B9A3C5A81E6F49B8FC2BDFEF52D707F37",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_1._Патфізіологія_ЗЛП",
+    "targetGroup": "КРОК 1 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Шаповал О.В., каф. загальної та клінічної патології ХНУ Каразіна#&2721"
+  },
+  {
+    "sha256": "9105DC5580147FAF5540744AC451BDA564FD4F238F1C7B17E4B8BC7EB38963E5",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_1._Фармакологія_ЗЛП",
+    "targetGroup": "КРОК 1 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Шаповал О.В., каф. загальної та клінічної патології ХНУ Каразіна#&2318"
+  },
+  {
+    "sha256": "2F591F5A994AC39F5F4E10748727BCC4183F64E33F22698CE556953FB0737CD9",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_1._Фізіологія_ЗЛП",
+    "targetGroup": "КРОК 1 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Шаповал О.В., каф. загальної та клінічної патології ХНУ Каразіна#&2090"
+  },
+  {
+    "sha256": "8A7B7F4A833F9B92502640666A6602A892FBEEC2404B1C768BAE81F7991A533D",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Анатомія_СТОМАТ",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кізюріна Ю.В.)#&1884"
+  },
+  {
+    "sha256": "ECB93D2D1EC02AEBCDDC8071FE060A34B054AB054793FC43BD9DDAA79F2FB044",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Біологія_СТОМАТ",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кізюріна Ю.В.)#&1032"
+  },
+  {
+    "sha256": "A59F19B8BC69ACF3C8BCA059D618CBD178EBBD51A60A2145DDF62817E4BE81DF",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Біохімія_СТОМАТ",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кізюріна Ю.В.)#&1677"
+  },
+  {
+    "sha256": "74BCF905BC397188E1595B2F6120DC47ABDE31BA8E61DFC1621354BED1B6069E",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Гістологія_СТОМАТ",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кізюріна Ю.В.)#&1414"
+  },
+  {
+    "sha256": "29DD7D0C61F097D26B773AB96D79FED7968C0A2A44FBAD93978F3650CC4521A2",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Інше_СТОМАТ",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кізюріна Ю.В.)#&394"
+  },
+  {
+    "sha256": "D5D3E7E8F81E482408DFDC565C5A4EAF9DE05E1F44C1902FFFA35C1BE1715AF6",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Мікробіологія_СТОМАТ",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кізюріна Ю.В.)#&981"
+  },
+  {
+    "sha256": "6109EA78783824CCDDE8253396C0489156518AC45B73D903F989A827B665C2D5",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Патанатомія_СТОМАТ",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кізюріна Ю.В.)#&1544"
+  },
+  {
+    "sha256": "02016E35F4C568668841B6A2F8498484B3157E30EF6C125BCF73CF392C628ADD",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Патфізіологія_СТОМАТ",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кізюріна Ю.В.)#&1667"
+  },
+  {
+    "sha256": "45B3CDA7D0908313D43528DF3C3660C2779A1B325BFC482959C0365DEAA128C9",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Фармакологія_СТОМАТ",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кізюріна Ю.В.)#&1545"
+  },
+  {
+    "sha256": "57E7978D5BA2BD28A41153505B3E173EAD76B22732133CBF65D0D44182B05863",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Фізіологія_СТОМАТ",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кізюріна Ю.В.)#&1511"
+  },
+  {
+    "sha256": "7CA799D819BEC6490BEA52F83914DD9525868DC84B1006C78A6E7CB620FE9F5C",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_2._Акушерство_ЗЛП",
+    "targetGroup": "КРОК 2 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&2725"
+  },
+  {
+    "sha256": "DCCB89D65CC9BD03DB72DE91DFBE3D2BFA0C09B501DC61AD82E30514439E202B",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_2._Терапія_ЗЛП",
+    "targetGroup": "КРОК 2 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&7197"
+  },
+  {
+    "sha256": "2278F39D83F7D21A8AABCC6202CAD16796EB8CEEF8368872B425089C642EA36F",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_2._Хірургія_ЗЛП",
+    "targetGroup": "КРОК 2 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&6090"
+  },
+  {
+    "sha256": "F8F138AD807DD95129A383AB00129FF7C30769CC7ADA207C35AE53A75B644388",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_2._Педіатрія_ЗЛП",
+    "targetGroup": "КРОК 2 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&3874"
+  },
+  {
+    "sha256": "F8F138AD807DD95129A383AB00129FF7C30769CC7ADA207C35AE53A75B644388",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_2._Педіатрія_ЗЛП",
+    "targetGroup": "КРОК 2 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&3874"
+  },
+  {
+    "sha256": "F8F138AD807DD95129A383AB00129FF7C30769CC7ADA207C35AE53A75B644388",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_2._Педіатрія_ЗЛП",
+    "targetGroup": "КРОК 2 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&3874"
+  },
+  {
+    "sha256": "32D482E6BCF82D7267B770F58DF75EE283DE28783B89408BF5C47E242A853CEB",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._Фармацевтична_хімія_ФАРМ",
+    "targetGroup": "КРОК 2 для Фармація",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&632"
+  },
+  {
+    "sha256": "9FEDACAB22901231EAD8CC4320E294D51CF7C7CB25C595EABF0AD45E2D178380",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._Фармакологія_ФАРМ",
+    "targetGroup": "КРОК 2 для Фармація",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&341"
+  },
+  {
+    "sha256": "266C8D219E9D0CCD7AD596DE07EE1509E90BBEDD5F4C76E9CC6319FCDB8EA2B2",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._Фармакогнозія_ФАРМ",
+    "targetGroup": "КРОК 2 для Фармація",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&385"
+  },
+  {
+    "sha256": "35C2FA185FCEC751645576DD98C7C8125FE9CC8D51158018BEDE3A956A15C914",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._Токсикологічна_хімія_ФАРМ",
+    "targetGroup": "КРОК 2 для Фармація",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&341"
+  },
+  {
+    "sha256": "78B19C242F149D9EC7D67C7EDBFCE165DB095A9D93D377DB19B7A6F9881FC8DA",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._ОЕФ_ФАРМ",
+    "targetGroup": "КРОК 2 для Фармація",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&556"
+  },
+  {
+    "sha256": "FB27854DC338A91D39CC863C8EE74CBF32E6640F80D5BB47871C1AB3DCE50AD8",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._ММФ_ФАРМ",
+    "targetGroup": "КРОК 2 для Фармація",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&457"
+  },
+  {
+    "sha256": "6FA0823269DD2539C5821F085140D787514A8245DA041FCCC814F29D4ABCA6A6",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._Клінічна_фармація_ФАРМ",
+    "targetGroup": "КРОК 2 для Фармація",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&155"
+  },
+  {
+    "sha256": "EF9CBA0E5103E9707EB5B3F7A245960B6F05DF7D856E385736A0F6DFB2D3EA95",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._ЗТЛ_ФАРМ",
+    "targetGroup": "КРОК 2 для Фармація",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&353"
+  },
+  {
+    "sha256": "5E16A2E056E65A6213262DB57D91A2BBCB92BE31C5800773403A312163230F5A",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._АТЛ_ФАРМ",
+    "targetGroup": "КРОК 2 для Фармація",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&734"
+  },
+  {
+    "sha256": "9E859F944C079DD25879ED628A51B38457F9D104B8B950DD43D1F80CC0C4115A",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_2._Хірургічна_стоматологія",
+    "targetGroup": "КРОК 2 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр та testkrok.org.ua (адапт. Кутіков Д.О., Кізюріна Ю.В.)#&3291"
+  },
+  {
+    "sha256": "DECA1F8CB7CBB03EE6FBE846FED4DBE1599992E08D283DD6927BA0E69245E2BB",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_2._Терапевтична_стоматологія",
+    "targetGroup": "КРОК 2 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр та testkrok.org.ua (адапт. Кутіков Д.О., Кізюріна Ю.В.)#&2750"
+  },
+  {
+    "sha256": "369669AF6F40ED88D786149EC526DA49877A22FC6F6B931C0B5F1A6D90A8A84E",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_2._Ортопедична_стоматологія",
+    "targetGroup": "КРОК 2 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр та testkrok.org.ua (адапт. Кутіков Д.О., Кізюріна Ю.В.)#&3661"
+  },
+  {
+    "sha256": "92EE27114746A19BAFAD14BCA049CEF97BC5B5886BCB278FFE2737CFC429EF8E",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_2._Ортодонтія",
+    "targetGroup": "КРОК 2 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр та testkrok.org.ua (адапт. Кутіков Д.О., Кізюріна Ю.В.)#&756"
+  },
+  {
+    "sha256": "AB8E06AFA2D40E5D9F5A803AC3726C4B977B18C77C0649CF4326B958691C2AE5",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_2._Загальний_медичний_профіль_СТОМАТ",
+    "targetGroup": "КРОК 2 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр та testkrok.org.ua (адапт. Кутіков Д.О., Кізюріна Ю.В.)#&245"
+  },
+  {
+    "sha256": "80D45403EA62F6F1D223D735C0D5BE73E655B2371399586E4ACAB5A7A4881E9A",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_2._Дитяча_хірургічна_стоматологія",
+    "targetGroup": "КРОК 2 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр та testkrok.org.ua (адапт. Кутіков Д.О., Кізюріна Ю.В.)#&938"
+  },
+  {
+    "sha256": "FC4E38637EF038CB70A329FACA33C421D32E5D2842A43FA0534586F264EB129B",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_2._Дитяча_терапевтична_стоматологія",
+    "targetGroup": "КРОК 2 для Стоматологія",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр та testkrok.org.ua (адапт. Кутіков Д.О., Кізюріна Ю.В.)#&2003"
+  },
+  {
+    "sha256": "E7E4B96F54F958F86B9A965CCC28575B051D1A0D598EF7810A2164DAB80E112D",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_2._Гігієна_ЗЛП",
+    "targetGroup": "КРОК 2 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&2375"
+  },
+  {
+    "sha256": "DD3C81CF812796D6466784DE03DE71C4A7694229719247D0188FF9D94EE63599",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_3._Хірургія_ЗЛП",
+    "targetGroup": "КРОК 3 для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&4688"
+  },
+  {
+    "sha256": "BD4067370A1517B6D9BCD9BC3FD0E6200CA15094FB1539DE1389985CB6758813",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_3._Терапія_ЗЛП",
+    "targetGroup": "КРОК 3 для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&7712"
+  },
+  {
+    "sha256": "9730CE62AD7C45021CF143611C3331AF709BA4C2444354C3A8E1A0FC9BA0A97E",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_3._Педіатрія_ЗЛП",
+    "targetGroup": "КРОК 3 для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&3476"
+  },
+  {
+    "sha256": "7A28B5182BB25CD1891FCD15D0574E3C4A503257FFF6F6C2194F0B654A74B8C6",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_3._Інше_ЗЛП",
+    "targetGroup": "КРОК 3 для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&322"
+  },
+  {
+    "sha256": "AA1BA9DD6807BBE4CA8716BE377B70ED855C2611B85B97B08BA216A87E0BCE69",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_3._Інфекції_ЗЛП",
+    "targetGroup": "КРОК 3 для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&936"
+  },
+  {
+    "sha256": "5ED0C4939C9F7402B412B16F9FC519A33862E5A077B507492FBF6092FA9DAAC2",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_3._Акушерство_ЗЛП",
+    "targetGroup": "КРОК 3 для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&1792"
+  },
+  {
+    "sha256": "0BB70291A5358A9F96E3D74CD4CCA7AA6A1D25690986BF751D21E21D91906357",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_3._Повторне_відвідування_СТОМАТ",
+    "targetGroup": "КРОК 3 для Стоматологія",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&2361"
+  },
+  {
+    "sha256": "DDD0E7B785895E885206207958B49690D916A3C34E5D15A0569EF746EEE5F6E8",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_3._Первинне_відвідування_СТОМАТ",
+    "targetGroup": "КРОК 3 для Стоматологія",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&5218"
+  },
+  {
+    "sha256": "64635D0C1253953904B97D82C37D93D222D82AD0B241C44E48F84678D169E411",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_3._Особлива_тактика_СТОМАТ",
+    "targetGroup": "КРОК 3 для Стоматологія",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&109"
+  },
+  {
+    "sha256": "115963C00A4A1E0910B3E3729905BE5CCC8165172026C5F839FAA39DA4B39D51",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_3._Організація_допомоги_СТОМАТ",
+    "targetGroup": "КРОК 3 для Стоматологія",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&173"
+  },
+  {
+    "sha256": "B20430491323CF8EA9CE5D47EEF9187516735AE4F5A0692ABB5083AE55983DE1",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_3._Невідкладна_допомога_СТОМАТ",
+    "targetGroup": "КРОК 3 для Стоматологія",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&658"
+  },
+  {
+    "sha256": "56BE8D3C81F970D7924FD713B3052F040ABBA5B2D34DC8464F3EB8AC6BBF977F",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_3._Диспансеризація_СТОМАТ",
+    "targetGroup": "КРОК 3 для Стоматологія",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&266"
+  },
+  {
+    "sha256": "DF1EB26B7FBCBC456AC74F68D5B5F7EEA7A82C123C340367910C2F42D3C79D33",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Стоматологія_УКР",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&3350"
+  },
+  {
+    "sha256": "E93E97D7F1A577C2FDCC904523C133C8C2209CB8EDFDDF92124FCB633034135E",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Стоматология_РУС",
+    "targetGroup": "КРОК 1 для Стоматология",
+    "language": "Русский",
+    "author": "Кизюрина Ю.В.#&3200"
+  },
+  {
+    "sha256": "EC9A3545D2402A6A5DAA8A201A1198F5226A5612F5B4E56159411607309D591A",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "KROK_1._Dentistry_ENG",
+    "targetGroup": "KROK 1 for Stomatology",
+    "language": "English",
+    "author": "Kiziurina J.V.#&2749"
+  },
+  {
+    "sha256": "236D8D100BEC7EF4E0D4A54BACFC48724EDD0DB61535B5FAA954EBA07D0469C8",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "KROK_2._Medicine_2020",
+    "targetGroup": "KROK 2 for Medicine",
+    "language": "English",
+    "author": "Kiziurina J.V.#&1200"
+  },
+  {
+    "sha256": "1A156BBA98CDB8149A5E5B3A20CD2EE5CF268BC1854931D02F5C752B8AE3A450",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "KROK_2._Dentistry_ENG",
+    "targetGroup": "KROK 2 for Stomatology",
+    "language": "English",
+    "author": "Kiziurina J.V.#&2400"
+  },
+  {
+    "sha256": "1460CB09AF667579310AAFF41D197B017C9AFE09FCC3F80F6B42B9CB9C800033",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "KROK_2._Pharmacy_ENG",
+    "targetGroup": "KROK 2 for Pharmacy",
+    "language": "English",
+    "author": "Kiziurina J.V.#&2000"
+  },
+  {
+    "sha256": "FEF455549DE7BB1701B34EE2E488E1DC9F9C0B0E09B82022A3D343D20D354A8E",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_2._Стоматология_РУС",
+    "targetGroup": "КРОК 2 для Стоматология",
+    "language": "Русский",
+    "author": "Кизюрина Ю.В.#&2800"
+  },
+  {
+    "sha256": "A0CEE010B990B22ED138E2110E6CC3DA0342201E3A621676872C30A7FC205235",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._Фармация_РУС",
+    "targetGroup": "КРОК 2 для Фармация",
+    "language": "Русский",
+    "author": "Кизюрина Ю.В.#&2600"
+  },
+  {
+    "sha256": "236D8D100BEC7EF4E0D4A54BACFC48724EDD0DB61535B5FAA954EBA07D0469C8",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "KROK_2._Medicine_2020",
+    "targetGroup": "KROK 2 for Medicine",
+    "language": "English",
+    "author": "Kiziurina J.V.#&0"
+  },
+  {
+    "sha256": "26232CD6AD56973EB1EF0DC0EABAC3081439B72ECEE95D03A34D49A2AF755FA3",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "COSM"
+    ],
+    "name": "КРОК_2._Косметологія_УКР",
+    "targetGroup": "КРОК 2 для Технологія парфумерно-косметичних засобів",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&800"
+  },
+  {
+    "sha256": "99A41AC5492961D0E6E3A3149706C0922C8DFEEF3A750561B1339316086F9CAC",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._Фармація_УКР",
+    "targetGroup": "КРОК 2 для Фармація",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&3000"
+  },
+  {
+    "sha256": "96A174E20B0927F8C016C6E17EBA6D9E6857B5608C9E136C6DC46716D644131B",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "PSYC"
+    ],
+    "name": "КРОК_2._Медпсихологія_УКР",
+    "targetGroup": "КРОК 2 для Медична психологія",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&1200"
+  },
+  {
+    "sha256": "C0EB100D9E86198350D58F5F5042B079D84BAF0B1480E82868D30D9147D214D7",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_2._Стоматологія_УКР",
+    "targetGroup": "КРОК 2 для Стоматологія",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&3800"
+  },
+  {
+    "sha256": "65116C04C7AA2E5A17408BA4D452F31523960DA2EB18A1190F558BE5415CEF76",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LABD"
+    ],
+    "name": "КРОК_2._Лабдіагностика_УКР",
+    "targetGroup": "КРОК 2 для Лабораторна діагностика",
+    "language": "Українська",
+    "author": "Кутіков Д.О.#&800"
+  },
+  {
+    "sha256": "2DEBE72F3EC9BEF46CAEC4AEF0D6DE3D7F938364EA991740D4BB8501B7B98073",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "CLFR"
+    ],
+    "name": "КРОК_2._Клінічна_фармація_УКР",
+    "targetGroup": "КРОК 2 для Клінічна фармація",
+    "language": "Українська",
+    "author": "Кутіков Д.О.#&1000"
+  },
+  {
+    "sha256": "EB857C6B8D2CA8A07FDA1C5DE16E9D391D9DC9091CCFCD0D758900D2EDA9CB24",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_3._Лікувальна_справа",
+    "targetGroup": "КРОК 3 для Лікувальна справа",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&4530"
+  },
+  {
+    "sha256": "08EDBD81A3158C8EFF3DD6582A015C45A7380C33DE63F1545D7106E8ABBBBD07",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_3._Стоматологія",
+    "targetGroup": "КРОК 3 для Стоматологія",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&4329"
+  },
+  {
+    "sha256": "A7781F23B14BD105CDF774AC54A207072A543483B5DFD8A1FAFF6D53EC65760D",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "LABD"
+    ],
+    "name": "КРОК_3._Лабдіагностика",
+    "targetGroup": "КРОК 3 для Лабораторна діагностика",
+    "language": "Українська",
+    "author": "Кутіков Д.О.#&1530"
+  },
+  {
+    "sha256": "86486C040A3D12A78981367F4033ACBDC63CDB670BF8A33C50B293BCA8262847",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_3._Фармація",
+    "targetGroup": "КРОК 3 для Фармація",
+    "language": "Українська",
+    "author": "Кутіков Д.О.#&699"
+  },
+  {
+    "sha256": "B2C6C8707C3586658BFB2B2CF297E36A83F1C6992AD7E16D4CF0CEE41B33B292",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_М._Лікувальна_справа",
+    "targetGroup": "КРОК M для Лікувальна справа",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&1350"
+  },
+  {
+    "sha256": "8B27A522ACF024588A9D02C52DEA9AB2FC9815783F1724CE02F12EC86212DB31",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "OBST"
+    ],
+    "name": "КРОК_М._Акушерська_справа",
+    "targetGroup": "КРОК M для Акушерська справа",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&900"
+  },
+  {
+    "sha256": "A81A05D11CAC712FFA9F722B017023120BC70C13363A2E1B9BED412DC48AA36B",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "LABD"
+    ],
+    "name": "КРОК_М._Лабораторна_діагностика",
+    "targetGroup": "КРОК M для Лабораторна діагностика",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&736"
+  },
+  {
+    "sha256": "39EAC55940D7211C5D39976EA499EEB23C437AA61701FE4402FB249626511155",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "PROF"
+    ],
+    "name": "КРОК_М._Медико-профілактична_справа",
+    "targetGroup": "КРОК M для Медико-профілактична справа",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&750"
+  },
+  {
+    "sha256": "91309C5BAE93348FFC50334768F2F653F519FA90EBE93D9992B9D56C0069A79B",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_М._Сестринська_справа",
+    "targetGroup": "КРОК M для Сестринська справа",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&2100"
+  },
+  {
+    "sha256": "13A12B58D631635C0149D02435378369C68FDE9C6D876E0BAE56D16991372D2B",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "removeMe": false,
+    "extensionStage": [
+      "KB"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_Б._Сестринська_справа",
+    "targetGroup": "КРОК Б для Сестринська справа",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&750"
+  },
+  {
+    "sha256": "B744D1DCAA32146D600E506944B40BC0907EA2D86DD60FE93B7B437081E421E8",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "removeMe": false,
+    "extensionStage": [
+      "KB"
+    ],
+    "extensionSpec": [
+      "LABD"
+    ],
+    "name": "КРОК_Б._Лабораторна_діагностика",
+    "targetGroup": "КРОК Б для Лабораторна діагностика",
+    "language": "Українська",
+    "author": "Кізюріна Ю.В.#&750"
+  },
+  {
+    "sha256": "E0934517C2989781D09AF005F0A470A8920E82D1B5B898C73369F9DF4B41CC09",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "OBST"
+    ],
+    "name": "КРОК_М._Акушерство_БАЗИ_2011",
+    "targetGroup": "КРОК M для Акушерська справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&2000"
+  },
+  {
+    "sha256": "FA8E4D1FF6147CABE2E0B876608689CDA6D2B72E167D39A2A87C5A2F42027D3F",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "OBST"
+    ],
+    "name": "КРОК_М._Акушерство_БАЗИ_2013",
+    "targetGroup": "КРОК M для Акушерська справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&1500"
+  },
+  {
+    "sha256": "1C852C8485042C4BF87D0F1979FA32E13FEF3986A6A1F46E3FEC670D77FEEFB5",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "OBST"
+    ],
+    "name": "КРОК_М._Акушерство_БАЗИ_2014",
+    "targetGroup": "КРОК M для Акушерська справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&1500"
+  },
+  {
+    "sha256": "C0C2E040C9C2AC2F88328BDB9D0E0CA76FEEE2E95DA0227EFB44788E62B609B2",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "OBST"
+    ],
+    "name": "КРОК_М._Акушерство_БАЗИ_2015",
+    "targetGroup": "КРОК M для Акушерська справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&1380"
+  },
+  {
+    "sha256": "63B35E6DA9ACF85DFE59E5F3EB9CA9A08CE32DCB29F5449C460D059815E222FE",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KB"
+    ],
+    "extensionSpec": [
+      "LABD"
+    ],
+    "name": "КРОК_Б._Лаб._діагностика_БАЗИ",
+    "targetGroup": "КРОК Б для Медико-профілактична справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали med-test.in.ua, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&1568"
+  },
+  {
+    "sha256": "CDFEA6888B975ED0B90255271CEE280C79F80C718AEE574D7BE9DC81836ABA5B",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_М._Сестринство_БАЗИ_2010",
+    "targetGroup": "КРОК M для Сестринська справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали testkrok.org.ua, kingmed.info (адапт. Кізюріна Ю.В.)#&2000"
+  },
+  {
+    "sha256": "B20843FA2F95AE08DC9153DE1C93D9A5D435FEB5C753D73D79F5233679B0541D",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_М._Сестринство_БАЗИ_2013",
+    "targetGroup": "КРОК M для Сестринська справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали testkrok.org.ua, kingmed.info (адапт. Кізюріна Ю.В.)#&1500"
+  },
+  {
+    "sha256": "93DE29F6DF6CE8363021CB491AC58CE6E580B483E93C5BB5D0CC3B7D3C9D8F3B",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_М._Сестринство_БАЗИ_2014",
+    "targetGroup": "КРОК M для Сестринська справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали testkrok.org.ua, kingmed.info (адапт. Кізюріна Ю.В.)#&1500"
+  },
+  {
+    "sha256": "1506DDF70CD29D985072029999AED5142C92467BA7DD9E1EFCF012DC9ADD4283",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_М._Сестринство_БАЗИ_2015",
+    "targetGroup": "КРОК M для Сестринська справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали testkrok.org.ua, kingmed.info (адапт. Кізюріна Ю.В.)#&1500"
+  },
+  {
+    "sha256": "9601E31EA0B1A4471C3B3AF22FB441C9BE2F03E597417F6227F5CF4022598095",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_М._Сестринство_БАЗИ_2016",
+    "targetGroup": "КРОК M для Сестринська справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали testkrok.org.ua, kingmed.info (адапт. Кізюріна Ю.В.)#&1500"
+  },
+  {
+    "sha256": "C1C9B14EA8904A9794C4D4E682C1F39F6E9073500745869C004ADE95A1557DC9",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_М._Сестринство_БАЗИ_2017",
+    "targetGroup": "КРОК M для Сестринська справа",
+    "language": "Українська\nРусский",
+    "author": "Матеріали testkrok.org.ua, kingmed.info (адапт. Кізюріна Ю.В.)#&820"
+  },
+  {
+    "sha256": "37204580B16FD32CA0E6B4BF881795CC6B4D22723473CED5A19ED9B5731378F7",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "PROF"
+    ],
+    "name": "КРОК_М._Медпрофілактика_БАЗИ_2011",
+    "targetGroup": "КРОК M для Медико-профілактична справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр, kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&1978"
+  },
+  {
+    "sha256": "A69F8C6DF563FF3E27D8F124D27A9478838A2898B28821794DE25C1C57F562D9",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "PROF"
+    ],
+    "name": "КРОК_М._Медпрофілактика_БАЗИ_2012",
+    "targetGroup": "КРОК M для Медико-профілактична справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр, kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&1998"
+  },
+  {
+    "sha256": "AE13DAA5763A6C3C5A09F140AEAE43A8A4490D4C2320B6CE7945D415ED204372",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "PROF"
+    ],
+    "name": "КРОК_М._Медпрофілактика_БАЗИ_2013",
+    "targetGroup": "КРОК M для Медико-профілактична справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр, kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&1501"
+  },
+  {
+    "sha256": "AE31CC6E3DE9089478F73ADD3034AD5D02CA75B7A5B6974A68401259AAC52F7D",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "PROF"
+    ],
+    "name": "КРОК_М._Медпрофілактика_БАЗИ_2014",
+    "targetGroup": "КРОК M для Медико-профілактична справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр, kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&1479"
+  },
+  {
+    "sha256": "23692CC74EE29946945E34BEA06FA56C42539AC8C0572E5A7DF2B4DA37816AF9",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "PROF"
+    ],
+    "name": "КРОК_М._Медпрофілактика_БАЗИ_2015",
+    "targetGroup": "КРОК M для Медико-профілактична справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр, kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&1500"
+  },
+  {
+    "sha256": "34A7F85464B8D73F1BD9CC40711ED0EA8F1D27637B032F067FFBD6BAFD274761",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "PROF"
+    ],
+    "name": "КРОК_М._Медпрофілактика_БАЗИ_2016",
+    "targetGroup": "КРОК M для Медико-профілактична справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали тестування.укр, kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&1499"
+  },
+  {
+    "sha256": "DC12E70EB0ECF609F08C20468732E8C712FEBCAAB02142526373D8E34F097D30",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "LABD"
+    ],
+    "name": "КРОК_М._Лабдіагностика_БАЗИ_2015",
+    "targetGroup": "КРОК M для Лабораторна діагностика",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&881"
+  },
+  {
+    "sha256": "27DCBA8397916D2EE3C1C3CB730632B93D1A16490CAB89A76CFCC8FFCDB9B499",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "LABD"
+    ],
+    "name": "КРОК_М._Лабдіагностика_БАЗИ_2016",
+    "targetGroup": "КРОК M для Лабораторна діагностика",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&530"
+  },
+  {
+    "sha256": "8F28F858F9506D237E156BDEAAA6F16872E0ECD7958170A21CD055F6061E7E97",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_М._Лікувальна_справа_БАЗИ_2011",
+    "targetGroup": "КРОК M для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua, тестування.укр (адапт. Кізюріна Ю.В.)#&1999"
+  },
+  {
+    "sha256": "5C83E74428756727462E3BE1478FF019FE5208A3B244FCF0DA60F44E18F78F3F",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_М._Лікувальна_справа_БАЗИ_2012",
+    "targetGroup": "КРОК M для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua, тестування.укр (адапт. Кізюріна Ю.В.)#&1999"
+  },
+  {
+    "sha256": "3A16F5AD02DF60C6F0D6D13EBBB6D488CD95995427245D2E06D88C87BEC39AB0",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_М._Лікувальна_справа_БАЗИ_2013",
+    "targetGroup": "КРОК M для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua, тестування.укр (адапт. Кізюріна Ю.В.)#&1500"
+  },
+  {
+    "sha256": "5CDF4C45606339639A43B331BE8619191EAB8CD638D9D4291296B8091A8CE9BC",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_М._Лікувальна_справа_БАЗИ_2014",
+    "targetGroup": "КРОК M для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua, тестування.укр (адапт. Кізюріна Ю.В.)#&1500"
+  },
+  {
+    "sha256": "C1C6F6B3CF2A5C9E9C199E7C86F633C6735A333463F911A97ADD4B16E9E37FC6",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_М._Лікувальна_справа_БАЗИ_2015",
+    "targetGroup": "КРОК M для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua, тестування.укр (адапт. Кізюріна Ю.В.)#&1444"
+  },
+  {
+    "sha256": "F1EB0D8D1D374727A045A14D738CE4A8CA50A869222C0828D9721DFB54DE9906",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_М._Лікувальна_справа_БАЗИ_2016",
+    "targetGroup": "КРОК M для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua, тестування.укр (адапт. Кізюріна Ю.В.)#&1498"
+  },
+  {
+    "sha256": "C589EEDCEB977AF7BFA688C780669695E89F97491A3421679C78E44715C20527",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_М._Лікувальна_справа_БАЗИ_2017",
+    "targetGroup": "КРОК M для Лікувальна справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua, тестування.укр (адапт. Кізюріна Ю.В.)#&900"
+  },
+  {
+    "sha256": "AD2DFFA79F40F8ED838332B5C4D1E0A254E9B2EAA0C8C268510FBCF221A4E1F2",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KB"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_Б._Орг.-упр._діяльність_Сестр._справа",
+    "targetGroup": "КРОК Б для Сестринська справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&2369"
+  },
+  {
+    "sha256": "BE9F05AA2353C6E3978076D8F08C6614BB91F3A9F13101A9878B185968C7768A",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KB"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_Б._Педіатрія_Сестр._справа",
+    "targetGroup": "КРОК Б для Сестринська справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&2112"
+  },
+  {
+    "sha256": "B7DF14678A59A7DBE471D1EBFCDCD2349AE25783ECD1862E7D35091FDADC6CBA",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KB"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_Б._Проф._пат._Сестр._справа",
+    "targetGroup": "КРОК Б для Сестринська справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&787"
+  },
+  {
+    "sha256": "D0F2EF4FA2AAB125E1CB070F44679F24378CE5001F0A23BD9CECAE8DEC4CE89D",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KB"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_Б._Хірургія_Сестр._справа",
+    "targetGroup": "КРОК Б для Сестринська справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&876"
+  },
+  {
+    "sha256": "CD3566482C36AAFDA7C715CA73EC7A2CBE711A890EEE4621731418A0F366AD49",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "KB"
+    ],
+    "extensionSpec": [
+      "NURS"
+    ],
+    "name": "КРОК_Б._Терапія_Сестр._справа",
+    "targetGroup": "КРОК Б для Сестринська справа",
+    "language": "Русский\nУкраїнська",
+    "author": "Матеріали kingmed.info, testkrok.org.ua (адапт. Кізюріна Ю.В.)#&1432"
+  },
+  {
+    "sha256": "F3370A0096CCA444AE1D28A89395D94A26B71F1C11BA30103601BF46824B7BCB",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "KROK_1._Medicine_BASES_2010",
+    "targetGroup": "KROK 1 for Medicine",
+    "language": "English",
+    "author": "Materials of testkrok.org.ua (adopt. Kutikov D.O.)#&1019"
+  },
+  {
+    "sha256": "39822BEEC0266215A4CCF07A470C075A9F5714D85465A46887D27D54319870A6",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "KROK_1._Medicine_BASES_2012",
+    "targetGroup": "KROK 1 for Medicine",
+    "language": "English",
+    "author": "Materials of testkrok.org.ua (adopt. Kutikov D.O.)#&1055"
+  },
+  {
+    "sha256": "09145E676E1384F57CDF8C34203A98C61C6183E091E0C0C3A2BB66BEEE0B6F9F",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "KROK_1._Medicine_BASES_2013",
+    "targetGroup": "KROK 1 for Medicine",
+    "language": "English",
+    "author": "Materials of testkrok.org.ua (adopt. Kutikov D.O.)#&1149"
+  },
+  {
+    "sha256": "AA04C485B2E74E20F529CF22FE1E3F726E50735B95FC66D9721521F89D3F0545",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "KROK_2._Medicine_BASES_2010",
+    "targetGroup": "KROK 2 for Medicine",
+    "language": "English",
+    "author": "Materials of testkrok.org.ua (adopt. Kutikov D.O.)#&1001"
+  },
+  {
+    "sha256": "81428C1E7E1185C0467C17694B1B22CB4B10A191B7D3AEFE41FEA3E7C71E31AA",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "KROK_2._Medicine_BASES_2012",
+    "targetGroup": "KROK 2 for Medicine",
+    "language": "English",
+    "author": "Materials of testkrok.org.ua (adopt. Kutikov D.O.)#&768"
+  },
+  {
+    "sha256": "FDCE4D14E18ADFF48AA80EEDF444F293845592411AA3D186E069A77A5A54B2FF",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "KROK_2._Medicine_BASES_2013",
+    "targetGroup": "KROK 2 for Medicine",
+    "language": "English",
+    "author": "Materials of testkrok.org.ua (adopt. Kutikov D.O.)#&911"
+  },
+  {
+    "sha256": "14DBA218173A4C17A72D28289A67645514A2275B0861AEC6145E69FDB3D280C0",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "KROK_2._Medicine_BASES_2014",
+    "targetGroup": "KROK 2 for Medicine",
+    "language": "English",
+    "author": "Materials of testkrok.org.ua (adopt. Kutikov D.O.)#&1004"
+  },
+  {
+    "sha256": "E4562B5A803DB021C863A43992B8417BE96A21474FFFF1871209BF5D47E9EC3B",
+    "extensionType": "patch",
+    "extensionRate": "alternative",
+    "extensionVar": "UNDEFINED",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "Курс_підготовки_до_КРОК_1._2021",
+    "targetGroup": "КРОК 1 для Лікувальна справа",
+    "language": "Українська\nРусский",
+    "author": "Олександр Козлов#&5612"
+  },
+  {
+    "sha256": "D538A4A101DFFFD74B23E32303D078FA051052F3C42BDDC950F2AE4ECD0C4E05",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Стоматологія_тренажери_2021",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "English\nРусский\nУкраїнська",
+    "author": "Kutikov D. A.#&450"
+  },
+  {
+    "sha256": "1DD49A92383529888D366518F48A467BA00DF9D74EABE65036729D5B9A02E39C",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_1._Медицина_тренажери_2021",
+    "targetGroup": "КРОК 1 для Лікувальна справа",
+    "language": "English\nРусский\nУкраїнська",
+    "author": "Дамір Кутіков#&450"
+  },
+  {
+    "sha256": "65C2CD54CCD29C935CA216D0DC0AE725D83C673F08C1147C92DDF980F664C3CE",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_2._Стоматологія_тренажери_2021",
+    "targetGroup": "КРОК 2 для Стоматологія",
+    "language": "English\nРусский\nУкраїнська",
+    "author": "Дамір Кутіков#&450"
+  },
+  {
+    "sha256": "3742C334E10EF9CDB25DF70EB56D1C7E0B18DE1DF6289558D98FAA52C48B48AC",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._Фармація_тренажери_2021",
+    "targetGroup": "КРОК 2 для Фармація",
+    "language": "English\nРусский\nУкраїнська",
+    "author": "Дамір Кутіков#&450"
+  },
+  {
+    "sha256": "E9F23CA5FEBDA5D87B9808B1771303DA1C613AE15FE92264B196D399B622C29B",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "PSYC"
+    ],
+    "name": "КРОК_2._Медпсихологія_тренажери_2021",
+    "targetGroup": "КРОК 2 для Медична психологія",
+    "language": "Українська",
+    "author": "Дамір Кутіков#&150"
+  },
+  {
+    "sha256": "7E4ECA9622B6F0CAE61E9C959E6793BD49814FC5672BD3149068C3D984211093",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_2._Медицина_тренажери_2021",
+    "targetGroup": "КРОК 2 для Лікувальна справа",
+    "language": "Українська\nРусский\nEnglish",
+    "author": "Дамір Кутіков#&450"
+  },
+  {
+    "sha256": "2701744CE1C9DEAAF523DC2C52265833AB41758931BF3694DCA83DBC52DC1C89",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "LECH",
+      "STOM",
+      "FARM",
+      "LABD"
+    ],
+    "name": "КРОК_3._Тренажери_2021",
+    "targetGroup": "КРОК 3 для Лікувальна справа, Стоматологія, Фармація, Лабораторна діагностика",
+    "language": "Українська",
+    "author": "Дамір Кутіков#&600"
+  },
+  {
+    "sha256": "27BE4A403436A9EEDE7B397B7432F70859C3F3D6AD2247DD031284DF4697A1EA",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "KM"
+    ],
+    "extensionSpec": [
+      "LECH",
+      "LABD",
+      "OBST",
+      "NURS"
+    ],
+    "name": "KROK_М._Тренажери_2021",
+    "targetGroup": "КРОК M для Лікувальна справа, Лабораторна діагностика, Сестринська справа, Акушерська справа",
+    "language": "Українська",
+    "author": "Дамір Кутіков#&580"
+  },
+  {
+    "sha256": "401A834BA7F44115BC256BF2341192C1B2A7AD92A66A6ABFD94607EC69E5A9FC",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_1._Стоматологія_приклади_2020",
+    "targetGroup": "КРОК 1 для Стоматологія",
+    "language": "Українська\nРусский\nEnglish",
+    "author": "Дамір Кутіков, Юлія Кізюріна#&630"
+  },
+  {
+    "sha256": "84F780884001054D79A09C8A260D01A6D6CB048B429190D98782558B61DD8872",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_2._Стоматологія_зразки_2020",
+    "targetGroup": "КРОК 2 для Стоматологія",
+    "language": "Українська\nРусский\nEnglish",
+    "author": "Дамір Кутіков, Юлія Кізюріна#&590"
+  },
+  {
+    "sha256": "D85C4F8A0B0055834EF75032BE51FB4705DB43C07749142D84576AE4DEDDF720",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_2._Медицина_зразки_2020",
+    "targetGroup": "КРОК 2 для Лікувальна справа",
+    "language": "Українська\nРусский\nEnglish",
+    "author": "Дамір Кутіков, Юлія Кізюріна#&670"
+  },
+  {
+    "sha256": "6B8E03A28D17C42D094667E9F028BFA6A54DDF414F45344F40DC38C4FB66B099",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K2"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_2._Фармація_зразки_2020",
+    "targetGroup": "КРОК 2 для Фармація",
+    "language": "Українська\nРусский\nEnglish",
+    "author": "Юлія Кізюріна, Дамір Кутіков#&766"
+  },
+  {
+    "sha256": "67024E1980696B041EB4768F239C9756C53A9AA56BAEE0EC55EF917CBC9C25A6",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH"
+    ],
+    "name": "КРОК_1._Медицина_приклади_2020",
+    "targetGroup": "КРОК 1 для Лікувальна справа",
+    "language": "Українська\nРусский\nEnglish",
+    "author": "Дамір Кутіков#&928"
+  },
+  {
+    "sha256": "DCDC9D10B2F0BBDB6FE882531EA2A70B8E7828FD6FABF930B8EED81ED933273E",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "LECH",
+      "STOM",
+      "LABD"
+    ],
+    "name": "КРОК_3._Зразки_2020",
+    "targetGroup": "КРОК 3 для Лікувальна справа",
+    "language": "Українська\nРусский\nEnglish",
+    "author": "Дамір Кутіков#&520"
+  },
+  {
+    "sha256": "763F6C902D3729930744E85380D63D3FD538E149835604F4EC74AC58FBD60FA9",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "STOM"
+    ],
+    "name": "КРОК_3._Стоматологія_2019",
+    "targetGroup": "КРОК 3 для Стоматологія",
+    "language": "Українська",
+    "author": "Юлія Кізюріна#&200"
+  },
+  {
+    "sha256": "4428A11C99268EC665B961C1680B3F9FDB27B3E06B5AAD14403668DE23F254B7",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "LABD"
+    ],
+    "name": "КРОК_3._Бази_Лабдіагностика",
+    "targetGroup": "КРОК 3 для Лабораторна діагностика",
+    "language": "Українська",
+    "author": "Юлія Кізюріна#&634"
+  },
+  {
+    "sha256": "9C9DDDC4FAAFB6E227FCD519C46B1BBBBAE77612E99EAC041D302734817FD086",
+    "extensionType": "package",
+    "extensionRate": "official",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_3._Бази_Фармація",
+    "targetGroup": "КРОК 3 для Фармація",
+    "language": "Українська",
+    "author": "Юлія Кізюріна#&348"
+  },
+  {
+    "sha256": "0AE10F0E66C1F11E386CAC248B101BA7A6DC67112EDBFCC8B78D664FB62DF9CB",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K3"
+    ],
+    "extensionSpec": [
+      "LECH",
+      "STOM"
+    ],
+    "name": "КРОК_3._Тренажери_2022",
+    "targetGroup": "КРОК 3 для Лікувальна справа, Стоматологія",
+    "language": "Українська",
+    "author": "Дамір Кутіков#&900"
+  },
+  {
+    "sha256": "50544E8D0A60F0F04CAD1A22D05140C73FBE06B02B853BFADBBEC86C525EE0BC",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "LECH",
+      "STOM"
+    ],
+    "name": "КРОК_1._Тренажери_2022",
+    "targetGroup": "КРОК 1 для Лікувальна справа, Стоматологія",
+    "language": "Українська",
+    "author": "Дамір Кутіков#&900"
+  },
+  {
+    "sha256": "25B1B1E59ED28AFD17D2EAB9D70630D97E6E7DACE981ABAF428EFCE3DC999597",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BoT",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_1._Бази_ФАРМ",
+    "targetGroup": "КРОК 1 для Фармація",
+    "language": "Українська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&2747"
+  },
+  {
+    "sha256": "52FDFB784EDE8BD7AEF8D4E80AFB79658A95F31AA3D5B95C413E93531180CAB7",
+    "extensionType": "package",
+    "extensionRate": "approved",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_1._Фармація_УКР",
+    "targetGroup": "КРОК 1 для Фармація",
+    "language": "Українська",
+    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&2281"
+  }]
