@@ -2265,4 +2265,36 @@
     "targetGroup": "КРОК 1 для Фармація",
     "language": "Українська",
     "author": "Дамір Кутіков#&600"
-  }]
+  },
+  {
+  "sha256": "AA5CBB0E4C8959B658A7D3A1283AF0B49020589E16C82311D0D28586D197107A",
+  "extensionType": "package",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K2"
+  ],
+  "extensionSpec": [
+    "PHYS"
+  ],
+  "name": "КРОК_2._Фізична_терапія_УКР",
+  "targetGroup": "КРОК 2 для Фізична терапія",
+  "language": "Українська",
+  "author": "Дамір Кутіков#&210"
+  }, 
+  {
+  "sha256": "FA3C15717CE227245D8B91717924DCF17FA240C23CB38D69A731AE22312CCDCA",
+  "extensionType": "package",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K2"
+  ],
+  "extensionSpec": [
+    "PUBH"
+  ],
+  "name": "КРОК_2._Громадське_здоров'я_УКР",
+  "targetGroup": "КРОК 2 для Громадське здоров'я",
+  "language": "Українська",
+  "author": "Дамір Кутіков#&900"
+}]
