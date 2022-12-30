@@ -1,5 +1,5 @@
 function readTests(){
-    fetch("https://kutikov.github.io/my-successful-krok/krok-list.html")
+    fetch("https://kutikov.github.io/my-successful-krok/main-list.json")
         .then((response) => {
             return response.json();
         })
@@ -19,7 +19,7 @@ function readTests(){
                         tests = tests + Number(data2[j].author.split('#&')[1]);
                         packages++;
                     }
-                    document.getElementById('repSt').innerText = tests;
+                    document.getElementById('repSt').innerText = tests.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
                     document.getElementById('packs').innerText = packages;
                 });
         });

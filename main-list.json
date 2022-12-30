@@ -2249,4 +2249,20 @@
     "targetGroup": "КРОК 1 для Фармація",
     "language": "Українська",
     "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&2281"
+  },
+  {
+    "sha256": "E8E34FA1CF3072A8095D795E1CEAC75FAC9551F6F18CD6A7C6ADF9C3B6096890",
+    "extensionType": "patch",
+    "extensionRate": "official",
+    "extensionVar": "BOOKLET",
+    "extensionStage": [
+      "K1"
+    ],
+    "extensionSpec": [
+      "FARM"
+    ],
+    "name": "КРОК_1._Тренажери_ФАРМ_2022",
+    "targetGroup": "КРОК 1 для Фармація",
+    "language": "Українська",
+    "author": "Дамір Кутіков#&600"
   }]
