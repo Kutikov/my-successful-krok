@@ -1,0 +1,96 @@
+[{
+  "sha256": "93DF507D0A3C978DCD4E0ECAB88A3475E63C86A781CC3C85CC4F474EC30E2FAC",
+  "extensionType": "package",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K1"
+  ],
+  "extensionSpec": [
+    "LECH"
+  ],
+  "name": "КРОК_1._Медицина_УКР",
+  "targetGroup": "КРОК 1 для Лікувальна справа",
+  "language": "Українська",
+  "author": "Юлія Кізюріна#&3776"
+},
+{
+  "sha256": "BA017E2A07F1872F3452731B6DF7A56E6A0D74A3D98F260FA9CF8DAA18DA151F",
+  "extensionType": "package",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K1"
+  ],
+  "extensionSpec": [
+    "LECH"
+  ],
+  "name": "КРОК_1._Медицина_РУС",
+  "targetGroup": "КРОК 1 для Лечебное дело",
+  "language": "Русский",
+  "author": "Юлія Кізюріна#&3752"
+},
+{
+  "sha256": "303875C43B41F1AB335C9AF25A401B630EE51D5F805DB35ADAB0DDF264D775B3",
+  "extensionType": "package",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K1"
+  ],
+  "extensionSpec": [
+    "LECH"
+  ],
+  "name": "KROK_1._Medicine_ENG",
+  "targetGroup": "KROK 1 for Medicine",
+  "language": "English",
+  "author": "Julia Kizurina#&2945"
+},
+{
+  "sha256": "9D76680A8C8A76A3FA422EE93FF5AC4647D087E1D74245C768553B8B542381DF",
+  "extensionType": "package",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K2"
+  ],
+  "extensionSpec": [
+    "LECH"
+  ],
+  "name": "KROK_2._Medicine_ENG",
+  "targetGroup": "KROK 2 for Medicine",
+  "language": "English",
+  "author": "Damir Kutikov#&1999"
+},
+{
+  "sha256": "204F8620A742FE51F3EC27DDD020B6ED6CB476108E44CB271818480EA02B0751",
+  "extensionType": "package",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K2"
+  ],
+  "extensionSpec": [
+    "LECH"
+  ],
+  "name": "КРОК_2._Медицина_РУС",
+  "targetGroup": "КРОК 2 для Лечебное дело",
+  "language": "Русский",
+  "author": "Дамір Кутіков#&3999"
+},
+{
+  "sha256": "FD8ACD33C0A17E3BE479963DF7AC98C85B417014284E75A51BFA1AAD20E6B019",
+  "extensionType": "package",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K2"
+  ],
+  "extensionSpec": [
+    "LECH"
+  ],
+  "name": "КРОК_2._Медицина_УКР",
+  "targetGroup": "КРОК 2 для Лікувальна справа",
+  "language": "Українська",
+  "author": "Дамір Кутіков#&3982"
+}]
