@@ -584,5 +584,95 @@
         "language": "Українська",
         "author": "TG @altos_2027",
         "markersJson": ""
+      },
+      {
+        "sha256": "80E44BE864C28690819AA2A8AC5718716330D6F39C45D4C795210AF37A1F0237",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стом_EN_21_img_відповіді",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська",
+        "author": "TG @krok_1_stomat",
+        "markersJson": ""
+      },
+      {
+        "sha256": "6FDDFA76DE2B5543268FBAEFDAAA185E23C379D8EF21B82A73C52B390D655ED7",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стом_UA_21_img_відповіді",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська",
+        "author": "TG @krok_1_stomat",
+        "markersJson": ""
+      },
+      {
+        "sha256": "4DF8D0EAC6CC890743CCBA3CD2E10D5C873E38B31A70359E04A13B3A60B15BAD",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стом_UA_21_img_пересдача",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська",
+        "author": "TG @krok_1_stomat",
+        "markersJson": ""
+      },
+      {
+        "sha256": "E2B8BF05D5AB2935E091A3C8DFC9A03DDB7F40B1988AA787AAE21A1F568AD214",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ЛікСправа_22_осінь_II_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @krok123_internatura",
+        "markersJson": ""
+      },
+      {
+        "sha256": "28DA7881AC120F41522F4B1A70DE4B5A2E1EAD1FCC2E6ACFEE61AC7BA76ADE2E",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ЛікСправа_22_осінь_I_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @krok123_internatura",
+        "markersJson": ""
+      },
+      {
+        "sha256": "D9CE391B6264224CE760F2181257E477C787FF15DB38AC4A3C9771F87FB38CD7",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LABD"
+        ],
+        "name": "К2_ЛабДіаг_23_img_відповіді",
+        "targetGroup": "КРОК 2 для Лабораторна діагностика",
+        "language": "Українська",
+        "author": "Симончук Владислав",
+        "markersJson": ""
       }
 ]
