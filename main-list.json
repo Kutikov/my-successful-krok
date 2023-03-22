@@ -2297,4 +2297,20 @@
   "targetGroup": "КРОК 2 для Громадське здоров'я",
   "language": "Українська",
   "author": "Дамір Кутіков#&900"
+},
+{
+  "sha256": "650FA4D6E7DEDA0F8CE93CA9095BD011540B76DF0E114CF1E86CAD07B94CEFFD",
+  "extensionType": "patch",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K2"
+  ],
+  "extensionSpec": [
+    "LECH"
+  ],
+  "name": "KROK_2._Medicine_2021",
+  "targetGroup": "KROK 2 for Medicine",
+  "language": "English",
+  "author": "Damir Kutikov#&300"
 }]
