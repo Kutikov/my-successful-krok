@@ -2313,4 +2313,135 @@
   "targetGroup": "KROK 2 for Medicine",
   "language": "English",
   "author": "Damir Kutikov#&300"
+},
+{
+  "sha256": "FCB1187216014FF6F3479CB4E48A8ED27AF96BAB3F76250F84ABD96792E7504E",
+  "extensionType": "patch",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K2"
+  ],
+  "extensionSpec": [
+    "LECH"
+  ],
+  "name": "КРОК_2._Медицина_тренажери_2023",
+  "targetGroup": "КРОК 2 для Лікувальна справа",
+  "language": "Українська\nРусский\nEnglish",
+  "author": "Дамір Кутіков#&1350"
+},
+{
+  "sha256": "52A254A64A20A74708DFE72B65A3A5C8A5B92C714958D50963CD335811B1CA45",
+  "extensionType": "patch",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K2"
+  ],
+  "extensionSpec": [
+    "STOM"
+  ],
+  "name": "КРОК_2._Стоматологія_тренажери_2023",
+  "targetGroup": "КРОК 2 для Стоматологія",
+  "language": "Українська\nРусский\nEnglish",
+  "author": "Дамір Кутіков#&1350"
+},
+{
+  "sha256": "2A457FE21385DE57295E69E6615999BF6C6CF71B3767B32892E0792404EFDA7F",
+  "extensionType": "patch",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K2"
+  ],
+  "extensionSpec": [
+    "FARM"
+  ],
+  "name": "КРОК_2._Фармація_тренажери_2023",
+  "targetGroup": "КРОК 2 для Фармація",
+  "language": "Українська\nРусский\nEnglish",
+  "author": "Дамір Кутіков#&1350"
+},
+{
+  "sha256": "01ED8F145DFBD3E39EC4768A18E12516A40243198661D62C8A1761142FCDDC39",
+  "extensionType": "patch",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K2"
+  ],
+  "extensionSpec": [
+    "PSYC"
+  ],
+  "name": "КРОК_2._Медпсихологія_тренажери_2023",
+  "targetGroup": "КРОК 2 для Медична психологія",
+  "language": "Українська",
+  "author": "Дамір Кутіков#&450"
+},
+{
+  "sha256": "4EFF1EB0BD9A4315C5442C5726EEC689F9C41E2D4368594FA1F4BE37FB4D2580",
+  "extensionType": "patch",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K1"
+  ],
+  "extensionSpec": [
+    "STOM"
+  ],
+  "name": "КРОК_1._Стоматологія_тренажери_2023",
+  "targetGroup": "КРОК 1 для Стоматологія",
+  "language": "Українська\nEnglish",
+  "author": "Дамір Кутіков#&900"
+},
+{
+  "sha256": "0703467958897700CC9CA29F3D7D0155C0A1F96B096987A13DC79E526168AD30",
+  "extensionType": "patch",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "K1"
+  ],
+  "extensionSpec": [
+    "FARM"
+  ],
+  "name": "КРОК_1._Фармація_тренажери_2023",
+  "targetGroup": "КРОК 1 для Фармація",
+  "language": "Українська\nEnglish",
+  "author": "Дамір Кутіков#&900"
+},
+{
+  "sha256": "13FADFD78D6389FF7AF15D245B643EEBD952631A2245992801F70C7A8D3345B5",
+  "extensionType": "patch",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "KB"
+  ],
+  "extensionSpec": [
+    "NURS",
+    "LABD"
+  ],
+  "name": "КРОК_Б._Тренажери_2023",
+  "targetGroup": "КРОК Б для Лабораторна діагностика, Сестринська справа",
+  "language": "Українська",
+  "author": "Дамір Кутіков#&900"
+},
+{
+  "sha256": "5A72EC8DA9B881D968C19BEBDB7669A1C625491DCDFADB0E9900F76AE0D50A92",
+  "extensionType": "patch",
+  "extensionRate": "official",
+  "extensionVar": "BOOKLET",
+  "extensionStage": [
+    "KM"
+  ],
+  "extensionSpec": [
+    "NURS",
+    "LABD",
+    "LECH"
+  ],
+  "name": "КРОК_М._Тренажери_2023",
+  "targetGroup": "КРОК M для Лікувальна справа, Лабораторна діагностика, Сестринська справа",
+  "language": "Українська",
+  "author": "Дамір Кутіков#&1290"
 }]

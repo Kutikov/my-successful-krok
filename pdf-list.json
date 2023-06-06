@@ -674,5 +674,35 @@
         "language": "Українська",
         "author": "Симончук Владислав",
         "markersJson": ""
+      },
+      {
+        "sha256": "62C2962DEB66CDAD8E462843F7E371F7F7398821D3C861D46C8D3BE51F424C6D",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_23_img_відповіді",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @DrCagey, НМУ ім. Богомольця",
+        "markersJson": ""
+      },
+      {
+        "sha256": "C6329668A53B4A9B9A3ACA81CB41D4A866CF1937D534E7B125DD0D7B9348BFE6",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_23_img",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @DrCagey",
+        "markersJson": ""
       }
 ]
