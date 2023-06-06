@@ -678,6 +678,7 @@
       {
         "sha256": "62C2962DEB66CDAD8E462843F7E371F7F7398821D3C861D46C8D3BE51F424C6D",
         "reviewType": "insight_answers",
+        "removeMe": true,
         "reviewStage": [
           "K2"
         ],
@@ -703,6 +704,21 @@
         "targetGroup": "КРОК 2 для Лікувальна справа",
         "language": "Українська",
         "author": "TG @DrCagey",
+        "markersJson": ""
+      },
+      {
+        "sha256": "4A11426CC97ADA11007A99025CD2F1CFB0FEB0D909B2D339FD7692B4A4A52424",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_23_img_відповіді",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @DrCagey, НМУ ім. Богомольця",
         "markersJson": ""
       }
 ]
