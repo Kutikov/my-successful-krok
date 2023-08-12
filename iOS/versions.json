@@ -1,0 +1,35 @@
+[
+	{
+		"createdAt": "2023-02-12T00:00:00.000Z", 
+		"filename": "https://core.potesmanu.one/api/download/test/stable_12.02.easf", 
+		"type": "STABLE",
+		"description": {
+			"ru": "Первая стабильная версия приложения без инструкций и расширений", 
+			"ua": "Перша стабільна версія програми без інструкцій та розширень", 
+			"en": "The first stable version of the application without instructions and extensions"
+		}, 
+		"version": 1
+	},
+	{
+		"createdAt": "2023-02-18T00:00:00.000Z", 
+		"filename": "https://core.potesmanu.one/api/download/test/stable_20.02.easf", 
+		"type": "STABLE",
+		"description": {
+			"en": "Second stable version of the application with instructions and auto-update", 
+			"ru": "Вторая стабильная версия приложения с инструкциями и автообновлением", 
+			"ua": "Друга стабільна версія програми з інструкціями та автооновленням"
+		}, 
+		"version": 3
+	},
+	{
+		"createdAt": "2023-02-25T00:00:00.000Z", 
+		"filename": "https://core.potesmanu.one/api/download/test/alpha_25.02.easf", 
+		"type": "INTERNAL",
+		"description": {
+			"en": "New internal version of the application with KROK insides. DO NOT INSTALL!", 
+			"ru": "Новая внутренняя версия приложения с КРОК инсайдами. НЕ УСТАНАВЛИВАТЬ РЯДОВЫМ ПОЛЬЗОВАТЕЛЯМ!", 
+			"ua": "Нова внутрішня версія програми з КРОК інсайдами. НЕ ВСТАНОВЛЮВАТИ ПЕРЕСІЧНИМ КОРИСТУВАЧАМ!"
+		}, 
+		"version": 5
+	}
+]
