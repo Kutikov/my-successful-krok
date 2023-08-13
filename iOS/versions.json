@@ -23,7 +23,7 @@
 	},
 	{
 		"createdAt": "2023-02-25T00:00:00.000Z", 
-		"filename": "https://core.potesmanu.one/api/download/test/alpha_25.02.easf", 
+		"filename": "https://core.potesmanu.one/api/download/test/alpha_2.easf", 
 		"type": "INTERNAL",
 		"description": {
 			"en": "New internal version of the application with KROK insides. DO NOT INSTALL!", 
