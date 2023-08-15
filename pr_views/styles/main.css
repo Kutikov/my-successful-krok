@@ -14,7 +14,6 @@ body {
   margin: 0;
 }
 
-
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -70,7 +69,7 @@ a {
   margin-left: auto;
   margin-right: auto;
   max-width: 748px;
-  padding: 16px;
+  padding: 0px 16px 16px 16px;
 }
 
 .title {
@@ -86,7 +85,7 @@ a {
 .mobileHeader {
   display: block;
   width: 100%;
-  background-image: url(header.jpg);
+  background-image: url(header.webp);
   padding-bottom: 56.25%;
   background-size: contain;
   margin-bottom: 16px;
@@ -231,8 +230,24 @@ a {
   background-color: #ccc;
 }
 
+.pres_container_desktop{
+  display: flex; 
+  flex-direction: row; 
+  flex-wrap: nowrap; 
+  justify-content: center; 
+  align-items: center;
+}
+
+.pres_container_mobile{
+  display: none; 
+  flex-direction: row; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  align-items: center;
+}
+
 .pres_block{
-  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .pres_title{
@@ -250,11 +265,37 @@ a {
 }
 
 .pres_icon{
-  width: 192px;
+  width: 172px;
   flex-shrink: 0 !important;
   height: 192px;
   background-size: contain;
-  background-image: url(logo.jpg);
+  background-repeat: no-repeat;
+  background-image: url(logo.png);
+  font-family: sans-serif; 
+  font-size: 15px; 
+  color: #666;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-direction: column;
+}
+
+.pres_ios_icon{
+  width: 172px;
+  flex-shrink: 0 !important;
+  height: 192px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(ios_logo.png);
+  font-family: sans-serif; 
+  font-size: 15px; 
+  color: #666;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-direction: column;
 }
 
 @media (max-width: 426px) {
@@ -267,25 +308,41 @@ a {
     font-size: 18px;
   }
 
+  .pres_container_desktop{
+    display: none;
+  }
+
+  .pres_container_mobile{
+    display: flex;
+  }
+
   .pres_icon{
     width: 96px;
-    height:96px;
+    height:108px;
+    font-size: 12px;
+  }
+
+  .pres_ios_icon{
+    width: 96px;
+    height:108px;
+    font-size: 12px;
   }
 
   .pres_block{
-    padding-left: 12px;
+    padding-right: 0px;
+    text-align: center;
   }
   
   .pres_title{
     margin: 12px 0 0 0 !important;
     font-size: 20px  !important;
     text-transform: none !important;
-    text-align: left !important;
+    text-align: center !important;
   }
   
   .pres_sub{
     margin-bottom: 6px;
-    text-align: left;
+    text-align: center;
     font-size: 14px;
     line-height: 18px;
   }
