@@ -367,38 +367,6 @@
     "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&3874"
   },
   {
-    "sha256": "F8F138AD807DD95129A383AB00129FF7C30769CC7ADA207C35AE53A75B644388",
-    "extensionType": "package",
-    "extensionRate": "approved",
-    "extensionVar": "BoT",
-    "extensionStage": [
-      "K2"
-    ],
-    "extensionSpec": [
-      "LECH"
-    ],
-    "name": "КРОК_2._Педіатрія_ЗЛП",
-    "targetGroup": "КРОК 2 для Лікувальна справа",
-    "language": "Українська\nРусский",
-    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&3874"
-  },
-  {
-    "sha256": "F8F138AD807DD95129A383AB00129FF7C30769CC7ADA207C35AE53A75B644388",
-    "extensionType": "package",
-    "extensionRate": "approved",
-    "extensionVar": "BoT",
-    "extensionStage": [
-      "K2"
-    ],
-    "extensionSpec": [
-      "LECH"
-    ],
-    "name": "КРОК_2._Педіатрія_ЗЛП",
-    "targetGroup": "КРОК 2 для Лікувальна справа",
-    "language": "Українська\nРусский",
-    "author": "Матеріали тестування.укр (адапт. Кутіков Д.О.)#&3874"
-  },
-  {
     "sha256": "32D482E6BCF82D7267B770F58DF75EE283DE28783B89408BF5C47E242A853CEB",
     "extensionType": "package",
     "extensionRate": "approved",
