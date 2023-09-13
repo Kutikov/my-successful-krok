@@ -1,0 +1,50 @@
+[
+	{
+		"createdAt": "2023-08-28T18:00:00.000Z", 
+		"filenames": [
+			{
+				"url": "https://core.potesmanu.one/api/download/test/stable_28.08.exe",
+				"os": "win32",
+				"arch": "x64",
+				"sizeInMegabytes": 107.4
+			},
+			{
+				"url": "https://core.potesmanu.one/api/download/test/stable_12.02.dmg",
+				"os": "darwin",
+				"arch": "x64",
+				"sizeInMegabytes": 60.2
+			}
+		], 
+		"type": "BETA",
+		"description": {
+			"ru": "Первая бета версия приложения для настольных ПК", 
+			"ua": "Перша бета версія програми для настольних ПК", 
+			"en": "The first beta version of the application for desktop PC"
+		}, 
+		"version": 2
+	},
+	{
+		"createdAt": "2023-09-08T18:00:00.000Z", 
+		"filenames": [
+			{
+				"url": "https://dl.dropboxusercontent.com/scl/fi/sphapg3m3j5gmzijnegol/My_successful_KROK-1.0.0_Win_x64.exe?rlkey=x1pxoag1lpvk9y0dmjjasoya0&dl=0",
+				"os": "win32",
+				"arch": "x64",
+				"sizeInMegabytes": 106.2
+			},
+			{
+				"url": "https://core.potesmanu.one/api/download/test/stable_12.02.dmg",
+				"os": "win32",
+				"arch": "ia32",
+				"sizeInMegabytes": 60.2
+			}
+		], 
+		"type": "STABLE",
+		"description": {
+			"ru": "Первая стабильная версия приложения для настольных ПК", 
+			"ua": "Перша стабільна версія програми для настольних ПК", 
+			"en": "The stable beta version of the application for desktop PC"
+		}, 
+		"version": 3
+	}
+]

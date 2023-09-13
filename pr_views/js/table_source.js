@@ -156,6 +156,10 @@ function table_build(lang, ansistry, bookletesBool) {
 	let headers = ukrHeaders;
 	let cellsSource = engBooklets;
 	let specs = ukrSpecs;
+	let isDark = false;
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		isDark = true;
+	}
 	switch (lang) {
 		case "ru":
 			switch (ansistry) {
@@ -244,6 +248,20 @@ function table_build(lang, ansistry, bookletesBool) {
 		content = content + "\n</tr>"
 	}
 	content = content + "</tbody>"
+	if(isDark){
+		content = content
+			.replace(/#c5e1a5/gi, '#1b5e20')
+			.replace(/#ffe082/gi, '#e65100')
+			.replace(/#b2dfdb/gi, '#004d41')
+			.replace(/#ffa4a2/gi, '#b71c1c')
+			.replace(/#eceff1/gi, '#303F49')
+			.replace(/#455a64/gi, '#eceff1')
+			.replace(/#255d00/gi, '#a5d6a7')
+			.replace(/#004d40/gi, '#80cbc4')
+			.replace(/#7f0000/gi, '#ef9a9a')
+			.replace(/#c43e00/gi, '#ffe082')
+			.replace(/white/gi, '#111')
+	}
 	let div = document.createElement('table');
 	div.style.width = "100%";
 	div.style.borderCollapse = "collapse";
@@ -254,6 +272,10 @@ function table_build(lang, ansistry, bookletesBool) {
 }
 
 function legend_build(lang) {
+	let isDark = false;
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		isDark = true;
+	}
 	let headers = ukrHeaders;
 	let cellsSource = [
 		['i', 'c'],
@@ -301,6 +323,20 @@ function legend_build(lang) {
 		content = content + "\n</tr>"
 	}
 	content = content + "</tbody>"
+	if(isDark){
+		content = content
+			.replace(/#c5e1a5/gi, '#1b5e20')
+			.replace(/#ffe082/gi, '#e65100')
+			.replace(/#b2dfdb/gi, '#004d41')
+			.replace(/#ffa4a2/gi, '#b71c1c')
+			.replace(/#eceff1/gi, '#303F49')
+			.replace(/#455a64/gi, '#eceff1')
+			.replace(/#255d00/gi, '#a5d6a7')
+			.replace(/#004d40/gi, '#80cbc4')
+			.replace(/#7f0000/gi, '#ef9a9a')
+			.replace(/#c43e00/gi, '#ffe082')
+			.replace(/white/gi, '#111')
+	}
 	let div = document.createElement('table');
 	div.style.width = "100%";
 	div.style.borderCollapse = "collapse";

@@ -39,7 +39,7 @@ body {
 
 a {
   text-decoration: none;
-  background-color: #b2dfdb;
+  background-color: #a7ffeb;
   color: #004d40;
   font-weight: 600;
   padding: 2px 6px;
@@ -68,11 +68,13 @@ a {
   margin-bottom: 0px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 748px;
+  max-width: 1024px;
   padding: 0px 16px 16px 16px;
 }
 
 .title {
+  -webkit-user-select: none;
+  user-select: none;
   text-align: center;
   font-family: sans-serif;
   margin: 0px;
@@ -91,7 +93,33 @@ a {
   margin-bottom: 16px;
 }
 
+.introBlock {
+  position: relative;
+  background-color: #a7ffeb; 
+  border-radius: 16px;
+}
+
+.introText {
+  background: #a7ffeb88;
+  -webkit-backdrop-filter: blur(6px) brightness(1.1);
+  -moz-backdrop-filter: blur(6px) brightness(1.1);
+  backdrop-filter: blur(6px) brightness(1.1);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  padding: 24px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 48px !important;
+  font-weight: 400 !important;
+  color: #004d40;
+  text-shadow: 0px 0px 2px #00000088, 0px 0px 1px #00000088, 0px 0px 1px #00000088;
+}
+
 .title {
+  -webkit-user-select: none;
+  user-select: none;
   text-align: center;
   font-family: sans-serif;
   text-transform: uppercase;
@@ -100,6 +128,8 @@ a {
 }
 
 .date {
+  -webkit-user-select: none;
+  user-select: none;
   text-align: center;
   font-family: sans-serif;
   color: #666;
@@ -108,6 +138,8 @@ a {
 }
 
 .paragraph {
+  -webkit-user-select: none;
+  user-select: none;
   font-family: sans-serif;
   line-height: 28px;
   margin-top: 8px;
@@ -135,6 +167,8 @@ a {
 }
 
 .bottomPanelText2{
+  -webkit-user-select: none;
+  user-select: none;
   margin:0px; 
   font-family: sans-serif; 
   font-size: 14px; 
@@ -160,6 +194,8 @@ a {
 }
 
 .bottomPanelRightTitle{
+  -webkit-user-select: none;
+  user-select: none;
   margin:0px; 
   font-family: sans-serif; 
   font-size: 20px; 
@@ -167,6 +203,8 @@ a {
 }
 
 .bottomPanleRightCopyRight{
+  -webkit-user-select: none;
+  user-select: none;
   margin:0px; 
   font-family: sans-serif; 
   font-size: 15px; 
@@ -180,17 +218,21 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 220px;
+  width: 300px;
 }
 .stat_top {
+  -webkit-user-select: none;
+  user-select: none;
   padding-bottom: 8px;
   font-size: 48px;
   font-weight: 600;
-  color: #004d40;
+  color: #00695d;
   text-align: center;
   flex-basis: 100%;
 }
 .stat_bottom {
+  -webkit-user-select: none;
+  user-select: none;
   font-size: 24px;
   line-height: 28px;
   font-weight: 600;
@@ -214,9 +256,12 @@ a {
   width: 32px;
   flex-shrink: 0;
   height: 32px;
-  color: #004d44;
+  color: #00695d;
+  fill: #00695d;
 }
 .question_text {
+  -webkit-user-select: none;
+  user-select: none;
   flex-grow: 1;
   margin-left: 16px;
   margin-right: 16px;
@@ -251,6 +296,8 @@ a {
 }
 
 .pres_title{
+  -webkit-user-select: none;
+  user-select: none;
   margin: 16px 0 0 0;
   font-size: 32px;
   text-transform: none;
@@ -258,6 +305,8 @@ a {
 }
 
 .pres_sub{
+  -webkit-user-select: none;
+  user-select: none;
   margin-bottom: 12px;
   text-align: left;
   font-size: 20px;
@@ -298,7 +347,165 @@ a {
   flex-direction: column;
 }
 
-@media (max-width: 426px) {
+.downloadStripe{
+  display: flex; 
+  flex-direction: row; 
+  flex-wrap: wrap; 
+  align-items: center; 
+  justify-content: space-around; 
+  margin-top: 8px; 
+  padding-bottom: 8px;
+}
+
+.downloadButton{
+  width: 122px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin: 8px;
+  height: 122px;
+  border-radius: 16px;
+  background-color: #a7ffeb;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.downloadIcon{
+  -webkit-user-select: none;
+  user-select: none;
+  width:96px;
+  height:96px;
+  fill: #004d40;
+}
+
+.downloadTitle{
+  -webkit-user-select: none;
+  user-select: none;
+  margin-top: 0px; 
+  font-weight: 600; 
+  font-size: 18px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #262626; 
+    border: #111 2px solid;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #404040; 
+    border: #111 2px solid;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #313131; 
+  }
+  
+  
+  a {
+    background-color: #004d40;
+    color: #a7ffeb;
+  }
+  
+  .mainCard {
+    background-color: #111;
+  }
+  
+  .title {
+    color: #fff;
+  }
+  
+  .mobileHeader {
+    background-image: url(header-d.webp);
+  }
+
+  .introBlock {
+    background-color: #004d40; 
+  }
+  
+  .introText {
+    background: #004d4088;
+    color: #a7ffeb;
+    text-shadow: 0px 0px 2px #00000088, 0px 0px 1px #00000088, 0px 0px 1px #00000088;
+  }
+  
+  .date {
+    color: #999;
+  }
+  
+  .paragraph {
+    color: #fff;
+  }
+  
+  .bottomPanelText2{
+    color: #fff;
+  }
+  
+  .bottomPanelRightTitle{    
+    color: #fff;
+  }
+  
+  .bottomPanleRightCopyRight{
+    color: #999;
+  }
+
+  .stat_top {
+    color: #64ffda;
+  }
+
+  .stat_bottom {
+    color: #fff;
+  }
+
+  .question_holder {
+    background-color: #111 !important;
+  }
+
+  .question_icon {
+    fill: #64ffda;
+  }
+
+  .question_sideline {
+    background-color: #333;
+  }
+    
+  .pres_icon{
+    color: #999;
+  }
+  
+  .pres_ios_icon{
+    color: #999;
+  }
+    
+  .downloadButton{
+    background-color: #004d40;
+  }
+  
+  .downloadIcon{
+    fill: #64ffda;
+  }
+}
+
+@media (max-width: 500px) {
+  .introText {
+    padding: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 20px !important;
+    text-shadow: 0px 0px 8px #ffffff88;
+  }
+
   .title {
     text-align: center;
     font-family: sans-serif;
@@ -411,6 +618,10 @@ a {
     height: 48px;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  .stat_holder {
+    width: 190px;
   }
 
   .bottomPanelRight {

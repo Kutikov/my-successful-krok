@@ -6,6 +6,23 @@
     "no-inline-styles": "off",
     "axe/text-alternatives": "off",
     "axe/language": "off",
-    "disown-opener": "off"
+    "disown-opener": "off",
+    "meta-viewport": "off",
+    "axe/structure": [
+      "default",
+      {
+        "list": "off"
+      }
+    ],
+    "meta-charset-utf-8": "off",
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "backdrop-filter",
+          "scrollbar-width"
+        ]
+      }
+    ]
   }
 }

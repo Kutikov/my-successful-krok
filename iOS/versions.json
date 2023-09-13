@@ -22,6 +22,17 @@
 		"version": 3
 	},
 	{
+		"createdAt": "2023-09-12T00:00:00.000Z", 
+		"filename": "https://dl.dropboxusercontent.com/scl/fi/fstj70mlgoz7wi2hfndom/stable_12_09.zip?rlkey=14shp555j911hedqvi0kog8wh&dl=0", 
+		"type": "STABLE",
+		"description": {
+			"en": "Third stable version of the application with INSIDES section", 
+			"ru": "Вторая стабильная версия приложения с разделом ИНСАЙДЫ", 
+			"ua": "Друга стабільна версія програми з розділом ІНСАЙДИ"
+		}, 
+		"version": 3.5
+	},
+	{
 		"createdAt": "2023-02-25T00:00:00.000Z", 
 		"filename": "https://core.potesmanu.one/api/download/test/alpha_2.easf", 
 		"type": "INTERNAL",
