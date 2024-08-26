@@ -43,8 +43,32 @@
 		"description": {
 			"ru": "Первая стабильная версия приложения для настольных ПК", 
 			"ua": "Перша стабільна версія програми для настольних ПК", 
-			"en": "The stable beta version of the application for desktop PC"
+			"en": "The first stable version of the application for desktop PC"
 		}, 
 		"version": 3
+	},
+	{
+		"createdAt": "2024-08-25T18:00:00.000Z", 
+		"filenames": [
+			{
+				"url": "https://dl.dropboxusercontent.com/scl/fi/07lhjm7pbwz1sw00hgxw8/My-successful-KROK-2.0.1-x64.exe?rlkey=96oesoqu3w3vz4mpa78qspm03&st=2kwpvisk&dl=0",
+				"os": "win32",
+				"arch": "x64",
+				"sizeInMegabytes": 109.5
+			},
+			{
+				"url": "https://dl.dropboxusercontent.com/scl/fi/psct2b0m5fvjc9wb2o2yi/My-successful-KROK-2.0.1-x86.exe?rlkey=27i04rdbujjnzhv83c4y0vwxv&st=5x0b5xew&dl=0",
+				"os": "win32",
+				"arch": "ia32",
+				"sizeInMegabytes": 103.1
+			}
+		], 
+		"type": "STABLE",
+		"description": {
+			"ru": "Вторая стабильная версия приложения: поддержка интеграции с Moodle от Центра Тестирования", 
+			"ua": "Друга стабільна версія програми: підтримка інтеграції з Moodle від Центру Тестуровання", 
+			"en": "The second stable version of the application: support of integration with Moodle of Testing Board"
+		}, 
+		"version": 10
 	}
 ]

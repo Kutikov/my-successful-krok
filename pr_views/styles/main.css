@@ -389,6 +389,45 @@ a {
   font-size: 18px;
 }
 
+.moodleCard {
+  height: auto;
+  margin: 8px 0 16px 0; 
+  width: calc(90% - 16px); 
+  margin-left: auto;
+  margin-right: auto;
+  cursor: auto;
+  align-items: start;
+}
+
+.moodleCard p, .moodleCard li{
+  -webkit-user-select: none;
+  user-select: none;
+  font-family: sans-serif;
+  line-height: 24px;
+  margin-top: 8px;
+  margin-bottom: 0px;
+  margin-left: 8px;
+  margin-right: 16px;
+  font-size: 16px;
+  text-align: justify;
+}
+
+.moodleCard ul {
+  columns: 2;
+  column-gap: 16px;
+  margin-top: 0px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  padding-left: 16px;
+  margin-block-start: 0px;
+}
+
+.moodleTitle {
+  text-transform: uppercase;
+  font-weight: 600; 
+  font-size: 18px !important;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #111;
@@ -445,6 +484,10 @@ a {
   .paragraph {
     color: #fff;
   }
+
+  .moodleCard p, .moodleCard li{
+    color: #fff;
+  }
   
   .bottomPanelText2{
     color: #fff;
@@ -496,6 +539,9 @@ a {
 }
 
 @media (max-width: 500px) {
+  .moodleCard ul {
+    columns: 1;
+  }
   .introText {
     padding: 12px;
     position: absolute;
@@ -554,36 +600,48 @@ a {
     line-height: 18px;
   }
 
-.question_icon {
-  width: 24px;
-  height: 24px;
-}
+  .question_icon {
+    width: 24px;
+    height: 24px;
+  }
 
-.question_text {
-  margin-left: 12px;
-  margin-right: 12px;
-  font-size: 16px !important;
-  margin-top: 0px;
-  line-height: 20px !important;
-}
-.stat_top {
-  padding-bottom: 4px;
-  font-size: 36px !important;
-}
-.stat_bottom {
-  font-size: 20px !important;
-  line-height: 24px !important;
-}
+  .question_text {
+    margin-left: 12px;
+    margin-right: 12px;
+    font-size: 16px !important;
+    margin-top: 0px;
+    line-height: 20px !important;
+  }
+  .stat_top {
+    padding-bottom: 4px;
+    font-size: 36px !important;
+  }
+  .stat_bottom {
+    font-size: 20px !important;
+    line-height: 24px !important;
+  }
 
-.stat_holder {
-  margin-top: 4px;
-  margin-bottom: 4px;
-  padding: 4px;
-}
+  .stat_holder {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 4px;
+  }
 
   .paragraph {
     line-height: 22px;
     font-size: 14px;
+  }
+
+  .moodleCard p, .moodleCard li{
+    line-height: 20px;
+    margin-top: 4px;
+    margin-bottom: 0px;
+    margin-right: 8px;
+    font-size: 12px;
+  }
+
+  .moodleTitle {
+    font-size: 16px !important;
   }
 
   .bottomPanel {
