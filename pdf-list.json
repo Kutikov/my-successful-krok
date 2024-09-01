@@ -720,5 +720,708 @@
         "language": "Українська",
         "author": "TG @DrCagey, НМУ ім. Богомольця",
         "markersJson": ""
+      },
+      {
+        "sha256": "6CE22AD1CC007BD145A45CD287B65FB21CFE2E5109FA61B0AAB232601619D00A",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_UA_22_I_img",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "B7FCA3A51AE444B32B9282CE6828CBC5B04085959DCC9279E000FBD57510EB46",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_UA_22_II_img",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "0C0C99A3714AE5AF0CF94827D67A36EA64E863EE95E86D8E76B5079C77B16331",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_UA_23_img",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "5C9DF4AFFFA865221D0388613CC1CC4A472EF019B40200C06D3CB00A41C4CFF5",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_UA_24_I_img",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "13B0AA96F1D45D4F24722111D8330A39B3B7E5BA880FE9B8DD3585954AA25FF9",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_UA_24_II_img",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "55F45BBBA04898D36C7A971BCAF13873DC3C8D201787A7F039EF28FB957CEDD6",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_EN_22_img",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "016487B6BCDFDD654A06EB7172C4BC7C4EE7E3C44EBA629B506E01E300CD3E75",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_EN_23_img",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "6529FDF789A4CE8D40C5B55A4D96BBCBCED20EFE9635A14830197C8CACF3CDE9",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_EN_24_img",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "9D980BFBECACBDE1F7FD8F19E567D9760839A16E492FCA7B22AD5A5A48C5BD1E",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH",
+          "STOM",
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К1_ЛікСправа_текст_24_I_img_відповіді",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @smart_lib",
+        "markersJson": ""
+      },
+      {
+        "sha256": "90769C80AB35B400CDE089332B37E0094B8AA66868772DFB71727691295D5EBA",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH",
+          "STOM",
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К1_ЛікСправа_текст_24_II_img_відповіді",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @smart_lib",
+        "markersJson": ""
+      },
+      {
+        "sha256": "50E8677E0FF489B11F60BAF968194FD7C6E0964EAD3E99F705A2710C5606D86E",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH",
+          "STOM",
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К1_ЛікСправа_текст_24_III_img_відповіді",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @smart_lib",
+        "markersJson": ""
+      },
+      {
+        "sha256": "865C468C1CE95C608F3DC72AA50AEE1DB77CE23C0879DE8D2FF49B9C46BCBF5F",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH",
+          "STOM",
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К1_ЛікСправа_текст_24_IV_img_відповіді",
+        "targetGroup": "КРОК 1 для Лікувальна справа, Стоматологія, Фармація",
+        "language": "Українська",
+        "author": "TG @smart_lib",
+        "markersJson": ""
+      },
+      {
+        "sha256": "39A7FB81446CB5D35243FC9F910BC837A3A1644DFC8D6C6D9DDED72554663C41",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стом_UA_20_img",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "F820BB4D24926C64E99D4B1D2E24939D7BEF9AADBA28D1A66CC8FEBCF3EFA595",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стом_UA_23_img",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "EC66EC8B70D457B2F4DCA013E3AC0206644D89E214A4261A10CD7F416D3CBBA1",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стом_UA_24_img",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "FDC2D6553B06B224BE13F546C1C8B5243EBF242EC37F0E2B16C5A563A5F77A35",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стом_EN_21_img",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "721A50C496D0F76B42A33B3F6FB061089B8E14BAE5F0E678C30BC2B2F39CF060",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стом_EN_23_img",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "8B2ACCEB3E043C5CB6CA84C62CA360DC594A849D480A565F73E1D939878E8718",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стом_EN_24_img",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "36178E4ED1CB01B6FACE2830B65DE7FDBBB654EC53E9509D609A6AFE4CDB8EFC",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К1_Фарм_UA_21_img",
+        "targetGroup": "КРОК 1 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "A2BA90474441EA712913C2EE4E91B62C817E2C92A7B1F698CDF6BC5A22EC2581",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К1_Фарм_UA_21_img_заочна",
+        "targetGroup": "КРОК 1 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "0903E75DC2BF0345797BAE36EBFFF0CB1B2934A82E42033D2142717E22C39C8A",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К1_Фарм_UA_23_img",
+        "targetGroup": "КРОК 1 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "114BC563C1CEB27A9D62AF2FE0B0E817B1A98679E4FE1B09FB0645B32AFC3ACD",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К1_Фарм_UA_24_img",
+        "targetGroup": "КРОК 1 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "E3B2A3762D49E4D8640AF23D4C5C7B66FACD8CECC15367F372B0744A3EA5E737",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_UA_23_img",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "044B4D76F973E2827F8B68FF4F32B95C84EF94F8DD5EEDA3647006B36FA8E194",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_UA_24_I_img",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "E283346BA2D42CD4C8B8DF4BFC7304A9756732E327A387699449F4F1698E079B",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_UA_24_II_img",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "2CB13C76B607D2350097197D69AD81022C2E6B95471D47438C2B7852FA240AED",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К2_Стом_UA_21_img",
+        "targetGroup": "КРОК 2 для Стоматологія",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "8A50BDF92CC10AC29B7CC7DF54349F3D1E3406AA21B41D6EC9F5DA1FC2BA1BB8",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К2_Стом_UA_23_img",
+        "targetGroup": "КРОК 2 для Стоматологія",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "3954C354123FCF0CFCA4E13A56CC764C87D7C5424B3C3FCAB9997576619DD55E",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К2_Стом_UA_24_img",
+        "targetGroup": "КРОК 2 для Стоматологія",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "EA377CBF128A279F5F31E3F8BF5FBD7BF028E0EF0B91DEAE7C3C57AA56E6F77A",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К2_Фарм_UA_20_img",
+        "targetGroup": "КРОК 2 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "9DCE4FABA9FC578435A8F8DAC872691E3E96E700CF0EA509CB91BA8A13A61CCB",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К2_Фарм_UA_21_img",
+        "targetGroup": "КРОК 2 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "7D76E9F6D9890EA7E617E25EB10732E425F33472BB9C92FFE5690D7754978878",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К2_Фарм_UA_21_img_очна",
+        "targetGroup": "КРОК 2 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "B29A0800933D1C9F13468CCB59F58F50191D8112F28953B576249A400C794DB9",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К2_Фарм_UA_23_img",
+        "targetGroup": "КРОК 2 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "FB84B8BB5C5679F9ACCFCF504BB4A1B050991B16C9525658F302BF03CE70584C",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К2_Фарм_UA_23_img_заочна",
+        "targetGroup": "КРОК 2 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "B8219993859454588C5D7ACBBCB23948D052C471AA5C88819AA60971B4AE79A2",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К2_Фарм_UA_24_img",
+        "targetGroup": "КРОК 2 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "F93EED0C6F31E8396D7FB609CA726BD389196E7E2EB37F415FA155815F28702C",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К2_Фарм_UA_24_img_заочна",
+        "targetGroup": "КРОК 2 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "ОНМедУ",
+        "markersJson": ""
+      },
+      {
+        "sha256": "68F2FC2E5D7E7ED5892D29F5DBAC240755ADB5468D4411D495BB55AA9CA3175B",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ЛікСправа_UA_23_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "TG @John_S_Volov",
+        "markersJson": ""
+      },
+      {
+        "sha256": "89DB5C57759AF990C27AB125849A24389F4A690AB72B7D25F2C1CDCDFEE8D3D8",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К3_Стом_UA_21_web_відповіді",
+        "targetGroup": "КРОК 3 для Стоматологія",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "97006B3124E0950BDA99B00BC87AE4886DB5560D6CD17CD17AF8CC23B2FE623C",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К3_Стом_UA_22_web_відповіді",
+        "targetGroup": "КРОК 3 для Стоматологія",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "31F87733F942BB3505AC6AB6131F55C73A9B8BC04B024BD564D413575D0D719F",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К3_Стом_UA_23_web_відповіді",
+        "targetGroup": "КРОК 3 для Стоматологія",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "F0A2AD7E6DA8316F7252DE710C6B1F368681D2B0B195F74396A6A07C73DA7356",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К3_Фарм_UA_20_img",
+        "targetGroup": "КРОК 3 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "TG @polen04k0",
+        "markersJson": ""
+      },
+      {
+        "sha256": "EA5541815DD44F2D1A4502FDA83D0DB2D9338321C92914D7002E904BAB807EF9",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К3_Фарм_UA_21_img",
+        "targetGroup": "КРОК 3 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "TG @polen04k0",
+        "markersJson": ""
+      },
+      {
+        "sha256": "1D2E33E183D1365EEFD3793C4A7381F737F97250A06F627550086C764854A256",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К3_Фарм_UA_23_I_img_відповіді",
+        "targetGroup": "КРОК 3 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "TG @polen04k0",
+        "markersJson": ""
+      },
+      {
+        "sha256": "53216FB66ACCE2B04D4F09D2AEF579624DB77E4E29E4901DE4BDA7BA6D8536B1",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К3_Фарм_UA_23_II_img_відповіді",
+        "targetGroup": "КРОК 3 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "TG @polen04k0",
+        "markersJson": ""
+      },
+      {
+        "sha256": "BB7F54DA73E434D677D55C35963CCC213F2FA953D9CEDE8C3EE9AFE5177904FA",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "FARM",
+          "CLFR"
+        ],
+        "name": "К3_Фарм_UA_24_img",
+        "targetGroup": "КРОК 3 для Фармація, Клінічна фармація",
+        "language": "Українська",
+        "author": "TG @polen04k0",
+        "markersJson": ""
+      },
+      {
+        "sha256": "7DBDD1EFA9D926C60F7B2DBE3FAA81159C72C15D42B0DEDEF2F0FE5C0ADFF02B",
+        "reviewType": "web_answers",
+        "reviewStage": [
+          "KM"
+        ],
+        "reviewSpec": [
+          "NURS"
+        ],
+        "name": "КМ_СестрСправа_22_web_відповіді",
+        "targetGroup": "КРОК M для Сестринська справа",
+        "language": "Українська",
+        "author": "https://medical-club.net/",
+        "markersJson": ""
       }
 ]
