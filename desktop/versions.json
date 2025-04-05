@@ -70,5 +70,29 @@
 			"en": "The second stable version of the application: support of integration with Moodle of Testing Board"
 		}, 
 		"version": 10
+	},
+	{
+		"createdAt": "2025-04-05T12:00:00.000Z", 
+		"filenames": [
+			{
+				"url": "https://dl.dropboxusercontent.com/scl/fi/kuspyxapfb9kgv80acpu5/My-successful-KROK-3.0.1-x64.exe?rlkey=0z33we9o0ce4nx0qoga49qfl8&st=pof58r6a&dl=0",
+				"os": "win32",
+				"arch": "x64",
+				"sizeInMegabytes": 110.7
+			},
+			{
+				"url": "https://dl.dropboxusercontent.com/scl/fi/49p2ihou9u0c3r7gcgo06/My-successful-KROK-3.0.1-x86.exe?rlkey=rsn0uybkdb2s0acw3l595yvfg&st=3oucvruh&dl=0",
+				"os": "win32",
+				"arch": "ia32",
+				"sizeInMegabytes": 105.1
+			}
+		], 
+		"type": "STABLE",
+		"description": {
+			"ru": "Третья стабильная версия приложения: поддержка пояснений и маркировок тестов, полезных материалов к КРОК", 
+			"ua": "Третя стабільна версія програми: підтримка пояснень та маркувань тестів, корисних матеріалів до КРОК", 
+			"en": "The third stable version of the application: support for explanations and markings of tests, useful materials for KROK"
+		}, 
+		"version": 16
 	}
 ]
