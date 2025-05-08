@@ -1423,5 +1423,279 @@
         "language": "Українська",
         "author": "https://medical-club.net/",
         "markersJson": ""
+      },
+      {
+        "sha256": "483A9FB9B137175FB584E6684CCF79C5ABB6F878F0679E8DC7413BCC8B259731",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стоматологія_25_web_відповіді",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "057EB41F285DFCA87986993E28C6BC3F5F733A2B71B9A06BD0CF39A613764327",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К3_Стоматологія_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Стоматологія",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "1ACE5A7CCA4D2368CEE4574EA2CCC9AE76523C568DE7104199BF17F5751D6912",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_СімейнаМедицина_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "8B6F52AD3724357E8AAE4E54E588A0DF13980FCB1B49026B31EC772AB9BAB25A",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Травматологія_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "B50DF648B183CAD37334356C41141A8194096EB9406A928DE9C2D6C872AC5FA1",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ВнутрішняМедицина_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "A8D5F58FED8493BAC037B196DC84571ACF97BB4161851436092094ED09D00B83",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "PHYS",
+          "LECH"
+        ],
+        "name": "К3_ФізРеабілітація_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа, Фізична терапія",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "C400F963C7C9F9DD95A935348BF8C3E29D23A67C54B12DC99E2E9C54BC671A17",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Радіологія_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "B9255ED26E241A266BD67CE8868D6CBF216F5D728955DAF98C1D87C5FBC8BE73",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Психіатрія_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "004C8C542F227D1BD53E7901EB25F20026A35D5E0A7CE1065816814161DFBFE3",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Педіатрія_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "670823161EF54F0C59297BAC08633DE5B0DA2092DDC470D5FC1E95D28B786288",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Патанатомія_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "D696616F91B4B2C00AA16A14F23BF5B471F1118C21CCDC2D9AC888BF461C8FD4",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Офтальмологія_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "78F16B45EE1848F99A2EFB35CBF7D262CBBCB0C350E4E2D2CDF0507D3A546ED6",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Неврологія_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "403BB8E4D9EB43CB12686689CEA6E9072A8C0A01D3632311976A4E906C0A7230",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Отоларингологія_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "B9641307654D1CF10D05023886B9FE1301E9450181DE0619E5A546CC4F2A04F2",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH",
+          "LABD",
+          "PROF"
+        ],
+        "name": "К3_ЛабДіагнМікробілогія_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа, Лабораторна діагностика, Медико-профілактична справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "E90E3CDE9499B25ED3F40C818571EF296F3AEE8EE8905CB7F90C6AA90FD55FFF",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ІнфекційніХвороби_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "D3B56949A8FF1A8AE1010121D29772C355FDB417E6E68EEE3E372B5C8B58B6C0",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH",
+          "PROF"
+        ],
+        "name": "К3_Епідеміологія_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа, Медико-профілактична справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "4C3B6E8F744364E1C803CCB35BAF508D354D3AC89E3714F3C242266DE5FF7979",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_НевідкладніСтани_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "4C3B6E8F744364E1C803CCB35BAF508D354D3AC89E3714F3C242266DE5FF7979",
+        "reviewType": "BOOKLET",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_НевідкладніСтани_24_web_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
       }
 ]
