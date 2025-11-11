@@ -1697,5 +1697,515 @@
         "language": "Українська",
         "author": "ezgsds",
         "markersJson": ""
+      },
+      {
+        "sha256": "BCA8BEB34BF5AB65665322F0307D8D7AA45DDE0DD4D96D63D8AE234F31EF6100",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "FARM"
+        ],
+        "name": "К3_Фарм_UA_24_img_відповіді",
+        "targetGroup": "КРОК 3 для Фармація",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "E504EC734C85E6938397589450A9A22D68BE50F3B49E2F9FE79E7E8E852A892D",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Акушерство_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "207A8CCB0C73C71413164C6AD9F1FD0A26DD2DBBA74CD7A04D912138CD3FB2BB",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Анестезіологія_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "2784540BF42A5152A7BE6CD31C3AF24109F70EE50490627B078898A83CB850B0",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ВнутрішняМедицина_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "8D1886837EE0C9E139ED53EF0565F0A90EAA1D5442A0303DCF1894EFB3AA431C",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Дерматологія_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "3C4414CD2E1D88A9AA83FDFA984D8EEEB895F4C86F936B53E04F23B26A321E6A",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ДитячаХірургія_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "BF6335D082658221CDAA6112902C4E504E7587FA0B8A8AA69E36B7FCA1B37370",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Епідеміологія_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "EC3BA61156A528486A69D3A505B08F22470D710C10CFAD9B06E2E122F4B0D9AD",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_СімейнаМедицина_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "E294F86DB34443EAFA9E21F6039DFDE009E0E07CB059C47562E316ECEA53903E",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_ІнфекційніХвороби_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "7A479CD0C4E174B43800622D46462338E60327A2E7332F17F95CA81ABF493224",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Неврологія_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "A5CD4F99BB7F6D49E5AC278340E0F8AB8CDE30B23A20D18EB02C9C6C67732556",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Травматологія_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "EE4D6D35FE3B5D5E7FA209B5D0A5A1D8687C21468603937CDB246F949B139FCF",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Отоларингологія_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "D770442E22C829929A889632FC90C096864BEC5A57299196A527A99F27A66845",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Офтальмологія_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "7A38D472CF83A16AF3F561E10688C2FC371DEE135BFC3533D9AFD107C0FC5D65",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Психіатрія_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "7ABCB9A7BEE9D85E0F9C322749DB310BC99D578DAFAAEC56C38FFB12048992C7",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Радіологія_25_img",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "50E0684F944D22C8017ABCABD2863D7097AA9249D3FBCEB745FDB3D93F3D684A",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К3_Стоматологія_25_img",
+        "targetGroup": "КРОК 3 для Стоматологія",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "D9838EDF8325D89768DB7D498279B3299CDB270127CC3230C9CCCE2409481209",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "FARM"
+        ],
+        "name": "К3_Фарм_UA_25_img",
+        "targetGroup": "КРОК 3 для Фармація",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "632CB6CF2281B4AFA8AF9974275343A1D4B2589963DBBB83BCDCF20CE00CEEF1",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "PHYS"
+        ],
+        "name": "К3_ФізРеабілітація_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Фізична терапія",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "3B2E1CAE841D4F1E1F291B6828733FB2B3907A1EF72A63F98C356B2E619C49E5",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Хірургія_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "B3BE9338129BCCF9887E52FEEC9771FAA770F99544D0D796C9DF95C35F59F227",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K3"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К3_Педіатрія_25_img_відповіді",
+        "targetGroup": "КРОК 3 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "18099A3DE57481934357A2197AF61BE6F7A8FD18CB1D7CB237558BD6DCA1C2CE",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_UA_25_I_img",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "96533B3443B9CADFF163B233E0995045C5E768F34F71A59D03EF4549A3C89C9B",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_UA_25_II_img_відповіді",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "1EDE3299917D38EB31883321E710035594509CDA9EF942CFC8345ED6436BC262",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К1_Стом_UA_25_img_відповіді",
+        "targetGroup": "КРОК 1 для Стоматологія",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "93F4B22C01F1F95E7069566106C7795B027A4C446C2BFCF8F64ECD38BC10FEE6",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "FARM"
+        ],
+        "name": "К1_Фарм_UA_25_img_відповіді",
+        "targetGroup": "КРОК 1 для Фармація",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "F942913A8BC58EC9730EE5E5C0F0660F8362522977C996102DBF4497D537E78F",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_EN_25_I_img_відповіді",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська\nEnglish",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "D2735F39516E69781E7A77A0DD0267B04BBA6C04190537A76B93707B576DC71D",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K1"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К1_ЛікСправа_EN_25_II_img",
+        "targetGroup": "КРОК 1 для Лікувальна справа",
+        "language": "Українська\nEnglish",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "673AE60EF015F1845712AC63886CD3C64B61D24368DFC29076F5B6CA7F61C831",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_UA_25_I_img",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "6AE6E0DD3F6441CE8EE5F7A1BFD96AD478D861339B6DDD87F652E2AEA9738C35",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "LECH"
+        ],
+        "name": "К2_ЛікСправа_UA_25_II_img",
+        "targetGroup": "КРОК 2 для Лікувальна справа",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "6FBCD782A9B6525F4FF2418A531E05A6E9B5DBA7D16029F27D4913C294A93E97",
+        "reviewType": "insight",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "FARM"
+        ],
+        "name": "К2_Фарм_UA_25_img_заочна",
+        "targetGroup": "КРОК 2 для Фармація",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "3F0A30431CB174451CBD3A086D9FC6CD7AAEA59B5709ACFAAFC179DD374ACA8C",
+        "reviewType": "insight_answers",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "FARM"
+        ],
+        "name": "К2_Фарм_UA_25_img_відповіді",
+        "targetGroup": "КРОК 2 для Фармація",
+        "language": "Українська",
+        "author": "https://onmedu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "1C05EAEAFBCACA21F5005521726E6B96DF14A94501C41AC3C4906BB74DD65C5C",
+        "reviewType": "insight",
+        "reviewStage": [
+          "KM"
+        ],
+        "reviewSpec": [
+          "NURS"
+        ],
+        "name": "КМ_СестрСправа_25_I_img",
+        "targetGroup": "КРОК M для Сестринська справа",
+        "language": "Українська",
+        "author": "https://www.ifnmu.edu.ua/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "21B063ABFC2D9E39D0212CDCB29D019EF43DFD8498D636508D1AF18D7C04076E",
+        "reviewType": "insight",
+        "reviewStage": [
+          "KM"
+        ],
+        "reviewSpec": [
+          "NURS"
+        ],
+        "name": "КМ_СестрСправа_25_II_img",
+        "targetGroup": "КРОК M для Сестринська справа",
+        "language": "Українська",
+        "author": "http://almedu.com/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "7E548311C3147F364415ECFB7BF06957D7CC202AB830D624B88E5E292E1F3298",
+        "reviewType": "insight",
+        "reviewStage": [
+          "KB"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "КБ_Стомат_25_I_img",
+        "targetGroup": "КРОК Б для Стоматологія",
+        "language": "Українська",
+        "author": "http://almedu.com/",
+        "markersJson": ""
+      },
+      {
+        "sha256": "E458DB801D28C243901A3B4E9ABC9C639EFBE52F68F5F332D17201208602DCA6",
+        "reviewType": "web",
+        "reviewStage": [
+          "K2"
+        ],
+        "reviewSpec": [
+          "STOM"
+        ],
+        "name": "К2_Стомат_25_web",
+        "targetGroup": "КРОК 2 для Стоматологія",
+        "language": "Українська",
+        "author": "https://doctrina.space/",
+        "markersJson": ""
       }
 ]
